@@ -1,0 +1,97 @@
+
+------------------------------------------------------------------------
+   yHaplo 1.1.0 | Y-chromosome haplogroup caller
+      Command: python -m o -i /media/quirin/INTENSO/ancestry/Morgan_Ancestry/Morgan_liftOver/Morgan_flipped_liftOver.vcf -r A0-T
+      Log:     output/log.Morgan_flipped_liftOver.txt
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+Read primary tree topology:
+    input/y.tree.primary.2016.01.04.nwk
+
+Wrote aligned tree with YCC labels:
+    output/y.tree.primary.aligned.ycc.2016.01.04.nwk
+
+------------------------------------------------------------------------
+Read preferred SNP names
+   674 SNP names: input/preferred.snpNames.txt
+
+Read representative SNPs
+  1765 haplogroups in: input/representative.SNPs.isogg.2015tree.txt
+  1583 haplogroups with at least one ISOGG-designated representative SNP
+  1628 SNPs, as some haplogroups have more than one representative
+  2167 SNP names, including aliases
+    25 additional representative SNPs read from: input/representative.SNPs.additional.txt
+  2192 total SNP names
+
+------------------------------------------------------------------------
+Read ISOGG SNP data:
+    input/isogg.2016.01.04.txt
+
+      20903 SNPs read
+         62 corrected based on:
+            input/isogg.correct.coordinate.txt
+            input/isogg.correct.polarize.txt
+
+    -  3824 SNPs dropped
+              147 flagged as not meeting quality guidelines
+             1377 tree location approximate
+             1846 removed, flagged as provisional, or otherwise problematic
+              188 non-SNPs
+               33 excluded as multiallelic based on:
+                  input/isogg.multiallelic.txt
+                1 duplicated names
+              232 explicitly excluded based on:
+                  input/isogg.omit.bad.txt
+                  input/isogg.omit.bad.23andMe.txt
+                  input/isogg.omit.branch.conflict.txt
+                  input/isogg.omit.branch.conflict.23andMe.v5.txt
+    -     1 bad lines
+    = 17078 SNPs retained
+
+    -  3509 alternative names
+    = 13569 unique SNPs added to the tree
+
+    Wrote summary tables
+        dropped:  output/isogg.snps.dropped.2016.01.04.txt
+        retained: output/isogg.snps.cleaned.2016.01.04.txt
+        unique:   output/isogg.snps.unique.2016.01.04.txt
+
+------------------------------------------------------------------------
+Writing trees...
+
+Wrote tree with YCC labels:
+    output/y.tree.ycc.2016.01.04.nwk
+
+Wrote tree with representative-SNP labels:
+    output/y.tree.hgSNP.2016.01.04.nwk
+
+Wrote aligned tree with YCC labels:
+    output/y.tree.aligned.ycc.2016.01.04.nwk
+
+Wrote aligned tree with representative-SNP labels:
+    output/y.tree.aligned.hgSNP.2016.01.04.nwk
+
+Will start haplogroup assignment traversal from:
+    A0-T
+
+------------------------------------------------------------------------
+Reading genotype data...
+    /media/quirin/INTENSO/ancestry/Morgan_Ancestry/Morgan_liftOver/Morgan_flipped_liftOver.vcf
+
+------------------------------------------------------------------------
+Called haplogroups:
+
+           1 assigned
+           1 assigned to root haplogroup: A
+
+WARNING. If the dataset does not include fixed reference sites,
+         re-run with alternative root (e.g., with: -r A0-T).
+
+
+------------------------------------------------------------------------
+Output
+
+Wrote called haplogroups:
+    output/haplogroups.Morgan_flipped_liftOver.txt
+

@@ -1,0 +1,340 @@
+<!--
+  Invoice template.
+  Styled using Tailwind CSS.
+  Head to the CSS tab to learn more.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<!---<link rel="stylesheet" href="tailwind.min.css">-->
+<style>
+
+.TFtable{ 
+text-align:center  !important;
+/* border:solid black 1px !important; */
+border-collapse: collapse !important;
+max-width: 1150px !important;
+table-layout: fixed !important;
+	}
+	.TFtable td{ 
+		padding:7px; border:solid black 1px;
+		
+	}
+	/* provide some minimal visual accomodation for IE8 and below */
+	.TFtable tr{
+	padding:7px; border:solid black 1px;
+		background: white;
+		
+	}
+	.TFtable th {
+	background-color: #704170 !important;
+	color:white  !important;
+	font-weight: bold  !important;
+	text-align:center  !important;
+	border-collapse: collapse !important;
+ /*border:0px;*/
+}
+.TFtable tr td:last-child{
+max-width:300px;
+word-wrap: break-word;
+}
+
+
+.TFtable tr td:first-child{
+max-width:200px;
+}
+
+.InhTable{ 
+text-align:center  !important;
+/* border:solid black 1px !important; */
+border-collapse: collapse !important;
+	}
+	.InhTable td{ 
+		padding:7px; border:solid black 1px;
+		
+	}
+	/* provide some minimal visual accomodation for IE8 and below */
+	.InhTable tr{
+	padding:7px; border:solid black 1px;
+		background: white;
+		
+	}
+	.InhTable th {
+	background-color: #704170 !important;
+	color:white  !important;
+	font-weight: bold  !important;
+	text-align:center  !important;
+	border-collapse: collapse !important;
+ /*border:0px;*/
+}
+
+.LineTable2{ 
+
+/* border:solid black 1px !important; */
+border-collapse: collapse !important;
+padding:0px; border:none;
+	}
+	.LineTable2 td{ 
+		padding:0px; border:none;
+		
+	}
+	/* provide some minimal visual accomodation for IE8 and below */
+	.LineTable2 tr{
+	padding:0px; border:none;
+		
+	}
+	.LineTable2 th {
+	padding:0px; border:none;
+	border-collapse: collapse !important;
+ /*border:0px;*/
+}
+.PubmedTable{ 
+text-align:center  !important;
+/* border:solid black 1px !important; */
+border-collapse: collapse !important;
+display: none  !important;
+	}
+	.PubmedTable td{ 
+		padding:7px; border:solid black 1px;
+		font-size: 10px;
+		
+	}
+	/* provide some minimal visual accomodation for IE8 and below */
+	.PubmedTable tr{
+	padding:7px; border:solid black 1px;
+		background: white;
+        font-size: 10px;
+
+		
+	}
+	.PubmedTable th {
+	background-color: #704170 !important;
+	color:white  !important;
+	font-weight: bold  !important;
+	text-align:center  !important;
+    font-size: 14px;
+	border-collapse: collapse !important;
+ /*border:0px;*/
+}
+.PubmedTable tr td:last-child{
+max-width:800px;
+word-wrap: break-word;
+}
+	/*  Define the background color for all the ODD background rows  */
+	
+	.PathStr{
+border-collapse:separate;
+    border:solid black 0px;
+    border-radius:70px;
+    -moz-border-radius:6px;
+    background-color: green;
+width: 1200px; 
+height: 200px;
+    vertical-align: middle;
+}
+
+
+.AddressTable {
+  width: 1200px;
+  border: none !important;
+  border-collapse: collapse;
+}
+
+
+.AddressTable th {  
+width: 400px;
+  border: none !important;
+
+}
+body {
+  font-family: 'Lato';
+}
+
+}
+
+.numeric-tabular {
+  // Sets the numbers width so that they stay aligned vertically.
+  font-variant-numeric: tabular-nums;
+}
+</style>
+</head>
+<body>
+
+<div class="flex flex-row items-center justify-between mb-8">
+  <div>
+    <img
+      src="https://via.placeholder.com/290x320"
+      height="160"
+      width="145"
+    >
+  </div>
+
+<table class="AddressTable" id="AddressTable_1">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Patient Name:</td>
+      <td>Specimen Type:</td>
+      <td>Client Name:</td>
+    </tr>
+    <tr>
+      <td>Date of Birth:</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Gender:</td>
+      <td>Receive Date:</td>
+      <td>Mailing Address:</td>
+    </tr>
+    <tr>
+      <td>Accession ID:</td>
+      <td>Collection Date:</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Cross Reference:</td>
+      <td>Report Date:</td>
+      <td>Phone Number:</td>
+    </tr>
+  </tbody>
+</table>
+<br /><br />
+<table class="LineTable" id="LineTable_1">
+  <thead>
+    <tr>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Client Name:</td>
+    </tr>
+  </tbody>
+</table><br /><br />
+<hr>
+<table class="LineTable" id="LineTable_1">
+  <thead>
+    <tr>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Test Performed:</b> Whole Exome Sequencing and Deletion/Duplication Analysis, Trio</td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+<br />
+<hr><h1><p style="color: #704170"> Analyses of genes related to all </p></h1><br /><hr>
+  <div class="PathStr" style="background:green">
+  <table>
+  <thead>
+  <tr style="height:50px;"><th></th>
+  <th>
+   
+    </th>
+  </tr>    
+  </thead>
+  <tbody>
+  <tr style="height:100px;"><th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="med_symbol.png"  height="100"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+  <th>No pathogenic sequence variant(s) in gene related to all detected .<br />
+</th>
+  </tr>   
+  <tr style="height:50px;"><th></th>
+  <th>
+    </th>
+  </tr>   
+  </tbody>
+    </table>
+  </div>
+<br />
+<hr><br /><h1><p style="color: #704170"> Relevant Findings and Interpretation</p></h1><br />
+<p style="color: #704170"><b>Sequence variants related to all:</b></p>
+<table class="border-collapse mb-8 numeric-tabular table table-auto w-full">
+<table border="1" class="TFtable" id="snp_table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Nr.</th>
+      <th>Classification</th>
+      <th>Gene</th>
+      <th>Exon/
+Intron</th>
+      <th>SNP ID</th>
+      <th>DNA change</th>
+      <th>Protein
+change</th>
+      <th>Chromosomal
+ location</th>
+      <th>Zygosity</th>
+      <th>Inheri-
+tance</th>
+      <th>Disease
+Groups</th>
+      <th>Associated Disease(s)</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</table>
+
+<br />
+<div class="items-center flex justify-between mb-8" style="max-width: 1450px; table-layout: fixed; display: none;">
+  <div class="border-2 border-blue-600 px-4 py-2 w-3/4">
+    
+  </div>
+</div>
+<br /><br />
+
+<hr>
+<p style="color: #704170"><b>Variant Statistics:</b></p>
+<table class="border-collapse mb-8 numeric-tabular table table-auto w-full">
+<table border="1" class="InhTable" id="inh_table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Mutation
+Number</th>
+      <th>Gene</th>
+      <th>DNA change</th>
+      <th>Transcript ID</th>
+      <th>AF in patient</th>
+      <th>Nbr. Reads</th>
+      <th>Quality</th>
+      <th>Frequency
+ globally</th>
+      <th>Maximal AF
+ globally</th>
+      <th>Population
+ with maximal
+ AF</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</table>
+
+
+<br />
+<p style="font-size: 14px;"><b>Note:</b> Quality Score: &#60;10 is low quality; 10-20 is medium quality; &#62;20 is high quality</p>
+<br />
+<hr>
+<p style="color: #704170"><b>Relevant Articles:</b></p>
+<table class="border-collapse mb-8 numeric-tabular table table-auto w-full">
+
+</table>
+
+<hr>
+
+<p class="mt-4 text-center"><small>AwesomeCorp - 123 Waffles Roads 12345 Demo-Ville TestLand<br>
+  VAT Number IE 1234567X</small></p>
+</body>
+</html>

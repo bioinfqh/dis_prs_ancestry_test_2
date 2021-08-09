@@ -1,0 +1,5 @@
+install.packages("maps")
+install.packages("plotly", dependencies = TRUE)
+install.packages("here")
+install.packages("data.table")
+install.packages("DT")

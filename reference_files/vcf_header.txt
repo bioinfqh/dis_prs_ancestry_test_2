@@ -1,0 +1,8 @@
+##fileformat=VCFv4.1									
+##reference=rCRS									
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">								
+##INFO=<ID=AC,Number=.,Type=Integer,Description="Allele count in genotypes">									
+##INFO=<ID=AN,Number=1,Type=Integer,Description="Total number of alleles in called genotypes">									
+##reference=file:rCRS.fa									
+##contig=<ID=MT,length=16569,md5=5d155a500975d0115cbea18770554f48>	
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	HG00097

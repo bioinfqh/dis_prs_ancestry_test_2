@@ -1,0 +1,15 @@
+AA  African American
+gnomAD_AFR  African
+AFR African
+AMR Mixed American
+EAS East Asian
+EUR European
+SAS South Asian
+gnomAD_ASJ  Ashkenazi Jewish
+gnomAD_FIN  Finnish in Finland
+gnomAD_SAS  South Asian
+EA  European American
+gnomAD_AMR  Mixed American
+gnomAD_EAS  East Asian
+gnomAD_NFE  Non-Finnish European
+gnomAD_OTH  other

@@ -1,0 +1,10 @@
+
+------------------------------------------------------------------------
+   yHaplo 1.1.0 | Y-chromosome haplogroup caller
+      Command: python -m o -i genome_RD00023870_JorgeBlomPadre_20200727192424_converted_20200727201204.resid.txt
+      Log:     output.23andMe/log.genome_RD00023870_JorgeBlomPadre_20200727192424_converted_20200727201204.txt
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+Accessing 23andMe data...
+

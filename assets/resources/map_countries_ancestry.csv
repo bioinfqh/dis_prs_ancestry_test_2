@@ -1,0 +1,223 @@
+admixture,region,found_in_sample,continent
+AHG,Iraq,yes,Asia
+AHG,Syria,yes,Asia
+AHG,Israel,yes,Asia
+AHG,Lebanon,yes,Asia
+AHG,Egypt,yes,Africa
+AHG,Jordan,yes,Asia
+Amerindian,USA,yes,Americas
+Arctic,Norway,yes,Europe
+Arctic,Sweden,yes,Europe
+Arctic,Finland,yes,Europe
+Arctic,Canada,yes,Americas
+Arctic,Denmark,yes,Europe
+Arctic,Iceland,yes,Europe
+ASI,India,yes,Asia
+ASI,Sri Lanka,yes,Asia
+ASI,Nepal,yes,Asia
+ASI,Pakistan,yes,Asia
+ASI,Maldives,yes,Asia
+Australomelanesian,Papua New Guinea,yes,Oceania
+Australomelanesian,Australia,yes,Oceania
+Australomelanesian,Fiji,yes,Oceania
+Australomelanesian,New Caledonia,yes,Oceania
+Australomelanesian,Vanuatu,yes,Oceania
+Austronesian,Malaysia,yes,Asia
+Austronesian,Indonesia,yes,Asia
+Austronesian,Papua New Guinea,yes,Oceania
+Austronesian,Australia,yes,Oceania
+Baltic,Estonia,yes,Europe
+Baltic,Latvia,yes,Europe
+Baltic,Lithuania,yes,Europe
+Caucasian,Russia,yes,Europe
+Caucasian,Azerbaijan,yes,Asia
+Caucasian,Georgia,yes,Asia
+Caucasian,Armenia,yes,Asia
+Centralasian,Kazakhstan,yes,Asia
+Centralasian,Kyrgyzstan,yes,Asia
+Centralasian,Tajikistan,yes,Asia
+Centralasian,Turkmenistan,yes,Asia
+Centralasian,Uzbekistan,yes,Asia
+EA,Germany,yes,Europe
+EA,UK,yes,Europe
+EA,Ireland,yes,Europe
+EA,Netherlands,yes,Europe
+EA,Canada,yes,Americas
+Eastafrican,Tanzania,yes,Africa
+Eastafrican,Kenya,yes,Africa
+Eastafrican,Uganda,yes,Africa
+Eastafrican,Rwanda,yes,Africa
+Eastafrican,Burundi,yes,Africa
+Eastafrican,South Sudan,yes,Africa
+Eastafrican,Djibouti,yes,Africa
+Eastafrican,Eritrea,yes,Africa
+Eastafrican,Ethiopia,yes,Africa
+Eastafrican,Somalia,yes,Africa
+Eastafrican,Comoros,yes,Africa
+Eastafrican,Mauritius,yes,Africa
+Eastafrican,Seychelles,yes,Africa
+Eastafrican,Reunion,yes,Africa
+Eastafrican,Mayotte,yes,Africa
+Eastafrican,Mozambique,yes,Africa
+Eastafrican,Madagascar,yes,Africa
+Eastafrican,Malawi,yes,Africa
+Eastafrican,Zambia,yes,Africa
+Eastafrican,Zimbabwe,yes,Africa
+Eastafrican,Sudan,yes,Africa
+Finnic,Finland,yes,Europe
+Finnic,Estonia,yes,Europe
+Finnic,Sweden,yes,Europe
+Finnic,Norway,yes,Europe
+NEA,Denmark,yes,Europe
+NEA,Estonia,yes,Europe
+NEA,Finland,yes,Europe
+NEA,Iceland,yes,Europe
+NEA,Latvia,yes,Europe
+NEA,Lithuania,yes,Europe
+NEA,Norway,yes,Europe
+Northafrican,Morocco,yes,Africa
+Northafrican,Tunisia,yes,Africa
+Northafrican,Algeria,yes,Africa
+Northafrican,Libya,yes,Africa
+Northafrican,Egypt,yes,Africa
+Northeuropean,Denmark,yes,Europe
+Northeuropean,Estonia,yes,Europe
+Northeuropean,Finland,yes,Europe
+Northeuropean,Iceland,yes,Europe
+Northeuropean,Latvia,yes,Europe
+Northeuropean,Lithuania,yes,Europe
+Northeuropean,Norway,yes,Europe
+Northeuropean,Sweden,yes,Europe
+Northindian,India,yes,Asia
+Onge,India,yes,Asia
+Paleosiberian,Russia,yes,Europe
+Pygmy,Rwanda,yes,Africa
+Pygmy,Burundi,yes,Africa
+Pygmy,Uganda,yes,Africa
+Pygmy,Democratic Republic of the Congo,yes,Africa
+Pygmy,Central African Republic,yes,Africa
+Pygmy,Cameroon,yes,Africa
+Pygmy,Equatorial Guinea,yes,Africa
+Pygmy,Gabon,yes,Africa
+Pygmy,Angola,yes,Africa
+Pygmy,Botswana,yes,Africa
+Pygmy,Namibia,yes,Africa
+Pygmy,Madagascar,yes,Africa
+Pygmy,Zambia,yes,Africa
+Sahul,Australia,yes,Oceania
+Sahul,Papua New Guinea,yes,Oceania
+SEA,Brunei,yes,Asia
+SEA,Thailand,yes,Asia
+SEA,Timor-Leste,yes,Asia
+SEA,Vietnam,yes,Asia
+SEA,Indonesia,yes,Asia
+SEA,Malaysia,yes,Asia
+SEA,Philippines,yes,Asia
+SEA,Myanmar,yes,Asia
+SEA,Cambodia,yes,Asia
+SEA,Singapore,yes,Asia
+SEA,Laos,yes,Asia
+Siberian,China,yes,Asia
+Siberian,Kazakhstan,yes,Asia
+Siberian,Mongolia,yes,Asia
+Southeuropean,Albania,yes,Europe
+Southeuropean,Andorra,yes,Europe
+Southeuropean,Bosnia and Herzegovina,yes,Europe
+Southeuropean,Croatia,yes,Europe
+Southeuropean,Cyprus,yes,Asia
+Southeuropean,Greece,yes,Europe
+Southeuropean,Italy,yes,Europe
+Southeuropean,Kosovo,yes,NA
+Southeuropean,Malta,yes,Europe
+Southeuropean,Montenegro,yes,Europe
+Southeuropean,Portugal,yes,Europe
+Southeuropean,San Marino,yes,Europe
+Southeuropean,Serbia,yes,Europe
+Southeuropean,Slovenia,yes,Europe
+Southeuropean,Spain,yes,Europe
+Southeuropean,Vatican,yes,Europe
+Uralic,Hungary,yes,Europe
+Uralic,Finland,yes,Europe
+Uralic,Estonia,yes,Europe
+Westafrican,Benin,yes,Africa
+Westafrican,Burkina Faso,yes,Africa
+Westafrican,Cape Verde,yes,Africa
+Westafrican,Ivory Coast,yes,Africa
+Westafrican,Gambia,yes,Africa
+Westafrican,Ghana,yes,Africa
+Westafrican,Guinea,yes,Africa
+Westafrican,Liberia,yes,Africa
+Westafrican,Mali,yes,Africa
+Westafrican,Mauritania,yes,Africa
+Westafrican,Niger,yes,Africa
+Westafrican,Nigeria,yes,Africa
+Westafrican,Senegal,yes,Africa
+Westafrican,Sierra Leone,yes,Africa
+Westafrican,Togo,yes,Africa
+Westasian,Armenia,yes,Asia
+Westasian,Azerbaijan,yes,Asia
+Westasian,Bahrain,yes,Asia
+Westasian,Cyprus,yes,Asia
+Westasian,Georgia,yes,Asia
+Westasian,Iran,yes,Asia
+Westasian,Iraq,yes,Asia
+Westasian,Israel,yes,Asia
+Westasian,Jordan,yes,Asia
+Westasian,Kuwait,yes,Asia
+Westasian,Lebanon,yes,Asia
+Westasian,Oman,yes,Asia
+Westasian,Palestine,yes,Asia
+Westasian,Qatar,yes,Asia
+Westasian,Saudi Arabia,yes,Asia
+Westasian,Syria,yes,Asia
+Westasian,Turks and Caicos Islands,yes,Americas
+Westasian,United Arab Emirates,yes,Asia
+Westasian,Yemen,yes,Asia
+SSA,Angola,yes,Africa
+SSA,Burundi,yes,Africa
+SSA,Democratic Republic of the Congo,yes,Africa
+SSA,Cameroon,yes,Africa
+SSA,Central African Republic,yes,Africa
+SSA,Chad,yes,Africa
+SSA,Equatorial Guinea,yes,Africa
+SSA,Gabon,yes,Africa
+SSA,Kenya,yes,Africa
+SSA,Nigeria,yes,Africa
+SSA,Rwanda,yes,Africa
+SSA,Sao Tome and Principe,yes,Africa
+SSA,Tanzania,yes,Africa
+SSA,Uganda,yes,Africa
+SSA,Sudan,yes,Africa
+SSA,South Sudan,yes,Africa
+SSA,Djibouti,yes,Africa
+SSA,Eritrea,yes,Africa
+SSA,Ethiopia,yes,Africa
+SSA,Somalia,yes,Africa
+SSA,Botswana,yes,Africa
+SSA,Comoros,yes,Africa
+SSA,Lesotho,yes,Africa
+SSA,Madagascar,yes,Africa
+SSA,Malawi,yes,Africa
+SSA,Mauritius,yes,Africa
+SSA,Mozambique,yes,Africa
+SSA,Namibia,yes,Africa
+SSA,Seychelles,yes,Africa
+SSA,South Africa,yes,Africa
+SSA,Swaziland,yes,Africa
+SSA,Zambia,yes,Africa
+SSA,Zimbabwe,yes,Africa
+SSA,Benin,yes,Africa
+SSA,Mali,yes,Africa
+SSA,Burkina Faso,yes,Africa
+SSA,Cape Verde,yes,Africa
+SSA,Ivory Coast,yes,Africa
+SSA,Gambia,yes,Africa
+SSA,Ghana,yes,Africa
+SSA,Guinea,yes,Africa
+SSA,Guinea-Bissau,yes,Africa
+SSA,Liberia,yes,Africa
+SSA,Mauritania,yes,Africa
+SSA,Niger,yes,Africa
+SSA,Senegal,yes,Africa
+SSA,Sierra Leone,yes,Africa
+SSA,Togo,yes,Africa

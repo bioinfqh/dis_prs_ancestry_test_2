@@ -1,0 +1,223 @@
+admixture,region,continent,color
+AHG,Iraq,Asia,#f0e87d
+AHG,Syria,Asia,#f0e87d
+AHG,Israel,Asia,#f0e87d
+AHG,Lebanon,Asia,#f0e87d
+AHG,Egypt,Africa,#f0e87d
+AHG,Jordan,Asia,#f0e87d
+Amerindian,USA,Americas,#A31932
+Arctic,Norway,Europe,#74B3D5
+Arctic,Sweden,Europe,#74B3D5
+Arctic,Finland,Europe,#74B3D5
+Arctic,Canada,Americas,#74B3D5
+Arctic,Denmark,Europe,#74B3D5
+Arctic,Iceland,Europe,#74B3D5
+ASI,India,Asia,#fcd116
+ASI,Sri Lanka,Asia,#fcd116
+ASI,Nepal,Asia,#fcd116
+ASI,Pakistan,Asia,#fcd116
+ASI,Maldives,Asia,#fcd116
+Australomelanesian,Papua New Guinea,Oceania,#AD88B3
+Australomelanesian,Australia,Oceania,#AD88B3
+Australomelanesian,Fiji,Oceania,#AD88B3
+Australomelanesian,New Caledonia,Oceania,#AD88B3
+Australomelanesian,Vanuatu,Oceania,#AD88B3
+Austronesian,Malaysia,Asia,#e68fac
+Austronesian,Indonesia,Asia,#e68fac
+Austronesian,Papua New Guinea,Oceania,#e68fac
+Austronesian,Australia,Oceania,#e68fac
+Baltic,Estonia,Europe,#1B648A
+Baltic,Latvia,Europe,#1B648A
+Baltic,Lithuania,Europe,#1B648A
+Caucasian,Russia,Europe,#5096A0
+Caucasian,Azerbaijan,Asia,#5096A0
+Caucasian,Georgia,Asia,#5096A0
+Caucasian,Armenia,Asia,#5096A0
+Centralasian,Kazakhstan,Asia,#fedf08
+Centralasian,Kyrgyzstan,Asia,#fedf08
+Centralasian,Tajikistan,Asia,#fedf08
+Centralasian,Turkmenistan,Asia,#fedf08
+Centralasian,Uzbekistan,Asia,#fedf08
+EA,Germany,Europe,#154B68
+EA,UK,Europe,#154B68
+EA,Ireland,Europe,#154B68
+EA,Netherlands,Europe,#154B68
+EA,Canada,Americas,#154B68
+Eastafrican,Tanzania,Africa,#296614
+Eastafrican,Kenya,Africa,#296614
+Eastafrican,Uganda,Africa,#296614
+Eastafrican,Rwanda,Africa,#296614
+Eastafrican,Burundi,Africa,#296614
+Eastafrican,South Sudan,Africa,#296614
+Eastafrican,Djibouti,Africa,#296614
+Eastafrican,Eritrea,Africa,#296614
+Eastafrican,Ethiopia,Africa,#296614
+Eastafrican,Somalia,Africa,#296614
+Eastafrican,Comoros,Africa,#296614
+Eastafrican,Mauritius,Africa,#296614
+Eastafrican,Seychelles,Africa,#296614
+Eastafrican,Reunion,Africa,#296614
+Eastafrican,Mayotte,Africa,#296614
+Eastafrican,Mozambique,Africa,#296614
+Eastafrican,Madagascar,Africa,#296614
+Eastafrican,Malawi,Africa,#296614
+Eastafrican,Zambia,Africa,#296614
+Eastafrican,Zimbabwe,Africa,#296614
+Eastafrican,Sudan,Africa,#296614
+Finnic,Finland,Europe,#4C9EC9
+Finnic,Estonia,Europe,#4C9EC9
+Finnic,Sweden,Europe,#4C9EC9
+Finnic,Norway,Europe,#4C9EC9
+NEA,Denmark,Europe,#3893C3
+NEA,Estonia,Europe,#3893C3
+NEA,Finland,Europe,#3893C3
+NEA,Iceland,Europe,#3893C3
+NEA,Latvia,Europe,#3893C3
+NEA,Lithuania,Europe,#3893C3
+NEA,Norway,Europe,#3893C3
+Northafrican,Morocco,Africa,#B6DC76
+Northafrican,Tunisia,Africa,#B6DC76
+Northafrican,Algeria,Africa,#B6DC76
+Northafrican,Libya,Africa,#B6DC76
+Northafrican,Egypt,Africa,#B6DC76
+Northeuropean,Denmark,Europe,#1F719B
+Northeuropean,Estonia,Europe,#1F719B
+Northeuropean,Finland,Europe,#1F719B
+Northeuropean,Iceland,Europe,#1F719B
+Northeuropean,Latvia,Europe,#1F719B
+Northeuropean,Lithuania,Europe,#1F719B
+Northeuropean,Norway,Europe,#1F719B
+Northeuropean,Sweden,Europe,#1F719B
+Northindian,India,Asia,#FFD700
+Onge,India,Asia,#fada5f
+Paleosiberian,Russia,Europe,#227DAC
+Pygmy,Rwanda,Africa,#022F00
+Pygmy,Burundi,Africa,#022F00
+Pygmy,Uganda,Africa,#022F00
+Pygmy,Democratic Republic of the Congo,Africa,#022F00
+Pygmy,Central African Republic,Africa,#022F00
+Pygmy,Cameroon,Africa,#022F00
+Pygmy,Equatorial Guinea,Africa,#022F00
+Pygmy,Gabon,Africa,#022F00
+Pygmy,Angola,Africa,#022F00
+Pygmy,Botswana,Africa,#022F00
+Pygmy,Namibia,Africa,#022F00
+Pygmy,Madagascar,Africa,#022F00
+Pygmy,Zambia,Africa,#022F00
+Sahul,Australia,Oceania,#9C7AA1
+Sahul,Papua New Guinea,Oceania,#9C7AA1
+SEA,Brunei,Asia,#e6ba45
+SEA,Thailand,Asia,#e6ba45
+SEA,Timor-Leste,Asia,#e6ba45
+SEA,Vietnam,Asia,#e6ba45
+SEA,Indonesia,Asia,#e6ba45
+SEA,Malaysia,Asia,#e6ba45
+SEA,Philippines,Asia,#e6ba45
+SEA,Myanmar,Asia,#e6ba45
+SEA,Cambodia,Asia,#e6ba45
+SEA,Singapore,Asia,#e6ba45
+SEA,Laos,Asia,#e6ba45
+Siberian,China,Asia,#d5b60a
+Siberian,Kazakhstan,Asia,#d5b60a
+Siberian,Mongolia,Asia,#d5b60a
+Southeuropean,Albania,Europe,#068D9D
+Southeuropean,Andorra,Europe,#068D9D
+Southeuropean,Bosnia and Herzegovina,Europe,#068D9D
+Southeuropean,Croatia,Europe,#068D9D
+Southeuropean,Cyprus,Asia,#068D9D
+Southeuropean,Greece,Europe,#068D9D
+Southeuropean,Italy,Europe,#068D9D
+Southeuropean,Kosovo,NA,#068D9D
+Southeuropean,Malta,Europe,#068D9D
+Southeuropean,Montenegro,Europe,#068D9D
+Southeuropean,Portugal,Europe,#068D9D
+Southeuropean,San Marino,Europe,#068D9D
+Southeuropean,Serbia,Europe,#068D9D
+Southeuropean,Slovenia,Europe,#068D9D
+Southeuropean,Spain,Europe,#068D9D
+Southeuropean,Vatican,Europe,#068D9D
+Uralic,Hungary,Europe,#185879
+Uralic,Finland,Europe,#185879
+Uralic,Estonia,Europe,#185879
+Westafrican,Benin,Africa,#4E9600
+Westafrican,Burkina Faso,Africa,#4E9600
+Westafrican,Cape Verde,Africa,#4E9600
+Westafrican,Ivory Coast,Africa,#4E9600
+Westafrican,Gambia,Africa,#4E9600
+Westafrican,Ghana,Africa,#4E9600
+Westafrican,Guinea,Africa,#4E9600
+Westafrican,Liberia,Africa,#4E9600
+Westafrican,Mali,Africa,#4E9600
+Westafrican,Mauritania,Africa,#4E9600
+Westafrican,Niger,Africa,#4E9600
+Westafrican,Nigeria,Africa,#4E9600
+Westafrican,Senegal,Africa,#4E9600
+Westafrican,Sierra Leone,Africa,#4E9600
+Westafrican,Togo,Africa,#4E9600
+Westasian,Armenia,Asia,#f7d560
+Westasian,Azerbaijan,Asia,#f7d560
+Westasian,Bahrain,Asia,#f7d560
+Westasian,Cyprus,Asia,#f7d560
+Westasian,Georgia,Asia,#f7d560
+Westasian,Iran,Asia,#f7d560
+Westasian,Iraq,Asia,#f7d560
+Westasian,Israel,Asia,#f7d560
+Westasian,Jordan,Asia,#f7d560
+Westasian,Kuwait,Asia,#f7d560
+Westasian,Lebanon,Asia,#f7d560
+Westasian,Oman,Asia,#f7d560
+Westasian,Palestine,Asia,#f7d560
+Westasian,Qatar,Asia,#f7d560
+Westasian,Saudi Arabia,Asia,#f7d560
+Westasian,Syria,Asia,#f7d560
+Westasian,Turks and Caicos Islands,Americas,#f7d560
+Westasian,United Arab Emirates,Asia,#f7d560
+Westasian,Yemen,Asia,#f7d560
+SSA,Angola,Africa,#194117
+SSA,Burundi,Africa,#194117
+SSA,Democratic Republic of the Congo,Africa,#194117
+SSA,Cameroon,Africa,#194117
+SSA,Central African Republic,Africa,#194117
+SSA,Chad,Africa,#194117
+SSA,Equatorial Guinea,Africa,#194117
+SSA,Gabon,Africa,#194117
+SSA,Kenya,Africa,#194117
+SSA,Nigeria,Africa,#194117
+SSA,Rwanda,Africa,#194117
+SSA,Sao Tome and Principe,Africa,#194117
+SSA,Tanzania,Africa,#194117
+SSA,Uganda,Africa,#194117
+SSA,Sudan,Africa,#194117
+SSA,South Sudan,Africa,#194117
+SSA,Djibouti,Africa,#194117
+SSA,Eritrea,Africa,#194117
+SSA,Ethiopia,Africa,#194117
+SSA,Somalia,Africa,#194117
+SSA,Botswana,Africa,#194117
+SSA,Comoros,Africa,#194117
+SSA,Lesotho,Africa,#194117
+SSA,Madagascar,Africa,#194117
+SSA,Malawi,Africa,#194117
+SSA,Mauritius,Africa,#194117
+SSA,Mozambique,Africa,#194117
+SSA,Namibia,Africa,#194117
+SSA,Seychelles,Africa,#194117
+SSA,South Africa,Africa,#194117
+SSA,Swaziland,Africa,#194117
+SSA,Zambia,Africa,#194117
+SSA,Zimbabwe,Africa,#194117
+SSA,Benin,Africa,#194117
+SSA,Mali,Africa,#194117
+SSA,Burkina Faso,Africa,#194117
+SSA,Cape Verde,Africa,#194117
+SSA,Ivory Coast,Africa,#194117
+SSA,Gambia,Africa,#194117
+SSA,Ghana,Africa,#194117
+SSA,Guinea,Africa,#194117
+SSA,Guinea-Bissau,Africa,#194117
+SSA,Liberia,Africa,#194117
+SSA,Mauritania,Africa,#194117
+SSA,Niger,Africa,#194117
+SSA,Senegal,Africa,#194117
+SSA,Sierra Leone,Africa,#194117
+SSA,Togo,Africa,#194117

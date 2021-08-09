@@ -1,0 +1,5 @@
+color_palette_continents <- c(  "Americas"  = "#93c862", 
+                                "Asia"      = "#c86293", 
+                                "Africa"    = "#FEC334", 
+                                "Europe"    = "#6293C8", 
+                                "Oceania"   = "#AA8CC5")

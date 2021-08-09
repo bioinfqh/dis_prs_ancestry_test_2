@@ -1,0 +1,253 @@
+region,continent,color
+Aruba,Americas,#93c862
+Afghanistan,Asia,#c86293
+Angola,Africa,#FEC334
+Anguilla,Americas,#93c862
+Albania,Europe,#6293C8
+Finland,Europe,#6293C8
+Andorra,Europe,#6293C8
+United Arab Emirates,Asia,#c86293
+Argentina,Americas,#93c862
+Armenia,Asia,#c86293
+American Samoa,Oceania,#AA8CC5
+Antarctica,NA,#F5F5F5
+Australia,Oceania,#AA8CC5
+French Southern and Antarctic Lands,NA,#F5F5F5
+Antigua,Americas,#93c862
+Barbuda,NA,#F5F5F5
+Austria,Europe,#6293C8
+Azerbaijan,Asia,#c86293
+Burundi,Africa,#FEC334
+Belgium,Europe,#6293C8
+Benin,Africa,#FEC334
+Burkina Faso,Africa,#FEC334
+Bangladesh,Asia,#c86293
+Bulgaria,Europe,#6293C8
+Bahrain,Asia,#c86293
+Bahamas,Americas,#93c862
+Bosnia and Herzegovina,Europe,#6293C8
+Saint Barthelemy,Americas,#93c862
+Belarus,Europe,#6293C8
+Belize,Americas,#93c862
+Bermuda,Americas,#93c862
+Bolivia,Americas,#93c862
+Brazil,Americas,#93c862
+Barbados,Americas,#93c862
+Brunei,Asia,#c86293
+Bhutan,Asia,#c86293
+Botswana,Africa,#FEC334
+Central African Republic,Africa,#FEC334
+Canada,Americas,#93c862
+Switzerland,Europe,#6293C8
+Chile,Americas,#93c862
+China,Asia,#c86293
+Ivory Coast,Africa,#FEC334
+Cameroon,Africa,#FEC334
+Democratic Republic of the Congo,Africa,#FEC334
+Republic of Congo,Africa,#FEC334
+Cook Islands,Oceania,#AA8CC5
+Colombia,Americas,#93c862
+Comoros,Africa,#FEC334
+Cape Verde,Africa,#FEC334
+Costa Rica,Americas,#93c862
+Cuba,Americas,#93c862
+Curacao,Americas,#93c862
+Cayman Islands,Americas,#93c862
+Cyprus,Asia,#c86293
+Czech Republic,Europe,#6293C8
+Germany,Europe,#6293C8
+Djibouti,Africa,#FEC334
+Dominica,Americas,#93c862
+Denmark,Europe,#6293C8
+Dominican Republic,Americas,#93c862
+Algeria,Africa,#FEC334
+Ecuador,Americas,#93c862
+Egypt,Africa,#FEC334
+Eritrea,Africa,#FEC334
+Canary Islands,NA,#F5F5F5
+Spain,Europe,#6293C8
+Estonia,Europe,#6293C8
+Ethiopia,Africa,#FEC334
+Fiji,Oceania,#AA8CC5
+Falkland Islands,Americas,#93c862
+Reunion,Africa,#FEC334
+Mayotte,Africa,#FEC334
+French Guiana,Americas,#93c862
+Martinique,Americas,#93c862
+Guadeloupe,Americas,#93c862
+France,Europe,#6293C8
+Faroe Islands,Europe,#6293C8
+Micronesia,NA,#F5F5F5
+Gabon,Africa,#FEC334
+UK,Europe,#6293C8
+Georgia,Asia,#c86293
+Guernsey,Europe,#6293C8
+Ghana,Africa,#FEC334
+Guinea,Africa,#FEC334
+Gambia,Africa,#FEC334
+Guinea-Bissau,Africa,#FEC334
+Equatorial Guinea,Africa,#FEC334
+Greece,Europe,#6293C8
+Grenada,Americas,#93c862
+Greenland,Americas,#93c862
+Guatemala,Americas,#93c862
+Guam,Oceania,#AA8CC5
+Guyana,Americas,#93c862
+Heard Island,NA,#F5F5F5
+Honduras,Americas,#93c862
+Croatia,Europe,#6293C8
+Haiti,Americas,#93c862
+Hungary,Europe,#6293C8
+Indonesia,Asia,#c86293
+Isle of Man,Europe,#6293C8
+India,Asia,#c86293
+Cocos Islands,NA,#F5F5F5
+Christmas Island,Oceania,#AA8CC5
+Chagos Archipelago,NA,#F5F5F5
+Ireland,Europe,#6293C8
+Iran,Asia,#c86293
+Iraq,Asia,#c86293
+Iceland,Europe,#6293C8
+Israel,Asia,#c86293
+Italy,Europe,#6293C8
+San Marino,Europe,#6293C8
+Jamaica,Americas,#93c862
+Jersey,Europe,#6293C8
+Jordan,Asia,#c86293
+Japan,Asia,#c86293
+Siachen Glacier,NA,#F5F5F5
+Kazakhstan,Asia,#c86293
+Kenya,Africa,#FEC334
+Kyrgyzstan,Asia,#c86293
+Cambodia,Asia,#c86293
+Kiribati,Oceania,#AA8CC5
+Nevis,Americas,#93c862
+Saint Kitts,Americas,#93c862
+South Korea,Asia,#c86293
+Kosovo,NA,#F5F5F5
+Kuwait,Asia,#c86293
+Laos,Asia,#c86293
+Lebanon,Asia,#c86293
+Liberia,Africa,#FEC334
+Libya,Africa,#FEC334
+Saint Lucia,Americas,#93c862
+Liechtenstein,Europe,#6293C8
+Sri Lanka,Asia,#c86293
+Lesotho,Africa,#FEC334
+Lithuania,Europe,#6293C8
+Luxembourg,Europe,#6293C8
+Latvia,Europe,#6293C8
+Saint Martin,NA,#F5F5F5
+Morocco,Africa,#FEC334
+Monaco,Europe,#6293C8
+Moldova,Europe,#6293C8
+Madagascar,Africa,#FEC334
+Maldives,Asia,#c86293
+Mexico,Americas,#93c862
+Marshall Islands,Oceania,#AA8CC5
+Macedonia,Europe,#6293C8
+Mali,Africa,#FEC334
+Malta,Europe,#6293C8
+Myanmar,Asia,#c86293
+Montenegro,Europe,#6293C8
+Mongolia,Asia,#c86293
+Northern Mariana Islands,Oceania,#AA8CC5
+Mozambique,Africa,#FEC334
+Mauritania,Africa,#FEC334
+Montserrat,Americas,#93c862
+Mauritius,Africa,#FEC334
+Malawi,Africa,#FEC334
+Malaysia,Asia,#c86293
+Namibia,Africa,#FEC334
+New Caledonia,Oceania,#AA8CC5
+Niger,Africa,#FEC334
+Norfolk Island,Oceania,#AA8CC5
+Nigeria,Africa,#FEC334
+Nicaragua,Americas,#93c862
+Niue,Oceania,#AA8CC5
+Bonaire,NA,#F5F5F5
+Sint Eustatius,NA,#F5F5F5
+Saba,NA,#F5F5F5
+Netherlands,Europe,#6293C8
+Norway,Europe,#6293C8
+Nepal,Asia,#c86293
+Nauru,Oceania,#AA8CC5
+New Zealand,Oceania,#AA8CC5
+Oman,Asia,#c86293
+Pakistan,Asia,#c86293
+Panama,Americas,#93c862
+Pitcairn Islands,Oceania,#AA8CC5
+Peru,Americas,#93c862
+Philippines,Asia,#c86293
+Palau,Oceania,#AA8CC5
+Papua New Guinea,Oceania,#AA8CC5
+Poland,Europe,#6293C8
+Puerto Rico,Americas,#93c862
+North Korea,Asia,#c86293
+Madeira Islands,NA,#F5F5F5
+Azores,NA,#F5F5F5
+Portugal,Europe,#6293C8
+Paraguay,Americas,#93c862
+Palestine,Asia,#c86293
+French Polynesia,Oceania,#AA8CC5
+Qatar,Asia,#c86293
+Romania,Europe,#6293C8
+Russia,Europe,#6293C8
+Rwanda,Africa,#FEC334
+Western Sahara,Africa,#FEC334
+Saudi Arabia,Asia,#c86293
+Sudan,Africa,#FEC334
+South Sudan,Africa,#FEC334
+Senegal,Africa,#FEC334
+Singapore,Asia,#c86293
+South Sandwich Islands,NA,#F5F5F5
+South Georgia,NA,#F5F5F5
+Saint Helena,Africa,#FEC334
+Ascension Island,NA,#F5F5F5
+Solomon Islands,Oceania,#AA8CC5
+Sierra Leone,Africa,#FEC334
+El Salvador,Americas,#93c862
+Somalia,Africa,#FEC334
+Saint Pierre and Miquelon,Americas,#93c862
+Serbia,Europe,#6293C8
+Sao Tome and Principe,Africa,#FEC334
+Suriname,Americas,#93c862
+Slovakia,Europe,#6293C8
+Slovenia,Europe,#6293C8
+Sweden,Europe,#6293C8
+Swaziland,Africa,#FEC334
+Sint Maarten,Americas,#93c862
+Seychelles,Africa,#FEC334
+Syria,Asia,#c86293
+Turks and Caicos Islands,Americas,#93c862
+Chad,Africa,#FEC334
+Togo,Africa,#FEC334
+Thailand,Asia,#c86293
+Tajikistan,Asia,#c86293
+Turkmenistan,Asia,#c86293
+Timor-Leste,Asia,#c86293
+Tonga,Oceania,#AA8CC5
+Trinidad,Americas,#93c862
+Tobago,Americas,#93c862
+Tunisia,Africa,#FEC334
+Turkey,Asia,#c86293
+Taiwan,Asia,#c86293
+Tanzania,Africa,#FEC334
+Uganda,Africa,#FEC334
+Ukraine,Europe,#6293C8
+Uruguay,Americas,#93c862
+USA,Americas,#93c862
+Uzbekistan,Asia,#c86293
+Vatican,Europe,#6293C8
+Grenadines,NA,#F5F5F5
+Saint Vincent,Americas,#93c862
+Venezuela,Americas,#93c862
+Virgin Islands,NA,#F5F5F5
+Vietnam,Asia,#c86293
+Vanuatu,Oceania,#AA8CC5
+Wallis and Futuna,Oceania,#AA8CC5
+Samoa,Oceania,#AA8CC5
+Yemen,Asia,#c86293
+South Africa,Africa,#FEC334
+Zambia,Africa,#FEC334
+Zimbabwe,Africa,#FEC334

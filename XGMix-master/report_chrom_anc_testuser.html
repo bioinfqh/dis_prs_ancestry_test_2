@@ -1,0 +1,164 @@
+<!--
+  Invoice template.
+  Styled using Tailwind CSS.
+  Head to the CSS tab to learn more.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<!---<link rel="stylesheet" href="tailwind.min.css">-->
+<style>
+
+.TFtable{ 
+text-align:center  !important;
+/* border:solid black 1px !important; */
+border-collapse: collapse !important;
+	}
+	.TFtable td{ 
+		padding:7px; border:solid black 1px;
+		
+	}
+	/* provide some minimal visual accomodation for IE8 and below */
+	.TFtable tr{
+	padding:7px; border:solid black 1px;
+		background: white;
+		
+	}
+	.TFtable th {
+	background-color: #704170 !important;
+	color:white  !important;
+	font-weight: bold  !important;
+	text-align:center  !important;
+	border-collapse: collapse !important;
+ /*border:0px;*/
+}
+.TFtable tr td:last-child{
+max-width:300px;
+word-wrap: break-word;
+}
+
+
+.TFtable tr td:first-child{
+max-width:200px;
+}
+
+.InhTable{ 
+text-align:center  !important;
+/* border:solid black 1px !important; */
+border-collapse: collapse !important;
+	}
+	.InhTable td{ 
+		padding:7px; border:solid black 1px;
+		
+	}
+	/* provide some minimal visual accomodation for IE8 and below */
+	.InhTable tr{
+	padding:7px; border:solid black 1px;
+		background: white;
+		
+	}
+	.InhTable th {
+	background-color: #704170 !important;
+	color:white  !important;
+	font-weight: bold  !important;
+	text-align:center  !important;
+	border-collapse: collapse !important;
+ /*border:0px;*/
+}
+
+.PubmedTable{ 
+text-align:center  !important;
+/* border:solid black 1px !important; */
+border-collapse: collapse !important;
+
+	}
+	.PubmedTable td{ 
+		padding:7px; border:solid black 1px;
+		font-size: 10px;
+		
+	}
+	/* provide some minimal visual accomodation for IE8 and below */
+	.PubmedTable tr{
+	padding:7px; border:solid black 1px;
+		background: white;
+        font-size: 10px;
+
+		
+	}
+	.PubmedTable th {
+	background-color: #704170 !important;
+	color:white  !important;
+	font-weight: bold  !important;
+	text-align:center  !important;
+    font-size: 14px;
+	border-collapse: collapse !important;
+ /*border:0px;*/
+}
+.PubmedTable tr td:last-child{
+max-width:800px;
+word-wrap: break-word;
+}
+	/*  Define the background color for all the ODD background rows  */
+	
+	.PathStr{
+border-collapse:separate;
+    border:solid black 0px;
+    border-radius:70px;
+    -moz-border-radius:6px;
+    background-color: green;
+width: 1200px; 
+height: 200px;
+    vertical-align: middle;
+}
+
+
+.AddressTable {
+  width: 1200px;
+  border: none !important;
+  border-collapse: collapse;
+}
+
+
+.AddressTable th {  
+width: 400px;
+  border: none !important;
+
+}
+body {
+  font-family: 'Lato';
+}
+
+}
+
+.numeric-tabular {
+  // Sets the numbers width so that they stay aligned vertically.
+  font-variant-numeric: tabular-nums;
+}
+</style>
+
+{% load staticfiles %}
+
+</head>
+<body>
+
+{% if user.is_authenticated %}
+Username: {{ user.get_username }}<br />
+<form action="logout.html" method="post" enctype="multipart/form-data">                
+{% csrf_token %}
+<input type="submit" value="Logout" /><br />
+</form>
+{% endif %}
+<hr><br /><h1><p style="color: #704170">Local ancestry</p></h1><br />
+<p style="color: #704170"><b>Your results:</b></p>
+Customer ID: {{ customer_id }}
+<hr>
+
+<div style="height: 1512px; width: 1100px;">
+<img src="chm_img_NA21141.png" alt="bla" style="width:1100px;height:1512px" />
+</div>
+
+
+<p class="mt-4 text-center"><small>AwesomeCorp - 123 Waffles Roads 12345 Demo-Ville TestLand<br>
+  VAT Number IE 1234567X</small></p>
+</body>
+</html>

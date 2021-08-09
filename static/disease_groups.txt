@@ -1,0 +1,14 @@
+Cancer Predisposition genes	Cancer
+ACMG genes	ACMG
+Cardiovascular Diseases	Cardiovascular
+Ciliopathies	Ciliopathies
+Dermatological disorders	Skin
+Hearing loss	Hearing
+Hematological disorders	Blood
+Neurological diseases	Neurological
+Neuromuscular disorders	Neuromuscular
+Nuclear mitochondrial genes	Mitochondrial
+Ophthalmological conditions	Seeing
+Prenatal screening panel	Prenatal
+Pulmonary disorders	Lungs
+Kidney disorders	Kidney

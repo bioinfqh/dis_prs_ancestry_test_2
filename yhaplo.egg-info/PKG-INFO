@@ -1,0 +1,14 @@
+Metadata-Version: 1.0
+Name: yhaplo
+Version: 1.1.0
+Summary: yhaplo identifies Y-chromosome haplogroups
+Home-page: https://github.com/23andMe/yhaplo
+Author: David Poznik
+Author-email: UNKNOWN
+License: https://github.com/23andMe/yhaplo/blob/master/LICENSE.txt
+Description: Sequence data will yield the most highly resolved classifications,
+        but the algorithm also works well with chip-based genotype data,
+        provided a reasonable number of phylogenetically informative sites
+        have been assayed.
+        
+Platform: UNKNOWN

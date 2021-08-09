@@ -1,0 +1,706 @@
+---
+title: "Lifebit Ancestry Analysis"
+output: 
+  flexdashboard::flex_dashboard:
+    theme: bootstrap
+    orientation: columns
+    vertical_layout: fill
+params:
+  ancestry_csv: "/Users/admin/ancestry.csv"
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(rmarkdown)
+library(tidyverse)
+library(ggplot2)
+library(readr)
+library(maps)
+library(plotly)
+library(here)
+library(data.table)
+```
+
+Column {data-width=725}
+-----------------------------------------------------------------------
+
+### Prevalent geographical areas per population
+
+```{r}
+#==============
+# LOAD PACKAGES
+#==============
+
+
+#==================================================================================
+# SOURCE RESOURCE FILE WITH named vector for values = color_palette_admixtures.txt
+#==================================================================================
+source("assets/palettes/color_palette_admixtures.txt")
+source("assets/resources/populations.txt")
+
+#============================================
+# READ FROM .csv: NEW ANCESTRY OUTPUT TABLE
+#============================================
+job_report                  <- readr::read_csv(params$ancestry_csv)
+job_report$key              <- NULL
+admix_df_whole              <- as.data.frame(t(as.matrix(job_report)))
+
+#=============================================================================
+# TRANSPOSE NEW ANCESTRY OUTPUT TABLE & CREATE admix_percent COLUMN
+#=============================================================================
+toRemoveFromNullDataframe    <- rownames(admix_df_whole)
+pops                         <- populations [! populations %in% toRemoveFromNullDataframe]
+nullDataframe                <- as.data.frame(x = pops)
+nullDataframe$proportion     <- 0
+rownames(nullDataframe)      <- nullDataframe$pops
+nullDataframe$pops           <- NULL
+nullDataframe.T              <- as.data.frame(t(as.matrix(nullDataframe)))
+nullDataframe.T              <- tibble::as_tibble(nullDataframe.T)
+job_report                   <- tibble::as_tibble(cbind(job_report, nullDataframe.T))
+
+admix_df_whole               <- as.data.frame(t(as.matrix(job_report)))
+
+admix                        <- rownames(admix_df_whole)
+admix_df_whole               <- cbind(admix,admix_df_whole)
+colnames(admix_df_whole)     <- c("admix","admixture_proportion")
+admix_df_whole$admix_percent <- paste0(round(as.numeric(admix_df_whole$admixture_proportion)*100,2),"%")
+
+admix_df <- admix_df_whole[admix_df_whole$admixture_proportion > 0,]
+
+#===============================================================
+# READ FROM .csv: ADMIXTURE-REGION MAPPING DATAFRAME FROM .csv
+#===============================================================
+admixture_region_mapping     <- readr::read_csv("assets/resources/admixture_region_mapping.csv")
+
+#==================================================
+# CREATE VECTORS toKeep,toRemove to define regions
+#==================================================
+
+toKeep   <- intersect(admixture_region_mapping$admixture,admix_df$admix)
+toRemove <- unique(admixture_region_mapping$admixture)[!(unique(admixture_region_mapping$admixture) %in% toKeep)]
+
+#=======================================================================
+# MUTATE color_palette_admixtures to paint white the admixturew with 0%
+#=======================================================================
+for (i in toRemove) {
+ color_palette_admixtures[[i]] <- "#f8f8ff"
+}
+
+#==================================================================
+# CREATE world.map DATAFRAME with initialised NA admixture COLUMN
+#==================================================================
+
+world.map           <- ggplot2::map_data("world")
+world.map$admixture <- NA
+world.map$region    <- as.factor(world.map$region)
+
+#==================================================================
+# CREATE DERIVATIVE world.map DATAFRAMES FOR EACH OF 27 ADMIXTURES
+#==================================================================
+
+world.map_african_american_sw   <- world.map
+world.map_african_caribbean     <- world.map
+world.map_bengali               <- world.map
+world.map_british               <- world.map
+world.map_ceph                  <- world.map
+world.map_colombian             <- world.map
+world.map_dai_chinese           <- world.map
+world.map_esan                  <- world.map
+world.map_finnish               <- world.map
+world.map_gambian               <- world.map
+world.map_gujarati              <- world.map
+world.map_han_chinese           <- world.map
+world.map_indian                <- world.map
+world.map_japanese              <- world.map
+world.map_kinh_vietnamese       <- world.map
+world.map_luhya                 <- world.map
+world.map_mende                 <- world.map
+world.map_mexican_american      <- world.map
+world.map_peruvian              <- world.map
+world.map_puerto_rican          <- world.map
+world.map_punjabi               <- world.map
+world.map_southern_han__chinese <- world.map
+world.map_spanish               <- world.map
+world.map_sri_lankan            <- world.map
+world.map_tuscan                <- world.map
+world.map_yoruba                <- world.map
+
+
+
+#=======================================
+# CREATE vector of regions per ADMIXTURE
+#=======================================
+
+regions_african_american_sw     <- admixture_region_mapping$region[admixture_region_mapping$admixture=="african_american_sw"]
+regions_african_caribbean       <- admixture_region_mapping$region[admixture_region_mapping$admixture=="african_caribbean"]
+regions_bengali                 <- admixture_region_mapping$region[admixture_region_mapping$admixture=="bengali"]
+regions_british                 <- admixture_region_mapping$region[admixture_region_mapping$admixture=="british"]
+regions_ceph                    <- admixture_region_mapping$region[admixture_region_mapping$admixture=="ceph"]
+regions_colombian               <- admixture_region_mapping$region[admixture_region_mapping$admixture=="colombian"]
+regions_dai_chinese             <- admixture_region_mapping$region[admixture_region_mapping$admixture=="dai_chinese"]
+regions_esan                    <- admixture_region_mapping$region[admixture_region_mapping$admixture=="esan"]
+regions_finnish                 <- admixture_region_mapping$region[admixture_region_mapping$admixture=="finnish"]
+regions_gambian                 <- admixture_region_mapping$region[admixture_region_mapping$admixture=="gambian"]
+regions_gujarati                <- admixture_region_mapping$region[admixture_region_mapping$admixture=="gujarati"]
+regions_han_chinese             <- admixture_region_mapping$region[admixture_region_mapping$admixture=="han_chinese"]
+regions_indian                  <- admixture_region_mapping$region[admixture_region_mapping$admixture=="indian"]
+regions_japanese                <- admixture_region_mapping$region[admixture_region_mapping$admixture=="japanese"]
+regions_kinh_vietnamese         <- admixture_region_mapping$region[admixture_region_mapping$admixture=="kinh_vietnamese"]
+regions_luhya                   <- admixture_region_mapping$region[admixture_region_mapping$admixture=="luhya"]
+regions_mende                   <- admixture_region_mapping$region[admixture_region_mapping$admixture=="mende"]
+regions_mexican_american        <- admixture_region_mapping$region[admixture_region_mapping$admixture=="mexican_american"]
+regions_peruvian                <- admixture_region_mapping$region[admixture_region_mapping$admixture=="peruvian"]
+regions_puerto_rican            <- admixture_region_mapping$region[admixture_region_mapping$admixture=="puerto_rican"]
+regions_punjabi                 <- admixture_region_mapping$region[admixture_region_mapping$admixture=="punjabi"]
+regions_southern_han__chinese   <- admixture_region_mapping$region[admixture_region_mapping$admixture=="southern_han__chinese"]
+regions_spanish                 <- admixture_region_mapping$region[admixture_region_mapping$admixture=="spanish"]
+regions_sri_lankan              <- admixture_region_mapping$region[admixture_region_mapping$admixture=="sri_lankan"]
+regions_tuscan                  <- admixture_region_mapping$region[admixture_region_mapping$admixture=="tuscan"]
+regions_yoruba                  <- admixture_region_mapping$region[admixture_region_mapping$admixture=="yoruba"]
+
+
+#======================================================================================================
+#  i) MUTATE admixture COLUMN IN DERIVATIVE world.map dataframes FROM NA to value if ADMIXTURE in toKeep
+# ii) CREATE alpha value for EACH ADMIXTURE POLYGON
+#======================================================================================================
+
+# // Multiple assignment to initialise alpha to 0
+alpha_southern_han__chinese  <- 0
+alpha_african_american_sw    <- 0
+alpha_african_caribbean      <- 0
+alpha_mexican_american       <- 0
+alpha_kinh_vietnamese        <- 0
+alpha_sri_lankan             <- 0
+alpha_bengali                <- 0
+alpha_british                <- 0
+alpha_ceph                   <- 0
+alpha_colombian              <- 0
+alpha_tuscan                 <- 0
+alpha_dai_chinese            <- 0
+alpha_esan                   <- 0
+alpha_finnish                <- 0
+alpha_gambian                <- 0
+alpha_gujarati               <- 0
+alpha_han_chinese            <- 0
+alpha_indian                 <- 0
+alpha_japanese               <- 0
+alpha_luhya                  <- 0
+alpha_mende                  <- 0
+alpha_yoruba                 <- 0
+alpha_peruvian               <- 0
+alpha_puerto_rican           <- 0
+alpha_punjabi                <- 0
+alpha_spanish                <- 0
+
+# 1. african_american_sw
+if ("african_american_sw" %in% toKeep){
+  world.map_african_american_sw$admixture[world.map_african_american_sw$region %in% regions_african_american_sw] <- "african_american_sw"
+  alpha_african_american_sw <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="african_american_sw"]
+}
+
+# 2. african_caribbean
+if ("african_caribbean" %in% toKeep){
+  world.map_african_caribbean$admixture[world.map_african_caribbean$region %in% regions_african_caribbean] <- "african_caribbean"
+  alpha_african_caribbean <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="african_caribbean"]
+}
+
+# 3. bengali
+if ("bengali" %in% toKeep){
+  world.map_bengali$admixture[world.map_bengali$region %in% regions_bengali] <- "bengali"
+  alpha_bengali <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="bengali"]
+}
+
+# 4. sri_lankan
+if ("sri_lankan" %in% toKeep){
+  world.map_sri_lankan$admixture[world.map_sri_lankan$region %in% regions_sri_lankan] <- "sri_lankan"
+  alpha_sri_lankan <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="sri_lankan"]
+}
+
+# 5. british
+if ("british" %in% toKeep){
+  world.map_british$admixture[world.map_british$region  %in% regions_british] <- "british"
+  alpha_british <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="british"]
+}
+
+# 6. ceph
+if ("ceph" %in% toKeep){
+  world.map_ceph$admixture[world.map_ceph$region %in% regions_ceph] <- "ceph"
+  alpha_ceph <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="ceph"]
+}
+
+# 7. colombian
+if ("colombian" %in% toKeep){
+  world.map_colombian$admixture[world.map_colombian$region %in% regions_colombian] <- "colombian"
+  alpha_colombian <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="colombian"]
+}
+
+# 8. dai_chinese
+if ("dai_chinese" %in% toKeep){
+  world.map_dai_chinese$admixture[world.map_dai_chinese$region %in% regions_dai_chinese ] <- "dai_chinese" 
+  alpha_dai_chinese <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="dai_chinese"]
+}  
+
+# 9. esan
+if ("esan" %in% toKeep){
+  world.map_esan$admixture[world.map_esan$region %in% regions_esan ] <- "esan" 
+  alpha_esan <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="esan"]
+}
+
+# 10. tuscan
+if ("tuscan" %in% toKeep){
+  world.map_tuscan$admixture[world.map_tuscan$region %in% regions_tuscan] <- "tuscan"
+  alpha_tuscan <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="tuscan"]
+}
+
+# 11. finnish
+if ("finnish" %in% toKeep){
+  world.map_finnish$admixture[world.map_finnish$region %in% regions_finnish] <- "finnish"
+  alpha_finnish <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="finnish"]
+}
+
+# 12. gambian
+if ("gambian" %in% toKeep){
+  world.map_gambian$admixture[world.map_gambian$region %in% regions_gambian ] <- "gambian"
+  alpha_gambian <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="gambian"]
+}
+
+# 13. yoruba
+if ("yoruba" %in% toKeep){
+  world.map_yoruba$admixture[world.map_yoruba$region %in% regions_yoruba ] <- "yoruba"
+  alpha_yoruba <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="yoruba"]
+}
+
+# 14. gujarati
+if ("gujarati" %in% toKeep){
+  world.map_gujarati$admixture[world.map_gujarati$region %in% regions_gujarati ] <- "gujarati"
+  alpha_gujarati <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="gujarati"]
+}
+
+# 15. han_chinese
+if ("han_chinese" %in% toKeep){
+  world.map_han_chinese$admixture[world.map_han_chinese$region %in% regions_han_chinese ] <- "han_chinese"
+  alpha_han_chinese <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="han_chinese"]
+}
+
+# 16. indian
+if ("indian" %in% toKeep){
+  world.map_indian$admixture[world.map_indian$region %in% regions_indian ] <- "indian"
+  alpha_indian <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="indian"]
+}
+
+# 17. japanese
+if ("japanese" %in% toKeep){
+  world.map_japanese$admixture[world.map_japanese$region %in% regions_japanese ] <- "japanese"
+  alpha_japanese <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="japanese"]
+}
+
+# 18. kinh_vietnamese
+if ("kinh_vietnamese" %in% toKeep){
+  world.map_kinh_vietnamese$admixture[world.map_kinh_vietnamese$admixture %in% regions_kinh_vietnamese ] <- "kinh_vietnamese"
+  alpha_kinh_vietnamese <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="kinh_vietnamese"]
+}
+
+# 19. luhya
+if ("luhya" %in% toKeep){
+  world.map_luhya$admixture[world.map_luhya$region %in% regions_luhya ] <- "luhya"
+  alpha_luhya <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="luhya"]
+}
+
+# 20. mende
+if ("mende" %in% toKeep){
+  world.map_mende$admixture[world.map_mende$region %in% regions_mende ] <- "mende"
+  alpha_mende <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="mende"]
+}
+
+# 21. spanish
+if ("spanish" %in% toKeep){
+  world.map_spanish$admixture[world.map_spanish$region %in% regions_spanish ] <- "spanish"
+  alpha_spanish <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="spanish"]
+}
+
+# 22. mexican_american
+if ("mexican_american" %in% toKeep){
+  world.map_mexican_american$admixture[world.map_mexican_american$region %in% regions_mexican_american ] <- "mexican_american"
+  alpha_mexican_american <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="mexican_american"]
+}
+
+# 23. peruvian
+if ("peruvian" %in% toKeep){
+  world.map_peruvian$admixture[world.map_peruvian$region %in% regions_peruvian ] <- "peruvian"
+  alpha_peruvian <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="peruvian"]
+}
+
+# 24. puerto_rican
+if ("puerto_rican" %in% toKeep){
+  world.map_puerto_rican$admixture[world.map_puerto_rican$region %in% regions_puerto_rican ] <- "puerto_rican"
+  alpha_puerto_rican <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="puerto_rican"]
+}
+
+# 25. punjabi
+if ("punjabi" %in% toKeep){
+  world.map_punjabi$admixture[world.map_punjabi$region %in% regions_punjabi ] <- "punjabi"
+  alpha_punjabi <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="punjabi"]
+}
+
+# 26. southern_han__chinese
+if ("southern_han__chinese" %in% toKeep){
+  world.map_southern_han__chinese$admixture[world.map_southern_han__chinese$region %in% regions_southern_han__chinese ] <- "southern_han__chinese"
+  alpha_southern_han__chinese <- admix_df_whole$admixture_proportion[admix_df_whole$admix=="southern_han__chinese"]
+}
+
+#==================================================================================
+# SOURCE RESOURCE FILE WITH named vector for labels = labels_admixtures.txt
+#==================================================================================
+source("assets/palettes/labels_admixtures.txt")
+
+
+p <- 
+  
+  ggplot() +
+  
+  # all countries
+  geom_polygon(data = world.map,
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                   text= "origin from this region not found"),
+               color = "#B5B5BA",
+               fill  = "#F8F8FF",
+               size  = 0.3,
+               show.legend = FALSE) +
+  
+
+  # 1. "african_american_sw"
+  geom_polygon(data = filter(world.map_african_american_sw,  !is.na(admixture)),
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                  fill  = admixture),
+               alpha = alpha_african_american_sw)+
+
+  
+  # 2. "african_caribbean"
+  geom_polygon(data  = filter(world.map_african_caribbean, !is.na(admixture)),
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                  fill  = admixture),
+               alpha = alpha_african_caribbean)+
+  
+  # 3. "bengali"
+  geom_polygon(data = filter(world.map_bengali, !is.na(admixture)),
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                  fill  = admixture),
+               alpha = alpha_bengali)+
+  # 4. "sri_lankan"
+  geom_polygon(data = filter(world.map_sri_lankan, !is.na(admixture)),
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                  fill  = admixture),
+               alpha = alpha_sri_lankan)+
+
+  # 5. "british"
+  geom_polygon(data = filter(world.map_british, !is.na(admixture)),
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                  fill  = admixture),
+               alpha = alpha_british)+
+
+  # 6. "ceph"
+  geom_polygon(data = filter(world.map_ceph, !is.na(admixture)),
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                  fill  = admixture),
+               alpha = alpha_ceph)+
+
+  # 7. "colombian"
+  geom_polygon(data = filter(world.map_colombian, !is.na(admixture)),
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                  fill  = admixture),
+               alpha = alpha_colombian)+
+
+  # 8. "dai_chinese"
+  geom_polygon(data = filter(world.map_dai_chinese, !is.na(admixture)),
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                  fill  = admixture),
+               alpha = alpha_dai_chinese) +
+
+  # 9. "esan"
+  geom_polygon(data = filter(world.map_esan, !is.na(admixture)),
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                  fill  = admixture),
+               alpha = alpha_esan) +
+
+  # 10. "tuscan"
+  geom_polygon(data = filter(world.map_tuscan, !is.na(admixture)),
+             aes(x = long,
+                 y = lat,
+                 group = group,
+                fill  = admixture),
+             alpha = alpha_tuscan) +
+
+  # 11. "finnish"
+  geom_polygon(data = filter(world.map_finnish, !is.na(admixture)),
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                  fill  = admixture),
+               alpha = alpha_finnish)+
+
+  # 12. "gambian"
+  geom_polygon(data = filter(world.map_gambian, !is.na(admixture)),
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                  fill  = admixture),
+               alpha = alpha_gambian)+
+
+  # 13."yoruba"
+  geom_polygon(data = filter(world.map_yoruba, !is.na(admixture)),
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                  fill  = admixture),
+               alpha = alpha_yoruba)+
+
+  # 14. "gujarati"
+  geom_polygon(data = filter(world.map_gujarati, !is.na(admixture)),
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                  fill  = admixture),
+               alpha = alpha_gujarati)+
+
+  # 15. "han_chinese"
+  geom_polygon(data = filter(world.map_han_chinese, !is.na(admixture)),
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                   fill  = admixture),
+               alpha = alpha_han_chinese)+
+
+  # 16. "indian"
+  geom_polygon(data = filter(world.map_indian, !is.na(admixture)),
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                   fill  = admixture),
+               alpha = alpha_indian) +
+
+  # 17. "japanese"
+  geom_polygon(data = filter(world.map_japanese, !is.na(admixture)),
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                   fill  = admixture),
+               alpha = alpha_japanese)+
+
+  # 18. "kinh_vietnamese"
+  geom_polygon(data = filter(world.map_kinh_vietnamese, !is.na(admixture)),
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                   fill  = admixture),
+               alpha = alpha_kinh_vietnamese)+
+
+  # 19. "luhya"
+  geom_polygon(data = filter(world.map_luhya, !is.na(admixture)),
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                   fill  = admixture),
+               alpha = alpha_luhya)+
+
+  # 20. "mende"
+  geom_polygon(data = filter(world.map_mende, !is.na(admixture)),
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                   fill  = admixture),
+               alpha = alpha_mende)+
+  #
+  # 21. "spanish"
+  geom_polygon(data = filter(world.map_spanish, !is.na(admixture)),
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                   fill  = admixture),
+               alpha = alpha_spanish)+
+
+  # 22. "mexican_american"
+  geom_polygon(data = filter(world.map_mexican_american, !is.na(admixture)),
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                   fill  = admixture),
+               alpha = alpha_mexican_american)+
+
+  # 23. "peruvian"
+  geom_polygon(data = filter(world.map_peruvian, !is.na(admixture)),
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                   fill  = admixture),
+               alpha = alpha_peruvian)+
+
+  # 24. "puerto_rican"
+  geom_polygon(data = filter(world.map_puerto_rican, !is.na(admixture)),
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                   fill  = admixture),
+               alpha = alpha_puerto_rican)+
+
+
+  # 25. "punjabi"
+  geom_polygon(data = filter(world.map_punjabi, !is.na(admixture)),
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                   fill  = admixture),
+               alpha = alpha_punjabi)+
+
+
+  # 26. "southern_han__chinese" 
+  geom_polygon(data = filter(world.map_southern_han__chinese, !is.na(admixture)),
+               aes(x = long,
+                   y = lat,
+                   group = group,
+                   fill  = admixture),
+               alpha = alpha_southern_han__chinese)  +
+  
+  scale_fill_manual(values = color_palette_admixtures,
+                    labels = labels_admixtures,
+                    na.translate = FALSE) +
+
+  # scale_color_manual(values = color_palette_regions_borders,
+  #                   na.translate = FALSE) +
+  
+  labs(
+    title = ''
+    ,subtitle = ''
+    ,x = NULL
+    ,y = NULL) +
+  
+  theme(text = element_text(family = 'Helvetica',
+                            color = '#000000')
+        ,plot.title = element_text(size = 16)
+        ,plot.subtitle = element_text(size = 6)
+        ,axis.ticks = element_blank()
+        ,axis.text = element_blank()
+        #,panel.grid = element_blank()
+        ,panel.background = element_rect(fill = '#ffffff')
+        ,plot.background = element_rect(fill = '#ffffff')
+        ,legend.position = c(.16,0.4)
+        ,legend.background = element_blank()
+        ,legend.title = element_blank()
+        ,legend.key = element_blank()
+        ,legend.text = element_text(size=10)
+        ,legend.key.size = unit(0.1, "cm")
+        ,legend.key.width = unit(0.14,"cm") 
+        #,legend.direction = "horizontal"
+  ) +
+  
+  annotate(geom = 'text'
+           ,label = ''
+           ,x = 18,y = -55
+           ,size = 3
+           ,family = 'Helvetica'
+           ,color = '#1B648A'
+           ,hjust = 'left')
+
+
+
+
+mapp <- data.table::fread('assets/resources/admixtures_georegions.csv', quote = '"')
+pplt <- plotly_build(p)
+
+for (i in 1:length(pplt$x$data))
+{
+  if (!is.null(pplt$x$data[[i]]$name) && (length((pplt$x$data[[i]]$name %in% mapp$admixture))==1)) {
+    pplt$x$data[[i]]$name <- paste0( mapp$description[mapp$admixture==pplt$x$data[[i]]$name],
+                                     " ",
+                                     admix_df_whole$admix_percent[admix_df_whole$admix==mapp$admixture[mapp$admixture==pplt$x$data[[i]]$name]])
+    }
+}
+
+for (i in 1:length(pplt$x$data))
+{
+  if (is.character(pplt$x$data[[i]]$text) && pplt$x$data[[i]]$text != "" &&  pplt$x$data[[i]]$text != "origin from this region not found") {
+    pplt$x$data[[i]]$text <-  pplt$x$data[[i]]$name
+  }
+}
+
+library(plotly)
+pp <- pplt  %>%  layout(xaxis = list(autorange = TRUE), yaxis = list(autorange = TRUE))
+pp
+```
+
+
+Column {data-width=275}
+-----------------------------------------------------------------------
+
+### Origin estimation
+
+```{r}
+
+library(DT)
+
+colnames(admix_df_whole) <- c("admixture","proportion","percentage")
+admix_df_whole <- merge(admix_df_whole, mapp, by = "admixture")
+admix_df_whole$proportion <- round(as.numeric(admix_df_whole$proportion), 2)
+
+admix_df_whole <- admix_df_whole[order(admix_df_whole$admixture, decreasing = FALSE),]
+
+# Must change if the populations change
+color <- c('<img src="assets/images/african_american_sw.svg" height="22"></img>',
+          '<img src="assets/images/african_caribbean.svg" height="22"></img>',
+          '<img src="assets/images/bengali.svg" height="22"></img>',
+          '<img src="assets/images/british.svg" height="22"></img>',
+          '<img src="assets/images/ceph.svg" height="22"></img>',
+          '<img src="assets/images/colombian.svg" height="22"></img>',
+          '<img src="assets/images/dai_chinese.svg" height="22"></img>',
+          '<img src="assets/images/esan.svg" height="22"></img>',
+          '<img src="assets/images/finnish.svg" height="22"></img>',
+          '<img src="assets/images/gambian.svg" height="22"></img>',
+          '<img src="assets/images/gujarati.svg" height="22"></img>',
+          '<img src="assets/images/han_chinese.svg" height="22"></img>',
+          '<img src="assets/images/indian.svg" height="22"></img>',
+          '<img src="assets/images/japanese.svg" height="22"></img>',
+          '<img src="assets/images/kinh_vietnamese.svg" height="22"></img>',
+          '<img src="assets/images/luhya.svg" height="22"></img>',
+          '<img src="assets/images/mende.svg" height="22"></img>',
+          '<img src="assets/images/mexican_american.svg" height="22"></img>',
+          '<img src="assets/images/peruvian.svg" height="22"></img>',
+          '<img src="assets/images/puerto_rican.svg" height="22"></img>',
+          '<img src="assets/images/punjabi.svg" height="22"></img>',
+          '<img src="assets/images/southern_han__chinese.svg" height="22"></img>',
+          '<img src="assets/images/spanish.svg" height="22"></img>',
+          '<img src="assets/images/sri_lankan.svg" height="22"></img>',
+          '<img src="assets/images/tuscan.svg" height="22"></img>',
+          '<img src="assets/images/yoruba.svg" height="22"></img>'
+          )
+
+df <- cbind(color, admix_df_whole)
+df <- df[order(df$proportion, decreasing = TRUE), c(#"color",
+                                                    "description",
+                                                    "percentage")]
+
+
+knitr::kable(df, 
+             escape = FALSE,
+             row.names = FALSE)
+
+```
+

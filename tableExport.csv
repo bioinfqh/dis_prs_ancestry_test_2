@@ -1,0 +1,1241 @@
+﻿Gene,Disease,MOI,"Expert Panel",SOP,Classification,"Last Eval."
+A2ML1,"Noonan syndrome",AD,RASopathy,SOP5,Disputed,06/07/2018
+AARS1,"undetermined early-onset epileptic encephalopathy",AR,Epilepsy,SOP6,Limited,11/20/2018
+AASS,"hyperlysinemia (disease)",AR,Aminoacidopathy,SOP7,Moderate,06/29/2020
+ABCC9,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Limited,11/13/2020
+ABCD1,"X-linked cerebral adrenoleukodystrophy",XL,"Intellectual Disability and Autism",SOP5,Definitive,02/07/2018
+ABCG5,sitosterolemia,AR,"Hemostasis Thrombosis",SOP6,Definitive,07/10/2020
+ABCG8,sitosterolemia,AR,"Hemostasis Thrombosis",SOP6,Definitive,07/14/2020
+ABHD12,"PHARC syndrome",AR,"Hearing Loss",SOP5,Definitive,06/28/2018
+ACAD8,"isobutyryl-CoA dehydrogenase deficiency",AR,Aminoacidopathy,SOP6,Definitive,04/26/2019
+ACAD9,"acyl-CoA dehydrogenase 9 deficiency",AR,"Fatty Acid Oxidation Disorders",SOP6,Definitive,03/27/2018
+ACADL,"long chain acyl-CoA dehydrogenase deficiency",AR,"Fatty Acid Oxidation Disorders",SOP7,Disputed,01/25/2021
+ACADM,"medium chain acyl-CoA dehydrogenase deficiency",AR,"Fatty Acid Oxidation Disorders",SOP6,Definitive,01/23/2018
+ACADS,"short chain acyl-CoA dehydrogenase deficiency",AR,"Fatty Acid Oxidation Disorders",SOP6,Definitive,01/23/2018
+ACADSB,"2-methylbutyryl-CoA dehydrogenase deficiency",AR,Aminoacidopathy,SOP6,Definitive,03/22/2019
+ACADVL,"very long chain acyl-CoA dehydrogenase deficiency",AR,"Fatty Acid Oxidation Disorders",SOP6,Definitive,02/20/2018
+ACAT1,"beta-ketothiolase deficiency",AR,"Fatty Acid Oxidation Disorders",SOP6,Definitive,05/22/2018
+ACAT2,"acetyl-CoA acetyltransferase-2 deficiency",Undetermined,"Fatty Acid Oxidation Disorders",SOP7,"No Known Disease Relationship",01/25/2021
+ACSF3,"combined malonic and methylmalonic acidemia",AR,Aminoacidopathy,SOP7,Definitive,10/09/2020
+ACSL4,"non-syndromic X-linked intellectual disability",XL,"Intellectual Disability and Autism",SOP5,Moderate,10/20/2017
+ACTA1,alpha-actinopathy,SD,"Congenital Myopathies",SOP7,Definitive,01/13/2020
+ACTA1,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP7,"No Known Disease Relationship",05/01/2020
+ACTA2,"familial thoracic aortic aneurysm and aortic dissection",AD,"Familial Thoracic Aortic Aneurysm and Dissection",SOP4,Definitive,09/27/2016
+ACTC1,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP5,Definitive,10/23/2017
+ACTC1,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Moderate,08/12/2020
+ACTC1,"arrhythmogenic right ventricular cardiomyopathy",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP7,"No Known Disease Relationship",03/15/2019
+ACTG1,"Baraitser-winter syndrome 2",AD,"Hearing Loss",SOP6,Definitive,01/07/2019
+ACTG1,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP6,Definitive,01/07/2019
+ACTN1,"platelet-type bleeding disorder 15",AD,"Hemostasis Thrombosis",SOP7,Definitive,11/25/2020
+ACTN2,"intrinsic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP5,Moderate,08/06/2018
+ACVRL1,"telangiectasia, hereditary hemorrhagic, type 2",AD,"Hemostasis Thrombosis",SOP6,Definitive,08/28/2019
+ACY1,"aminoacylase 1 deficiency",AR,Aminoacidopathy,SOP7,Definitive,09/25/2020
+ADA,"adenosine deaminase deficiency",AR,SCID-CID,SOP7,Definitive,11/19/2020
+ADAMTS13,"congenital thrombotic thrombocytopenic purpura",AR,"Hemostasis Thrombosis",SOP6,Definitive,03/25/2020
+ADAR,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Limited,08/27/2020
+ADCY1,"autosomal recessive nonsyndromic deafness",AR,"Hearing Loss",SOP4,Limited,05/10/2017
+ADGRV1,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Disputed,03/19/2019
+ADGRV1,"Usher syndrome type 2",AR,"Hearing Loss",SOP4,Definitive,02/15/2017
+ADNP,"ADNP-related multiple congenital anomalies - intellectual disability - autism spectrum disorder",AD,"Intellectual Disability and Autism",SOP7,Definitive,04/24/2020
+ADSL,"adenylosuccinate lyase deficiency",AR,"Intellectual Disability and Autism",SOP7,Definitive,09/07/2020
+AFF2,"FRAXE intellectual disability",XL,"Intellectual Disability and Autism",SOP5,Definitive,10/20/2017
+AGPS,"rhizomelic chondrodysplasia punctata",AR,"Peroxisomal Disorders",SOP6,Definitive,10/04/2019
+AGTR2,"X-linked complex neurodevelopmental disorder",XL,"Intellectual Disability and Autism",SOP7,Disputed,06/02/2020
+AHCY,"hypermethioninemia with deficiency of S-adenosylhomocysteine hydrolase",AR,Aminoacidopathy,SOP7,Moderate,06/29/2020
+AIFM1,"X-linked hereditary sensory and autonomic neuropathy with deafness",XL,"Hearing Loss",SOP6,Definitive,07/09/2018
+AKAP9,"long QT syndrome",AD,"Long QT Syndrome",SOP8,Disputed,12/15/2020
+ALDH4A1,"hyperprolinemia type 2",AR,Aminoacidopathy,SOP7,Definitive,10/23/2020
+ALDH6A1,"methylmalonate semialdehyde dehydrogenase deficiency",AR,Aminoacidopathy,SOP6,Limited,09/27/2019
+ALDH7A1,"pyridoxine-dependent epilepsy",AR,Aminoacidopathy,SOP6,Definitive,07/26/2019
+ALG13,"undetermined early-onset epileptic encephalopathy",XL,Epilepsy,SOP5,Definitive,04/26/2018
+ALG8,"polycystic liver disease 3 with or without kidney cysts",AD,"Kidney Cystic and Ciliopathy Disorders",SOP7,Limited,07/29/2020
+ALG9,"cystic kidney disease",AD,"Kidney Cystic and Ciliopathy Disorders",SOP7,Moderate,08/28/2020
+ALK,"neuroblastoma, susceptibility to, 3",AD,"Hereditary Cancer",SOP6,Definitive,11/21/2019
+ALMS1,"Alstrom syndrome",AR,"Hearing Loss",SOP4,Definitive,02/10/2017
+ALPK3,"hypertrophic cardiomyopathy",AR,"Hypertrophic Cardiomyopathy",SOP4,Strong,02/07/2017
+AMT,"glycine encephalopathy",AR,Aminoacidopathy,SOP6,Definitive,05/24/2019
+ANK1,"hereditary spherocytosis",AD,"General Gene Curation",SOP8,Definitive,03/24/2021
+ANK2,"Brugada syndrome",AD,"Brugada Syndrome",SOP5,Disputed,11/21/2017
+ANK2,"complex neurodevelopmental disorder",AD,"Intellectual Disability and Autism",SOP7,Definitive,12/15/2020
+ANKRD1,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Limited,08/12/2020
+ANKRD1,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP7,Limited,05/01/2020
+ANKRD11,"KBG syndrome",AD,"Intellectual Disability and Autism",SOP6,Definitive,11/26/2019
+ANKRD26,"thrombocytopenia 2",AD,"Hemostasis Thrombosis",SOP6,Definitive,09/25/2019
+ANO5,"autosomal recessive limb-girdle muscular dystrophy",AR,"Limb Girdle Muscular Dystrophy",SOP7,Definitive,09/09/2020
+ANO6,"Scott syndrome",AR,"Hemostasis Thrombosis",SOP7,Moderate,05/27/2020
+AP1S2,"non-syndromic X-linked intellectual disability",XL,"Intellectual Disability and Autism",SOP5,Definitive,10/20/2017
+AP3B1,"Hermansky-Pudlak syndrome 2",AR,"Hemostasis Thrombosis",SOP6,Definitive,02/26/2020
+AP3D1,"Hermansky-Pudlak syndrome 10",AR,"Hemostasis Thrombosis",SOP6,Limited,02/26/2020
+AP4E1,"AP-4 deficiency syndrome",AR,"Intellectual Disability and Autism",SOP8,Definitive,02/18/2021
+APC,"APC-related attenuated familial adenomatous polyposis",AD,"Colon Cancer",SOP4,Definitive,09/11/2017
+APOB,"hypercholesterolemia, autosomal dominant, type B",AD,"General Gene Curation",SOP7,Definitive,11/14/2018
+APOB,"familial hypobetalipoproteinemia 1",SD,"General Gene Curation",SOP7,Definitive,02/26/2020
+AQP1,"pulmonary arterial hypertension",AD,"Pulmonary Hypertension",SOP8,Limited,01/11/2021
+AQP5,"palmoplantar keratoderma, Bothnian type",AD,"UNC Biocuration Core",SOP5,Moderate,07/03/2018
+ARG1,hyperargininemia,AR,Aminoacidopathy,SOP7,Definitive,06/29/2020
+ARHGEF1,"immunodeficiency 62",AR,"Antibody Immunodeficiencies",SOP8,Limited,01/19/2021
+ARHGEF10,"autosomal dominant slowed nerve conduction velocity",AD,Charcot-Marie-Tooth,SOP7,Limited,10/05/2020
+ARHGEF6,"non-syndromic X-linked intellectual disability",XL,"Intellectual Disability and Autism",SOP8,Disputed,10/20/2020
+ARHGEF9,"complex neurodevelopmental disorder",XL,"Intellectual Disability and Autism",SOP6,Moderate,11/21/2019
+ARID1B,"Coffin-Siris syndrome",AD,"Intellectual Disability and Autism",SOP6,Definitive,12/04/2019
+ARL13B,"Joubert syndrome",AR,"Syndromic Disorders",SOP7,Definitive,06/03/2020
+ARL2BP,"retinitis pigmentosa with or without situs inversus",AR,"UNC Biocuration Core",SOP5,Limited,07/03/2018
+ARPC1B,"platelet abnormalities with eosinophilia and immune-mediated inflammatory disease",AR,"Hemostasis Thrombosis",SOP7,Definitive,07/22/2020
+ARSL,"X-linked chondrodysplasia punctata 1",XL,"Syndromic Disorders",SOP7,Definitive,08/25/2020
+ARX,"obsolete early infantile epileptic encephalopathy",XL,Epilepsy,SOP6,Definitive,06/21/2019
+ARX,"complex neurodevelopmental disorder",XL,"Intellectual Disability and Autism",SOP8,Definitive,12/01/2020
+ASL,"argininosuccinic aciduria",AR,Aminoacidopathy,SOP6,Definitive,09/15/2018
+ASNS,"congenital microcephaly - severe encephalopathy - progressive cerebral atrophy syndrome",AR,Aminoacidopathy,SOP7,Definitive,06/29/2020
+ASPA,"Canavan disease",AR,Aminoacidopathy,SOP7,Definitive,10/08/2020
+ASS1,"citrullinemia type I",AR,Aminoacidopathy,SOP6,Definitive,12/27/2018
+ATF6,achromatopsia,AR,"General Gene Curation",SOP4,Strong,11/16/2016
+ATM,"familial ovarian cancer",AD,"Breast/Ovarian Cancer",SOP4,Limited,07/12/2017
+ATM,"hereditary nonpolyposis colon cancer",AD,"Colon Cancer",SOP4,Moderate,08/28/2017
+ATM,"hereditary breast carcinoma",AD,"Breast/Ovarian Cancer",SOP4,Definitive,07/12/2017
+ATM,"ataxia telangiectasia",AR,"Hereditary Cancer",SOP7,Definitive,07/30/2020
+ATP1A2,"familial or sporadic hemiplegic migraine",AD,Epilepsy,SOP8,Definitive,03/02/2021
+ATP5MK,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Moderate,08/27/2020
+ATP6AP2,"ATP6AP2-related disorder",XL,"Intellectual Disability and Autism",SOP7,Definitive,09/14/2020
+ATP6V1B1,"renal tubular acidosis, distal, 2, with progressive sensorineural hearing loss",AR,"Hearing Loss",SOP6,Definitive,12/19/2017
+ATP7A,"Menkes disease",XL,"Intellectual Disability and Autism",SOP5,Definitive,02/07/2018
+ATP7B,"Wilson disease",AR,"General Gene Curation",SOP6,Definitive,03/27/2019
+ATRX,"X-linked intellectual disability-hypotonic face syndrome",XL,"Intellectual Disability and Autism",SOP5,Definitive,02/07/2018
+ATRX,"ATR-X-related syndrome",XL,"Intellectual Disability and Autism",SOP5,Definitive,04/27/2018
+AUH,"3-methylglutaconic aciduria type 1",AR,Aminoacidopathy,SOP7,Definitive,06/29/2020
+AUTS2,"syndromic intellectual disability",AD,"Intellectual Disability and Autism",SOP7,Definitive,09/01/2020
+AXIN2,"oligodontia-cancer predisposition syndrome",AD,"Colon Cancer",SOP4,Moderate,06/08/2017
+BAG3,"myofibrillar myopathy (disease)",AD,"General Gene Curation",SOP4,Definitive,12/18/2016
+BAG3,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Definitive,10/09/2020
+BAP1,"BAP1-related tumor predisposition syndrome",AD,"Hereditary Cancer",SOP6,Definitive,03/21/2019
+BARD1,"hereditary breast carcinoma",AD,"Breast/Ovarian Cancer",SOP4,Definitive,08/09/2017
+BARD1,"hereditary nonpolyposis colon cancer",AD,"Colon Cancer",SOP4,Limited,06/08/2017
+BARD1,"familial ovarian cancer",AD,"Breast/Ovarian Cancer",SOP4,Limited,08/09/2017
+BCAT2,"hypervalinemia and hyperleucine-isoleucinemia",AR,Aminoacidopathy,SOP7,Definitive,07/24/2020
+BCKDHA,"maple syrup urine disease type 1A",AR,Aminoacidopathy,SOP6,Definitive,09/14/2018
+BCKDHB,"maple syrup urine disease type 1B",AR,Aminoacidopathy,SOP6,Definitive,02/08/2019
+BCKDK,"branched-chain keto acid dehydrogenase kinase deficiency",AR,Aminoacidopathy,SOP6,Definitive,01/18/2019
+BCL11A,"Dias-Logan syndrome",AD,"Intellectual Disability and Autism",SOP7,Definitive,09/13/2020
+BCOR,"microphthalmia, syndromic 2",XL,"Syndromic Disorders",SOP8,Definitive,12/17/2020
+BCS1L,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Limited,09/19/2019
+BCS1L,"Bjornstad syndrome",AR,"Hearing Loss",SOP6,Definitive,07/09/2018
+BDP1,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Limited,09/11/2017
+BGN,"familial thoracic aortic aneurysm and aortic dissection",AD,"Familial Thoracic Aortic Aneurysm and Dissection",SOP4,Limited,12/22/2016
+BIN1,"centronuclear myopathy",SD,"Congenital Myopathies",SOP7,Definitive,04/27/2020
+BLK,"monogenic diabetes",AD,"Monogenic Diabetes",SOP7,Refuted,08/21/2020
+BLM,"Bloom syndrome",AR,"Hereditary Cancer",SOP6,Definitive,10/09/2018
+BLNK,"agammaglobulinemia 4, autosomal recessive",AR,"Antibody Immunodeficiencies",SOP8,Definitive,03/16/2021
+BLOC1S3,"Hermansky-Pudlak syndrome 8",AR,"Hemostasis Thrombosis",SOP6,Moderate,09/23/2020
+BLOC1S6,"Hermansky-Pudlak syndrome 9",AR,"Hemostasis Thrombosis",SOP6,Moderate,09/23/2020
+BMPR1A,"generalized juvenile polyposis/juvenile polyposis coli",AD,"Colon Cancer",SOP4,Definitive,06/12/2017
+BMPR2,"pulmonary arterial hypertension",AD,"Pulmonary Hypertension",SOP7,Definitive,12/07/2020
+BRAF,"Noonan syndrome",AD,RASopathy,SOP5,Moderate,07/24/2018
+BRAF,"Noonan syndrome with multiple lentigines",AD,RASopathy,SOP5,Limited,07/24/2018
+BRAF,"cardiofaciocutaneous syndrome",AD,RASopathy,SOP5,Definitive,07/24/2018
+BRAF,"Costello syndrome",AD,RASopathy,SOP5,Disputed,07/24/2018
+BRCA1,"breast-ovarian cancer, familial, susceptibility to, 1",AD,"Breast/Ovarian Cancer",SOP4,Definitive,09/13/2017
+BRCA1,"Fanconi anemia, complementation group S",AR,"Hereditary Cancer",SOP7,Definitive,05/14/2020
+BRCA2,"breast-ovarian cancer, familial, susceptibility to, 2",AD,"Breast/Ovarian Cancer",SOP4,Definitive,09/13/2017
+BRCA2,"Fanconi anemia complementation group D1",AR,"Hereditary Cancer",SOP6,Definitive,12/21/2018
+BRIP1,"hereditary breast carcinoma",AD,"Breast/Ovarian Cancer",SOP4,Refuted,05/10/2017
+BRIP1,"familial ovarian cancer",AD,"Breast/Ovarian Cancer",SOP4,Definitive,10/12/2016
+BRIP1,"Fanconi anemia complementation group j",AR,"Hereditary Cancer",SOP6,Definitive,08/18/2019
+BRWD3,"X-linked syndromic intellectual disability",XL,"Intellectual Disability and Autism",SOP5,Definitive,09/20/2018
+BSND,"Bartter disease type 4a",AR,"Hearing Loss",SOP5,Definitive,07/12/2018
+BTD,"biotinidase deficiency",AR,"Hearing Loss",SOP6,Definitive,02/10/2020
+BTK,"isolated growth hormone deficiency type III",XL,"Antibody Immunodeficiencies",SOP7,Disputed,11/17/2020
+BTK,"Bruton-type agammaglobulinemia",XL,"Antibody Immunodeficiencies",SOP7,Definitive,10/20/2020
+BUB1B,"mosaic variegated aneuploidy syndrome 1",AR,"Hereditary Cancer",SOP7,Definitive,11/22/2019
+C1QB,"C1Q deficiency",AR,"General Gene Curation",SOP4,Definitive,01/09/2017
+CA5A,"hyperammonemic encephalopathy due to carbonic anhydrase VA deficiency",AR,Aminoacidopathy,SOP6,Definitive,09/10/2018
+CABP2,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP7,Definitive,02/06/2020
+CACNA1C,"Brugada syndrome",AD,"Brugada Syndrome",SOP5,Disputed,11/21/2017
+CACNA1C,"long QT syndrome",AD,"Long QT Syndrome",SOP7,Moderate,04/24/2020
+CACNA1D,"sinoatrial node dysfunction and deafness",AR,"Hearing Loss",SOP6,Moderate,05/01/2018
+CACNA1H,"epilepsy, idiopathic generalized",AD,Epilepsy,SOP5,Disputed,07/31/2018
+CACNA2D1,"Brugada syndrome 1",AD,"Brugada Syndrome",SOP5,Disputed,11/21/2017
+CACNB2,"Brugada syndrome 1",AD,"Brugada Syndrome",SOP5,Disputed,11/21/2017
+CACNB2,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP7,"No Known Disease Relationship",04/07/2020
+CACNB4,epilepsy,AD,Epilepsy,SOP5,Disputed,06/22/2018
+CALM1,"long QT syndrome",AD,"Long QT Syndrome",SOP7,Definitive,09/25/2018
+CALM2,"long QT syndrome",AD,"Long QT Syndrome",SOP7,Definitive,09/25/2018
+CALM3,"long QT syndrome",AD,"Long QT Syndrome",SOP7,Definitive,09/25/2018
+CALR3,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP5,Limited,08/06/2018
+CASK,"X-linked syndromic intellectual disability",XL,"Intellectual Disability and Autism",SOP6,Definitive,07/09/2019
+CASQ2,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP7,"No Known Disease Relationship",05/01/2020
+CASR,epilepsy,AD,Epilepsy,SOP8,Disputed,03/03/2021
+CBL,"CBL-related disorder",AD,RASopathy,SOP7,Definitive,04/29/2019
+CBS,"classic homocystinuria",AR,Aminoacidopathy,SOP6,Definitive,04/12/2019
+CC2D1A,"complex neurodevelopmental disorder",AR,"Intellectual Disability and Autism",SOP6,Definitive,01/08/2020
+CCDC50,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP6,Limited,12/19/2017
+CCDC78,"centronuclear myopathy",AD,"Congenital Myopathies",SOP7,Limited,12/09/2019
+CD164,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP6,Limited,03/20/2018
+CD3E,"severe combined immunodeficiency (disease)",AR,"General Gene Curation",SOP4,Definitive,01/09/2017
+CD3E,"immunodeficiency 18",AR,SCID-CID,SOP8,Definitive,01/26/2021
+CD40LG,"hyper-IgM syndrome type 1",XL,SCID-CID,SOP8,Definitive,03/22/2021
+CD79A,"agammaglobulinemia 3, autosomal recessive",AR,"Antibody Immunodeficiencies",SOP8,Definitive,12/15/2020
+CD79B,"agammaglobulinemia 6, autosomal recessive",AR,"Antibody Immunodeficiencies",SOP8,Definitive,01/26/2021
+CDC14A,"hearing impairment and infertile male syndrome",AR,"Hearing Loss",SOP5,Strong,03/11/2020
+CDC14A,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Limited,02/26/2018
+CDC73,"hyperparathyroidism 2 with jaw tumors",AD,"Hereditary Cancer",SOP6,Definitive,10/12/2018
+CDH1,"hereditary nonpolyposis colon cancer",AD,"Colon Cancer",SOP4,Limited,06/08/2017
+CDH1,"hereditary breast carcinoma",AD,"Breast/Ovarian Cancer",SOP4,Definitive,01/25/2017
+CDH1,"familial ovarian cancer",AD,"Breast/Ovarian Cancer",SOP4,"No Known Disease Relationship",08/03/2017
+CDH1,"hereditary diffuse gastric adenocarcinoma",AD,"Hereditary Cancer",SOP6,Definitive,10/11/2018
+CDH15,"intellectual disability",AD,"Intellectual Disability and Autism",SOP8,Disputed,02/17/2021
+CDH2,"arrhythmogenic right ventricular cardiomyopathy",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP7,Limited,07/13/2018
+CDH23,"Usher syndrome type 1",AR,"Hearing Loss",SOP4,Definitive,01/30/2017
+CDH23,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Definitive,05/22/2018
+CDK4,"melanoma, cutaneous malignant, susceptibility to, 3",AD,"Hereditary Cancer",SOP7,Definitive,01/13/2020
+CDKL5,"CDKL5 disorder",XL,"Rett and Angelman-like Disorders",SOP5,Definitive,07/02/2018
+CDKN1B,"hereditary nonpolyposis colon cancer",AR,"Colon Cancer",SOP4,Limited,06/08/2017
+CDKN1B,"multiple endocrine neoplasia type 4",AD,"Hereditary Cancer",SOP6,Definitive,12/21/2018
+CDKN2A,"melanoma-pancreatic cancer syndrome",AD,"Hereditary Cancer",SOP6,Definitive,08/14/2019
+CEACAM16,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP6,Moderate,03/20/2018
+CEBPA,"acute myeloid leukemia",AD,"Hereditary Cancer",SOP6,Definitive,08/18/2019
+CEMIP,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Disputed,07/17/2018
+CEP57,"mosaic variegated aneuploidy syndrome 2",AR,"Hereditary Cancer",SOP6,Definitive,11/22/2019
+CEP78,"cone-rod dystrophy and hearing loss",AR,"Hearing Loss",SOP4,Strong,04/12/2017
+CFL2,"nemaline myopathy 7",AR,"Congenital Myopathies",SOP6,Definitive,11/25/2019
+CHD1L,"congenital anomaly of kidney and urinary tract",AD,"General Gene Curation",SOP4,Limited,11/18/2016
+CHD2,"complex neurodevelopmental disorder",AD,Epilepsy,SOP5,Definitive,07/18/2018
+CHD7,"CHARGE syndrome",AD,"Hearing Loss",SOP7,Definitive,08/23/2018
+CHD8,"autism spectrum disorder",AD,"Intellectual Disability and Autism",SOP5,Definitive,07/16/2018
+CHEK1,"familial ovarian cancer",AD,"Breast/Ovarian Cancer",SOP4,"No Known Disease Relationship",10/12/2016
+CHEK1,"hereditary breast carcinoma",AD,"Breast/Ovarian Cancer",SOP4,"No Known Disease Relationship",10/12/2016
+CHEK2,"hereditary breast carcinoma",AD,"Breast/Ovarian Cancer",SOP4,Definitive,12/14/2016
+CHEK2,"familial ovarian cancer",AD,"Breast/Ovarian Cancer",SOP4,Disputed,12/14/2016
+CHEK2,"hereditary nonpolyposis colon cancer",AD,"Breast/Ovarian Cancer",SOP4,Limited,03/13/2017
+CHM,choroideremia,XL,Retina,SOP7,Definitive,10/26/2020
+CHRNA2,"epilepsy, nocturnal frontal lobe",AD,Epilepsy,SOP7,Limited,12/25/2020
+CHRNA2,"benign familial neonatal-infantile seizures",AD,Epilepsy,SOP7,"No Known Disease Relationship",01/07/2020
+CHRNA2,"epilepsy, idiopathic generalized",AD,Epilepsy,SOP7,"No Known Disease Relationship",01/07/2020
+CHRNA4,"epilepsy, nocturnal frontal lobe",AD,Epilepsy,SOP7,Definitive,02/18/2020
+CIB2,"Usher syndrome type 1",AR,"Hearing Loss",SOP6,Refuted,02/19/2019
+CIB2,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Definitive,02/20/2018
+CISD2,"Wolfram syndrome",AR,"Hearing Loss",SOP6,Strong,03/27/2018
+CLCN4,"non-syndromic X-linked intellectual disability",XL,"Intellectual Disability and Autism",SOP5,Definitive,10/20/2017
+CLDN14,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Definitive,05/01/2018
+CLIC5,"autosomal recessive nonsyndromic deafness",AR,"Hearing Loss",SOP5,Moderate,11/21/2017
+CLN6,"neuronal ceroid lipofuscinosis",AR,Epilepsy,SOP7,Definitive,12/01/2020
+CLN8,"neuronal ceroid lipofuscinosis",AR,Epilepsy,SOP7,Definitive,09/07/2020
+CLPB,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Limited,11/23/2020
+CLPP,"Perrault syndrome 3",AR,"Hearing Loss",SOP6,Definitive,03/27/2018
+CLRN1,"Usher syndrome type 3",AR,"Hearing Loss",SOP4,Definitive,03/02/2017
+CNKSR2,"X-linked complex neurodevelopmental disorder",XL,"Intellectual Disability and Autism",SOP8,Definitive,12/16/2020
+COCH,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP6,Definitive,01/05/2018
+COL11A2,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP7,Moderate,12/20/2018
+COL11A2,"otospondylomegaepiphyseal dysplasia",AD,"Hearing Loss",SOP7,Definitive,12/20/2018
+COL11A2,"otospondylomegaepiphyseal dysplasia",AR,"Hearing Loss",SOP8,Definitive,12/20/2018
+COL11A2,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP7,Moderate,12/20/2018
+COL1A1,"osteogenesis imperfecta type 2",AD,"Skeletal Disorders",SOP8,Definitive,03/22/2021
+COL1A1,"osteogenesis imperfecta type 1",AD,"Skeletal Disorders",SOP8,Definitive,03/16/2021
+COL2A1,"spondyloepiphyseal dysplasia, Stanescu type",AD,"General Gene Curation",SOP4,Moderate,12/01/2016
+COL2A1,"achondrogenesis type II",AD,"Skeletal Disorders",SOP7,Definitive,10/05/2020
+COL2A1,"platyspondylic dysplasia, Torrance type",AD,"Skeletal Disorders",SOP8,Definitive,02/01/2021
+COL3A1,"Ehlers-Danlos syndrome, vascular type",AD,"General Gene Curation",SOP6,Definitive,02/27/2019
+COL4A5,"Alport syndrome",XL,"Hearing Loss",SOP6,Definitive,03/19/2019
+COL4A6,"deafness, X-linked 6",XL,"Hearing Loss",SOP6,Limited,01/16/2018
+COL5A1,"Ehlers-Danlos syndrome, classic type",AD,"General Gene Curation",SOP8,Definitive,03/24/2021
+COL5A2,"Ehlers-Danlos syndrome, classic type",AD,"General Gene Curation",SOP8,Definitive,03/24/2021
+COL6A1,"collagen 6-related myopathy",SD,"Congenital Myopathies",SOP8,Definitive,01/22/2021
+COL6A2,"collagen 6-related myopathy",SD,"Congenital Myopathies",SOP7,Definitive,02/22/2021
+COL9A1,"Stickler syndrome",AR,"Familial Thoracic Aortic Aneurysm and Dissection",SOP5,Limited,03/26/2018
+COL9A2,"Stickler syndrome",AR,"Hearing Loss",SOP6,Limited,02/19/2019
+COL9A3,"Stickler syndrome",AR,"Hearing Loss",SOP7,Moderate,09/17/2019
+COMP,"multiple epiphyseal dysplasia (disease)",AD,"Skeletal Disorders",SOP7,Definitive,03/24/2020
+COMP,pseudoachondroplasia,AD,"Skeletal Disorders",SOP7,Definitive,02/07/2020
+COX10,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Moderate,05/20/2019
+COX15,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Limited,05/20/2019
+CPS1,"carbamoyl phosphate synthetase I deficiency disease",AR,Aminoacidopathy,SOP6,Definitive,10/12/2018
+CPT1A,"carnitine palmitoyl transferase 1A deficiency",AR,"Fatty Acid Oxidation Disorders",SOP6,Definitive,01/23/2018
+CPT1B,"inherited fatty acid metabolism disorder",Undetermined,"Fatty Acid Oxidation Disorders",SOP7,"No Known Disease Relationship",01/25/2021
+CPT2,"carnitine palmitoyltransferase II deficiency",AR,"Fatty Acid Oxidation Disorders",SOP6,Definitive,03/27/2018
+CREBBP,"Rubinstein-Taybi syndrome due to CREBBP mutations",AD,"Intellectual Disability and Autism",SOP5,Definitive,02/21/2018
+CRYM,"autosomal dominant nonsyndromic deafness 40",AD,"Hearing Loss",SOP5,Limited,02/16/2017
+CSRP3,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP5,Moderate,12/19/2017
+CSRP3,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Limited,11/06/2020
+CSTB,"Unverricht-Lundborg syndrome",AR,Epilepsy,SOP8,Definitive,06/16/2020
+CSTB,"developmental and epileptic encephalopathy",AR,Epilepsy,SOP8,Moderate,12/01/2020
+CTF1,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Limited,08/12/2020
+CTH,"cystathioninuria (disease)",AR,Aminoacidopathy,SOP6,Definitive,06/14/2019
+CTLA4,"autoimmune lymphoproliferative syndrome due to CTLA4 haploinsuffiency",AD,"Antibody Immunodeficiencies",SOP8,Definitive,03/16/2021
+CTNNA1,"hereditary nonpolyposis colon cancer",AD,"Colon Cancer",SOP4,"No Known Disease Relationship",04/24/2017
+CTNNA3,"arrhythmogenic right ventricular cardiomyopathy",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP7,Limited,08/06/2019
+CTSD,"neuronal ceroid lipofuscinosis",AR,Epilepsy,SOP7,Definitive,11/03/2020
+CUL3,"complex neurodevelopmental disorder",AD,"Intellectual Disability and Autism",SOP8,Definitive,01/16/2021
+CUL4B,"X-linked intellectual disability, Cabezas type",XL,"Intellectual Disability and Autism",SOP5,Definitive,02/21/2018
+CYLD,"Brooke-Spiegler syndrome",AD,"Hereditary Cancer",SOP6,Definitive,12/21/2018
+DBT,"maple syrup urine disease",AR,Aminoacidopathy,SOP6,Definitive,10/30/2018
+DCAF17,"Woodhouse-Sakati syndrome",AR,"Syndromic Disorders",SOP8,Definitive,02/19/2021
+DCDC2,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP7,Limited,08/31/2020
+DCLRE1C,"severe combined immunodeficiency due to DCLRE1C deficiency",AR,SCID-CID,SOP8,Definitive,02/18/2021
+DCX,"lissencephaly spectrum disorders",XL,"Brain Malformations",SOP8,Definitive,02/23/2021
+DDB2,"xeroderma pigmentosum group E",AR,"Hereditary Cancer",SOP6,Definitive,11/02/2018
+DDX3X,"X-linked syndromic intellectual disability",XL,"Intellectual Disability and Autism",SOP7,Definitive,05/05/2020
+DDX41,"DDX41-related hematologic malignancy predisposition syndrome",AD,"Hereditary Cancer",SOP7,Definitive,07/30/2020
+DECR1,"progressive encephalopathy with leukodystrophy due to DECR deficiency",Undetermined,"Fatty Acid Oxidation Disorders",SOP7,"No Known Disease Relationship",01/25/2021
+DEPDC5,"familial focal epilepsy with variable foci",AD,Epilepsy,SOP5,Definitive,08/24/2018
+DES,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Definitive,10/09/2020
+DES,"myofibrillar myopathy (disease)",SD,"Limb Girdle Muscular Dystrophy",SOP7,Definitive,08/20/2020
+DES,"arrhythmogenic right ventricular cardiomyopathy",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP7,Moderate,09/11/2018
+DHCR7,"Smith-Lemli-Opitz syndrome",AR,"Intellectual Disability and Autism",SOP5,Definitive,09/11/2018
+DHTKD1,"2-aminoadipic 2-oxoadipic aciduria",AR,Aminoacidopathy,SOP7,Definitive,11/03/2020
+DIABLO,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP6,Limited,12/19/2017
+DIAPH1,"diaph1-related sensorineural hearing loss-thrombocytopenia syndrome",AD,"Hearing Loss",SOP6,Definitive,01/05/2018
+DIAPH3,"auditory neuropathy",AD,"Hearing Loss",SOP7,Limited,02/06/2020
+DICER1,"pleuropulmonary blastoma",AD,"General Gene Curation",SOP4,Definitive,01/08/2017
+DIS3L2,"Perlman syndrome",AR,"Hereditary Cancer",SOP6,Definitive,11/21/2019
+DKC1,"DKC1-related disorder",XL,"Intellectual Disability and Autism",SOP7,Definitive,09/13/2020
+DLAT,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Moderate,01/14/2021
+DLD,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Definitive,03/11/2021
+DLD,"pyruvate dehydrogenase E3 deficiency",AR,Aminoacidopathy,SOP6,Definitive,03/08/2019
+DLG3,"non-syndromic X-linked intellectual disability",XL,"Intellectual Disability and Autism",SOP5,Definitive,08/24/2018
+DMGDH,"dimethylglycine dehydrogenase deficiency",AR,Aminoacidopathy,SOP6,Limited,06/28/2019
+DMXL2,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP7,Limited,02/06/2020
+DNAJB11,"polycystic kidney disease 6 with or without polycystic liver disease",AD,"Kidney Cystic and Ciliopathy Disorders",SOP7,Strong,02/26/2021
+DNAJC12,"hyperphenylalaninemia due to DNAJC12 deficiency",AR,Aminoacidopathy,SOP7,Definitive,01/11/2021
+DNM1,"obsolete early infantile epileptic encephalopathy",AD,Epilepsy,SOP4,Definitive,12/13/2016
+DNM1,"infantile epilepsy syndrome",AD,Epilepsy,SOP5,Definitive,02/15/2021
+DNM2,"Charcot-Marie-Tooth disease",AD,Charcot-Marie-Tooth,SOP7,Definitive,10/27/2020
+DNM2,"autosomal dominant centronuclear myopathy",AD,"Congenital Myopathies",SOP6,Definitive,12/20/2019
+DNMT1,"autosomal dominant cerebellar ataxia, deafness and narcolepsy",AD,"Hearing Loss",SOP4,Definitive,02/10/2017
+DSC2,"familial isolated arrhythmogenic right ventricular dysplasia",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP7,Definitive,09/14/2018
+DSG2,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Limited,08/07/2020
+DSG2,"arrhythmogenic right ventricular cardiomyopathy",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP7,Definitive,09/14/2018
+DSP,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Strong,08/12/2020
+DSP,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP7,"No Known Disease Relationship",04/07/2020
+DSP,"arrhythmogenic cardiomyopathy with woolly hair and keratoderma",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP7,Definitive,07/12/2019
+DSPP,"dentinogenesis imperfecta (disease)",AD,"Hearing Loss",SOP6,Definitive,04/17/2018
+DTNA,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Limited,08/12/2020
+DYRK1A,"complex neurodevelopmental disorder",AD,"Intellectual Disability and Autism",SOP7,Definitive,07/15/2020
+DYSF,"autosomal recessive limb-girdle muscular dystrophy",AR,"Limb Girdle Muscular Dystrophy",SOP7,Definitive,05/01/2020
+EARS2,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Definitive,03/19/2020
+ECHS1,"mitochondrial short-chain Enoyl-Coa hydratase 1 deficiency",AR,"Fatty Acid Oxidation Disorders",SOP6,Definitive,10/09/2018
+EDN3,"Waardenburg syndrome type 4B",AD,"Hearing Loss",SOP5,Limited,05/30/2018
+EDN3,"Waardenburg syndrome type 4B",AR,"Hearing Loss",SOP6,Moderate,05/08/2018
+EDNRB,"Waardenburg syndrome type 4A",AD,"Hearing Loss",SOP6,Limited,05/08/2018
+EDNRB,"Waardenburg syndrome type 4A",AR,"Hearing Loss",SOP6,Moderate,05/08/2018
+EEF1A2,"complex neurodevelopmental disorder",AD,Epilepsy,SOP6,Definitive,03/19/2019
+EFEMP2,"familial thoracic aortic aneurysm and aortic dissection",AR,"Familial Thoracic Aortic Aneurysm and Dissection",SOP4,Moderate,12/22/2016
+EFHC1,"juvenile myoclonic epilepsy",AD,Epilepsy,SOP5,Disputed,07/27/2018
+EFNB1,"craniofrontonasal syndrome",XL,"Craniofacial Malformations",SOP7,Definitive,10/26/2020
+EGFR,"non-small cell lung carcinoma (disease)",AD,"Hereditary Cancer",SOP7,Definitive,07/30/2020
+EHMT1,"Kleefstra syndrome",AD,"Intellectual Disability and Autism",SOP5,Definitive,06/07/2018
+ELANE,neutropenia,AD,"Hereditary Cancer",SOP7,Definitive,05/14/2020
+ELMOD3,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Limited,05/04/2017
+EN2,"complex neurodevelopmental disorder",Undetermined,"Intellectual Disability and Autism",SOP8,Disputed,02/16/2021
+ENG,"generalized juvenile polyposis/juvenile polyposis coli",AD,"Colon Cancer",SOP4,Limited,12/11/2017
+ENG,"hereditary hemorrhagic telangiectasia",AD,"Hemostasis Thrombosis",SOP6,Definitive,08/28/2019
+EPCAM,"hereditary breast carcinoma",AD,"Breast/Ovarian Cancer",SOP4,"No Known Disease Relationship",04/12/2017
+EPCAM,"colorectal cancer, hereditary nonpolyposis, type 8",AD,"Colon Cancer",SOP4,Definitive,09/11/2017
+EPHX1,"hereditary nonpolyposis colon cancer",AD,"Colon Cancer",SOP4,Limited,11/08/2016
+EPM2A,"Lafora disease",AR,Epilepsy,SOP7,Definitive,05/23/2020
+EPS8,"autosomal recessive nonsyndromic deafness 102",AR,"Hearing Loss",SOP7,Moderate,02/06/2020
+EPS8L2,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP7,Moderate,02/05/2020
+ERCC2,"xeroderma pigmentosum group D",AR,"Hereditary Cancer",SOP6,Definitive,11/02/2018
+ERCC3,"xeroderma pigmentosum group B",AR,"Hereditary Cancer",SOP6,Definitive,11/02/2018
+ERCC4,"xeroderma pigmentosum group F",AR,"Hereditary Cancer",SOP6,Definitive,08/14/2019
+ERCC5,"xeroderma pigmentosum group G",AR,"Hereditary Cancer",SOP6,Definitive,11/02/2018
+ESPN,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Definitive,02/27/2018
+ESPN,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP5,Limited,09/20/2018
+ESRRB,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Definitive,04/24/2018
+ETFA,"multiple acyl-CoA dehydrogenase deficiency",AR,"Fatty Acid Oxidation Disorders",SOP6,Definitive,05/22/2018
+ETFB,"multiple acyl-CoA dehydrogenase deficiency",AR,"Fatty Acid Oxidation Disorders",SOP7,Moderate,12/16/2020
+ETFDH,"multiple acyl-CoA dehydrogenase deficiency",AR,"Fatty Acid Oxidation Disorders",SOP6,Definitive,05/22/2018
+ETHE1,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Definitive,04/08/2019
+ETV6,"thrombocytopenia 5",AD,"Hemostasis Thrombosis",SOP7,Definitive,01/22/2020
+EXO1,"hereditary nonpolyposis colon cancer",AD,"Colon Cancer",SOP4,Disputed,06/08/2017
+EXT1,"exostoses, multiple, type 1",AD,"Hereditary Cancer",SOP5,Definitive,06/04/2018
+EXT2,"exostoses, multiple, type 2",AD,"Hereditary Cancer",SOP6,Definitive,12/21/2018
+EYA1,"branchio-oto-renal syndrome",AD,"Hearing Loss",SOP5,Definitive,08/30/2018
+EYA4,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP6,Definitive,01/05/2018
+EYA4,"dilated cardiomyopathy 1J",AD,"Dilated Cardiomyopathy",SOP7,Limited,11/30/2020
+F10,"congenital factor X deficiency",AR,"Hemostasis Thrombosis",SOP6,Definitive,11/27/2019
+F11,"congenital factor XI deficiency",SD,"Hemostasis Thrombosis",SOP7,Definitive,10/23/2019
+F12,"congenital factor XII deficiency",AR,"Hemostasis Thrombosis",SOP7,Definitive,01/22/2020
+F12,"hereditary angioedema type 3",AD,"Hemostasis Thrombosis",SOP7,Moderate,01/23/2020
+F13A1,"factor XIII, A subunit, deficiency of",AR,"Hemostasis Thrombosis",SOP6,Definitive,07/22/2020
+F13B,"factor XIII, b subunit, deficiency of",AR,"Hemostasis Thrombosis",SOP6,Definitive,07/22/2020
+F2,"thrombophilia due to thrombin defect",AD,"Hemostasis Thrombosis",SOP6,Definitive,06/24/2020
+F2,"congenital prothrombin deficiency",AR,"Hemostasis Thrombosis",SOP6,Definitive,06/24/2020
+F5,"thrombophilia due to activated protein C resistance",AD,"Hemostasis Thrombosis",SOP6,Definitive,09/30/2019
+F5,"congenital factor V deficiency",AR,"Hemostasis Thrombosis",SOP6,Definitive,03/25/2020
+F7,"factor VII deficiency",AR,"Hemostasis Thrombosis",SOP6,Definitive,07/24/2019
+F8,"hemophilia A",XL,"Hemostasis Thrombosis",SOP6,Definitive,07/24/2019
+F9,"hemophilia B",XL,"Hemostasis Thrombosis",SOP6,Definitive,05/22/2019
+F9,"thrombophilia, X-linked, due to factor 9 defect",XL,"Hemostasis Thrombosis",SOP6,Limited,06/24/2020
+FAH,"tyrosinemia type I",AR,Aminoacidopathy,SOP7,Definitive,06/29/2020
+FAN1,"hereditary nonpolyposis colon cancer",AD,"Colon Cancer",SOP4,Limited,10/23/2017
+FANCA,"Fanconi anemia complementation group A",AR,"Hereditary Cancer",SOP6,Definitive,12/21/2018
+FANCC,"Fanconi anemia complementation group C",AR,"Hereditary Cancer",SOP6,Definitive,12/21/2018
+FANCE,"Fanconi anemia complementation group E",AR,"Hereditary Cancer",SOP7,Definitive,05/14/2020
+FANCF,"Fanconi anemia complementation group f",AR,"Hereditary Cancer",SOP8,Definitive,02/03/2021
+FANCG,"Fanconi anemia complementation group G",AR,"Hereditary Cancer",SOP6,Definitive,12/21/2018
+FANCL,"Fanconi anemia complementation group L",AR,"Hereditary Cancer",SOP7,Definitive,07/30/2020
+FARS2,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Moderate,11/25/2019
+FBN1,"familial thoracic aortic aneurysm and aortic dissection",AD,"Familial Thoracic Aortic Aneurysm and Dissection",SOP4,Definitive,01/23/2017
+FBN1,"Marfan syndrome",AD,"General Gene Curation",SOP6,Definitive,03/04/2019
+FBN2,"familial thoracic aortic aneurysm and aortic dissection",AD,"Familial Thoracic Aortic Aneurysm and Dissection",SOP4,Limited,12/22/2016
+FBXL4,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Definitive,11/23/2020
+FERMT3,"leukocyte adhesion deficiency 3",AR,"Hemostasis Thrombosis",SOP6,Definitive,08/28/2019
+FGA,"congenital fibrinogen deficiency",SD,"Hemostasis Thrombosis",SOP7,Definitive,01/22/2020
+FGB,"congenital fibrinogen deficiency",SD,"Hemostasis Thrombosis",SOP7,Definitive,01/22/2020
+FGD1,"Aarskog-Scott syndrome, X-linked",XL,"Intellectual Disability and Autism",SOP5,Definitive,12/06/2017
+FGD4,"Charcot-Marie-Tooth disease",AR,Charcot-Marie-Tooth,SOP7,Definitive,04/14/2020
+FGF3,"deafness with labyrinthine aplasia, microtia, and microdontia",AR,"Hearing Loss",SOP6,Definitive,05/21/2019
+FGFR1,"osteoglophonic dwarfism",AD,"Craniofacial Malformations",SOP8,Limited,03/22/2021
+FGFR1,"Hartsfield-Bixler-Demyer syndrome",AD,"Craniofacial Malformations",SOP8,Moderate,03/16/2021
+FGFR3,achondroplasia,AD,"General Gene Curation",SOP4,Definitive,12/01/2016
+FGG,"congenital fibrinogen deficiency",SD,"Hemostasis Thrombosis",SOP7,Definitive,01/23/2020
+FH,"hereditary leiomyomatosis and renal cell cancer",AD,"Hereditary Cancer",SOP7,Definitive,05/14/2020
+FKRP,"muscular dystrophy-dystroglycanopathy",AR,"Limb Girdle Muscular Dystrophy",SOP7,Definitive,08/11/2020
+FKTN,"muscular dystrophy-dystroglycanopathy",AR,"Limb Girdle Muscular Dystrophy",SOP7,Definitive,07/01/2020
+FLAD1,"myopathy with abnormal lipid metabolism",AR,"Fatty Acid Oxidation Disorders",SOP7,Definitive,12/16/2020
+FLCN,"Birt-Hogg-Dube syndrome",AD,"Hereditary Cancer",SOP5,Definitive,06/04/2018
+FLNA,"familial thoracic aortic aneurysm and aortic dissection",AD,"Familial Thoracic Aortic Aneurysm and Dissection",SOP4,Limited,12/22/2016
+FLNA,"periventricular nodular heterotopia",XL,"Intellectual Disability and Autism",SOP8,Definitive,12/27/2020
+FLNC,"myofibrillar myopathy 5",AD,"Hypertrophic Cardiomyopathy",SOP5,Definitive,12/12/2017
+FLNC,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Definitive,11/06/2020
+FMO3,"trimethylaminuria (disease)",AR,Aminoacidopathy,SOP7,Definitive,08/14/2020
+FMR1,"fragile X syndrome",XL,"Intellectual Disability and Autism",SOP6,Definitive,06/03/2019
+FOLR1,"neurodegenerative syndrome due to cerebral folate transport deficiency",AR,"Intellectual Disability and Autism",SOP5,Definitive,04/27/2018
+FOXE3,"familial thoracic aortic aneurysm and aortic dissection",AD,"Familial Thoracic Aortic Aneurysm and Dissection",SOP4,Moderate,06/15/2016
+FOXG1,"FOXG1 disorder",AD,"Rett and Angelman-like Disorders",SOP5,Definitive,07/02/2018
+FOXI1,"syndromic genetic deafness",AR,"Hearing Loss",SOP6,Limited,02/27/2018
+FOXI1,"enlarged vestibular aqueduct syndrome",AR,"Hearing Loss",SOP5,Disputed,09/10/2018
+FOXP1,"intellectual disability-severe speech delay-mild dysmorphism syndrome",AD,"Intellectual Disability and Autism",SOP6,Definitive,05/09/2019
+FOXP2,"specific language disorder",AD,"Intellectual Disability and Autism",SOP6,Definitive,05/21/2019
+FOXRED1,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Moderate,10/16/2019
+FTSJ1,"non-syndromic X-linked intellectual disability",XL,"Intellectual Disability and Autism",SOP5,Moderate,01/17/2018
+FXN,"Friedreich ataxia",AR,"Hypertrophic Cardiomyopathy",SOP5,Definitive,12/22/2017
+FYB1,"thrombocytopenia 3",AR,"Hemostasis Thrombosis",SOP7,Limited,11/25/2020
+GAA,"glycogen storage disease II",AR,"General Gene Curation",SOP6,Definitive,01/23/2019
+GABRA1,"developmental and epileptic encephalopathy",AD,Epilepsy,SOP6,Definitive,05/21/2019
+GABRB3,"developmental and epileptic encephalopathy",AD,Epilepsy,SOP6,Definitive,02/05/2019
+GABRG2,epilepsy,AD,Epilepsy,SOP7,Definitive,01/21/2020
+GALNT12,"colorectal cancer, susceptibility to, 1",AD,"Colon Cancer",SOP4,Limited,06/08/2017
+GAMT,"guanidinoacetate methyltransferase deficiency",AR,Aminoacidopathy,SOP6,Definitive,01/25/2019
+GANAB,"polycystic kidney disease 3 with or without polycystic liver disease",AD,"Kidney Cystic and Ciliopathy Disorders",SOP7,Definitive,09/09/2020
+GATA1,"GATA1-Related X-Linked Cytopenia",XL,"Hemostasis Thrombosis",SOP7,Definitive,05/27/2020
+GATA2,"GATA2 deficiency with susceptibility to MDS/AML",AD,"Hereditary Cancer",SOP6,Definitive,08/18/2019
+GATA3,"hypoparathyroidism-deafness-renal disease syndrome",AD,"Hearing Loss",SOP6,Definitive,06/18/2019
+GATAD1,"dilated cardiomyopathy",AR,"Dilated Cardiomyopathy",SOP7,Limited,09/04/2020
+GATM,"AGAT deficiency",AR,Aminoacidopathy,SOP6,Definitive,03/08/2019
+GBA,"Gaucher disease",AR,"General Gene Curation",SOP7,Definitive,06/24/2020
+GCDH,"glutaryl-CoA dehydrogenase deficiency",AR,Aminoacidopathy,SOP7,Definitive,11/08/2019
+GCH1,"GTP cyclohydrolase I deficiency",SD,Aminoacidopathy,SOP7,Definitive,12/11/2020
+GCK,"monogenic diabetes",AD,"Monogenic Diabetes",SOP7,Definitive,05/13/2020
+GDAP1,"Charcot-Marie-Tooth disease",SD,Charcot-Marie-Tooth,SOP7,Definitive,07/28/2020
+GDF2,"pulmonary arterial hypertension",AD,"Pulmonary Hypertension",SOP8,Strong,01/23/2021
+GDI1,"non-syndromic X-linked intellectual disability",XL,"Intellectual Disability and Autism",SOP5,Moderate,05/24/2018
+GEN1,"hereditary breast carcinoma",AD,"Breast/Ovarian Cancer",SOP4,Disputed,12/13/2017
+GEN1,"familial ovarian cancer",AD,"Breast/Ovarian Cancer",SOP4,"No Known Disease Relationship",01/11/2017
+GFI1B,"platelet-type bleeding disorder 17",AD,"Hemostasis Thrombosis",SOP6,Definitive,11/27/2019
+GFM1,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Moderate,12/19/2019
+GFM2,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Moderate,12/19/2019
+GGCX,"vitamin K-dependent clotting factors, combined deficiency of, type 1",AR,"Hemostasis Thrombosis",SOP7,Definitive,02/24/2021
+GIPC3,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Definitive,08/22/2017
+GJA1,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP6,Disputed,01/16/2018
+GJB1,"Charcot-Marie-Tooth disease X-linked dominant 1",XL,Charcot-Marie-Tooth,SOP7,Definitive,01/14/2020
+GJB2,"autosomal recessive nonsyndromic deafness",AR,"Hearing Loss",SOP4,Definitive,03/02/2017
+GJB2,"syndromic genetic deafness",AD,"Hearing Loss",SOP6,Definitive,06/26/2018
+GJB3,"erythrokeratodermia variabilis",AD,"Hearing Loss",SOP6,Strong,03/05/2018
+GJB3,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP5,Disputed,08/23/2018
+GJB6,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP5,Refuted,09/10/2018
+GJB6,"Clouston syndrome",AD,"Hearing Loss",SOP6,Definitive,04/17/2018
+GLA,"Fabry disease",XL,"General Gene Curation",SOP6,Definitive,01/23/2019
+GLDC,"glycine encephalopathy",AR,Aminoacidopathy,SOP6,Definitive,02/06/2019
+GLUL,"congenital brain dysgenesis due to glutamine synthetase deficiency",AR,Aminoacidopathy,SOP7,Moderate,06/29/2020
+GNAO1,"movement disorder",AD,Epilepsy,SOP6,Definitive,02/19/2019
+GNAO1,"obsolete early infantile epileptic encephalopathy",AD,Epilepsy,SOP6,Definitive,12/18/2018
+GNB4,"Charcot-Marie-Tooth disease",AD,Charcot-Marie-Tooth,SOP7,Moderate,04/14/2020
+GNE,"isolated hereditary giant platelet disorder",AR,"Hemostasis Thrombosis",SOP7,Limited,08/26/2020
+GNMT,"glycine N-methyltransferase deficiency",AR,Aminoacidopathy,SOP6,Limited,05/10/2019
+GNPAT,"rhizomelic chondrodysplasia punctata",AR,"Peroxisomal Disorders",SOP7,Definitive,02/07/2020
+GP1BA,"Bernard-Soulier syndrome",AR,"Hemostasis Thrombosis",SOP7,Definitive,05/27/2020
+GP1BA,"pseudo-von Willebrand disease",AD,"Hemostasis Thrombosis",SOP7,Definitive,05/27/2020
+GP1BB,"Bernard-Soulier syndrome",AR,"Hemostasis Thrombosis",SOP6,Definitive,06/06/2019
+GP6,"platelet-type bleeding disorder 11",AR,"Hemostasis Thrombosis",SOP6,Definitive,10/23/2019
+GP9,"Bernard-Soulier syndrome",AR,"Hemostasis Thrombosis",SOP6,Definitive,11/27/2019
+GPC3,"Simpson-Golabi-Behmel syndrome",XL,"Intellectual Disability and Autism",SOP6,Definitive,12/31/2019
+GPD1L,"Brugada syndrome 1",AD,"Brugada Syndrome",SOP5,Disputed,11/21/2017
+GPSM2,"Chudley-McCullough syndrome",AR,"Hearing Loss",SOP6,Definitive,05/01/2018
+GREM1,"hereditary mixed polyposis syndrome",AD,"Colon Cancer",SOP4,Strong,10/11/2016
+GRHL2,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP7,Definitive,05/01/2020
+GRIA3,"complex neurodevelopmental disorder",XL,"Intellectual Disability and Autism",SOP7,Definitive,11/06/2019
+GRIN1,"complex neurodevelopmental disorder",AR,Epilepsy,SOP6,Moderate,03/07/2019
+GRIN1,"complex neurodevelopmental disorder",AD,Epilepsy,SOP6,Definitive,11/20/2018
+GRIN2A,"complex neurodevelopmental disorder",AD,Epilepsy,SOP6,Definitive,07/16/2019
+GRIN2B,"complex neurodevelopmental disorder",AD,Epilepsy,SOP6,Definitive,03/19/2019
+GRIN2D,"infantile epilepsy syndrome",AD,Epilepsy,SOP5,Limited,07/06/2018
+GRK1,"Oguchi disease",AR,Retina,SOP8,Definitive,01/07/2021
+GRXCR1,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Definitive,04/24/2018
+GRXCR2,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Moderate,01/07/2019
+GSDME,"autosomal dominant nonsyndromic deafness",AD,"Hearing Loss",SOP5,Definitive,07/19/2018
+GSS,"inherited glutathione synthetase deficiency",AR,Aminoacidopathy,SOP6,Definitive,04/26/2019
+GSTZ1,"maleylacetoacetate isomerase deficiency",AR,Aminoacidopathy,SOP6,Moderate,03/22/2019
+GTPBP3,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Moderate,02/12/2020
+HAAO,"vertebral, cardiac, renal, and limb defects syndrome 1",AR,Aminoacidopathy,SOP7,Limited,07/10/2020
+HACD1,"congenital myopathy",AR,"Congenital Myopathies",SOP7,Moderate,07/30/2020
+HADH,"hyperinsulinism due to short chain 3-hydroxylacyl-CoA dehydrogenase deficiency",AR,"Fatty Acid Oxidation Disorders",SOP6,Definitive,06/26/2018
+HADHA,"long chain 3-hydroxyacyl-CoA dehydrogenase deficiency",AR,"Fatty Acid Oxidation Disorders",SOP6,Definitive,02/12/2018
+HADHB,"mitochondrial trifunctional protein deficiency",AR,"Fatty Acid Oxidation Disorders",SOP6,Definitive,05/08/2018
+HAL,histidinemia,AR,Aminoacidopathy,SOP7,Limited,09/25/2020
+HARS1,"Usher syndrome type 3",AR,"Hearing Loss",SOP5,Refuted,05/24/2018
+HARS2,"Perrault syndrome 2",AR,"Hearing Loss",SOP6,Limited,05/15/2018
+HCN4,"Brugada syndrome 1",AD,"Brugada Syndrome",SOP5,Disputed,11/21/2017
+HCN4,"familial thoracic aortic aneurysm and aortic dissection",AD,"Familial Thoracic Aortic Aneurysm and Dissection",SOP4,Limited,12/22/2016
+HDAC8,"Cornelia de Lange syndrome",XL,"Intellectual Disability and Autism",SOP5,Definitive,09/11/2018
+HEXA,"Tay-Sachs disease",AR,"General Gene Curation",SOP7,Definitive,05/27/2020
+HGD,alkaptonuria,AR,Aminoacidopathy,SOP7,Definitive,06/29/2020
+HGF,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Moderate,01/16/2018
+HIBCH,"3-hydroxyisobutyryl-CoA hydrolase deficiency",AR,Aminoacidopathy,SOP6,Definitive,11/07/2019
+HINT1,"Charcot-Marie-Tooth disease",AR,Charcot-Marie-Tooth,SOP8,Definitive,03/22/2021
+HLCS,"holocarboxylase synthetase deficiency",AR,Aminoacidopathy,SOP7,Definitive,02/26/2021
+HMGCL,"3-hydroxy-3-methylglutaric aciduria",AR,"Fatty Acid Oxidation Disorders",SOP6,Definitive,06/26/2018
+HMGCS2,"3-hydroxy-3-methylglutaryl-CoA synthase deficiency",AR,"Fatty Acid Oxidation Disorders",SOP6,Definitive,05/22/2018
+HNF1A,"monogenic diabetes",AD,"Monogenic Diabetes",SOP7,Definitive,10/05/2018
+HNF1B,"renal cysts and diabetes syndrome",AD,"Monogenic Diabetes",SOP7,Definitive,12/10/2019
+HNF4A,"monogenic diabetes",AD,"Monogenic Diabetes",SOP6,Definitive,02/27/2019
+HNRNPK,"neurodevelopmental disorder-craniofacial dysmorphism-cardiac defect-hip dysplasia syndrome",AD,"General Gene Curation",SOP4,Moderate,11/15/2016
+HOMER2,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP7,Moderate,08/31/2020
+HOXA1,"complex neurodevelopmental disorder",AR,"Intellectual Disability and Autism",SOP6,Definitive,06/19/2019
+HPD,hawkinsinuria,AD,Aminoacidopathy,SOP7,Limited,06/26/2020
+HPD,"tyrosinemia type III",AR,Aminoacidopathy,SOP7,Definitive,06/29/2020
+HPRT1,"Lesch-Nyhan syndrome",XL,"Intellectual Disability and Autism",SOP5,Definitive,03/07/2018
+HPS1,"Hermansky-Pudlak syndrome 1",AR,"Hemostasis Thrombosis",SOP6,Definitive,07/22/2019
+HPS3,"Hermansky-Pudlak syndrome 3",AR,"Hemostasis Thrombosis",SOP6,Definitive,02/26/2020
+HPS4,"Hermansky-Pudlak syndrome 4",AR,"Hemostasis Thrombosis",SOP7,Definitive,05/27/2020
+HPS6,"Hermansky-Pudlak syndrome 6",AR,"Hemostasis Thrombosis",SOP7,Definitive,11/25/2020
+HRAS,"Costello syndrome",AD,RASopathy,SOP5,Definitive,07/24/2018
+HRAS,"Noonan syndrome-like disorder with loose anagen hair",AD,RASopathy,SOP5,Disputed,07/25/2018
+HSD17B10,"HSD10 mitochondrial disease",XL,"Fatty Acid Oxidation Disorders",SOP6,Definitive,10/09/2018
+HSD17B4,"Perrault syndrome",AR,"Hearing Loss",SOP5,Definitive,05/30/2018
+HSPB8,"autosomal dominant distal hereditary motor neuropathy",AD,Charcot-Marie-Tooth,SOP8,Definitive,03/22/2021
+HUWE1,"non-syndromic X-linked intellectual disability",XL,"Intellectual Disability and Autism",SOP5,Definitive,10/20/2017
+IARS2,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Limited,11/25/2019
+IDS,"mucopolysaccharidosis type 2",XL,"Intellectual Disability and Autism",SOP5,Definitive,02/21/2018
+IDUA,"mucopolysaccharidosis type 1",AR,"General Gene Curation",SOP7,Definitive,05/27/2020
+IL1RAPL1,"intellectual disability, X-linked 21",XL,"Intellectual Disability and Autism",SOP5,Definitive,01/03/2018
+IL1RAPL1,"non-syndromic X-linked intellectual disability",XL,"Intellectual Disability and Autism",SOP5,Definitive,03/15/2021
+ILDR1,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Definitive,11/21/2017
+ILK,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Limited,09/04/2020
+INF2,"Charcot-Marie-Tooth disease dominant intermediate E",AD,Charcot-Marie-Tooth,SOP8,Definitive,03/22/2021
+INO80,"immunodeficiency, common variable, 1",AR,"Antibody Immunodeficiencies",SOP8,Disputed,01/22/2021
+INS,"monogenic diabetes",AR,"Monogenic Diabetes",SOP7,Definitive,05/13/2020
+INS,"monogenic diabetes",AD,"Monogenic Diabetes",SOP7,Definitive,05/13/2020
+IQSEC2,"complex neurodevelopmental disorder",XL,"Intellectual Disability and Autism",SOP7,Definitive,06/05/2019
+IRF2BP2,"immunodeficiency, common variable, 14",AD,"Antibody Immunodeficiencies",SOP8,Limited,03/16/2021
+ITGA2B,"Glanzmann's thrombasthenia",AR,"Hemostasis Thrombosis",SOP6,Definitive,09/04/2019
+ITGB3,"Glanzmann's thrombasthenia",AR,"Hemostasis Thrombosis",SOP6,Definitive,08/28/2019
+ITK,"lymphoproliferative syndrome 1",AR,"Hereditary Cancer",SOP6,Definitive,11/21/2019
+IVD,"isovaleric acidemia",AR,Aminoacidopathy,SOP6,Definitive,05/10/2019
+JAK3,"T-B+ severe combined immunodeficiency due to JAK3 deficiency",AR,SCID-CID,SOP8,Definitive,12/18/2020
+JPH2,"dilated cardiomyopathy",SD,"Dilated Cardiomyopathy",SOP7,Moderate,10/09/2020
+JPH2,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP5,Moderate,07/18/2017
+JUP,"arrhythmogenic right ventricular cardiomyopathy",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP7,Definitive,07/27/2018
+KARS1,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP5,Limited,08/24/2018
+KAT6B,RASopathy,AD,RASopathy,SOP6,Disputed,02/04/2019
+KATNAL2,"complex neurodevelopmental disorder",AD,"Intellectual Disability and Autism",SOP7,Disputed,05/20/2020
+KBTBD13,"nemaline myopathy 6",AD,"Congenital Myopathies",SOP7,Moderate,06/22/2020
+KCNA2,"undetermined early-onset epileptic encephalopathy",AD,Epilepsy,SOP5,Strong,10/20/2017
+KCNA2,"infantile epilepsy syndrome",AD,Epilepsy,SOP5,Strong,05/31/2018
+KCNB1,"complex neurodevelopmental disorder",AD,Epilepsy,SOP6,Definitive,04/16/2019
+KCND3,"Brugada syndrome 1",AD,"Brugada Syndrome",SOP5,Disputed,11/21/2017
+KCNE1,"long QT syndrome 5",AD,"Long QT Syndrome",SOP8,Limited,12/15/2020
+KCNE1,"Jervell and Lange-Nielsen syndrome 2",AR,"Hearing Loss",SOP6,Moderate,06/22/2018
+KCNE2,"long QT syndrome",AD,"Long QT Syndrome",SOP8,Disputed,12/15/2020
+KCNE3,"Brugada syndrome",AD,"Brugada Syndrome",SOP5,Disputed,11/21/2017
+KCNE5,"Brugada syndrome",AD,"Brugada Syndrome",SOP5,Disputed,11/21/2017
+KCNH2,"Brugada syndrome",AD,"Brugada Syndrome",SOP5,Disputed,11/21/2017
+KCNH2,"long QT syndrome",AD,"Long QT Syndrome",SOP7,Definitive,09/25/2018
+KCNJ10,"enlarged vestibular aqueduct syndrome",AD,"Hearing Loss",SOP5,Disputed,09/18/2018
+KCNJ11,"monogenic diabetes",AD,"Monogenic Diabetes",SOP7,Definitive,08/21/2020
+KCNJ2,"long QT syndrome",AD,"Long QT Syndrome",SOP8,Limited,12/15/2020
+KCNJ5,"long QT syndrome",AD,"Long QT Syndrome",SOP8,Disputed,12/15/2020
+KCNJ8,"Brugada syndrome 1",AD,"Brugada Syndrome",SOP5,Disputed,11/21/2017
+KCNQ1,"Jervell and Lange-Nielsen syndrome",AR,"Hearing Loss",SOP6,Definitive,12/19/2017
+KCNQ1,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP7,"No Known Disease Relationship",04/07/2020
+KCNQ1,"long QT syndrome",AD,"Long QT Syndrome",SOP7,Definitive,09/25/2018
+KCNQ2,"undetermined early-onset epileptic encephalopathy",AD,Epilepsy,SOP5,Definitive,06/14/2018
+KCNQ4,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP6,Definitive,11/21/2017
+KCNT1,"childhood-onset epilepsy syndrome",AD,Epilepsy,SOP5,Definitive,10/20/2017
+KCTD7,"progressive myoclonus epilepsy",AR,Epilepsy,SOP7,Definitive,09/02/2020
+KDM5C,"X-linked syndromic intellectual disability",XL,"Intellectual Disability and Autism",SOP6,Definitive,09/19/2018
+KDR,"pulmonary arterial hypertension",AD,"Pulmonary Hypertension",SOP8,Strong,01/20/2021
+KDSR,"erythrokeratodermia variabilis et progressiva 4",AR,"Hemostasis Thrombosis",SOP7,Definitive,07/22/2020
+KIF1A,"syndromic intellectual disability",AD,"Intellectual Disability and Autism",SOP7,Definitive,09/24/2020
+KIF1B,"Charcot-Marie-Tooth disease type 2A1",AD,Charcot-Marie-Tooth,SOP7,"No Known Disease Relationship",10/05/2020
+KIT,"gastrointestinal stromal tumor",AD,"Hereditary Cancer",SOP7,Definitive,01/14/2020
+KITLG,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP6,Limited,01/16/2018
+KLF10,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP6,Limited,08/01/2017
+KLF11,"monogenic diabetes",AD,"Monogenic Diabetes",SOP7,Disputed,02/12/2020
+KLHL40,"nemaline myopathy 8",AR,"Congenital Myopathies",SOP6,Definitive,11/05/2019
+KLHL41,"nemaline myopathy 9",AR,"Congenital Myopathies",SOP6,Moderate,11/05/2019
+KRAS,"cardiofaciocutaneous syndrome",AD,RASopathy,SOP5,Strong,07/24/2018
+KRAS,"Noonan syndrome",AD,RASopathy,SOP5,Definitive,07/24/2018
+KRAS,"Costello syndrome",AD,RASopathy,SOP5,Disputed,07/24/2018
+KYNU,"vertebral, cardiac, renal, and limb defects syndrome 2",AR,Aminoacidopathy,SOP7,Moderate,07/10/2020
+L1CAM,"L1 syndrome",XL,"Intellectual Disability and Autism",SOP6,Definitive,10/02/2019
+LAMA2,"LAMA2-related muscular dystrophy",AR,"Congenital Myopathies",SOP8,Definitive,01/27/2021
+LAMA4,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Limited,08/12/2020
+LAMB1,"cobblestone lissencephaly without muscular or ocular involvement",AR,"General Gene Curation",SOP4,Moderate,11/15/2016
+LAMC3,"complex neurodevelopmental disorder",AD,"Intellectual Disability and Autism",SOP7,Disputed,09/01/2020
+LAMP2,"Danon disease",XL,"Hypertrophic Cardiomyopathy",SOP5,Definitive,10/11/2017
+LARS2,"Perrault syndrome",AR,"Hearing Loss",SOP5,Strong,06/27/2018
+LBR,"regressive spondylometaphyseal dysplasia",AR,"General Gene Curation",SOP4,Moderate,12/01/2016
+LDB3,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Limited,09/25/2020
+LDB3,"arrhythmogenic right ventricular cardiomyopathy",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP7,Disputed,09/12/2019
+LDLR,"hypercholesterolemia, familial, 1",SD,"General Gene Curation",SOP8,Definitive,02/24/2021
+LGI1,"Autosomal dominant epilepsy with auditory features",AD,Epilepsy,SOP7,Definitive,07/07/2020
+LHFPL5,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Definitive,04/24/2018
+LIAS,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Limited,03/11/2021
+LITAF,"Charcot-Marie-Tooth disease",AD,Charcot-Marie-Tooth,SOP7,Moderate,04/07/2020
+LMAN1,"factor V and factor VIII, combined deficiency of, type 1",AR,"Hemostasis Thrombosis",SOP6,Definitive,11/27/2019
+LMNA,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Definitive,11/06/2020
+LMNA,"arrhythmogenic right ventricular cardiomyopathy",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP7,Limited,09/06/2019
+LMOD3,"nemaline myopathy 10",AR,"Congenital Myopathies",SOP6,Definitive,09/09/2019
+LOX,"familial thoracic aortic aneurysm and aortic dissection",AD,"Familial Thoracic Aortic Aneurysm and Dissection",SOP4,Strong,07/25/2016
+LOXHD1,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Definitive,05/08/2018
+LPIN1,"myoglobinuria, acute recurrent, autosomal recessive",AR,"Fatty Acid Oxidation Disorders",SOP6,Definitive,09/25/2018
+LRPPRC,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Definitive,12/19/2019
+LRRC10,"dilated cardiomyopathy",AR,"Dilated Cardiomyopathy",SOP7,"No Known Disease Relationship",09/04/2020
+LRTOMT,"autosomal recessive nonsyndromic deafness 63",AR,"Hearing Loss",SOP4,Definitive,02/15/2017
+LYST,"Chediak-Higashi syndrome",AR,"Hemostasis Thrombosis",SOP7,Definitive,05/27/2020
+LZTR1,"Noonan syndrome",AD,RASopathy,SOP7,Definitive,04/23/2020
+LZTR1,"Noonan syndrome",AR,RASopathy,SOP7,Strong,09/11/2020
+MAGI2,"infantile epilepsy syndrome",XL,Epilepsy,SOP5,Disputed,06/26/2018
+MAN1B1,MAN1B1-CDG,AR,"Intellectual Disability and Autism",SOP7,Definitive,08/04/2020
+MAOA,"Brunner syndrome",XL,"Intellectual Disability and Autism",SOP7,Definitive,04/14/2020
+MAP2K1,"Noonan syndrome",AD,RASopathy,SOP5,Limited,07/24/2018
+MAP2K1,"Costello syndrome",AD,RASopathy,SOP5,Disputed,07/24/2018
+MAP2K1,"Noonan syndrome with multiple lentigines",AD,RASopathy,SOP5,Limited,05/29/2018
+MAP2K1,"cardiofaciocutaneous syndrome",AD,RASopathy,SOP5,Definitive,05/29/2018
+MAP2K2,"Noonan syndrome",AD,RASopathy,SOP5,Limited,06/01/2018
+MAP2K2,"cardiofaciocutaneous syndrome",AD,RASopathy,SOP5,Definitive,07/24/2018
+MAP3K20,"myopathy, centronuclear, 6, with fiber-type disproportion",AR,"Congenital Myopathies",SOP7,Moderate,06/08/2020
+MARS1,"Charcot-Marie-Tooth disease",AD,Charcot-Marie-Tooth,SOP7,Limited,10/05/2020
+MARVELD2,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP5,Definitive,08/29/2018
+MAT1A,"methionine adenosyltransferase deficiency",AR,Aminoacidopathy,SOP7,Definitive,09/13/2019
+MAT2A,"familial thoracic aortic aneurysm and aortic dissection",AD,"Familial Thoracic Aortic Aneurysm and Dissection",SOP4,Limited,07/03/2016
+MBD5,"complex neurodevelopmental disorder",AD,"Intellectual Disability and Autism",SOP6,Moderate,11/21/2018
+MCCC1,"3-methylcrotonyl-CoA carboxylase deficiency",AR,Aminoacidopathy,SOP6,Definitive,10/25/2019
+MCCC2,"3-methylcrotonyl-CoA carboxylase deficiency",AR,Aminoacidopathy,SOP6,Definitive,10/25/2019
+MCEE,"methylmalonic acidemia due to methylmalonyl-CoA epimerase deficiency",AR,Aminoacidopathy,SOP7,Definitive,07/09/2020
+MCM2,"autosomal dominant nonsyndromic deafness 70",AD,"Hearing Loss",SOP5,Limited,01/04/2018
+MCM2,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP7,Limited,04/21/2020
+MCPH1,"hereditary breast carcinoma",AD,"Breast/Ovarian Cancer",SOP4,Limited,01/11/2017
+MCPH1,"familial ovarian cancer",AD,"Breast/Ovarian Cancer",SOP4,"No Known Disease Relationship",01/11/2017
+MECP2,"Rett syndrome",XL,"Rett and Angelman-like Disorders",SOP5,Definitive,05/02/2018
+MED12,"MED12-related intellectual disability syndrome",XL,"Intellectual Disability and Autism",SOP5,Definitive,04/27/2018
+MED23,"syndromic intellectual disability",AR,"Intellectual Disability and Autism",SOP7,Moderate,04/01/2020
+MED25,"Charcot-Marie-Tooth disease type 2B2",AR,Charcot-Marie-Tooth,SOP8,Disputed,03/22/2021
+MEF2C,"complex neurodevelopmental disorder",AD,"Intellectual Disability and Autism",SOP6,Definitive,02/06/2019
+MEGF10,"MEGF10-Related Myopathy",AR,"Congenital Myopathies",SOP7,Definitive,01/27/2020
+MEN1,"multiple endocrine neoplasia type 1",AD,"Hereditary Cancer",SOP7,Definitive,05/13/2020
+MET,"papillary renal cell carcinoma",AD,"Hereditary Cancer",SOP6,Definitive,10/11/2018
+MET,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Limited,12/19/2017
+MFAP5,"familial thoracic aortic aneurysm and aortic dissection",AD,"Familial Thoracic Aortic Aneurysm and Dissection",SOP4,Moderate,12/22/2016
+MFSD8,"neuronal ceroid lipofuscinosis",AR,Epilepsy,SOP8,Definitive,12/15/2020
+MIB1,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,"No Known Disease Relationship",09/04/2020
+MID1,"X-linked Opitz G/BBB syndrome",XL,"Intellectual Disability and Autism",SOP5,Definitive,03/21/2018
+MIR96,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP6,Moderate,12/04/2018
+MITF,"Waardenburg syndrome type 2",AD,"Hearing Loss",SOP5,Definitive,07/26/2018
+MLH1,"hereditary breast carcinoma",AD,"Breast/Ovarian Cancer",SOP4,Disputed,06/14/2017
+MLH1,"colorectal cancer, hereditary nonpolyposis, type 2",AD,"Colon Cancer",SOP4,Definitive,07/10/2017
+MLH1,"mismatch repair cancer syndrome 1",AR,"Hereditary Cancer",SOP6,Definitive,10/09/2018
+MLH3,"hereditary nonpolyposis colon cancer",AD,"Colon Cancer",SOP4,Moderate,02/14/2017
+MLYCD,"malonic aciduria",AR,"Fatty Acid Oxidation Disorders",SOP6,Definitive,06/26/2018
+MMAA,"vitamin B12-responsive methylmalonic acidemia type cblA",AR,Aminoacidopathy,SOP7,Definitive,02/12/2021
+MMAB,"methylmalonic acidemia without homocystinuria",AR,Aminoacidopathy,SOP7,Definitive,02/17/2021
+MMACHC,"methylmalonic aciduria and homocystinuria type cblC",AR,Aminoacidopathy,SOP7,Definitive,06/29/2020
+MMUT,"methylmalonic aciduria due to methylmalonyl-CoA mutase deficiency",AR,Aminoacidopathy,SOP6,Definitive,05/09/2019
+MPIG6B,"thrombocytopenia, anemia, and myelofibrosis",AR,"Hemostasis Thrombosis",SOP7,Definitive,10/28/2020
+MPL,"thrombocythemia 2",AD,"Hemostasis Thrombosis",SOP7,Definitive,07/22/2020
+MPL,"congenital amegakaryocytic thrombocytopenia",AR,"Hemostasis Thrombosis",SOP7,Definitive,07/22/2020
+MPZ,"Charcot-Marie-Tooth disease",AD,Charcot-Marie-Tooth,SOP7,Definitive,08/25/2020
+MRAS,"Noonan syndrome",AD,RASopathy,SOP7,Moderate,08/27/2020
+MRE11,"hereditary breast carcinoma",AD,"Breast/Ovarian Cancer",SOP4,Disputed,10/25/2017
+MRE11,"familial ovarian cancer",AD,"Breast/Ovarian Cancer",SOP4,Disputed,10/25/2017
+MRPS34,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Moderate,08/27/2020
+MSH2,"hereditary breast carcinoma",AD,"Breast/Ovarian Cancer",SOP4,Disputed,10/11/2017
+MSH2,"Lynch syndrome",AD,"Colon Cancer",SOP4,Definitive,09/11/2017
+MSH2,"mismatch repair cancer syndrome 1",AR,"Hereditary Cancer",SOP6,Definitive,10/09/2018
+MSH3,"MSH3-related attenuated familial adenomatous polyposis",AR,"Colon Cancer",SOP4,Moderate,12/13/2016
+MSH3,"hereditary nonpolyposis colon cancer",AD,"Colon Cancer",SOP4,Limited,11/13/2017
+MSH6,"hereditary breast carcinoma",AD,"Breast/Ovarian Cancer",SOP4,Disputed,07/26/2017
+MSH6,"Lynch syndrome",AD,"Colon Cancer",SOP4,Definitive,09/25/2017
+MSH6,"mismatch repair cancer syndrome 1",AR,"Hereditary Cancer",SOP6,Definitive,10/09/2018
+MSRB3,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Moderate,11/15/2017
+MSX2,"parietal foramina",AD,"Craniofacial Malformations",SOP7,Definitive,07/08/2020
+MSX2,"craniosynostosis 2",AD,"Craniofacial Malformations",SOP7,Definitive,09/28/2020
+MTFMT,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Definitive,03/19/2020
+MTHFR,"homocystinuria due to methylene tetrahydrofolate reductase deficiency",AR,Aminoacidopathy,SOP6,Definitive,06/18/2019
+MTM1,"X-linked centronuclear myopathy",XL,"Congenital Myopathies",SOP7,Definitive,11/22/2019
+MTMR2,"demyelinating hereditary motor and sensory neuropathy",AR,Charcot-Marie-Tooth,SOP7,Definitive,02/11/2020
+MUTYH,"MUTYH-related attenuated familial adenomatous polyposis",AD,"Colon Cancer",SOP4,Moderate,10/09/2017
+MUTYH,"MUTYH-related attenuated familial adenomatous polyposis",AR,"Colon Cancer",SOP4,Definitive,06/12/2017
+MUTYH,"hereditary breast carcinoma",AD,"Breast/Ovarian Cancer",SOP4,"No Known Disease Relationship",05/25/2017
+MUTYH,"familial ovarian cancer",AD,"Breast/Ovarian Cancer",SOP4,Limited,11/29/2017
+MUTYH,"hereditary breast carcinoma",AR,"Breast/Ovarian Cancer",SOP4,"No Known Disease Relationship",05/24/2017
+MUTYH,"familial ovarian cancer",AR,"Breast/Ovarian Cancer",SOP4,Limited,11/29/2017
+MYBPC3,"hypertrophic cardiomyopathy 4",AD,"Hypertrophic Cardiomyopathy",SOP5,Definitive,09/05/2017
+MYBPC3,"arrhythmogenic right ventricular cardiomyopathy",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP7,Limited,08/06/2019
+MYBPC3,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Limited,09/04/2020
+MYH11,"familial thoracic aortic aneurysm and aortic dissection",AD,"Familial Thoracic Aortic Aneurysm and Dissection",SOP4,Definitive,07/03/2016
+MYH14,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP7,Moderate,08/31/2020
+MYH2,"myopathy, proximal, and ophthalmoplegia",SD,"Congenital Myopathies",SOP7,Definitive,03/09/2020
+MYH6,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP5,Limited,11/01/2017
+MYH6,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Limited,09/04/2020
+MYH7,"arrhythmogenic right ventricular cardiomyopathy",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP7,Limited,08/06/2019
+MYH7,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP8,Definitive,03/16/2021
+MYH7,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Definitive,11/13/2020
+MYH9,"MYH-9 related disease",AD,"Hearing Loss",SOP5,Definitive,07/17/2018
+MYL1,"congenital myopathy",AR,"Congenital Myopathies",SOP7,Limited,04/13/2020
+MYL2,"hypertrophic cardiomyopathy 10",AD,"Hypertrophic Cardiomyopathy",SOP4,Definitive,02/07/2017
+MYL2,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Limited,10/09/2020
+MYL2,"arrhythmogenic right ventricular cardiomyopathy",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP7,"No Known Disease Relationship",05/24/2019
+MYL3,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP5,Definitive,10/04/2016
+MYL3,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Disputed,10/09/2020
+MYL3,"arrhythmogenic right ventricular cardiomyopathy",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP7,Limited,09/13/2019
+MYLK,"familial thoracic aortic aneurysm and aortic dissection",AD,"Familial Thoracic Aortic Aneurysm and Dissection",SOP4,Strong,12/18/2016
+MYLK2,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP6,Limited,04/17/2017
+MYO15A,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Definitive,11/21/2017
+MYO18B,"Klippel-Feil anomaly-myopathy-facial dysmorphism syndrome",AR,"Congenital Myopathies",SOP7,Limited,01/12/2020
+MYO1A,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP6,Refuted,01/16/2018
+MYO1C,"autosomal dominant nonsyndromic deafness",AD,"Hearing Loss",SOP5,Disputed,06/28/2018
+MYO1F,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP5,Disputed,08/22/2018
+MYO3A,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Strong,11/15/2017
+MYO6,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP6,Definitive,02/20/2018
+MYO7A,"Usher syndrome type 1",AR,"Hearing Loss",SOP5,Definitive,06/29/2018
+MYO7A,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP6,Definitive,03/19/2018
+MYO9A,"arthrogryposis syndrome",AR,"General Gene Curation",SOP4,Limited,11/24/2016
+MYOM1,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP5,Limited,08/01/2018
+MYOZ2,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP5,Limited,08/01/2018
+MYPN,"MYPN-related myopathy",AR,"Congenital Myopathies",SOP7,Definitive,06/17/2020
+MYPN,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP7,Limited,05/01/2020
+MYPN,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Limited,10/09/2020
+MYT1L,"intellectual disability, autosomal dominant 39",AD,"Intellectual Disability and Autism",SOP7,Definitive,08/18/2020
+NAA10,"NAA10-related syndrome",XL,"Intellectual Disability and Autism",SOP7,Definitive,09/02/2020
+NADK2,"progressive encephalopathy with leukodystrophy due to DECR deficiency",AR,"Fatty Acid Oxidation Disorders",SOP6,Moderate,02/27/2018
+NAGS,"hyperammonemia due to N-acetylglutamate synthase deficiency",AR,Aminoacidopathy,SOP6,Definitive,07/26/2019
+NARS2,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Limited,12/19/2019
+NARS2,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Limited,12/19/2017
+NAT8L,"N-acetylaspartate deficiency",AR,Aminoacidopathy,SOP7,Limited,10/23/2020
+NBEA,"complex neurodevelopmental disorder",AD,"Intellectual Disability and Autism",SOP8,Definitive,12/02/2020
+NBEAL2,"gray platelet syndrome",AR,"Hemostasis Thrombosis",SOP6,Definitive,06/26/2019
+NBN,"hereditary breast carcinoma",AD,"Breast/Ovarian Cancer",SOP4,Limited,09/27/2017
+NBN,"Nijmegen breakage syndrome",AR,"Hereditary Cancer",SOP6,Definitive,08/14/2019
+NDP,"Norrie disease",XL,"Intellectual Disability and Autism",SOP5,Definitive,03/21/2018
+NDUFA1,"Leigh syndrome",XL,"Mitochondrial Diseases",SOP6,Moderate,05/20/2019
+NDUFA10,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Limited,11/25/2019
+NDUFA12,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Limited,11/25/2019
+NDUFA13,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Moderate,01/21/2021
+NDUFA2,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Moderate,05/20/2019
+NDUFA4,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Limited,01/14/2021
+NDUFA9,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Moderate,11/25/2019
+NDUFAF2,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Definitive,11/23/2020
+NDUFAF4,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Limited,02/12/2020
+NDUFAF6,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Definitive,11/23/2020
+NDUFB8,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Moderate,01/21/2021
+NDUFC2,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Moderate,01/21/2021
+NDUFS1,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Definitive,06/20/2019
+NDUFS3,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Moderate,06/20/2019
+NDUFS4,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Definitive,04/08/2019
+NDUFS7,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Moderate,11/25/2019
+NDUFS8,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Moderate,11/25/2019
+NDUFV1,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Definitive,11/26/2019
+NDUFV2,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Limited,11/25/2019
+NEB,"nemaline myopathy 2",AR,"Congenital Myopathies",SOP6,Definitive,10/21/2019
+NEBL,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Limited,09/25/2020
+NEFH,"Charcot-Marie-Tooth disease axonal type 2CC",AD,Charcot-Marie-Tooth,SOP7,Definitive,10/05/2020
+NEUROD1,"monogenic diabetes",AR,"Monogenic Diabetes",SOP7,Moderate,03/10/2021
+NEXMIF,"complex neurodevelopmental disorder",XL,"Intellectual Disability and Autism",SOP7,Definitive,05/29/2020
+NEXN,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP5,Limited,10/28/2016
+NEXN,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Moderate,08/12/2020
+NF1,"familial ovarian cancer",AD,"Breast/Ovarian Cancer",SOP4,"No Known Disease Relationship",02/22/2017
+NF1,"neurofibromatosis type 1",AD,"General Gene Curation",SOP7,Definitive,03/05/2019
+NF2,"neurofibromatosis type 2",AD,"General Gene Curation",SOP6,Definitive,02/27/2019
+NFKBIZ,"hereditary nonpolyposis colon cancer",AD,"Colon Cancer",SOP4,Limited,07/10/2017
+NGLY1,NGLY1-deficiency,AR,"General Gene Curation",SOP4,Definitive,12/01/2016
+NHLRC1,"Lafora disease",AR,Epilepsy,SOP7,Definitive,03/03/2020
+NHP2,"dyskeratosis congenita",AR,"General Gene Curation",SOP4,Limited,01/25/2017
+NHS,"Nance-Horan syndrome",XL,"Intellectual Disability and Autism",SOP5,Definitive,10/20/2017
+NIPBL,"Cornelia de Lange syndrome",AD,"Intellectual Disability and Autism",SOP5,Definitive,06/20/2018
+NKX2-5,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Limited,11/06/2020
+NLGN3,"complex neurodevelopmental disorder",XL,"Intellectual Disability and Autism",SOP5,Moderate,09/19/2018
+NLGN4X,"complex neurodevelopmental disorder",XL,"Intellectual Disability and Autism",SOP6,Definitive,07/17/2019
+NOD2,"Blau syndrome",AD,"Syndromic Disorders",SOP7,Definitive,10/07/2020
+NOTCH1,"familial thoracic aortic aneurysm and aortic dissection",AD,"Familial Thoracic Aortic Aneurysm and Dissection",SOP4,Limited,04/06/2016
+NPHP4,"nephronophthisis 4",AR,"Kidney Cystic and Ciliopathy Disorders",SOP8,Definitive,02/10/2021
+NPPA,"dilated cardiomyopathy",AR,"Dilated Cardiomyopathy",SOP7,"No Known Disease Relationship",09/04/2020
+NRAS,"Costello syndrome",AD,RASopathy,SOP5,Limited,07/24/2018
+NRAS,"Noonan syndrome",AD,RASopathy,SOP5,Definitive,05/30/2018
+NRAS,"cardiofaciocutaneous syndrome",AD,RASopathy,SOP5,Limited,07/24/2018
+NRAS,"Noonan syndrome with multiple lentigines",AD,RASopathy,SOP5,Limited,05/30/2018
+NRXN1,"complex neurodevelopmental disorder",AD,"Intellectual Disability and Autism",SOP6,Definitive,07/10/2019
+NSD1,"Sotos syndrome",AD,"Intellectual Disability and Autism",SOP6,Definitive,10/26/2018
+NSDHL,"CK syndrome",XL,"Intellectual Disability and Autism",SOP8,Moderate,01/20/2021
+NSUN2,RASopathy,AR,RASopathy,SOP6,Disputed,02/04/2019
+NSUN2,"intellectual disability",AR,"Intellectual Disability and Autism",SOP6,Moderate,02/06/2019
+NUBPL,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Moderate,03/19/2020
+OAT,"ornithine aminotransferase deficiency",AR,Aminoacidopathy,SOP6,Definitive,07/10/2019
+OBSCN,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Limited,11/06/2020
+OCRL,"oculocerebrorenal syndrome",XL,"Intellectual Disability and Autism",SOP7,Definitive,07/10/2020
+OFD1,ciliopathy,XL,"Intellectual Disability and Autism",SOP5,Definitive,04/27/2018
+ORAI1,"tubular aggregate myopathy",AD,"Congenital Myopathies",SOP7,Definitive,07/13/2020
+OSBPL2,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP7,Moderate,02/06/2020
+OTC,"ornithine carbamoyltransferase deficiency",XL,Aminoacidopathy,SOP6,Definitive,10/29/2019
+OTOA,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Definitive,05/01/2018
+OTOF,"autosomal recessive nonsyndromic deafness 9",AR,"Hearing Loss",SOP4,Definitive,01/30/2017
+OTOG,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Definitive,06/28/2018
+OTOGL,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Definitive,01/05/2018
+P2RX2,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP6,Moderate,02/20/2018
+P2RY12,"platelet-type bleeding disorder 8",AD,"Hemostasis Thrombosis",SOP7,Moderate,08/26/2020
+PACS1,"Schuurs-Hoeijmakers syndrome",AD,"Intellectual Disability and Autism",SOP7,Definitive,06/26/2020
+PAH,phenylketonuria,AR,Aminoacidopathy,SOP7,Definitive,04/24/2020
+PAK3,"X-linked syndromic intellectual disability",XL,"Intellectual Disability and Autism",SOP5,Definitive,08/13/2018
+PALB2,"hereditary nonpolyposis colon cancer",AD,"Colon Cancer",SOP4,Limited,03/12/2018
+PALB2,"hereditary breast carcinoma",AD,"Breast/Ovarian Cancer",SOP4,Definitive,12/01/2016
+PALB2,"familial ovarian cancer",AD,"Breast/Ovarian Cancer",SOP4,Moderate,11/08/2017
+PALB2,"Fanconi anemia complementation group N",AR,"Hereditary Cancer",SOP6,Definitive,08/18/2019
+PAX3,"Waardenburg syndrome",AD,"Hearing Loss",SOP6,Definitive,11/15/2017
+PAX4,"monogenic diabetes",AD,"Monogenic Diabetes",SOP7,Refuted,01/13/2021
+PCCA,"propionic acidemia",AR,Aminoacidopathy,SOP6,Definitive,12/13/2018
+PCCB,"propionic acidemia",AR,Aminoacidopathy,SOP6,Definitive,12/13/2018
+PCDH15,"Usher syndrome type 1",AR,"Hearing Loss",SOP4,Definitive,02/15/2017
+PCDH15,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Limited,06/19/2018
+PCDH19,"complex neurodevelopmental disorder",XL,Epilepsy,SOP6,Definitive,09/04/2018
+PCSK9,"hypercholesterolemia, autosomal dominant, 3",AD,"General Gene Curation",SOP7,Definitive,11/14/2018
+PDGFRA,"gastrointestinal stromal tumor",AD,"Hereditary Cancer",SOP7,Definitive,01/13/2020
+PDHA1,"Leigh syndrome",XL,"Mitochondrial Diseases",SOP6,Definitive,04/08/2019
+PDHB,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Moderate,03/11/2021
+PDHX,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Definitive,03/11/2021
+PDLIM3,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP5,Limited,08/06/2018
+PDLIM3,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Disputed,09/16/2020
+PDSS2,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Moderate,03/11/2021
+PDZD7,"autosomal recessive nonsyndromic deafness",AR,"Hearing Loss",SOP4,Definitive,04/26/2017
+PET100,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Moderate,05/20/2019
+PET117,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Limited,05/20/2019
+PEX1,"peroxisome biogenesis disorder",AR,"Peroxisomal Disorders",SOP7,Definitive,05/17/2019
+PEX10,"peroxisome biogenesis disorder",AR,"Peroxisomal Disorders",SOP7,Definitive,12/06/2019
+PEX11B,"peroxisome biogenesis disorder",AR,"Peroxisomal Disorders",SOP7,Definitive,01/17/2020
+PEX12,"peroxisome biogenesis disorder",AR,"Peroxisomal Disorders",SOP7,Definitive,12/06/2019
+PEX13,"peroxisome biogenesis disorder",AR,"Peroxisomal Disorders",SOP7,Definitive,10/04/2019
+PEX14,"peroxisome biogenesis disorder",AR,"Peroxisomal Disorders",SOP7,Definitive,09/20/2019
+PEX16,"peroxisome biogenesis disorder",AR,"Peroxisomal Disorders",SOP7,Definitive,01/13/2020
+PEX19,"peroxisome biogenesis disorder",AR,"Peroxisomal Disorders",SOP7,Definitive,01/17/2020
+PEX2,"peroxisome biogenesis disorder",AR,"Peroxisomal Disorders",SOP7,Definitive,02/07/2020
+PEX26,"peroxisome biogenesis disorder",AR,"Peroxisomal Disorders",SOP7,Definitive,02/07/2020
+PEX3,"peroxisome biogenesis disorder",AR,"Peroxisomal Disorders",SOP7,Definitive,11/01/2019
+PEX5,"peroxisome biogenesis disorder",AR,"Peroxisomal Disorders",SOP7,Definitive,01/17/2020
+PEX6,"peroxisome biogenesis disorder",AR,"Peroxisomal Disorders",SOP7,Definitive,09/06/2019
+PEX7,"peroxisome biogenesis disorder",AR,"Peroxisomal Disorders",SOP7,Definitive,02/14/2020
+PHF6,"Borjeson-Forssman-Lehmann syndrome",XL,"Intellectual Disability and Autism",SOP5,Definitive,02/21/2018
+PHF8,"syndromic X-linked intellectual disability Siderius type",XL,"Intellectual Disability and Autism",SOP6,Definitive,11/07/2018
+PHGDH,"neurometabolic disorder due to serine deficiency",AR,Aminoacidopathy,SOP7,Definitive,06/29/2020
+PHYKPL,phosphohydroxylysinuria,AR,Aminoacidopathy,SOP7,Limited,09/25/2020
+PIGA,"undetermined early-onset epileptic encephalopathy",XL,Epilepsy,SOP6,Moderate,08/13/2020
+PIK3CA,"hereditary breast carcinoma",AD,"Breast/Ovarian Cancer",SOP4,"No Known Disease Relationship",02/08/2017
+PIK3CA,"familial ovarian cancer",AD,"Breast/Ovarian Cancer",SOP4,"No Known Disease Relationship",02/08/2017
+PIK3R1,"SHORT syndrome",AD,"UNC Biocuration Core",SOP5,Definitive,07/03/2018
+PJVK,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Definitive,12/19/2017
+PKD1,"autosomal dominant polycystic kidney disease",AD,"Kidney Cystic and Ciliopathy Disorders",SOP6,Definitive,02/26/2021
+PKD2,"autosomal dominant polycystic kidney disease",AD,"Kidney Cystic and Ciliopathy Disorders",SOP6,Definitive,02/26/2021
+PKP2,"Brugada syndrome 1",AD,"Brugada Syndrome",SOP5,Disputed,11/21/2017
+PKP2,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Disputed,10/09/2020
+PKP2,"arrhythmogenic right ventricular cardiomyopathy",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP7,Definitive,03/08/2018
+PLA2G4A,"cytosolic phospholipase-A2 alpha deficiency associated bleeding disorder",AR,"Hemostasis Thrombosis",SOP7,Moderate,03/25/2020
+PLCB1,"developmental and epileptic encephalopathy, 12",AR,Epilepsy,SOP7,Definitive,09/19/2020
+PLEKHM2,"dilated cardiomyopathy",AR,"Dilated Cardiomyopathy",SOP7,Limited,10/09/2020
+PLG,hypoplasminogenemia,AR,"Hemostasis Thrombosis",SOP6,Definitive,10/23/2019
+PLN,cardiomyopathy,AD,"Hypertrophic Cardiomyopathy",SOP4,Definitive,09/19/2017
+PLN,"arrhythmogenic right ventricular cardiomyopathy",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP8,Moderate,12/17/2020
+PLN,"intrinsic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP8,Definitive,02/12/2021
+PLP1,"Pelizaeus-Merzbacher disease",XL,"Intellectual Disability and Autism",SOP5,Definitive,03/07/2018
+PMP2,"Charcot-Marie-Tooth disease",AD,Charcot-Marie-Tooth,SOP8,Limited,03/22/2021
+PMS1,"Lynch syndrome",AD,"Colon Cancer",SOP4,Refuted,05/22/2017
+PMS2,"hereditary breast carcinoma",AD,"Breast/Ovarian Cancer",SOP4,Disputed,11/08/2017
+PMS2,"Lynch syndrome",AD,"Colon Cancer",SOP4,Definitive,06/26/2017
+PMS2,"mismatch repair cancer syndrome 1",AR,"Hereditary Cancer",SOP6,Definitive,10/09/2018
+PNKP,"microcephaly, seizures, and developmental delay",AR,Epilepsy,SOP7,Definitive,04/17/2020
+PNPT1,"autosomal recessive nonsyndromic deafness",AR,"Hearing Loss",SOP4,Limited,02/23/2017
+PNPT1,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Moderate,03/19/2020
+POGZ,"intellectual disability-microcephaly-strabismus-behavioral abnormalities syndrome",AD,"Intellectual Disability and Autism",SOP7,Definitive,03/09/2020
+POLD1,"Polymerase proofreading-related adenomatous polyposis",AD,"Colon Cancer",SOP4,Definitive,04/10/2017
+POLE,"Polymerase proofreading-related adenomatous polyposis",AD,"Colon Cancer",SOP4,Definitive,12/11/2017
+POLH,"xeroderma pigmentosum variant type",AR,"Hereditary Cancer",SOP6,Definitive,11/02/2018
+POLR2A,"neurodevelopmental disorder with hypotonia and variable intellectual and behavioral abnormalities",AD,"Syndromic Disorders",SOP7,Moderate,08/25/2020
+POMGNT1,"muscular dystrophy-dystroglycanopathy",AR,"Limb Girdle Muscular Dystrophy",SOP7,Definitive,09/09/2020
+POMGNT2,"muscular dystrophy-dystroglycanopathy",AR,"Limb Girdle Muscular Dystrophy",SOP7,Definitive,09/10/2020
+POPDC3,"autosomal recessive limb-girdle muscular dystrophy",AR,"Limb Girdle Muscular Dystrophy",SOP8,Limited,01/13/2021
+PORCN,"focal dermal hypoplasia",XL,"Intellectual Disability and Autism",SOP7,Definitive,08/05/2020
+POU3F4,"nonsyndromic genetic deafness",XL,"Hearing Loss",SOP6,Definitive,01/05/2018
+POU4F3,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP6,Definitive,11/21/2017
+PPM1K,"maple syrup urine disease, mild variant",AR,Aminoacidopathy,SOP7,Limited,09/25/2020
+PPP1CB,"Noonan syndrome-like disorder with loose anagen hair",AD,RASopathy,SOP7,Definitive,04/23/2020
+PQBP1,"Renpenning syndrome",XL,"Intellectual Disability and Autism",SOP6,Definitive,11/09/2018
+PRDM16,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Limited,08/12/2020
+PRICKLE1,"progressive myoclonus epilepsy",AD,Epilepsy,SOP7,Disputed,09/01/2020
+PRICKLE1,"progressive myoclonus epilepsy",AR,Epilepsy,SOP7,Limited,08/18/2020
+PRKAG2,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP5,Definitive,01/30/2017
+PRKAR1A,"Carney complex, type 1",AD,"Hereditary Cancer",SOP6,Definitive,12/21/2018
+PRKCSH,"polycystic liver disease 1",AD,"Kidney Cystic and Ciliopathy Disorders",SOP7,Definitive,07/08/2020
+PRKG1,"familial thoracic aortic aneurysm and aortic dissection",AD,"Familial Thoracic Aortic Aneurysm and Dissection",SOP4,Strong,12/22/2016
+PROC,"hereditary thrombophilia due to congenital protein C deficiency",SD,"Hemostasis Thrombosis",SOP7,Definitive,01/22/2020
+PRODH2,"hydroxyprolinemia (disease)",AR,Aminoacidopathy,SOP6,Limited,09/13/2019
+PROS1,"hereditary thrombophilia due to congenital protein S deficiency",SD,"Hemostasis Thrombosis",SOP7,Definitive,01/22/2020
+PRPS1,"phosphoribosylpyrophosphate synthetase superactivity",XL,"Hearing Loss",SOP7,Limited,02/14/2020
+PRPS1,"PRPS1 deficiency disorder",XL,"Hearing Loss",SOP7,Definitive,02/14/2020
+PRRT2,"infantile convulsions and choreoathetosis",AD,Epilepsy,SOP7,Definitive,01/21/2020
+PRSS1,"hereditary chronic pancreatitis",AD,"Hereditary Cancer",SOP7,Definitive,07/30/2020
+PSAT1,"neurometabolic disorder due to serine deficiency",AR,Aminoacidopathy,SOP7,Definitive,06/29/2020
+PSD3,"antecubital pterygium syndrome",AD,"General Gene Curation",SOP4,Limited,11/24/2016
+PSEN1,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Disputed,11/06/2020
+PSEN2,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Limited,09/04/2020
+PSPH,"neurometabolic disorder due to serine deficiency",AR,Aminoacidopathy,SOP7,Moderate,09/29/2020
+PTCD3,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Limited,06/20/2019
+PTCH1,"nevoid basal cell carcinoma syndrome",AD,"Hereditary Cancer",SOP5,Definitive,06/04/2018
+PTCH2,"nevoid basal cell carcinoma syndrome",AD,"Hereditary Cancer",SOP6,Limited,10/12/2018
+PTCHD1,"non-syndromic X-linked intellectual disability",XL,"Intellectual Disability and Autism",SOP5,Definitive,09/19/2018
+PTEN,"PTEN hamartoma tumor syndrome",AD,PTEN,SOP4,Definitive,10/09/2017
+PTPN11,"Noonan syndrome",AD,RASopathy,SOP5,Definitive,07/24/2018
+PTPN11,"Costello syndrome",AD,RASopathy,SOP5,Disputed,05/31/2018
+PTPN11,"cardiofaciocutaneous syndrome",AD,RASopathy,SOP5,Disputed,05/30/2018
+PTPN11,"Noonan syndrome with multiple lentigines",AD,RASopathy,SOP5,Definitive,07/25/2018
+PTPRJ,"hereditary nonpolyposis colon cancer",AD,"Hereditary Cancer",SOP6,Limited,10/12/2018
+PTPRQ,"autosomal recessive nonsyndromic deafness",AR,"Hearing Loss",SOP4,Definitive,02/23/2017
+PTS,"BH4-deficient hyperphenylalaninemia A",AR,Aminoacidopathy,SOP5,Definitive,12/22/2017
+PURA,"complex neurodevelopmental disorder",AD,Epilepsy,SOP6,Definitive,12/18/2018
+PYCR1,"autosomal recessive cutis laxa type 2B",AR,Aminoacidopathy,SOP7,Definitive,05/21/2020
+PYROXD1,"myofibrillar myopathy 8",AR,"Congenital Myopathies",SOP6,Definitive,11/05/2019
+QARS1,"diffuse cerebral and cerebellar atrophy - intractable seizures - progressive microcephaly syndrome",AR,"Brain Malformations",SOP7,Definitive,05/26/2020
+QDPR,"dihydropteridine reductase deficiency",AR,Aminoacidopathy,SOP5,Definitive,06/18/2018
+RAB27A,"Griscelli syndrome type 2",AR,"Syndromic Disorders",SOP8,Definitive,12/17/2020
+RAB28,"cone-rod dystrophy 18",AR,"UNC Biocuration Core",SOP5,Limited,07/03/2018
+RAB39B,"early-onset parkinsonism-intellectual disability syndrome",XL,"Intellectual Disability and Autism",SOP5,Definitive,06/04/2018
+RAB3GAP1,"Warburg micro syndrome 1",AR,"Brain Malformations",SOP7,Definitive,05/26/2020
+RAD21,"Cornelia de Lange syndrome",AD,"Intellectual Disability and Autism",SOP7,Definitive,01/08/2020
+RAD50,"hereditary breast carcinoma",AD,"Breast/Ovarian Cancer",SOP4,Limited,12/14/2016
+RAD50,"familial ovarian cancer",AD,"Breast/Ovarian Cancer",SOP4,Disputed,10/26/2016
+RAD51C,"Fanconi anemia",AR,"General Gene Curation",SOP4,Moderate,01/05/2017
+RAD51C,"hereditary breast carcinoma",AD,"Breast/Ovarian Cancer",SOP4,Disputed,05/10/2017
+RAD51C,"familial ovarian cancer",AD,"Breast/Ovarian Cancer",SOP4,Definitive,04/12/2017
+RAD51D,"hereditary breast carcinoma",AD,"Breast/Ovarian Cancer",SOP4,Limited,11/08/2017
+RAD51D,"familial ovarian cancer",AD,"Breast/Ovarian Cancer",SOP4,Definitive,10/11/2017
+RAF1,"Costello syndrome",AD,RASopathy,SOP5,Disputed,07/24/2018
+RAF1,"Noonan syndrome",AD,RASopathy,SOP5,Definitive,07/24/2018
+RAF1,"cardiofaciocutaneous syndrome",AD,RASopathy,SOP5,Disputed,05/31/2018
+RAF1,"Noonan syndrome with multiple lentigines",AD,RASopathy,SOP5,Limited,07/25/2018
+RAI1,"Smith-Magenis syndrome",AD,"Intellectual Disability and Autism",SOP5,Definitive,09/27/2018
+RANGRF,"Brugada syndrome",AD,"Brugada Syndrome",SOP5,Disputed,11/21/2017
+RASA1,"Noonan syndrome",AD,RASopathy,SOP5,Disputed,06/07/2018
+RASA2,"Noonan syndrome",AD,RASopathy,SOP5,Limited,07/24/2018
+RASGRP2,"platelet-type bleeding disorder 18",AR,"Hemostasis Thrombosis",SOP6,Definitive,09/27/2019
+RB1,retinoblastoma,AD,"Hereditary Cancer",SOP7,Definitive,07/30/2020
+RBM20,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Definitive,08/20/2020
+RBM8A,"thrombocytopenia-absent radius syndrome",AR,"Hemostasis Thrombosis",SOP7,Definitive,05/15/2020
+RDX,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Definitive,01/02/2018
+RECQL,"hereditary breast carcinoma",AD,"Breast/Ovarian Cancer",SOP4,Moderate,09/28/2016
+RECQL,"familial ovarian cancer",AD,"Breast/Ovarian Cancer",SOP4,"No Known Disease Relationship",09/14/2016
+RECQL4,"Rothmund-Thomson syndrome",AR,"Hereditary Cancer",SOP6,Definitive,10/11/2018
+RET,"multiple endocrine neoplasia type 2B",AD,"Hereditary Cancer",SOP7,Definitive,05/14/2020
+RET,"multiple endocrine neoplasia type 2A",AD,"Hereditary Cancer",SOP7,Definitive,05/14/2020
+RHBDF2,"palmoplantar keratoderma-esophageal carcinoma syndrome",AD,"Hereditary Cancer",SOP7,Definitive,07/30/2020
+RINT1,"hereditary breast carcinoma",AD,"Breast/Ovarian Cancer",SOP4,Disputed,09/26/2016
+RINT1,"familial ovarian cancer",AD,"Breast/Ovarian Cancer",SOP4,"No Known Disease Relationship",09/14/2016
+RIPOR2,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Moderate,09/18/2018
+RIT1,"Noonan syndrome",AD,RASopathy,SOP5,Definitive,07/24/2018
+RNASEH1,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Limited,01/14/2021
+RNF43,"sessile serrated polyposis cancer syndrome",AD,"Colon Cancer",SOP4,Limited,10/23/2017
+ROR1,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Limited,03/20/2018
+RPE65,"Leber congenital amaurosis",AR,"Harvard/Geisinger Biocuration Core",SOP5,Definitive,02/13/2018
+RPE65,"retinitis pigmentosa",AD,"Harvard/Geisinger Biocuration Core",SOP5,Moderate,03/05/2018
+RPS10,"Diamond-Blackfan anemia",AD,"General Gene Curation",SOP4,Definitive,01/19/2017
+RPS20,"hereditary nonpolyposis colon cancer",AD,"Colon Cancer",SOP4,Limited,06/08/2017
+RPS24,"Diamond-Blackfan anemia",AD,"General Gene Curation",SOP4,Definitive,01/19/2017
+RPS6KA3,"Coffin-Lowry syndrome",XL,"Intellectual Disability and Autism",SOP6,Definitive,05/28/2019
+RRAS,"Noonan syndrome",AD,RASopathy,SOP5,Limited,07/24/2018
+RRAS2,"Noonan syndrome",AD,RASopathy,SOP6,Strong,06/27/2019
+RS1,"X-linked retinoschisis",XL,Retina,SOP8,Definitive,12/18/2020
+RUNX1,"hereditary thrombocytopenia and hematologic cancer predisposition syndrome",AD,"Hereditary Cancer",SOP5,Definitive,06/04/2018
+RYR1,"malignant hyperthermia, susceptibility to, 1",AD,"General Gene Curation",SOP8,Definitive,11/25/2020
+RYR1,"RYR1-related myopathy",AR,"Congenital Myopathies",SOP7,Definitive,07/27/2020
+RYR1,"RYR1-related myopathy",AD,"Congenital Myopathies",SOP7,Definitive,10/26/2020
+RYR2,"catecholaminergic polymorphic ventricular tachycardia 1",AD,"Hypertrophic Cardiomyopathy",SOP4,Definitive,03/08/2017
+RYR2,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP5,Limited,07/19/2019
+RYR2,"arrhythmogenic right ventricular cardiomyopathy",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP7,Refuted,07/19/2019
+RYR3,"undetermined early-onset epileptic encephalopathy",AD,Epilepsy,SOP6,Limited,06/19/2018
+RYR3,"congenital myopathy",AR,"Congenital Myopathies",SOP7,"No Known Disease Relationship",01/27/2020
+S1PR2,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP4,Strong,03/02/2017
+SARDH,sarcosinemia,AR,Aminoacidopathy,SOP6,Limited,06/28/2019
+SATB2,"SATB2 associated disorder",AD,"Intellectual Disability and Autism",SOP7,Definitive,09/15/2020
+SBDS,"Shwachman-Diamond syndrome",AR,"Hereditary Cancer",SOP7,Definitive,07/30/2020
+SBF2,"Charcot-Marie-Tooth disease type 4B2",AR,Charcot-Marie-Tooth,SOP8,Definitive,03/22/2021
+SCARB2,"progressive myoclonus epilepsy",AR,Epilepsy,SOP7,Definitive,08/23/2020
+SCN10A,"Brugada syndrome 1",AD,"Brugada Syndrome",SOP5,Disputed,11/21/2017
+SCN1A,"obsolete early infantile epileptic encephalopathy",AD,Epilepsy,SOP6,Strong,10/25/2019
+SCN1A,"generalized epilepsy with febrile seizures plus",AD,Epilepsy,SOP6,Definitive,09/06/2019
+SCN1A,"obsolete Dravet syndrome",AD,Epilepsy,SOP6,Definitive,08/20/2019
+SCN1A,"migraine, familial hemiplegic, 3",AD,Epilepsy,SOP7,Moderate,01/24/2020
+SCN1B,"Brugada syndrome 1",AD,"Brugada Syndrome",SOP5,Disputed,11/21/2017
+SCN2A,"complex neurodevelopmental disorder",AD,Epilepsy,SOP6,Definitive,05/07/2019
+SCN2B,"Brugada syndrome 1",AD,"Brugada Syndrome",SOP5,Disputed,11/21/2017
+SCN3B,"Brugada syndrome 1",AD,"Brugada Syndrome",SOP5,Disputed,11/21/2017
+SCN4B,"long QT syndrome",AD,"Long QT Syndrome",SOP7,Disputed,09/25/2018
+SCN5A,"Brugada syndrome",AD,"Brugada Syndrome",SOP5,Definitive,11/21/2017
+SCN5A,"arrhythmogenic right ventricular cardiomyopathy",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP6,Limited,06/06/2019
+SCN5A,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Definitive,11/06/2020
+SCN5A,"familial long QT syndrome",AD,"Long QT Syndrome",SOP7,Definitive,09/25/2018
+SCN8A,"complex neurodevelopmental disorder",AD,Epilepsy,SOP5,Definitive,07/18/2018
+SCN9A,epilepsy,AD,Epilepsy,SOP8,Refuted,03/09/2021
+SCO2,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Definitive,03/28/2019
+SDHA,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Moderate,05/20/2019
+SDHAF1,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Limited,02/12/2020
+SEC61B,"polycystic liver disease 1",AD,"Kidney Cystic and Ciliopathy Disorders",SOP7,Limited,06/10/2020
+SEC63,"polycystic liver disease 2",AD,"Kidney Cystic and Ciliopathy Disorders",SOP7,Definitive,09/23/2020
+SELENON,"SELENON-related myopathy",AR,"Congenital Myopathies",SOP7,Definitive,04/27/2020
+SEMA4A,"hereditary nonpolyposis colon cancer",AD,"Colon Cancer",SOP4,Limited,11/13/2017
+SERAC1,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Definitive,01/14/2021
+SERPINB6,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Moderate,04/24/2018
+SERPINB8,"exfoliative ichthyosis",AR,"UNC Biocuration Core",SOP5,Limited,07/03/2018
+SERPINC1,"antithrombin III deficiency",SD,"Hemostasis Thrombosis",SOP7,Definitive,02/26/2020
+SERPIND1,"heparin cofactor 2 deficiency",AD,"Hemostasis Thrombosis",SOP7,Definitive,11/18/2020
+SERPINF2,"alpha-2-plasmin inhibitor deficiency",AR,"Hemostasis Thrombosis",SOP7,Definitive,09/23/2020
+SETBP1,"complex neurodevelopmental disorder",AD,"Intellectual Disability and Autism",SOP7,Definitive,10/20/2020
+SETBP1,"Schinzel-Giedion syndrome",AD,"Intellectual Disability and Autism",SOP8,Definitive,02/16/2021
+SGCA,"autosomal recessive limb-girdle muscular dystrophy",AR,"Limb Girdle Muscular Dystrophy",SOP7,Definitive,04/14/2020
+SGCB,"autosomal recessive limb-girdle muscular dystrophy",AR,"Limb Girdle Muscular Dystrophy",SOP7,Definitive,02/11/2020
+SGCD,"autosomal recessive limb-girdle muscular dystrophy",AR,"Limb Girdle Muscular Dystrophy",SOP7,Definitive,04/14/2020
+SGCD,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Limited,09/04/2020
+SGCG,"autosomal recessive limb-girdle muscular dystrophy",AR,"Limb Girdle Muscular Dystrophy",SOP7,Definitive,04/14/2020
+SHANK2,"complex neurodevelopmental disorder",AD,"Intellectual Disability and Autism",SOP6,Definitive,07/17/2019
+SHANK3,"Phelan-McDermid syndrome",AD,"Intellectual Disability and Autism",SOP6,Definitive,12/12/2018
+SHOC2,"Noonan syndrome-like disorder with loose anagen hair",AD,RASopathy,SOP5,Definitive,07/25/2018
+SHOC2,"Noonan syndrome",AD,RASopathy,SOP5,Disputed,05/31/2018
+SHOC2,"Costello syndrome",AD,RASopathy,SOP5,Disputed,07/24/2018
+SHOC2,"cardiofaciocutaneous syndrome",AD,RASopathy,SOP5,Disputed,06/01/2018
+SHROOM4,"X-linked complex neurodevelopmental disorder",XL,"Intellectual Disability and Autism",SOP8,Disputed,01/13/2021
+SIK1,"obsolete early infantile epileptic encephalopathy",AD,Epilepsy,SOP6,Limited,10/02/2018
+SIX1,"branchio-oto-renal syndrome",AD,"Hearing Loss",SOP6,Definitive,06/22/2017
+SIX5,"branchio-oto-renal syndrome",AD,"Hearing Loss",SOP5,Disputed,08/23/2018
+SKI,"Shprintzen-Goldberg syndrome",AD,"Craniofacial Malformations",SOP8,Definitive,10/29/2020
+SLC16A2,"Allan-Herndon-Dudley syndrome",XL,"Intellectual Disability and Autism",SOP5,Definitive,08/09/2018
+SLC17A8,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP6,Strong,09/18/2018
+SLC19A3,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Definitive,01/14/2019
+SLC1A1,"dicarboxylic aminoaciduria",AR,Aminoacidopathy,SOP6,Limited,10/11/2019
+SLC1A2,"developmental and epileptic encephalopathy, 41",AD,Aminoacidopathy,SOP7,Definitive,10/29/2020
+SLC1A3,"episodic ataxia type 6",AD,Aminoacidopathy,SOP7,Definitive,10/09/2020
+SLC22A5,"systemic primary carnitine deficiency disease",AR,"Fatty Acid Oxidation Disorders",SOP6,Definitive,04/24/2018
+SLC25A15,"ornithine translocase deficiency",AR,Aminoacidopathy,SOP7,Definitive,12/04/2019
+SLC25A19,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Limited,08/27/2020
+SLC25A20,"carnitine-acylcarnitine translocase deficiency",AR,"Fatty Acid Oxidation Disorders",SOP6,Definitive,05/22/2018
+SLC25A22,"obsolete early infantile epileptic encephalopathy",AR,Epilepsy,SOP7,Definitive,05/19/2020
+SLC25A4,"mitochondrial DNA depletion syndrome 12",AR,"Hypertrophic Cardiomyopathy",SOP5,Definitive,08/30/2017
+SLC25A46,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Limited,08/27/2020
+SLC25A46,"neuropathy, hereditary motor and sensory, type 6B",AR,Charcot-Marie-Tooth,SOP7,Definitive,05/26/2020
+SLC26A2,"diastrophic dysplasia",AR,"Skeletal Disorders",SOP7,Definitive,06/01/2020
+SLC26A2,"achondrogenesis type IB",AR,"Skeletal Disorders",SOP7,Definitive,08/03/2020
+SLC26A2,"multiple epiphyseal dysplasia (disease)",AR,"Skeletal Disorders",SOP7,Definitive,04/06/2020
+SLC26A2,"atelosteogenesis type II",AR,"Skeletal Disorders",SOP7,Definitive,07/14/2020
+SLC26A4,"Pendred syndrome",AR,"Hearing Loss",SOP5,Definitive,08/02/2018
+SLC26A5,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Limited,12/19/2017
+SLC2A1,"GLUT1 deficiency syndrome",AD,"Intellectual Disability and Autism",SOP6,Definitive,04/18/2019
+SLC2A10,"familial thoracic aortic aneurysm and aortic dissection",AD,"Familial Thoracic Aortic Aneurysm and Dissection",SOP4,Limited,04/17/2016
+SLC36A2,iminoglycinuria,AR,Aminoacidopathy,SOP7,Limited,03/13/2020
+SLC39A8,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Limited,11/23/2020
+SLC3A1,"cystinuria (disease)",AR,Aminoacidopathy,SOP7,Definitive,06/29/2020
+SLC44A4,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP6,Limited,04/24/2018
+SLC52A1,"maternal riboflavin deficiency",AD,"Fatty Acid Oxidation Disorders",SOP6,Limited,09/25/2018
+SLC52A2,"brown-Vialetto-van Laere syndrome 2",AR,"Hearing Loss",SOP6,Definitive,07/09/2018
+SLC52A3,"obsolete Brown-Vialetto-van Laere syndrome",AR,"Hearing Loss",SOP6,Definitive,09/18/2018
+SLC6A19,"Hartnup disease",AR,Aminoacidopathy,SOP7,Definitive,05/07/2020
+SLC6A4,"autism spectrum disorder",AD,"Intellectual Disability and Autism",SOP8,Disputed,01/06/2021
+SLC6A8,"creatine transporter deficiency",XL,Aminoacidopathy,SOP7,Definitive,02/10/2020
+SLC7A7,"lysinuric protein intolerance",AR,Aminoacidopathy,SOP7,Definitive,11/08/2019
+SLC7A9,"cystinuria (disease)",AR,Aminoacidopathy,SOP7,Definitive,06/29/2020
+SLC9A6,"Christianson syndrome",XL,"Rett and Angelman-like Disorders",SOP5,Definitive,05/02/2018
+SLITRK6,"high myopia-sensorineural deafness syndrome",AR,"Hearing Loss",SOP7,Definitive,04/21/2020
+SLMAP,"Brugada syndrome",AD,"Brugada Syndrome",SOP5,Disputed,11/21/2017
+SLX4,"hereditary breast carcinoma",AD,"Breast/Ovarian Cancer",SOP4,Limited,03/08/2017
+SLX4,"familial ovarian cancer",AD,"Breast/Ovarian Cancer",SOP4,"No Known Disease Relationship",03/08/2017
+SMAD2,"familial thoracic aortic aneurysm and aortic dissection",AD,"Familial Thoracic Aortic Aneurysm and Dissection",SOP4,Moderate,04/10/2017
+SMAD3,"aneurysm-osteoarthritis syndrome",AD,"General Gene Curation",SOP4,Definitive,12/01/2016
+SMAD3,"familial thoracic aortic aneurysm and aortic dissection",AD,"Familial Thoracic Aortic Aneurysm and Dissection",SOP4,Definitive,12/22/2016
+SMAD4,"generalized juvenile polyposis/juvenile polyposis coli",AD,"Colon Cancer",SOP4,Definitive,06/26/2017
+SMARCA1,"Coffin-Siris syndrome",AD,"General Gene Curation",SOP4,Moderate,11/15/2016
+SMARCA2,"intellectual disability-sparse hair-brachydactyly syndrome",AD,"Intellectual Disability and Autism",SOP7,Definitive,02/26/2021
+SMARCA4,"hereditary nonpolyposis colon cancer",AD,"Colon Cancer",SOP4,Limited,05/08/2017
+SMARCA4,"Coffin-Siris syndrome",AD,"Intellectual Disability and Autism",SOP7,Definitive,06/17/2020
+SMARCA4,"rhabdoid tumor predisposition syndrome 2",AD,"Hereditary Cancer",SOP5,Definitive,06/29/2018
+SMARCB1,"rhabdoid tumor predisposition syndrome 1",AD,"Hereditary Cancer",SOP6,Definitive,10/12/2018
+SMARCE1,"familial meningioma",AD,"Hereditary Cancer",SOP7,Definitive,07/30/2020
+SMC1A,"complex neurodevelopmental disorder",XL,"Intellectual Disability and Autism",SOP6,Definitive,06/19/2019
+SMC3,"Cornelia de Lange syndrome",AD,"Intellectual Disability and Autism",SOP7,Definitive,04/07/2020
+SMPX,"nonsyndromic genetic deafness",XL,"Hearing Loss",SOP6,Definitive,09/12/2017
+SMS,"syndromic X-linked intellectual disability Snyder type",XL,"Intellectual Disability and Autism",SOP5,Definitive,05/16/2018
+SNAI2,"Waardenburg syndrome",AR,"Hearing Loss",SOP5,Limited,08/23/2018
+SNTA1,"long QT syndrome",AD,"Long QT Syndrome",SOP7,Disputed,04/24/2020
+SOS1,"Noonan syndrome",AD,RASopathy,SOP5,Definitive,07/24/2018
+SOS1,"Costello syndrome",AD,RASopathy,SOP5,Disputed,07/24/2018
+SOS1,"cardiofaciocutaneous syndrome",AD,RASopathy,SOP5,Disputed,06/01/2018
+SOS2,"Noonan syndrome",AD,RASopathy,SOP8,Definitive,08/27/2020
+SOX10,"Waardenburg syndrome type 4C",AD,"Hearing Loss",SOP6,Definitive,06/19/2018
+SOX9,"isolated Pierre-Robin syndrome",AD,"Skeletal Disorders",SOP7,Limited,09/16/2020
+SOX9,"Cooks syndrome",AD,"Skeletal Disorders",SOP7,Limited,09/16/2020
+SOX9,"campomelic dysplasia",AD,"Skeletal Disorders",SOP7,Definitive,06/01/2020
+SPEG,"myopathy, centronuclear, 5",AR,"Congenital Myopathies",SOP7,Definitive,01/12/2020
+SPRED1,"Legius syndrome",AD,RASopathy,SOP6,Definitive,01/24/2019
+SPTAN1,"undetermined early-onset epileptic encephalopathy",AD,Epilepsy,SOP6,Definitive,01/17/2019
+SQOR,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Limited,01/21/2021
+SRPX2,"rolandic epilepsy-speech dyspraxia syndrome",XL,Epilepsy,SOP5,Disputed,07/19/2018
+ST3GAL3,"complex neurodevelopmental disorder",AR,"Intellectual Disability and Autism",SOP7,Moderate,06/03/2020
+STAC3,"Bailey-Bloch congenital myopathy",AR,"Congenital Myopathies",SOP7,Definitive,04/25/2020
+STK11,"familial ovarian cancer",AD,"Breast/Ovarian Cancer",SOP4,"No Known Disease Relationship",10/26/2016
+STK11,"Peutz-Jeghers syndrome",AD,"Colon Cancer",SOP4,Definitive,02/22/2017
+STRC,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Definitive,12/19/2017
+STXBP1,"infantile epilepsy syndrome",AD,Epilepsy,SOP5,Definitive,06/01/2018
+SUCLA2,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Definitive,04/18/2019
+SUCLG1,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Moderate,04/18/2019
+SUFU,medulloblastoma,AD,"Hereditary Cancer",SOP6,Definitive,10/11/2018
+SUGCT,"glutaric acidemia type 3",AR,Aminoacidopathy,SOP7,Moderate,09/25/2020
+SUOX,"isolated sulfite oxidase deficiency",AR,Aminoacidopathy,SOP6,Definitive,03/22/2019
+SURF1,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Definitive,04/08/2019
+SYN1,"complex neurodevelopmental disorder",XL,"Intellectual Disability and Autism",SOP6,Moderate,12/05/2018
+SYNE4,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP7,Moderate,02/06/2020
+SYNGAP1,"complex neurodevelopmental disorder",AD,Epilepsy,SOP6,Definitive,04/02/2019
+SYP,"non-syndromic X-linked intellectual disability",XL,"Intellectual Disability and Autism",SOP8,Moderate,12/16/2020
+TACO1,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Moderate,10/16/2019
+TAT,"tyrosinemia type II",AR,Aminoacidopathy,SOP7,Definitive,06/29/2020
+TBC1D24,"DOORS syndrome",AR,"Hearing Loss",SOP6,Definitive,03/11/2020
+TBC1D24,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP6,Limited,03/27/2018
+TBL1XR1,"complex neurodevelopmental disorder",AD,"Intellectual Disability and Autism",SOP7,Definitive,07/07/2020
+TBR1,"complex neurodevelopmental disorder",AD,"Intellectual Disability and Autism",SOP7,Definitive,03/25/2020
+TBX20,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Limited,08/12/2020
+TBXA2R,"qualitative platelet defect",AD,"Hemostasis Thrombosis",SOP7,Moderate,12/16/2020
+TCAP,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Limited,08/12/2020
+TCAP,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP7,Limited,05/01/2020
+TCF20,"developmental delay with variable intellectual impairment and behavioral abnormalities",AD,"Syndromic Disorders",SOP7,Definitive,10/07/2020
+TCF4,"Pitt-Hopkins syndrome",AD,"Rett and Angelman-like Disorders",SOP5,Definitive,05/02/2018
+TCOF1,"Treacher-Collins syndrome",AD,"Hearing Loss",SOP6,Definitive,09/17/2019
+TDO2,"familial hypertryptophanemia",AR,Aminoacidopathy,SOP7,Limited,07/10/2020
+TECTA,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP5,Definitive,09/12/2018
+TECTA,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP6,Definitive,01/02/2018
+TERT,"dyskeratosis congenita, autosomal dominant 2",SD,"Hereditary Cancer",SOP7,Definitive,07/30/2020
+TGFB2,"familial thoracic aortic aneurysm and aortic dissection",AD,"Familial Thoracic Aortic Aneurysm and Dissection",SOP4,Definitive,05/06/2016
+TGFB3,"familial thoracic aortic aneurysm and aortic dissection",AD,"Familial Thoracic Aortic Aneurysm and Dissection",SOP4,Limited,12/22/2016
+TGFB3,"arrhythmogenic right ventricular cardiomyopathy",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP7,Limited,08/16/2019
+TGFBR1,"familial thoracic aortic aneurysm and aortic dissection",AD,"Familial Thoracic Aortic Aneurysm and Dissection",SOP4,Definitive,10/12/2016
+TGFBR1,"multiple self-healing squamous epithelioma",AD,"Hereditary Cancer",SOP6,Definitive,12/20/2019
+TGFBR1,"Loeys-Dietz syndrome",AD,"General Gene Curation",SOP6,Definitive,03/27/2019
+TGFBR2,"familial thoracic aortic aneurysm and aortic dissection",AD,"Familial Thoracic Aortic Aneurysm and Dissection",SOP4,Definitive,02/15/2016
+TGFBR2,"Loeys-Dietz syndrome 2",AD,"General Gene Curation",SOP7,Definitive,11/25/2020
+TH,"tyrosine hydroxylase deficiency",AR,Aminoacidopathy,SOP6,Definitive,03/22/2019
+TIMM8A,"deafness dystonia syndrome",XL,"Hearing Loss",SOP6,Definitive,12/19/2017
+TJP1,"arrhythmogenic right ventricular cardiomyopathy",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP7,Limited,02/08/2019
+TJP2,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP6,Limited,12/19/2017
+TMC1,"autosomal recessive nonsyndromic deafness 7",AR,"Hearing Loss",SOP4,Definitive,02/15/2017
+TMC1,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP6,Definitive,06/22/2018
+TMEM132E,"autosomal recessive nonsyndromic deafness",AR,"Hearing Loss",SOP5,Limited,11/21/2017
+TMEM43,"arrhythmogenic right ventricular dysplasia 5",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP7,Definitive,10/26/2018
+TMIE,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Definitive,09/29/2017
+TMPO,"familial isolated dilated cardiomyopathy",AD,"General Gene Curation",SOP4,Refuted,11/30/2016
+TMPO,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP5,"No Known Disease Relationship",08/01/2018
+TMPRSS3,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Definitive,08/22/2017
+TMTC2,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP5,Disputed,08/22/2018
+TNC,"nonsyndromic genetic deafness",AD,"Hearing Loss",SOP6,Limited,03/20/2018
+TNFRSF13B,"immunodeficiency, common variable, 2",AR,"Antibody Immunodeficiencies",SOP8,Definitive,01/20/2021
+TNNC1,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP5,Moderate,11/01/2016
+TNNC1,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Definitive,10/09/2020
+TNNC1,"arrhythmogenic right ventricular cardiomyopathy",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP7,"No Known Disease Relationship",09/13/2019
+TNNC2,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP5,"No Known Disease Relationship",04/04/2017
+TNNI3,"arrhythmogenic right ventricular cardiomyopathy",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP7,"No Known Disease Relationship",07/16/2019
+TNNI3,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP7,Definitive,09/05/2017
+TNNI3,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Moderate,10/09/2020
+TNNI3K,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Limited,08/12/2020
+TNNT1,"nemaline myopathy 5",AR,"Congenital Myopathies",SOP7,Definitive,05/07/2020
+TNNT1,"nemaline myopathy",AD,"Congenital Myopathies",SOP7,Limited,06/22/2020
+TNNT2,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Definitive,10/09/2020
+TNNT2,"arrhythmogenic right ventricular cardiomyopathy",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP7,"No Known Disease Relationship",07/16/2019
+TNNT2,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP7,Definitive,02/04/2021
+TNNT3,"nemaline myopathy",AR,"Congenital Myopathies",SOP7,Limited,02/24/2020
+TNRC6B,"complex neurodevelopmental disorder",AD,"Intellectual Disability and Autism",SOP8,Definitive,01/06/2021
+TP53,"familial ovarian cancer",AD,"Breast/Ovarian Cancer",SOP4,Limited,01/10/2018
+TP53,"Li-Fraumeni syndrome 1",AD,"Hereditary Cancer",SOP7,Definitive,05/14/2020
+TPK1,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Moderate,01/14/2021
+TPM1,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP5,Definitive,12/20/2016
+TPM1,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Moderate,11/13/2020
+TPM1,"arrhythmogenic right ventricular cardiomyopathy",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP7,"No Known Disease Relationship",09/13/2019
+TPM2,"TPM2-related myopathy",AD,"Congenital Myopathies",SOP8,Definitive,01/04/2021
+TPM3,"TPM3-related myopathy",SD,"Congenital Myopathies",SOP7,Definitive,11/03/2020
+TPP1,"neuronal ceroid lipofuscinosis",AR,Epilepsy,SOP7,Definitive,09/26/2020
+TPRN,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Definitive,09/12/2017
+TRAPPC9,"intellectual disability-obesity-brain malformations-facial dysmorphism syndrome",AR,"Intellectual Disability and Autism",SOP7,Definitive,08/15/2020
+TRDN,"long QT syndrome",AR,"Long QT Syndrome",SOP7,Strong,04/24/2020
+TRIM32,"autosomal recessive limb-girdle muscular dystrophy",AR,"Limb Girdle Muscular Dystrophy",SOP7,Definitive,11/05/2020
+TRIM63,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP5,Limited,08/01/2018
+TRIOBP,"autosomal recessive nonsyndromic deafness",AR,"Hearing Loss",SOP5,Definitive,06/06/2017
+TRMU,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Moderate,01/21/2021
+TRPM4,"Brugada syndrome",AD,"Brugada Syndrome",SOP5,Disputed,11/21/2017
+TRPV4,"metatropic dysplasia",AD,"Skeletal Disorders",SOP8,Definitive,12/08/2020
+TSC1,"tuberous sclerosis",AD,"General Gene Curation",SOP6,Definitive,01/23/2019
+TSC2,"tuberous sclerosis",AD,"General Gene Curation",SOP6,Definitive,01/23/2019
+TSFM,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP7,Moderate,02/12/2020
+TSHZ1,"aural atresia, congenital",AD,"Syndromic Disorders",SOP7,Limited,08/25/2020
+TSPAN7,"non-syndromic X-linked intellectual disability",XL,"Intellectual Disability and Autism",SOP8,Moderate,03/05/2021
+TSPEAR,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Disputed,09/26/2017
+TTC19,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Definitive,09/19/2019
+TTN,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Definitive,11/06/2020
+TTN,"arrhythmogenic right ventricular cardiomyopathy",AD,"Arrhythmogenic Right Ventricular Cardiomyopathy",SOP7,Limited,08/06/2019
+TTN,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP5,Limited,12/12/2016
+TTR,"hereditary ATTR amyloidosis",AD,"Hypertrophic Cardiomyopathy",SOP5,Definitive,12/11/2017
+TUBB2B,"complex cortical dysplasia with other brain malformations",AD,"Brain Malformations",SOP7,Definitive,04/26/2020
+TUBB4B,"Leber congenital amaurosis with early-onset deafness",AD,"Hearing Loss",SOP6,Moderate,06/26/2018
+TUSC3,"intellectual disability",AR,"Intellectual Disability and Autism",SOP7,Definitive,04/07/2020
+TWIST1,"Saethre-Chotzen syndrome",AD,"Craniofacial Malformations",SOP8,Definitive,01/28/2021
+TYR,"oculocutaneous albinism type 1",AR,Aminoacidopathy,SOP7,Definitive,08/28/2020
+UBE2A,"syndromic X-linked intellectual disability Nascimento type",XL,"Intellectual Disability and Autism",SOP5,Definitive,07/13/2018
+UBE3A,"Angelman syndrome",AD,"Rett and Angelman-like Disorders",SOP5,Definitive,05/02/2018
+UMOD,"autosomal dominant medullary cystic kidney disease with hyperuricemia",AD,"Kidney Cystic and Ciliopathy Disorders",SOP8,Definitive,02/08/2021
+UPF3B,"complex neurodevelopmental disorder",XL,"Intellectual Disability and Autism",SOP6,Definitive,07/03/2019
+UQCRQ,"Leigh syndrome",AR,"Mitochondrial Diseases",SOP6,Limited,10/16/2019
+USH1C,"Usher syndrome type 1",AR,"Hearing Loss",SOP4,Definitive,02/15/2017
+USH1C,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Limited,06/11/2018
+USH1G,"Usher syndrome type 1",AR,"Hearing Loss",SOP4,Definitive,02/15/2017
+USH1G,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Disputed,05/21/2019
+USH2A,"Usher syndrome type 2",AR,"Hearing Loss",SOP4,Definitive,02/15/2017
+VCL,"hypertrophic cardiomyopathy",AD,"Hypertrophic Cardiomyopathy",SOP5,Limited,06/01/2017
+VCL,"dilated cardiomyopathy",AD,"Dilated Cardiomyopathy",SOP7,Moderate,11/06/2020
+VHL,"von Hippel-Lindau disease",AD,"Hereditary Cancer",SOP7,Definitive,05/14/2020
+VIPAS39,"arthrogryposis, renal dysfunction, and cholestasis 2",AR,"Hemostasis Thrombosis",SOP7,Definitive,12/16/2020
+VKORC1,"vitamin K-dependent clotting factors, combined deficiency of, type 2",AR,"Hemostasis Thrombosis",SOP7,Moderate,06/24/2020
+VPS13B,"Cohen syndrome",AR,"Intellectual Disability and Autism",SOP6,Definitive,11/13/2018
+VPS33B,"arthrogryposis, renal dysfunction, and cholestasis 1",AR,"Hemostasis Thrombosis",SOP7,Definitive,03/24/2021
+VPS8,"arthrogryposis multiplex congenita",AR,"General Gene Curation",SOP4,Limited,11/24/2016
+VWF,"hereditary von Willebrand disease",AD,"Hemostasis Thrombosis",SOP7,Definitive,09/23/2020
+VWF,"von Willebrand disease type 2B",AD,"Hemostasis Thrombosis",SOP7,Definitive,09/23/2020
+WAS,"Wiskott-Aldrich syndrome",XL,"Hereditary Cancer",SOP6,Definitive,10/12/2018
+WBP2,"autosomal recessive nonsyndromic deafness",AR,"Hearing Loss",SOP6,Limited,12/09/2018
+WDR45,"complex neurodevelopmental disorder",XL,Epilepsy,SOP6,Definitive,06/18/2019
+WFS1,"Wolfram-like syndrome",AD,"Hearing Loss",SOP6,Definitive,04/17/2018
+WFS1,"Wolfram syndrome",AR,"Hearing Loss",SOP5,Definitive,09/11/2018
+WHRN,"Usher syndrome type 2D",AR,"Hearing Loss",SOP4,Definitive,05/10/2017
+WHRN,"nonsyndromic genetic deafness",AR,"Hearing Loss",SOP6,Moderate,12/26/2018
+WNT5A,"autosomal dominant Robinow syndrome",AD,"Syndromic Disorders",SOP8,Moderate,02/03/2021
+WRAP53,"dyskeratosis congenita",AR,"General Gene Curation",SOP4,Moderate,01/25/2017
+WRN,"Werner syndrome",AR,"Hereditary Cancer",SOP6,Definitive,10/09/2018
+WT1,"Wilms tumor 1",AD,"Hereditary Cancer",SOP7,Definitive,07/30/2020
+XPA,"xeroderma pigmentosum group A",AR,"Hereditary Cancer",SOP6,Definitive,11/02/2018
+XPC,"xeroderma pigmentosum group C",AR,"Hereditary Cancer",SOP6,Definitive,11/02/2018
+XRCC2,"hereditary breast carcinoma",AD,"Breast/Ovarian Cancer",SOP4,Limited,05/10/2017
+XRCC2,"familial ovarian cancer",AD,"Breast/Ovarian Cancer",SOP4,"No Known Disease Relationship",04/26/2017
+XRCC4,"hereditary nonpolyposis colon cancer",AD,"Colon Cancer",SOP4,Limited,05/08/2017
+YARS1,"Charcot-Marie-Tooth disease",AD,Charcot-Marie-Tooth,SOP7,Definitive,04/28/2020
+ZC4H2,"X-linked syndromic intellectual disability",XL,"Intellectual Disability and Autism",SOP7,Definitive,10/21/2020
+ZDHHC9,"syndromic X-linked intellectual disability Raymond type",XL,"Intellectual Disability and Autism",SOP7,Definitive,08/12/2020
+ZEB2,"Mowat-Wilson syndrome",AD,"Intellectual Disability and Autism",SOP5,Definitive,05/24/2018
+ZNF292,"complex neurodevelopmental disorder",AD,"Intellectual Disability and Autism",SOP7,Definitive,05/06/2020
+ZNF41,"non-syndromic X-linked intellectual disability",XL,"Intellectual Disability and Autism",SOP7,Disputed,03/16/2021
+ZNF462,"weiss-kruszka syndrome",AD,"Syndromic Disorders",SOP7,Definitive,08/25/2020
+ZNF711,"X-linked complex neurodevelopmental disorder",XL,"Intellectual Disability and Autism",SOP7,Moderate,11/03/2020
+,,,,,,

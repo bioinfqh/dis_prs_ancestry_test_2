@@ -1,0 +1,5 @@
+[console_scripts]
+convert_to_genos = yhaplo.convert_to_genos:main
+plot_tree = yhaplo.plot_tree:main
+yhaplo = yhaplo.call_haplogroups:call_haplogroups
+
