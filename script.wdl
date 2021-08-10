@@ -21,7 +21,7 @@ task test {
 workflow make_panel_wdl {
     call test {
         input:
-            patient_vcf = prs_vcf.vcf,
+            patient_vcf = "prs_vcf.vcf",
             customer_id = "testuser",
             disease_list_path = "disease_list.txt"
             }
