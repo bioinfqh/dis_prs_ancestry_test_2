@@ -14,7 +14,7 @@ task test {
   File outfile = "dis_calc/static/prs_${customer_id}.json"
   }
   runtime {
-  docker: "https://github.com/bioinfqh/dis_prs_ancestry"
+  docker: "https://github.com/bioinfqh/dis_prs_ancestry_test_2"
   }
 }
 
