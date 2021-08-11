@@ -2,7 +2,7 @@ version 1.0
 
 task test {
   input {
-    File patient_vcf
+    String patient_vcf
     String customer_id
     String disease_list_path
   }
