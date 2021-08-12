@@ -65,7 +65,7 @@ COPY run_simple_prs_2.sh .
 COPY run_xgmix.py .
 COPY setup.py . 
 COPY simple_prs.sh .
-COPY table_export.csv .
+COPY tableExport.csv .
 COPY test_ancestry.sh .
 COPY tests.py .
 COPY urls.py .
