@@ -8,10 +8,10 @@ task test {
   }
 
   command {
-  bash dis_calc/run_prs.sh patient_vcf patient_vcf disease_list_path
+  bash run_prs.sh patient_vcf patient_vcf disease_list_path
   }
   output {
-  File outfile = "dis_calc/static/prs_${customer_id}.json"
+  File outfile = "static/prs_${customer_id}.json"
   }
   runtime {
   docker: "https://github.com/bioinfqh/dis_prs_ancestry_test_2"
