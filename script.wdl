@@ -11,7 +11,7 @@ task test {
   bash run_prs.sh patient_vcf patient_vcf disease_list_path
   }
   output {
-  File outfile = "static/prs_${customer_id}.json"
+  File outfile = "prs_${customer_id}.json"
   }
   runtime {
   docker: "https://github.com/bioinfqh/dis_prs_ancestry_test_2"
