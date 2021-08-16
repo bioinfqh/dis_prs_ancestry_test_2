@@ -8,7 +8,7 @@ task test {
   }
 
   command {
-  ll >output_new.txt
+  ls >output_new.txt
   }
   output {
   File outfile = "output_new.txt"
