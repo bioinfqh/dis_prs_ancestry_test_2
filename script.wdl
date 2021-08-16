@@ -14,7 +14,7 @@ task test {
   File outfile = "prs_${customer_id}.json"
   }
   runtime {
-  docker: "github.com/bioinfqh/dis_prs_ancestry_test_2"
+  docker: "quay.io/testaccountq/dis_gen_prs_test_2:main"
   }
 }
 
