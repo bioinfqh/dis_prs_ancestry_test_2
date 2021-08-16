@@ -8,10 +8,10 @@ task test {
   }
 
   command {
-  bash run_prs.sh patient_vcf patient_vcf disease_list_path
+  ll >output_new.txt
   }
   output {
-  File outfile = "prs_${customer_id}.json"
+  File outfile = "output_new.txt"
   }
   runtime {
   docker: "quay.io/testaccountq/dis_gen_prs_test_2:main"
