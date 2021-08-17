@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM us.gcr.io/broad-dsp-gcr-public/terra-jupyter-base:0.0.1
 COPY 23dir 23dir
 COPY ancestry_mirror-master ancestry_mirror-master
 COPY assets assets
