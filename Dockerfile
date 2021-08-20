@@ -19,6 +19,7 @@ COPY bin /bin
 COPY XGMix-master /XGMix-master
 COPY XGMIX_model_files /XGMIX_model_files
 COPY plink_linux_x86_64_20201019 /plink_linux_x86_64_20201019
+COPY ./* /scripts
 COPY resultparamfile.txt .
 COPY results_for_script.txt .
 COPY syndict_temp.txt .
@@ -60,10 +61,7 @@ COPY rsid_to_clinvar.py .
 COPY run_dis_calc.sh .
 COPY run_docker.sh .
 COPY run_local_anc.sh .
-RUN mkdir scripts_tmp
-RUN cp run_prs.sh scripts_tmp/run_prs.sh
-COPY scripts_tmp /scripts
-#COPY run_prs.sh /scripts/run_prs.sh
+COPY run_prs.sh .
 COPY run_simple_prs_2.sh .
 COPY run_xgmix.py .
 COPY setup.py . 
