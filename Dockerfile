@@ -19,7 +19,7 @@ COPY bin /bin
 COPY XGMix-master /XGMix-master
 COPY XGMIX_model_files /XGMIX_model_files
 COPY plink_linux_x86_64_20201019 /plink_linux_x86_64_20201019
-COPY ./* /scripts
+COPY ./* /scripts/
 COPY resultparamfile.txt .
 COPY results_for_script.txt .
 COPY syndict_temp.txt .
