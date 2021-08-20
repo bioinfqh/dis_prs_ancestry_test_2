@@ -60,7 +60,10 @@ COPY rsid_to_clinvar.py .
 COPY run_dis_calc.sh .
 COPY run_docker.sh .
 COPY run_local_anc.sh .
-COPY run_prs.sh /scripts/run_prs.sh
+RUN mkdir scripts_tmp
+RUN cp run_prs.sh scripts_tmp/run_prs.sh
+COPY scripts_tmp /scripts
+#COPY run_prs.sh /scripts/run_prs.sh
 COPY run_simple_prs_2.sh .
 COPY run_xgmix.py .
 COPY setup.py . 
