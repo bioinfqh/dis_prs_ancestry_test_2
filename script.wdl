@@ -8,6 +8,7 @@ task test {
   }
 
   command {
+  bash ls >testoutput_new.txt
   bash run_prs.sh patient_vcf patient_vcf disease_list_path
   }
   output {
