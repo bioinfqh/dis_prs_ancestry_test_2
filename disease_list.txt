@@ -1,0 +1,7 @@
+breast_cancer,/score_files/breast_cancer_snps.txt,none
+cervical_cancer,/score_files/cervical_cancer_snps.txt,none
+colorectal_cancer,/score_files/colorectal_cancer_snps.txt,none
+coronary_artery_disease,/score_files/coronary_artery_disease_snps.txt,none
+hypertension,/score_files/hypertension_snps.txt,none
+ischemic_stroke,/score_files/ischemic_stroke_snps.txt,none
+prostate_cancer,/score_files/prostate_cancer_snps.txt,none

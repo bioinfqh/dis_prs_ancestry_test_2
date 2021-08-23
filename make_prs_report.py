@@ -47,10 +47,10 @@ def make_html_easy(html_path,outfile,results_path,patient_id,risk_threshold,is_a
     #print(json_str)
     endstrs = []
     #print(header_str)
-    fh=open("/scripts/prs_" + patient_id + ".json",'w')
+    fh=open("/scripts/prs_testuser.json",'w')
     fh.write(json_str)
     fh.close()
-    return("/scripts/prs_" + patient_id + ".json")        
+    return("/scripts/prs_testuser.json")        
     
     
 if(params_from_file == "true"):
