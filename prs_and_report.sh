@@ -10,8 +10,8 @@ predict=$5
 # predict is set to true if absolute risk should be calculated 
 # if backgr_dataset and dataset are identical, the script assumes that the patient is already in the reference file and uses this file.
 ctr=1
-rm -f resultparamfile.txt
-touch resultparamfile.txt
+rm -f /scripts/resultparamfile.txt
+touch /scripts/resultparamfile.txt
 phenos=()
 #scores=()
 disease_names=()
@@ -35,7 +35,7 @@ while read line; do
         #phenos="${phenos},$pheno_curr"
     fi
     # write file with paths to PRS result files
-    echo -e $disease_name'\t'scores_$ctr.profile >>resultparamfile.txt
+    echo -e $disease_name'\t'/scripts/scores_$ctr.profile >>/scripts/resultparamfile.txt
     let ctr++
 done<$disease_list_file
 
@@ -44,16 +44,16 @@ echo $scores
 #sudo bash run_simpe_prs_2.sh $backgr_dataset $dataset $scores 1 2 4 t
 ## run PRS calculation
 if [[ $dataset == $backgr_dataset ]]; then
-    bash run_simple_prs_2.sh $backgr_dataset $dataset $scores 1 2 3 f
+    bash /scripts/run_simple_prs_2.sh $backgr_dataset $dataset $scores 1 2 3 f
 else
-    bash run_simple_prs_2.sh $backgr_dataset $dataset $scores 1 2 3 t
+    bash /scripts/run_simple_prs_2.sh $backgr_dataset $dataset $scores 1 2 3 t
 fi
 # get patient ID from VCF
-patient_id_new=$(python3 get_id_from_vcf.py $dataset)
+patient_id_new=$(python3 /scripts/get_id_from_vcf.py $dataset)
 
 #bash dis_calc/run_simple_prs_2.sh $backgr_dataset $dataset $scores 1 2 3 3 
-rm -f results_for_script.txt
-touch results_for_script.txt
+rm -f /scripts/results_for_script.txt
+touch /scripts/results_for_script.txt
 ctr=1
 #echo "${phenos[*]}"
 #echo ${phenos[0]}
@@ -62,21 +62,21 @@ for dis in "${disease_names[@]}"
 do
     if [[ $predict == "f" ]]; then
         # calculate relative risk and write to result file
-        tmp=$(python3 get_relative_risk.py scores_$ctr.profile $patient_id_new results_and_phenos$ctr.txt)
+        tmp=$(python3 /scripts/get_relative_risk.py /scripts/scores_$ctr.profile $patient_id_new /scripts/results_and_phenos$ctr.txt)
         risk=$(echo $tmp | awk '{print $2}')
         percentile=$(echo $tmp | awk '{print $3}')
     else
         # calculate absolute risk based on phenotype data of reference samples
-        tmp=$(bash get_absolute_risk.sh scores_$ctr.profile ${phenos[ctr]} $patient_id_new results_and_phenos$ctr.txt)
+        tmp=$(bash /scripts/get_absolute_risk.sh /scripts/scores_$ctr.profile ${phenos[ctr]} $patient_id_new /scripts/results_and_phenos$ctr.txt)
         risk=$(echo $tmp | awk '{print $2}')
         percentile=$(echo $tmp | awk '{print $3}')
     fi
-    echo -e $dis"\t"$risk"\t"$percentile"\t"results_and_phenos$ctr.txt >>results_for_script.txt
+    echo -e $dis"\t"$risk"\t"$percentile"\t"/scripts/results_and_phenos$ctr.txt >>/scripts/results_for_script.txt
     let ctr++
 done
 
 ## write report
-python3 make_prs_report.py "easy" results_for_script.txt $patient_id_new "your_prs_report.pdf" $predict
+python3 /scripts/make_prs_report.py "easy" /scripts/results_for_script.txt $patient_id_new "your_prs_report.pdf" $predict
 #sudo python3 make_prs_report.py resultparamfile.txt $patient_id "your_prs_report.pdf"
 #ctr2=0
 #for (( c=0; c<=$ctr; c++ ))

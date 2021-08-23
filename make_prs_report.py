@@ -13,8 +13,8 @@ sep = "<hr>"
 #disease_name_input = sys.argv[1]
 risk_limit = 0.9
 params_from_file = "true"
-part1 = "part1.html"
-part2 = "part2.html"
+part1 = "/scripts/part1.html"
+part2 = "/scripts/part2.html"
 
 def export_prs_as_json(patient_id,disease_names,risks,percs):
     dict_for_ret = {}
@@ -47,10 +47,10 @@ def make_html_easy(html_path,outfile,results_path,patient_id,risk_threshold,is_a
     #print(json_str)
     endstrs = []
     #print(header_str)
-    fh=open("prs_" + patient_id + ".json",'w')
+    fh=open("/scripts/prs_" + patient_id + ".json",'w')
     fh.write(json_str)
     fh.close()
-    return("prs_" + patient_id + ".json")        
+    return("/scripts/prs_" + patient_id + ".json")        
     
     
 if(params_from_file == "true"):
@@ -67,6 +67,6 @@ if(params_from_file == "true"):
         #outfile_curr = outfile + "_prs.html"
         print(output_file)
         patient_id_new = output_file.replace("prs_report_","").replace(".pdf","")
-        make_html_easy("PRS_to_fill.html","html_page.html",result_file,patient_id,float("0.7"),is_abs_risk,patient_id_new)
+        make_html_easy("/scripts/PRS_to_fill.html","/scripts/html_page.html",result_file,patient_id,float("0.7"),is_abs_risk,patient_id_new)
         #make_pdf_from_str(make_html_easy("PRS_to_fill.html","html_page.html",result_file,patient_id,float("0.7"),is_abs_risk,patient_id_new),output_file)
         #make_pdf_from_str(make_html_easy("PRS_to_fill.html","none",result_file,patient_id,float("0.7"),is_abs_risk),output_file)

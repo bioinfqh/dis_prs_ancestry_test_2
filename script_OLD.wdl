@@ -8,14 +8,13 @@ task test {
   }
 
   command {
-  ls >testoutput_new.txt
-  bash /scripts/run_prs.sh /scripts/prs_vcf.vcf /scripts/prs_vcf.vcf /scripts/disease_list.txt
+  bash dis_calc/run_prs.sh patient_vcf patient_vcf disease_list_path
   }
   output {
-  File outfile = "/scripts/prs_${customer_id}.json"
+  File outfile = "dis_calc/static/prs_${customer_id}.json"
   }
   runtime {
-  docker: "quay.io/testaccountq/dis_gen_prs_test_2:main"
+  docker: "https://github.com/bioinfqh/dis_prs_ancestry_test_2"
   }
 }
 
@@ -27,7 +26,4 @@ workflow make_panel_wdl {
             disease_list_path = "disease_list.txt"
             }
 }
-
-
-
 

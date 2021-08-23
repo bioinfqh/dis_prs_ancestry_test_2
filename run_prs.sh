@@ -9,5 +9,5 @@ disease_list_path=$3
 ls >testoutput_new.txt
 
 patient_id=$(python3 /scripts/get_id_from_vcf.py $patient_vcf)
-bash /scripts/prs_and_report.sh $bg_dataset $disease_list_path $patient_id f
+bash /scripts/prs_and_report.sh $bg_dataset $bg_dataset $disease_list_path $patient_id f
 

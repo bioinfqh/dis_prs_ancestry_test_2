@@ -1,7 +1,7 @@
 
 input_path=$1
 output_path=$2
-plink_path="plink_linux_x86_64_20201019/plink"
+plink_path="/plink_linux_x86_64_20201019/plink"
 name=${input_path##*/}
 name=$4
 
