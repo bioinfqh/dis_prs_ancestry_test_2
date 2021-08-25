@@ -6,6 +6,6 @@ name=${input_path##*/}
 name=$4
 
 
-name=$(python3 dis_calc/get_id_from_vcf.py $input_path)
+name=$(python3 /scripts/get_id_from_vcf.py $input_path)
 $plink_path --vcf $input_path --make-bed --out dis_calc/$name
 echo NA $name 0 0 0 1 >dis_calc/$name.fam
