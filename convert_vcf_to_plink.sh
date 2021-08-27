@@ -7,5 +7,5 @@ name=$4
 
 
 name=$(python3 /scripts/get_id_from_vcf.py $input_path)
-$plink_path --vcf $input_path --make-bed --out /scripts/$name
-echo NA $name 0 0 0 1 >/scripts/$name.fam
+$plink_path --vcf $input_path --make-bed --out /testfiles/$name
+echo NA $name 0 0 0 1 >/testfiles/$name.fam
