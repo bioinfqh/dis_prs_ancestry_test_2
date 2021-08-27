@@ -5,21 +5,21 @@ import urllib.error
 import urllib.parse
 import pandas as pd
 import numpy as np
-from dis_calc.rsid_to_clinvar import get_hgvs_list
-from dis_calc.rsid_to_clinvar import get_correct_hgvs_link
-from dis_calc.rsid_to_clinvar import get_correct_hgvs
-from dis_calc.rsid_to_clinvar import get_inheritance_mode
-from dis_calc.rsid_to_clinvar import get_publications
-from dis_calc.rsid_to_clinvar import get_synonyms
-from dis_calc.rsid_to_clinvar import get_ticket
-from dis_calc.rsid_to_clinvar import is_synonym
-from dis_calc.rsid_to_clinvar import get_inheritance_mode_2
-from dis_calc.rsid_to_clinvar import get_inheritance_mode_3
-from dis_calc.rsid_to_clinvar import get_link
-from dis_calc.rsid_to_clinvar import read_gene_associations
-from dis_calc.rsid_to_clinvar import read_gene_associations_2
-from dis_calc.rsid_to_clinvar import read_pop_dict
-from dis_calc.rsid_to_clinvar import get_synonyms_new
+from rsid_to_clinvar import get_hgvs_list
+from rsid_to_clinvar import get_correct_hgvs_link
+from rsid_to_clinvar import get_correct_hgvs
+from rsid_to_clinvar import get_inheritance_mode
+from rsid_to_clinvar import get_publications
+from rsid_to_clinvar import get_synonyms
+from rsid_to_clinvar import get_ticket
+from rsid_to_clinvar import is_synonym
+from rsid_to_clinvar import get_inheritance_mode_2
+from rsid_to_clinvar import get_inheritance_mode_3
+from rsid_to_clinvar import get_link
+from rsid_to_clinvar import read_gene_associations
+from rsid_to_clinvar import read_gene_associations_2
+from rsid_to_clinvar import read_pop_dict
+from rsid_to_clinvar import get_synonyms_new
 #import pdfkit 
 import mygene
 import json
@@ -29,8 +29,8 @@ run_as_script = "false"
 # to always prefer pathogenic variants: true, if choice of laboratory more important: false
 sort_by_clin_sig = "true"
 
-assoc_table_path = "dis_calc/tableExport.csv"
-gene_disease_groups_path = "dis_calc/gene_disease_groups.csv"
+assoc_table_path = "/scripts/tableExport.csv"
+gene_disease_groups_path = "/scripts/gene_disease_groups.csv"
 
 url = 'https://clinvarminer.genetics.utah.edu/submissions-by-variant/NM_001354689.3%28RAF1%29%3Ac.1142G%3EC%20%28p.Gly381Ala%29'
 url = 'https://clinvarminer.genetics.utah.edu/submissions-by-variant/NM_000059.4(BRCA2)%3Ac.4258G%3ET%20(p.Asp1420Tyr)'
@@ -63,147 +63,13 @@ pop_dict["EAS"] = "East Asian"
 pop_dict["FIN"] = "Finnish in Finland"
 pop_dict["NFE"] = "Non-Finnish European"
 pop_dict["SAS"] = "South Asian"
-pop_dict=read_pop_dict("dis_calc/pop_list.txt")
+pop_dict=read_pop_dict("/scripts/pop_list.txt")
 
 
-
-def make_table(ret_df,comment_df,pubmed_df,gene_info_ret,disease):
-    #clin_sig = snp_dict["clin_sig"]
-    #gene = gene_name_dict[rsid]
-    #dna_change = snp_dict["dna_change"]
-    #prot_change = snp_dict["prot_change"]
-    #hgvs = snp_dict["hgvs"]
-    #diseases = ";".join([i for i in dict_by_snpid[snp_curr]])
-    df_for_html = ret_df[["clin_sig","gene_name","exon","rsid","dna_change","prot_change","chr_loc","zyg","inh","disease_groups","diseases_STR"]]
-    df_for_html.columns=["Classification","Gene","Exon/\nIntron","SNP ID","DNA change","Protein\nchange","Chromosomal\n location","Zygosity","Inheri-\ntance","Disease\nGroups","Associated Disease(s)"]
-    [gene_dis_dict,dis_gene_dict] = read_gene_associations_2(gene_disease_groups_path)
-    if not(disease == "all"):
-        #df_for_html = df_for_html.loc[df_for_html["Disease\nGroups"].str.contains(df_for_html["Disease\nGroups"])]
-        df_for_html = df_for_html.loc[df_for_html["Gene"].isin(dis_gene_dict[disease])]
-    new_col = np.arange(1,(len(df_for_html) + 1))
-    drug_response_df = df_for_html[df_for_html['Classification']=="drug response"]
-    col_nbr_dict =  dict(zip(df_for_html["SNP ID"].tolist(),new_col))
-    df_for_html.insert(0,"Nr.",new_col)
-    new_col = np.arange(1,(len(drug_response_df) + 1))
-    drug_response_df.insert(0,"Nr.",new_col)
-    drug_response_df.columns=["Nr.","Classification","Gene","Exon/\nIntron","SNP ID","DNA change","Protein\nchange","Chromosomal\n location","Zygosity","Inheri-\ntance","Disease\nGroups","Associated Response(s)"]
-    if not(disease == "all"):
-        df_for_html = df_for_html[["Nr.","Classification","Gene","Exon/\nIntron","SNP ID","DNA change","Protein\nchange","Chromosomal\n location","Zygosity","Inheri-\ntance","Associated Disease(s)"]]
-        df_for_html.columns=["Nr.","Classification","Gene","Exon/\nIntron","SNP ID","DNA change","Protein\nchange","Chromosomal\n location","Zygosity","Inheri-\ntance","Associated Disease(s)"]
-        df_for_html_2 = df_for_html[df_for_html['Classification']!="drug response"]
-        df_for_html = df_for_html_2
-    #print(df_for_html)
-    #print(df_for_html["Classification"].tolist())
-    
-    #cancer_df = df_for_html.loc[df_for_html["Gene"].isin(dis_gene_dict["Cancer Predisposition genes"])]
-    #df_for_html['nbr'] = np.arange(len(df_for_html))
-    #df_for_html = df_for_html[["nbr","clin_sig","gene_name","exon","rsid","dna_change","prot_change","transcript","zyg","inh","diseases_STR"]]
-    #df_for_html.columns=["Number","Classification","Gene","Exon/\nIntron","SNP ID","DNA change","Protein\nchange","Transcript ID","Zygosity","Inheritance","Associated Disease(s)"]
-    #print(list(ret_df.columns))
-    'max_af','max_pop','vaf','gq','ad1','ad2'
-    df_for_freq = ret_df[["rsid","clin_sig","gene_name","dna_change","transcript","vaf","freq","ad","gq","max_af","max_pop"]]
-    df_for_freq = df_for_freq[df_for_freq['clin_sig']!="drug response"]
-    nbr_col_2 = [col_nbr_dict[rsid] for rsid in df_for_freq["rsid"].tolist()]
-    df_for_freq = df_for_freq[["gene_name","dna_change","transcript","vaf","ad","gq","freq","max_af","max_pop"]]
-    df_for_freq.columns=["Gene","DNA change","Transcript ID","AF in patient","Nbr. Reads","Quality","Frequency\n globally","Maximal AF\n globally","Population\n with maximal\n AF"]
-    #print(df_for_freq)
-    #print(df_for_freq["rsid"].tolist())
-    #print(nbr_col_2)
-    df_for_freq.insert(0,"Mutation\nNumber",nbr_col_2)
-    table_1_html = df_for_html.to_html(index=False,table_id="snp_table")
-    table_1_html = table_1_html.replace("class=\"dataframe\"","class=\"TFtable\"")
-    table_1_html = table_1_html.replace("dataframe","TFtable")
-    table_2_html = df_for_freq.to_html(index=False,table_id="inh_table")
-    table_2_html = table_2_html.replace("class=\"dataframe\"","class=\"InhTable\"")
-    table_2_html = table_2_html.replace("dataframe","TFtable")
-    comments_style = ""
-    comment_table_html = ""
-    pubmed_html = ""
-    comment_df = comment_df[comment_df['clin_sig']!="drug response"]
-    comment_df = comment_df[comment_df['rsid'].notna()]
-    nbr_col_3 = [col_nbr_dict[rsid] for rsid in comment_df["rsid"].tolist()]
-    #print(comment_df["clin_sig"].tolist())
-    comment_df.insert(0,"Number",nbr_col_3)
-    #print(comment_df)
-    #print(comment_df["clin_sig"].tolist())
-    list_of_described_genes = []
-    for i in list(comment_df.index):
-        gene_name_curr = comment_df.loc[i,"gene_name"]
-        if (not(gene_name_curr in list_of_described_genes) and gene_name_curr in gene_info_ret):
-            comment_table_html = comment_table_html + "Gene Name: <b>" + str(gene_name_curr) + "</b>. SNPs in Gene: <b>"+ ";".join(gene_info_ret[gene_name_curr][2]) + "</b>.  Associated diseases: " + ";".join(gene_info_ret[gene_name_curr][1]) + "<br />"
-            comment_table_html = comment_table_html + "<b>Description:</b> " + str(gene_info_ret[gene_name_curr][0]) + "<br />"
-            list_of_described_genes.append(gene_name_curr)
-        comment_table_html = comment_table_html + "(Mut.Nbr. " + str(comment_df.loc[i,"Number"]) + "):"  + "<b>" + str(i) + "</b>&nbsp;&nbsp;" + str(comment_df.loc[i,"comment"]) + "<br />"
-    if(comment_table_html == ""):
-        comments_style = "display: none;"
-    pubmed_style = ""
-    #print(pubmed_df)
-    if not(len(list(pubmed_df.index)) < 1):
-        nbr_col_4 = [col_nbr_dict[rsid] for rsid in pubmed_df['rsid'].tolist()]
-        pubmed_df.insert(0,"Number",nbr_col_4)
-        pubmed_df = pubmed_df[["Number","name","PMID","title"]]
-        pubmed_df.columns = ["Number","Name of Mutation","Pubmed ID","Title"]
-        pubmed_html = pubmed_df.to_html(index=False,table_id="pubmed_table")
-        pubmed_html = pubmed_html.replace("class=\"dataframe\"","class=\"PubmedTable\"")
-        pubmed_html = pubmed_html.replace("dataframe","PubmedTable")
-    else:
-        pubmed_style = "display: none  !important;"
-    #    print("SNP ID: " + str(snp_curr))
-    #    print("Classification:\t" + snp_data[snp_curr]["clin_sig"] + "\tGene:\t" + gene_name_dict[snp_curr] + "\tDNA change:\t" + snp_data[snp_curr]["dna_change"] + "\tProtein change:\t" + snp_data[snp_curr]["prot_change"] + "\tAssociated disease(s):\t" + ";".join([dict_by_snpid[snp_curr][i].split(";")[0] for i in dict_by_snpid[snp_curr]]))
-    #    for dis_and_sig in dict_by_snpid[snp_curr]:
-    #        print(snp_curr + " - " + dis_and_sig.split(";")[0] + ";\t" + dis_and_sig.split(";")[1] +":")
-    #        print("Description:\t" + dict_by_snpid[snp_curr][dis_and_sig])
-    return(table_1_html,comment_table_html,table_2_html,pubmed_html,comments_style,pubmed_style)
-def make_html(html_path,outfile,result_html,table_2_html,comment_html,pubmed_html,comments_style,pubmed_style,patient_name,patient_dob,is_pathogenic):
-    table_file = open(html_path)
-    htmlstr=table_file.read()
-    comments_style = ""
-    if(comment_html == ""):
-        comments_style = "display: none;"
-    if(is_pathogenic == "true"):
-        bg_color = "yellow"
-        result_text = "Likely pathogenic sequence variant(s) in gene related to reported phenotype detected ."
-    else:
-        bg_color = "green"
-        result_text = "No pathogenic sequence variant(s) in gene related to reported phenotype detected ."
-    htmlstr = htmlstr.replace("patient_name",patient_name).replace("patient_dob",patient_dob).replace("bg_color",bg_color).replace("result_table",result_html).replace("freq_table",table_2_html).replace("result_text",result_text).replace("comment_html",comment_html).replace("comments_style",comments_style).replace("dataframe","TFtable").replace("pubmed_table",pubmed_html).replace("pubmed_style",pubmed_style)
-    table_file.close()
-    fh=open(outfile,'w')
-    fh.write(htmlstr)
-    fh.close()
-    return(htmlstr)
-
-def generate_disease_report(html_path,disease,disease_name,outfile,result_html,table_2_html,comment_html,pubmed_html,comments_style,pubmed_style,patient_name,patient_dob,is_pathogenic):
-    table_file = open(html_path)
-    htmlstr=table_file.read()
-    comments_style = ""
-    if(disease_name == "all"):
-        disease_name = "any diseases"
-    if(comment_html == ""):
-        comments_style = "display: none;"
-    if(is_pathogenic == "true"):
-        bg_color = "yellow"
-        result_text = "Likely pathogenic sequence variant(s) in gene related to " + disease_name +" detected ."
-    else:
-        bg_color = "green"
-        result_text = "No pathogenic sequence variant(s) in gene related to " + disease_name +" detected ."
-    htmlstr = htmlstr.replace("patient_name",patient_name).replace("patient_dob",patient_dob).replace("bg_color",bg_color).replace("result_table",result_html).replace("freq_table",table_2_html).replace("result_text",result_text).replace("comment_html",comment_html).replace("comments_style",comments_style).replace("dataframe","TFtable").replace("pubmed_table",pubmed_html).replace("pubmed_style",pubmed_style).replace("disease_name",disease_name)
-    table_file.close()
-    fh=open(outfile,'w')
-    fh.write(htmlstr)
-    fh.close()
-    return(htmlstr)
 
 
 #def make_pdf(html_path,outfile):
 #    pdfkit.from_file(html_path, outfile,options={'page-height': '317mm', 'page-width': '210mm' , 'dpi':400})
-    
-
-def make_pdf_from_str(htmlstr,outfile):
-    fh=open("temp_out_file.html",'w+')
-    fh.write(htmlstr)
-    fh.close()
-    #pdfkit.from_file("temp_out_file.html", outfile)
 
 
 def write_json_to_files(strings,outfiles):
@@ -271,80 +137,6 @@ def generate_json(result_text,bgcolor,ret_df,comment_df,pubmed_df):
     freqs_json = json.dumps(freqs)
     pubmed_json = json.dumps(pubmed)
     return(results_json,comments_json,freqs_json,pubmed_json)
-
-
-
-def generate_json_OLD_2(result_text,bgcolor,ret_df,comment_df,pubmed_df):
-    ret = "{\"result_text\": \"" + result_text + "\",\"bgcolor\": \""+ bgcolor + "\",\"results\": ["
-    print(str(list(ret_df.index)))
-    len_data = len(list(ret_df.index))
-    ctr = 0
-    for snp_curr in list(ret_df.index):
-        ret = ret + "{\"classification\": \"" + str(ret_df.loc[snp_curr,"clin_sig"]) + "\","
-        ret = ret + "\"gene\": \"" + str(ret_df.loc[snp_curr,"gene_name"]) + "\","
-        ret = ret + "\"dna_change\": \"" + str(ret_df.loc[snp_curr,"dna_change"]) + "\","
-        ret = ret + "\"prot_change\": \"" + str(ret_df.loc[snp_curr,"prot_change"]) + "\","
-        ret = ret + "\"diseases\": \"" + str(ret_df.loc[snp_curr,"diseases_STR"]) + "\"}"
-        if not(ctr == len_data):
-            ret = ret + ","
-        ctr = ctr + 1
-    ctr = 0
-    ret = ret + "],\"descriptions\": ["
-    for snp_curr in list(ret_df.index):
-        print(snp_curr)
-        print(pd.isnull(ret_df.loc[snp_curr,"dis_and_sig"]))
-        #print(list(ret_df.loc[snp_curr,"dis_and_sig"]))
-        #print(str([str(i) for i in list(ret_df.loc[snp_curr,"dis_and_sig"])]))
-        if(pd.isnull(ret_df.loc[snp_curr,"dis_and_sig"])):
-            continue
-        if(len(list(ret_df.loc[snp_curr,"dis_and_sig"])) < 4):
-            continue
-        for i in range (0, len(list(ret_df.loc[snp_curr,"dis_and_sig"]))):
-            if not(str(ret_df.loc[snp_curr,"diseases"][i]) == "nan"):
-                ret = ret + " {\"title\":\" "
-                ret = ret + str(ret_df.loc[snp_curr,"gene_name"]) + " " + str(ret_df.loc[snp_curr,"dna_change"]) + " (" + str(ret_df.loc[snp_curr,"prot_change"]) + ") - "
-                ret = ret + str(ret_df.loc[snp_curr,"diseases"][i])
-                ret = ret + ",\"descr\": \""
-                ret = ret + str(ret_df.loc[snp_curr,"comments"][i])
-                ret = ret + "\"}"
-                if not(ctr == len_data):
-                    ret = ret + ","
-        ctr = ctr + 1
-    ret = ret + "]}"
-    ret = ret.replace("},],\"descriptions\"","}],\"descriptions\"")
-    print(ret)
-    return(ret)
-    
-def generate_json_OLD(result_text,bgcolor,dict_by_snpid,snp_data):
-    ret = "{\"result_text\": \"Likely pathogenic sequence variant(s) detected .\",\"bgcolor\": \"yellow\",\"results\": ["
-    len_data = len(snp_data)
-    ctr = 0
-    for snp_curr in snp_data:
-        ret = ret + "{\"classification\": \"" + str(snp_data[snp_curr]["clin_sig"]) + "\","
-        ret = ret + "\"gene\": \"" + str(snp_data[snp_curr]["gene_name"]) + "\","
-        ret = ret + "\"dna_change\": \"" + str(snp_data[snp_curr]["dna_change"]) + "\","
-        ret = ret + "\"prot_change\": \"" + str(snp_data[snp_curr]["prot_change"]) + "\","
-        ret = ret + "\"diseases\": \"" + str(";".join([i.split(";")[0] for i in dict_by_snpid[snp_curr]])) + "\"}"
-        if not(ctr == len_data):
-            ret = ret + ","
-        ctr = ctr + 1
-    ctr = 0
-    ret = ret + "],\"descriptions\": ["
-    for snp_curr in snp_data:
-        for dis_and_sig in dict_by_snpid[snp_curr]:
-            if not(str(dict_by_snpid[snp_curr][dis_and_sig]) == "nan"):
-                ret = ret + " {\"title\":\" "
-                ret = ret + snp_data[snp_curr]["gene_name"] + " " + str(snp_data[snp_curr]["dna_change"]) + " (" + str(snp_data[snp_curr]["prot_change"]) + ") - "
-                ret = ret + str(dis_and_sig).split(";")[1] + ".\""
-                ret = ret + ",\"descr\": \""
-                ret = ret + str(dict_by_snpid[snp_curr][dis_and_sig])
-                ret = ret + "\"}"
-                if not(ctr == len_data):
-                    ret = ret + ","
-        ctr = ctr + 1
-    ret = ret + "]}"
-    ret = ret.replace("},],\"descriptions\"","}],\"descriptions\"")
-    print(ret)
 
 
 def read_syndict(path):
@@ -730,7 +522,7 @@ def extract_vep_data(dataframe,disease_filter,start,end):
         if(gene_name in inh_dict):
             inh = inh_dict[gene_name]
         else:
-            inh = get_inheritance_mode_3(gene_name,"dis_calc/tableExport.csv","","false")
+            inh = get_inheritance_mode_3(gene_name,"/scripts/tableExport.csv","","false")
             inh_dict[gene_name] = inh
         #inh = get_inheritance_mode(gene_name)
         #print(inh)
@@ -1277,21 +1069,21 @@ def run_all(vcf_df,diseases,outfile):
     # iterate over selected disease types
     for dis in diseases_to_filter:
         outfile_curr = outfile + ".html"
-        patient_id = outfile.replace("dis_calc/static/dis_report_","")
+        patient_id = outfile.replace("/scripts/dis_report_","")
         ## extract data from VEP output
         [ret_df,comment_df,pubmed_list,gene_info_ret,is_pathogenic] = extract_vep_data(vcf_df,dis,startpos1,stoppos1)
         [results_json,comments_json,freqs_json,pubmed_json] = generate_json("none","yellow",ret_df,comment_df,pubmed_list)
         print("json results:")
         print(results_json)
-        write_json_to_one_file([results_json,comments_json,freqs_json,pubmed_json],"dis_calc/static/dis_genes_" + patient_id + "_" + dis + ".json")
-        [ret_df_copy,comment_df_copy,pubmed_list_copy] = [ret_df.copy(deep=True),comment_df.copy(deep=True),pubmed_list.copy(deep=True)]
+        write_json_to_one_file([results_json,comments_json,freqs_json,pubmed_json],"/scripts/dis_genes_" + patient_id + "_" + dis + ".json")
+        #[ret_df_copy,comment_df_copy,pubmed_list_copy] = [ret_df.copy(deep=True),comment_df.copy(deep=True),pubmed_list.copy(deep=True)]
         # write tables with output data
-        [table_1_html,comment_table_html,table_2_html,pubmed_html,comments_style,pubmed_style] = make_table(ret_df,comment_df,pubmed_list,gene_info_ret,dis)
+        #[table_1_html,comment_table_html,table_2_html,pubmed_html,comments_style,pubmed_style] = make_table(ret_df,comment_df,pubmed_list,gene_info_ret,dis)
         #htmlstr=generate_disease_report("dis_calc/disease_report_to_fill.html",dis,dis,(outfile+".html"),table_1_html,table_2_html,comment_table_html,pubmed_html,comments_style,pubmed_style,"Max Mustermann","1.1.1900",is_pathogenic)
         # write disease report
-        htmlstr=generate_disease_report("dis_calc/disease_report_to_fill.html",dis,dis,outfile_curr,table_1_html,table_2_html,comment_table_html,pubmed_html,comments_style,pubmed_style,"Max Mustermann","1.1.1900",is_pathogenic)
-        make_pdf_from_str(htmlstr,(outfile + "_" + dis + ".pdf"))
-        report_paths.append("dis_calc/static/dis_genes_" + patient_id + "_" + dis + ".json")
+        #htmlstr=generate_disease_report("dis_calc/disease_report_to_fill.html",dis,dis,outfile_curr,table_1_html,table_2_html,comment_table_html,pubmed_html,comments_style,pubmed_style,"Max Mustermann","1.1.1900",is_pathogenic)
+        #make_pdf_from_str(htmlstr,(outfile + "_" + dis + ".pdf"))
+        report_paths.append("/scripts/dis_genes_" + patient_id + "_" + dis + ".json")
     return(report_paths)
 
 

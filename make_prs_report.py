@@ -33,6 +33,10 @@ def make_html_easy(html_path,outfile,results_path,patient_id,risk_threshold,is_a
     percs = []
     risks = []
     distrs = []
+    result_file = open(results_path)
+    resultstr=result_file.read()
+    result_file.close()
+    resultlist = resultstr.split("\n")
     ## read result file
     for line in resultlist:
         lineSplit = line.split()
