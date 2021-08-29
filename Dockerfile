@@ -12,7 +12,7 @@ COPY output.23andMe /output.23andMe
 COPY panels /panels
 COPY pops /pops
 COPY score_files /score_files
-#COPY reference_files /reference_files
+COPY reference_files /reference_files
 #COPY testdata /testdata
 COPY testfiles /testfiles
 COPY bin /bin

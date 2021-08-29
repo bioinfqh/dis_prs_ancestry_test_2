@@ -27,6 +27,8 @@ sorted_ids = [key for key in sorted_preds_tmp]
 #print(sorted_preds[100])
 idx_of_patient = sorted_ids.index(patient_id)
 relpos_pat = float(idx_of_patient) / float(len(sorted_ids))
+if((float(sorted_preds[len(sorted_preds)-1]) - float(sorted_preds[0])) == 0):
+    score_pat = 50.0
 score_pat = (float(sorted_preds[idx_of_patient]) - float(sorted_preds[0])) / (float(sorted_preds[len(sorted_preds)-1]) - float(sorted_preds[0]))
 #print(str(float(sorted_preds[idx_of_patient])))
 #print(str(float(sorted_preds[0])))

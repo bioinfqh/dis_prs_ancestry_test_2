@@ -9,10 +9,10 @@ task test {
 
   command {
   ls >testoutput_new.txt
-  bash /scripts/run_prs.sh /testfiles/file_for_prs.vcf /testfiles/file_for_prs.vcf /scripts/disease_list.txt
+  bash /scripts/run_prs.sh /reference_files/merged2filtered /testfiles/file_for_prs.vcf /scripts/disease_list.txt
   }
   output {
-  File outfile = "/scripts/scores_1.profile"
+  File outfile = "/scripts/prs_${customer_id}.json"
   }
   runtime {
   docker: "quay.io/testaccountq/dis_gen_prs_test_2:main"
