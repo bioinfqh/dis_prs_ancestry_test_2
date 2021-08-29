@@ -20,12 +20,12 @@ def run_calc(path_to_infiles,path_to_models,output_basename):
         curr_vcf = path_to_infiles + "/chr_" + curr_chr + ".vcf.gz"
         #print("python3 XGMIX.py " + curr_vcf + " demo_data/allchrs.b37.gmap " +  output_basename + "_chr_" + curr_chr + " " + curr_chr + " False " + curr_model)
         if(i == 21):
-            os.system("python3 " + xgmix_path + " " + curr_vcf + " demo_data/allchrs.b37.gmap " +  output_basename + "_chr_" + curr_chr + " " + curr_chr + " False " + curr_model)
+            os.system("python3 " + xgmix_path + " " + curr_vcf + " /XGMix-master/demo_data/allchrs.b37.gmap " +  output_basename + "_chr_" + curr_chr + " " + curr_chr + " False " + curr_model)
         #print(output_basename + "_chr_" + curr_chr)
         if(os.path.isdir(output_basename + "_chr_" + curr_chr)):
             #print(" " + output_basename + "_chr_" + curr_chr + "/demo_chr_" + curr_chr + ".msp.tsv " + output_basename)
             #print("cp " + output_basename + "_chr_" + curr_chr + "/demo_chr_" + curr_chr + ".msp.tsv demo_data/demo_chr_" + curr_chr + ".msp.tsv")
-            os.system("cp " + output_basename + "_chr_" + curr_chr + "/demo_chr_" + curr_chr + ".msp.tsv demo_data/demo_chr_" + curr_chr + ".msp.tsv")
+            os.system("cp " + output_basename + "_chr_" + curr_chr + "/demo_chr_" + curr_chr + ".msp.tsv /XGMix-master/demo_data/demo_chr_" + curr_chr + ".msp.tsv")
         curr_output = output_basename + "_chr_" + curr_chr
         outfiles.append(curr_output)
     return(outfiles)
@@ -36,10 +36,10 @@ def read_results_and_plot(sample_id,output_file):
     #msp_df.loc[:,'#chm'] = 1
     #print(msp_df)
     #img_name = "demo_data/imgs/chm_img_" + sample_id
-    img_name = "demo_data/imgs/chm_img"
+    img_name = "/XGMix-master/demo_data/imgs/chm_img"
     plot_chm(sample_id, msp_df, img_name)
-    os.system('mv chm_img.svg chm_img_' + sample_id + '.svg')
-    os.system('mv chm_img.png chm_img_' + sample_id + '.png')
+    os.system('mv /XGMix-master/demo_data/chm_img.svg /XGMix-master/demo_data/chm_img_' + sample_id + '.svg')
+    os.system('mv /XGMix-master/demo_data/chm_img.png /XGMix-master/demo_data/chm_img_' + sample_id + '.png')
     return(img_name)
 
 
@@ -86,7 +86,7 @@ def run_and_html(path_to_infiles,sample_id,path_to_models,output_basename,custom
     img_paths = plot_all(sample_id,output_basename)
     #html_str = make_html(img_paths)
     #outfile = "report_chrom_anc_" + customer_id + ".html"
-    os.system('mv chm_img_' + sample_id + '.png dis_calc/static/chm_img_' + customer_id + '.png')
+    os.system('mv /XGMix-master/demo_data/chm_img_' + sample_id + '.png /scripts/chm_img_' + customer_id + '.png')
     #fh=open(outfile,'w')
     #fh.write(html_str)
     #fh.close()
@@ -100,5 +100,5 @@ if(len(sys.argv) > 5):
     customer_id=str(sys.argv[5])
     run_and_html(vcf_dir,sample_id,model_file,output_prefix_path,customer_id)
 else:
-    run_and_html("../XGMIX_infiles",sample_id,"../XGMIX_model_files","demo_data/demo","testuser")
+    run_and_html("/XGMIX_infiles",sample_id,"/XGMIX_model_files","/XGMix-master/demo_data/demo","testuser")
 #run_and_plot("/media/quirin/INTENSO/XGMIX_infiles",sample_id,"/media/quirin/INTENSO/XGMIX_model_files","demo_data/demo")

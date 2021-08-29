@@ -6,5 +6,7 @@ infile_dir="/XGMIX_infiles"
 model_file_path="/XGMIX_model_files"
 output_prefix_path="/XGMix_master/demo_data/demo"
 
+sample_id=$(python3 /scripts/get_id_from_vcf.py $infile)
+
 bash /scripts/partition_vcf.sh $infile /vcf_temp_dir
 outfile=$(python3 /scripts/run_xgmix.py /vcf_temp_dir $sample_id $model_file_path $output_prefix_path $customer_id)

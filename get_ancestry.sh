@@ -48,9 +48,9 @@ if [[ $genotype_file =~ zip ]]; then
       gzip -cdf $genotype_file > $genotype_file
 fi
 if [[ $genotype_file =~ "vcf" ]]; then
-    $plink_path --vcf $genotype_file --double-id --snps-only --biallelic-only --recode 23 --out out_dir 
+    $plink_path --vcf $genotype_file --double-id --snps-only --biallelic-only --recode 23 --out /out_dir 
     #> /dev/null 2>&1
-    gzip <out_dir.txt >out_dir/gzip_tmp.txt.gz
+    gzip </out_dir.txt >/out_dir/gzip_tmp.txt.gz
 elif [[ $genotype_file =~ ".23andMe.txt" ]]; then
     gzip -cdfq $genotype_file > out_dir/$gzip_tmp
 elif [[ $genotype_file =~ "txt" ]]; then
@@ -63,19 +63,19 @@ export LD_LIBRARY_PATH=/htslib-1.3.2
 echo $params
 ## run ancestr
 #params2="$params"
-$ancestry_path -i $refpanel_path -g23 out_dir/$gzip_tmp -e 0.01 -o output $params 
+$ancestry_path -i $refpanel_path -g23 /out_dir/$gzip_tmp -e 0.01 -o /scripts/output $params 
 #> /dev/null 2>&1
 #$ancestry_path -i $refpanel_path -g23 out_dir/$gzip_tmp "${params}" -o $out 
 #$ancestry_path -i $refpanel_path -g23 out_dir/$gzip_tmp -e 0.01 --merge -o $out > /dev/null 2>&1
 
 
 ## delete temporary files
-if [ -f out_dir/$gzip_tmp ]; then
-rm out_dir/$gzip_tmp
+if [ -f /out_dir/$gzip_tmp ]; then
+rm /out_dir/$gzip_tmp
 fi
 
-if [ -f out_dir/$dtc_file ]; then
-rm out_dir/$dtc_file
+if [ -f /out_dir/$dtc_file ]; then
+rm /out_dir/$dtc_file
 fi
 rm -r -f work
 
@@ -89,25 +89,25 @@ while read p; do
   printf "':"
   echo -n $p | awk '{print $2}' 
   printf " , " 
-done<output.Q 
+done</scripts/output.Q 
 printf " ]"
 
-Rscript -e 'ancestry <- read.table( "output.Q" , sep = " ");  data.table::fwrite(as.data.frame(t(ancestry)), sep = ",", quote = FALSE, file = "ancestry.csv", col.names = FALSE)'
+#Rscript -e 'ancestry <- read.table( "output.Q" , sep = " ");  data.table::fwrite(as.data.frame(t(ancestry)), sep = ",", quote = FALSE, file = "ancestry.csv", col.names = FALSE)'
   
 # copy the docker bin into pwd
 #mkdir bin/
 #cp -r /opt/conda/envs/fast-ngs-admix/bin/* bin/
-cd bin
+#cd bin
 
   # copy the rmarkdown into the workdir
-R -e "rmarkdown::render('map.Rmd', params = list(ancestry_csv='../ancestry.csv'), output_file='map.html')"
+#R -e "rmarkdown::render('map.Rmd', params = list(ancestry_csv='../ancestry.csv'), output_file='map.html')"
 
-cd ..
+#cd ..
 
-mkdir MultiQC
-cp bin/map.html MultiQC/multiqc_report.html
-cp output.Q $outfile_results
-mv bin/map.html $outfile
+#mkdir MultiQC
+#cp bin/map.html MultiQC/multiqc_report.html
+cp /scripts/output.Q $outfile_results
+#mv bin/map.html $outfile
 #mv bin/map.html dis_calc/static/ancestry_map.html
 ### this prints only the ancestry proportions, line wise
 #while read p; do
