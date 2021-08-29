@@ -68,7 +68,7 @@ if [[ $prepare_dataset =~ "t" ]]; then
     bfile_loc=/scripts/merged2
 else
     bfile_loc=$backgr_dataset
-    bfile_loc=/scripts/testsample
+    bfile_loc=/testfiles/testsample
 fi
 
 if [[ $scores =~ "," ]]; then

@@ -10,7 +10,7 @@ from sklearn.metrics import confusion_matrix
 from Utils.visualization import plot_cm, plot_chm
 
 
-xgmix_path = "XGMix_master/XGMIX.py"
+xgmix_path = "/XGMix_master/XGMIX.py"
 
 def run_calc(path_to_infiles,path_to_models,output_basename):
     outfiles = []
@@ -56,7 +56,7 @@ def plot_all(sample_id,output_basename):
         msp_df_new = pd.concat([msp_df, curr_msp_df], ignore_index=True)
         msp_df = msp_df_new.copy()
     #img_name = "demo_data/imgs/chm_img_" + sample_id
-    img_name = "demo_data/imgs/chm_img"
+    img_name = "/XGMix_master/demo_data/imgs/chm_img"
     #print(msp_df)
     plot_chm(sample_id, msp_df, img_name)
     os.system('mv chm_img.svg chm_img_' + sample_id + '.svg')

@@ -27,6 +27,7 @@ COPY test.json .
 #RUN apt-get update
 RUN mkdir /MultiQC
 RUN mkdir /XGMIX_infiles
+RUN mkdir /vcf_temp_dir
 RUN chmod 777 /plink_linux_x86_64_20201019/* && chmod 777 /ancestry_mirror-master/src/ancestry 
 #RUN apt-get update && apt-get install -y  python3.7 && apt-get install -y python3-pip && apt autoremove && apt autoclean && apt-get clean packages && pip3 install -r requirements.txt && apt autoremove && apt autoclean && apt-get clean packages && apt-get install -y curl && python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000
 wget https://raw.githubusercontent.com/bioinfqh/dis_prs_ancestry_test_2/main/script_4.wdl -P 
