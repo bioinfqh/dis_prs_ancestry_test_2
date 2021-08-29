@@ -10,9 +10,11 @@ task test {
   ls >testoutput_new.txt
   cp input_vcf /scripts/anc_vcf.vcf
   bash /scripts/run_global_anc.sh /testfiles/file_for_prs.vcf ${customer_id}
+  bash /scripts/run_local_anc.sh /testfile/file_for_prs.vcf test ${customer_id}
   }
   output {
   File outfile = "/scripts/ancestry_${customer_id}.json"
+  File outfile2 = "/scripts/chm_img_${customer_id}.png"
   }
   runtime {
   docker: "quay.io/testaccountq/dis_gen_prs_test_2:main"

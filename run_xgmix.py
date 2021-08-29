@@ -99,6 +99,7 @@ if(len(sys.argv) > 5):
     output_prefix_path=str(sys.argv[4])
     customer_id=str(sys.argv[5])
     run_and_html(vcf_dir,sample_id,model_file,output_prefix_path,customer_id)
+    print("/scripts/chm_img_" + customer_id + ".png")
 else:
     run_and_html("/XGMIX_infiles",sample_id,"/XGMIX_model_files","/XGMix-master/demo_data/demo","testuser")
 #run_and_plot("/media/quirin/INTENSO/XGMIX_infiles",sample_id,"/media/quirin/INTENSO/XGMIX_model_files","demo_data/demo")

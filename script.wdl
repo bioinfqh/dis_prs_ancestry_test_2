@@ -12,7 +12,7 @@ task test {
   bash /scripts/run_prs.sh /testfiles/merged2filtered /testfiles/file_for_prs.vcf /scripts/disease_list.txt
   }
   output {
-  File outfile = "/scripts/prs_${customer_id}.json"
+  File outfile = "prs_${customer_id}.json"
   }
   runtime {
   docker: "quay.io/testaccountq/dis_gen_prs_test_2:main"
