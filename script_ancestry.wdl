@@ -11,6 +11,8 @@ task test {
   cp input_vcf /scripts/anc_vcf.vcf
   bash /scripts/run_global_anc.sh /testfiles/file_for_prs.vcf ${customer_id}
   bash /scripts/run_local_anc.sh /testfile/file_for_prs.vcf test ${customer_id}
+  cp /scripts/ancestry_testuser.json ancestry_testuser.json
+  cp /scripts/chm_img_testuser.png chm_img_testuser.png
   }
   output {
   File outfile = "/scripts/ancestry_${customer_id}.json"

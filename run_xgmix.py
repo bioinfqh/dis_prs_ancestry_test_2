@@ -59,9 +59,9 @@ def plot_all(sample_id,output_basename):
     img_name = "/XGMix_master/demo_data/imgs/chm_img"
     #print(msp_df)
     plot_chm(sample_id, msp_df, img_name)
-    os.system('mv chm_img.svg chm_img_' + sample_id + '.svg')
-    os.system('mv chm_img.png chm_img_' + sample_id + '.png')
-    return(["chm_img_" + sample_id + ".svg","chm_img_" + sample_id + ".png"])
+    os.system('mv /XGMix-master/demo_data/chm_img.svg /XGMix-master/demo_data/chm_img_' + sample_id + '.svg')
+    os.system('mv /XGMix-master/demo_data/chm_img.png /XGMix-master/demo_data/chm_img_' + sample_id + '.png')
+    return(["/XGMix-master/demo_data/chm_img_" + sample_id + ".svg","/XGMix-master/demo_data/chm_img_" + sample_id + ".png"])
 
 def make_html(img_paths):
     html_file = open("local_ancestry_to_fill.html")

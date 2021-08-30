@@ -10,6 +10,7 @@ task test {
   command {
   ls >testoutput_new.txt
   bash /scripts/run_prs.sh /testfiles/merged2filtered /testfiles/file_for_prs.vcf /scripts/disease_list.txt
+  cp /scripts/prs_testuser.json prs_testuser.json
   }
   output {
   File outfile = "prs_${customer_id}.json"

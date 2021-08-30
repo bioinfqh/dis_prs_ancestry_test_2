@@ -25,7 +25,7 @@ if [[ $dataset =~ ".vcf" ]]; then
 fi
 
 if [[ $prepare_dataset =~ "t" ]]; then
-    dataset = /testfiles/sample1
+    dataset=/testfiles/sample1
     if [[ $scores =~ "," ]]; then
         touch /scripts/keep_tmp.txt
         for element in "${scores_array[@]}"
@@ -86,6 +86,7 @@ else
     #$plink_loc --bfile merged2 --score $scores $snp_col $all_col $score_col --extract outfile_tmp.valid.snp --out outfile_tmp
     $plink_loc --bfile $bfile_loc --score $scores $snp_col $all_col $score_col --out /scripts/scores_1
 fi
+cp /scripts/scores_7.profile /scripts/scores_6.profile
 if [[ $remove == "t" ]]; then
     rm -f /scripts/merged2.fam
     rm -f /scripts/merged2.bim
