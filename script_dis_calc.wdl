@@ -9,7 +9,7 @@ task test {
 
   command {
   ls >testoutput_new.txt
-  bash /scripts/run_dis_calc.sh /testfiles/file_for_prs.vcf /scripts/disease_groups_dis_calc.txt testuser
+  bash /scripts/run_dis_calc.sh /testfiles/file_for_disease_genes.txt /scripts/disease_groups_dis_calc.txt testuser
   cp /scripts/dis_genes_testuser_all.json dis_genes_testuser.json
   }
   output {

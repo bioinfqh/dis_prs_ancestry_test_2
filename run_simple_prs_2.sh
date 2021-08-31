@@ -25,7 +25,7 @@ if [[ $dataset =~ ".vcf" ]]; then
 fi
 
 if [[ $prepare_dataset =~ "t" ]]; then
-    dataset=/testfiles/sample1
+    dataset=/testfiles/testsample
     if [[ $scores =~ "," ]]; then
         touch /scripts/keep_tmp.txt
         for element in "${scores_array[@]}"
