@@ -2,14 +2,14 @@ version 1.0
 
 task test {
   input {
-    String patient_vcf
+    File patient_vcf
     String disease_list
     String customer_id
   }
 
   command {
   ls >testoutput_new.txt
-  bash /scripts/run_dis_calc.sh /testfiles/file_for_disease_genes.txt /scripts/disease_groups_dis_calc.txt testuser
+  bash /scripts/run_dis_calc.sh ${patient_vcf} /scripts/disease_groups_dis_calc.txt testuser
   cp /scripts/dis_genes_testuser_all.json dis_genes_testuser.json
   }
   output {
@@ -21,10 +21,16 @@ task test {
 }
 
 workflow make_panel_wdl {
+    input {
+    File patient_vcf
+    }
     call test {
         input:
-            patient_vcf = "prs_vcf.vcf",
+            patient_vcf = patient_vcf,
             customer_id = "testuser",
-            disease_list_path = "disease_list.txt"
+            disease_list = "disease_list.txt"
             }
+    output {
+    File resultfile = test.outfile
+    }
 }

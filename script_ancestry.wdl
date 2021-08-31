@@ -2,15 +2,15 @@ version 1.0
 
 task test {
   input {
-    String input_vcf
+    File patient_vcf
     String customer_id
   }
 
   command {
   ls >testoutput_new.txt
-  cp input_vcf /scripts/anc_vcf.vcf
-  bash /scripts/run_global_anc.sh /testfiles/file_for_prs.vcf ${customer_id}
-  bash /scripts/run_local_anc.sh /testfile/file_for_prs.vcf test ${customer_id}
+  cp ${patient_vcf} /scripts/anc_vcf.vcf
+  bash /scripts/run_global_anc.sh /scripts/anc_vcf.vcf ${customer_id}
+  bash /scripts/run_local_anc.sh /scripts/anc_vcf.vcf test ${customer_id}
   cp /scripts/ancestry_testuser.json ancestry_testuser.json
   cp /scripts/chm_img_testuser.png chm_img_testuser.png
   }
@@ -24,13 +24,15 @@ task test {
 }
 
 workflow make_panel_wdl {
+input {
+    File patient_vcf
+    }
     call test {
         input:
-            input_vcf = "prs_vcf.vcf",
+            patient_vcf = patient_vcf,
             customer_id = "testuser"
             }
+    output {
+    File resultfile = test.outfile
+    }
 }
-
-
-
-
