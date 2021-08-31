@@ -31,7 +31,7 @@ workflow make_panel_wdl {
             disease_list_path = "disease_list.txt"
             }
     output {
-    test.outfile
+    File resultfile = test.outfile
     }
 }
 
