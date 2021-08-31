@@ -26,7 +26,7 @@ workflow make_panel_wdl {
     }
     call test {
         input:
-            patient_vcf = patient_vcf
+            patient_vcf = patient_vcf,
             customer_id = "testuser",
             disease_list_path = "disease_list.txt"
             }
