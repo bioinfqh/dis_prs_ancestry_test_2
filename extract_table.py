@@ -1101,6 +1101,7 @@ if(run_as_script == "true"):
         disgr_str=disgr_file.read()
         disgr_file.close()
         lines = disgr_str.split("\n")
+        diseases = []
         for line in lines:
             lineSplit = line.split("\t")
             disgr_name = lineSplit[0].replace(" ","_")
