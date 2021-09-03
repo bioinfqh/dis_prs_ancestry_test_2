@@ -1064,8 +1064,8 @@ def run_all(vcf_df,diseases,outfile):
     #stoppos1 = 6656
     #startpos1 = 6650
     #stoppos1 = 6670
-    startpos1 = 0
-    stoppos1 = 20000
+    startpos1 = 6600
+    stoppos1 = 6700
     # iterate over selected disease types
     for dis in diseases_to_filter:
         outfile_curr = outfile + ".html"
