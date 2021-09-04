@@ -10,7 +10,7 @@ task test {
   command {
   ls >testoutput_new.txt
   bash /scripts/run_dis_calc.sh ${patient_vcf} /scripts/disease_groups_dis_calc.txt testuser
-  cp /scripts/dis_genes_testuser_all.json dis_genes_testuser.json
+  cp /scripts/dis_genes_testuser_all.json dis_genes_testuser_all.json
   }
   output {
   File outfile = "dis_genes_${customer_id}_all.json"
