@@ -387,7 +387,7 @@ def extract_vep_data(dataframe,disease_filter,start,end):
     gene_info_dict = {}
     snp_dict = {}
     ret_df = pd.DataFrame(columns=['rsid','clin_sig','consequence','variant_class','dna_change','prot_change','exon','transcript','chr_loc','hgvs','gene_name','hgnc','freq','max_af','max_pop','vaf','gq','ad1','ad2','ad','zyg','inh','clin_sig_list_STR','clin_sig_list','clin_sig_ct','diseases','diseases_STR','disease_groups','comments','comments_STR','dis_and_sig'])
-    syndict_all = read_syndict("syndict_temp.txt")
+    syndict_all = read_syndict("/scripts/syndict_temp.txt")
     #for i in range(0,len(df.index)):
     #for i in range(1400,1600):
     #for i in range(2000,3000):
@@ -1106,6 +1106,7 @@ if(run_as_script == "true"):
             lineSplit = line.split("\t")
             disgr_name = lineSplit[0].replace(" ","_")
             diseases.append(disgr_name)
+        diseases = ["all"]
     vcf_df = pd.read_csv(patient_vcf,sep='\t')
     report_paths = run_all(vcf_df,diseases,outfile)
     print("_SEPERATOR_".join(report_paths))
