@@ -89,11 +89,12 @@ def write_json_to_one_file(strings,outfile):
     for i in range(0,len(strings)):
         curr_string = strings[i]
         fh.write(curr_string)
-        fh.write("\n")
+        if not((i == 0) and (len(strings) == 1)):
+            fh.write("\n")
     fh.close()
     return(outfile)
         
-def generate_json(result_text,bgcolor,ret_df,comment_df,pubmed_df):
+def generate_json_OLD(result_text,bgcolor,ret_df,comment_df,pubmed_df):
     df_for_html = ret_df[["clin_sig","gene_name","exon","rsid","dna_change","prot_change","transcript","zyg","inh","diseases_STR"]]
     df_for_html.columns=["Classification","Gene","Exon/\nIntron","SNP ID","DNA change","Protein\nchange","Transcript ID","Zygosity","Inheritance","Associated Disease(s)"]
     drug_response_df = df_for_html[df_for_html['Classification']=="drug response"]
@@ -138,6 +139,101 @@ def generate_json(result_text,bgcolor,ret_df,comment_df,pubmed_df):
     pubmed_json = json.dumps(pubmed)
     return(results_json,comments_json,freqs_json,pubmed_json)
 
+def generate_json(result_text,bgcolor,ret_df,comment_df,pubmed_df):
+    df_for_html = ret_df[["clin_sig","gene_name","exon","rsid","dna_change","prot_change","transcript","zyg","inh","diseases_STR"]]
+    df_for_html.columns=["Classification","Gene","Exon/Intron","SNP ID","DNA change","Protein change","Transcript ID","Zygosity","Inheritance","Associated Disease(s)"]
+    drug_response_df = df_for_html[df_for_html['Classification']=="drug response"]
+    new_col = np.arange(1,(len(df_for_html) + 1))
+    col_nbr_dict =  dict(zip(df_for_html["SNP ID"].tolist(),new_col))
+    df_for_html.insert(0,"Number",new_col)
+    drug_response_df.columns=["Classification","Gene","Exon/\nIntron","SNP ID","DNA change","Protein\nchange","Transcript ID","Zygosity","Inheritance","Associated Response(s)"]
+    df_for_html_2 = df_for_html[df_for_html['Classification']!="drug response"]
+    df_for_html = df_for_html_2
+    #print(df_for_html)
+    #print(df_for_html["Classification"].tolist())
+    #df_for_html['nbr'] = np.arange(len(df_for_html))
+    #df_for_html = df_for_html[["nbr","clin_sig","gene_name","exon","rsid","dna_change","prot_change","transcript","zyg","inh","diseases_STR"]]
+    #df_for_html.columns=["Number","Classification","Gene","Exon/\nIntron","SNP ID","DNA change","Protein\nchange","Transcript ID","Zygosity","Inheritance","Associated Disease(s)"]
+    #print(list(ret_df.columns))
+    df_for_freq = ret_df[["clin_sig","gene_name","transcript","dna_change","prot_change","chr_loc","freq","rsid"]]
+    df_for_freq = df_for_freq[df_for_freq['clin_sig']!="drug response"]
+    nbr_col_2 = [col_nbr_dict[rsid] for rsid in df_for_freq["rsid"].tolist()]
+    df_for_freq = df_for_freq[["gene_name","transcript","dna_change","prot_change","chr_loc","freq","rsid"]]
+    df_for_freq.columns=["Gene","Transcript","DNA change","Protein change","Genomic Location","Alternate Allele Fraction","dbSNP rsID"]
+    #print(df_for_freq)
+    #print(df_for_freq["rsid"].tolist())
+    #print(nbr_col_2)
+    df_for_freq.insert(0,"Mutation\nNumber",nbr_col_2)
+    comment_df = comment_df[comment_df['clin_sig']!="drug response"]
+    comment_df = comment_df[comment_df['rsid'].notna()]
+    nbr_col_3 = [col_nbr_dict[rsid] for rsid in comment_df["rsid"].tolist()]
+    #print(comment_df["clin_sig"].tolist())
+    comment_df.insert(0,"Number",nbr_col_3)
+    if not(len(list(pubmed_df.index)) < 1):
+        nbr_col_4 = [col_nbr_dict[rsid] for rsid in pubmed_df['rsid'].tolist()]
+        pubmed_df.insert(0,"Number",nbr_col_4)
+        pubmed_df = pubmed_df[["Number","name","PMID","title"]]
+        pubmed_df.columns = ["Number","Name of Mutation","Pubmed ID","Title"]
+    comments = comment_df.to_dict(orient='records')
+    freqs = df_for_freq.to_dict(orient='records')
+    pubmed = pubmed_df.to_dict(orient='records')
+    print(comments)
+    print(freqs)
+    print(pubmed)
+    result_dict = df_for_html.to_dict(orient="records")
+    dict_1 = {}
+    ctr = 0
+    for gene_name_curr in list(df_for_html.index):
+        curr_nbr_gene = str(df_for_html.loc[gene_name_curr,"Number"])
+        gene_name_tmp = str(df_for_html.loc[gene_name_curr,"Gene"])
+        gene_loc_tmp = str(df_for_html.loc[gene_name_curr,"DNA change"])
+        gene_name = gene_name_tmp + " " + gene_loc_tmp
+        new_dict = {}
+        list_of_comments = []
+        list_of_freqs = []
+        list_of_pubmeds = []
+        curr_row_as_dict = {}
+        if not(len(result_dict) < ctr):
+            result_row = result_dict[ctr]
+            ctr = ctr + 1
+            diseases_for_curr_row = str(result_row["Associated Disease(s)"])
+            disease_list_tmp = diseases_for_curr_row.split(";")
+            result_row["Associated Disease(s)"] = disease_list_tmp
+            curr_row_as_dict = result_row
+        for i in range(0,len(comments)):
+            curr_nbr = str(comments[i]['Number'])
+            if(curr_nbr == curr_nbr_gene):
+                del comments[i]["Number"]
+                del comments[i]["gene_name"]
+                del comments[i]["rsid"]
+                tmp_dict = comments[i]
+                list_of_comments.append(tmp_dict)
+        for i in range(0,len(freqs)):
+            curr_nbr = str(freqs[i]['Mutation\nNumber'])
+            if(curr_nbr == curr_nbr_gene):
+                del freqs[i]["Mutation\nNumber"]
+                tmp_dict = freqs[i]
+                list_of_freqs.append(tmp_dict)
+                frec_as_dict = tmp_dict
+        for i in range(0,len(pubmed)):
+            curr_nbr = str(pubmed[i]['Number'])
+            if(curr_nbr == curr_nbr_gene):
+                del pubmed[i]["Number"]
+                del pubmed[i]["Name of Mutation"]
+                tmp_dict = pubmed[i]
+                list_of_pubmeds.append(tmp_dict)
+        new_dict['Gene Data'] = curr_row_as_dict
+        new_dict['Comments'] = list_of_comments
+        new_dict['Frequencies'] = frec_as_dict
+        new_dict['Publications'] = list_of_pubmeds
+        dict_1[gene_name] = new_dict
+    #results = df_for_html.to_dict(orient='records')
+    results_json = json.dumps(dict_1)
+    results_json = results_json.replace("\n"," ")
+    comments_json = json.dumps(comments)
+    freqs_json = json.dumps(freqs)
+    pubmed_json = json.dumps(pubmed)
+    return(results_json,comments_json,freqs_json,pubmed_json)
 
 def read_syndict(path):
     infile = open(path)
@@ -1073,9 +1169,10 @@ def run_all(vcf_df,diseases,outfile):
         ## extract data from VEP output
         [ret_df,comment_df,pubmed_list,gene_info_ret,is_pathogenic] = extract_vep_data(vcf_df,dis,startpos1,stoppos1)
         [results_json,comments_json,freqs_json,pubmed_json] = generate_json("none","yellow",ret_df,comment_df,pubmed_list)
-        print("json results:")
-        print(results_json)
-        write_json_to_one_file([results_json,comments_json,freqs_json,pubmed_json],"/scripts/dis_genes_" + patient_id + "_" + dis + ".json")
+        #print("json results:")
+        #print(results_json)
+        #write_json_to_one_file([results_json,comments_json,freqs_json,pubmed_json],"/scripts/dis_genes_" + patient_id + "_" + dis + ".json")
+        write_json_to_one_file([results_json],"/scripts/dis_genes_" + patient_id + "_" + dis + ".json")
         #[ret_df_copy,comment_df_copy,pubmed_list_copy] = [ret_df.copy(deep=True),comment_df.copy(deep=True),pubmed_list.copy(deep=True)]
         # write tables with output data
         #[table_1_html,comment_table_html,table_2_html,pubmed_html,comments_style,pubmed_style] = make_table(ret_df,comment_df,pubmed_list,gene_info_ret,dis)
