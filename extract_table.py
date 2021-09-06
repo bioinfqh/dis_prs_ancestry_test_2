@@ -1709,7 +1709,7 @@ def generate_report_and_return_pdf(path,disease_list,polygen_list):
 
 #generate_json("Likely pathogenic sequence variant(s) detected .","yellow",ret_df_copy,comment_df_copy,pubmed_list_copy)
 
-def run_all(vcf_df,diseases,outfile):
+def run_all(vcf_df,diseases,outfile,sample_id):
     report_paths = []
     if(diseases[0] == "all"):
         diseases_to_filter = ["all"]
@@ -1725,7 +1725,7 @@ def run_all(vcf_df,diseases,outfile):
         outfile_curr = outfile + ".html"
         patient_id = outfile.replace("/scripts/dis_report_","")
         ## extract data from VEP output
-        [ret_df,comment_df,pubmed_list,gene_info_ret,is_pathogenic] = extract_vep_data(vcf_df,dis,startpos1,stoppos1)
+        [ret_df,comment_df,pubmed_list,gene_info_ret,is_pathogenic] = extract_vep_data(vcf_df,dis,startpos1,stoppos1,sample_id)
         [results_json,comments_json,freqs_json,pubmed_json] = generate_json("none","yellow",ret_df,comment_df,pubmed_list)
         #print("json results:")
         #print(results_json)
@@ -1747,10 +1747,14 @@ if(run_as_script == "true"):
         print("Not enough parameters")
         quit()
     patient_vcf = sys.argv[1]
-    sample_id = "Sample1"
+    
+    sample_id = "Sample_1"
     if(len(patient_vcf.split("_")) > 1):
         path_new = patient_vcf.split("/")[len(patient_vcf.split("/")) -1]
-        sample_id = path_new.split("_")[0]
+        if(path_new == "file_for_disease_genes.txt"):
+            sample_id = "Sample_1"
+        else:
+            sample_id = path_new.split("_")[0]
     disease_group_file = sys.argv[2]
     outfile = sys.argv[3]
     if(disease_group_file == "all"):
@@ -1767,6 +1771,6 @@ if(run_as_script == "true"):
             diseases.append(disgr_name)
         diseases = ["all"]
     vcf_df = pd.read_csv(patient_vcf,sep='\t')
-    report_paths = run_all(vcf_df,diseases,outfile)
+    report_paths = run_all(vcf_df,diseases,outfile,sample_id)
     print("_SEPERATOR_".join(report_paths))
     
