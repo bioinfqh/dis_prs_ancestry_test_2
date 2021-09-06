@@ -49,6 +49,7 @@ remove_benign = "false"
 
 run_as_script="true"
 use_all_lines="false"
+automatic_stop_line_def="false"
 
 start_line_def = 6600
 stop_line_def = 6700
@@ -229,7 +230,7 @@ def generate_json(result_text,bgcolor,ret_df,comment_df,pubmed_df):
         dict_1[gene_name] = new_dict
     #results = df_for_html.to_dict(orient='records')
     results_json = json.dumps(dict_1)
-    results_json = results_json.replace("\n"," ")
+    results_json = results_json.replace("\n"," ").replace("NaN","\"NaN\"").replace("\"\"NaN\"\"","\"NaN\"")
     comments_json = json.dumps(comments)
     freqs_json = json.dumps(freqs)
     pubmed_json = json.dumps(pubmed)
@@ -471,7 +472,7 @@ def remove_synonyms_new(list_of_diseases,syndict):
 
 def calculate_polygenic(prsice_path,disease,gwas_res_path,plink_path,bg_plink_dataset):
     return()
-def extract_vep_data(dataframe,disease_filter,start,end):
+def extract_vep_data_OLD(dataframe,disease_filter,start,end):
     df = dataframe
     print(df)
     pubmed_list = pd.DataFrame(columns=['name','PMID','title'])
@@ -496,7 +497,7 @@ def extract_vep_data(dataframe,disease_filter,start,end):
     #    stop_line_def = 19000
     start_line_def = int(start)
     stop_line_def = int(end)
-    for i in range(start_line_def,stop_line_def):
+    for i in range(start_line_def,min(len(df.index),stop_line_def)):
         rsid_tmp = df.loc[i,"Existing_variation"]
         temp1 = rsid_tmp.split(",")
         rsids = [i for i in temp1 if("rs" in i)]
@@ -1000,6 +1001,563 @@ def extract_vep_data(dataframe,disease_filter,start,end):
     #return[ret_all,dict_by_snpid,snp_data]
     #print(df.head())
 
+
+
+def extract_vep_data(path,disease_filter,start,end,sample_id):
+    df = pd.read_csv(path,sep='\t')
+    print(df)
+    pubmed_list = pd.DataFrame(columns=['name','PMID','title'])
+    [gen_dis_dict,dis_gen_dict] = read_gene_associations(assoc_table_path)
+    [gene_dis_dict_2,dis_gene_dict_2] = read_gene_associations_2(gene_disease_groups_path)
+    publ_ctr = 0
+    hgnc_dict = {}
+    inh_dict = {}
+    gene_info_dict = {}
+    snp_dict = {}
+    ret_df = pd.DataFrame(columns=['rsid','clin_sig','consequence','variant_class','dna_change','prot_change','exon','transcript','chr_loc','hgvs','gene_name','hgnc','freq','max_af','max_pop','vaf','gq','ad1','ad2','ad','zyg','inh','clin_sig_list_STR','clin_sig_list','clin_sig_ct','diseases','diseases_STR','disease_groups','comments','comments_STR','dis_and_sig'])
+    samplename = sample_id
+    #for i in range(0,len(df.index)):
+    #for i in range(1400,1600):
+    #for i in range(2000,3000):
+    #print(dis_gene_dict_2[disease])
+    #print(gene_dis_dict_2["EPHA2"])
+    #print([str(i) for i in gene_dis_dict_2])
+    #print([i for i in gene_dis_dict_2 if disease_filter in gene_dis_dict_2[i]])
+    if(use_all_lines == "true"):
+        start_line_def = 0
+        stop_line_def = 20000
+    if(automatic_stop_line_def == "true"):
+        if(len(df.index) > 6700):
+            start_line_def = 6600
+            stop_line_def = 6700
+        elif(len(df.index) > 100):
+            start_line_def = 0
+            stop_line_def = 100
+    else:
+        start_line_def = start
+        stop_line_def = end
+    clinvar_version = "ClinVar_updated_2021Aug"
+    if("ClinVar_updated_2019Dec_CLNDN" in df):
+        clinvar_version = "ClinVar_updated_2019Dec"
+    for i in range(start_line_def,min(len(df.index),stop_line_def)):
+        if ((df.loc[i,"CLIN_SIG"]=="-") and not(")" in df.loc[i,"PolyPhen"]) and (df.loc[i,clinvar_version + "_CLNDN"] == "-")):
+            print("Exited for loop at line 703: No clinical significance")
+            continue
+        rsid_tmp = df.loc[i,"Existing_variation"]
+        temp1 = rsid_tmp.split(",")
+        rsids = [i for i in temp1 if("rs" in i)]
+        rsids_unique = [i for i in temp1 if(("rs" in i) and not(i in df.index))]
+        if(any(rsid_curr in rsids for rsid_curr in list(df.index.values))):
+            if(len(rsids_unique) > 0):
+                rsid = rsids_unique[0]
+            else:
+                print("Exited for loop at line 713: No RSID given")
+                continue
+        if(len(rsids) > 0):
+            rsid = rsids[0]
+            variant_class = df.loc[i,"VARIANT_CLASS"]
+        else:
+            print("Exited for loop at line 719: No RSID given.")
+            continue
+        gene_name = df.loc[i,"SYMBOL"]
+        if (not(disease_filter in dis_gene_dict_2) and (not(disease_filter == "all"))):
+            print("Disease group does not exist! Returning empty dataframes.")
+            return([pd.DataFrame(),pd.DataFrame(),pd.DataFrame(),pd.DataFrame(),pd.DataFrame()])
+        if not(disease_filter=="all"):
+            if not(gene_name in gene_dis_dict_2):
+                #print(str(gene_name) + "not in gene_dis_dict")
+                print("Gene name not in disease gene list")
+                continue
+            #else:
+            #    print(gene_dis_dict_2[gene_name])
+            #print(str(disease))
+            elif(not(str(disease_filter) in ",".join(gene_dis_dict_2[gene_name]))):
+                #print(str(disease_filter))
+                #print(gene_dis_dict_2[gene_name])
+                print("Exited for loop at line 736: Gene name not in disease gene list")
+                continue
+        print(i)
+        hgnc_id = str(df.loc[i,"HGNC_ID"])
+        if not(rsid in hgnc_dict):
+            hgnc_dict[rsid] = hgnc_id
+        prot_change = df.loc[i,"HGVSp"]
+        if(prot_change == "-" or not("ENSP" in prot_change) or (len(prot_change.split(":")) < 2)):
+            print("Exited for loop. No Protein change given")
+            continue
+        prot_change = prot_change.split(":")[1]
+        prot_change = prot_change.replace("%3D","=")
+        consequence = df.loc[i,"Consequence"]
+        consequence = consequence.split(",")[0]
+        #exon = str(df.loc[i,"EXON"])
+        #if(exon == "-"):
+        #    exon = str(df.loc[i,"INTRON"])
+        #exon = str(exon.split("/")[0])
+        exon = "1"
+        chr_loc = df.loc[i,"Location"]
+        if not("Chr" in chr_loc or "chr" in chr_loc):
+            chr_loc = "Chr"+str(chr_loc)
+        af = df.loc[i,"gnomAD_AF"]
+        max_af = df.loc[i,"MAX_AF"]
+        if(str(max_af) == "-"):
+            max_af = "N/A"
+        elif(not(str(max_af).isdigit()) and str(max_af).replace('.','',1).isdigit()):
+            max_af = float(max_af)
+            max_af = str("{:.2%}".format(max_af))
+        elif(str(max_af) == "0" or str(max_af) == "1"):
+            max_af = float(max_af)
+            max_af = str("{:.2%}".format(max_af))
+        else:
+            max_af = "N/A"
+        
+        max_pop = df.loc[i,"MAX_AF_POPS"]
+        max_pop = max_pop.replace("gnomAD_","")
+        if not(max_pop == "-"):
+            max_pop_arr = max_pop.split(",")
+            max_pop_arr_2 = list(dict.fromkeys(max_pop_arr))
+            max_pop_arr_3 = []
+            for pop in max_pop_arr_2:
+                if(pop in pop_dict):
+                    max_pop_arr_3.append(pop_dict[pop])
+                else:
+                    max_pop_arr_3.append(pop)
+            max_pop = ",".join(max_pop_arr_3)
+        else:
+            max_pop = "N/A"
+        #if("Sample_1.VAF" in df):
+        vaf = df.loc[i, samplename +".VAF"]
+        if not(str(vaf) == "NA"):
+            if(str(max_af).replace('.','',1).isdigit()):
+                vaf = float(vaf)
+                vaf = str("{:.2%}".format(vaf))
+        else:
+            vaf = "N/A"
+        #if("Sample_1.GQ" in df):
+        gq = df.loc[i,samplename +".GQ"]
+        #elif("GQ" in df):
+        #    vaf = df.loc[i,"GQ"]
+        #else:
+        #    gq = 0.0
+        #gq = df.loc[i,"Sample_1.GQ"]
+        if(str(gq).isdigit()):
+            gq = float(gq)
+        ad = df.loc[i,samplename +".AD"]
+        print(str(ad))
+        print(str(ad).split(","))
+        ad1 = ""
+        ad2 = ""
+        if(str(ad).split(",")[0].isdigit() and (len(str(ad).split(",")) > 1)):
+            ad = df.loc[i,samplename +".AD"]
+            ad1 = float(str(ad).split(",")[0])
+            ad2 = float(str(ad).split(",")[1])
+            ad = int(round(ad1 + ad2))
+        else:
+            ad = "NA"
+            #ad = str(ad1) + "/" + str(ad2)
+        zyg_tmp = df.loc[i,samplename +".GT"]
+        #print(zyg_tmp)
+        if(zyg_tmp.split("/")[0] == "." or (len(zyg_tmp.split("/")) < 1)):
+            zyg = "---"
+            print("No zygosity given")
+            continue
+        elif(str(zyg_tmp.split("/")[0]) == str(zyg_tmp.split("/")[1])):
+            zyg = "homozygous"
+        else:
+            zyg = "heterozygous"
+        #print(zyg)
+        if(str(af) == "-"):
+            af = 999.0
+        else:
+            af = float(str(af))
+            af = str("{:.2%}".format(af))
+        #if(hgnc_id in inh_dict):
+        #    inh = inh_dict[hgnc_id]
+        #else:
+        #    inh = get_inheritance_mode_2(hgnc_id)
+        #    inh_dict[hgnc_id] = inh
+        if(gene_name in inh_dict):
+            inh = inh_dict[gene_name]
+        else:
+            inh = get_inheritance_mode_3(gene_name,"VEP_test/tableExport.csv","","false",synlist_path)
+            inh_dict[gene_name] = inh
+        #inh = get_inheritance_mode(gene_name)
+        #print(inh)
+        #print(prot_change)
+        clin_sig_conf_tmp = df.loc[i,clinvar_version + "_CLNSIGCONF"]
+        clin_sig_list_STR = ""
+        clin_sig_list = []
+        clin_sig_ct = []
+        if not(str(clin_sig_conf_tmp) == "-"):
+            sig_list = clin_sig_conf_tmp.split("%3B")
+            if(len(sig_list) > 1):
+                for n in sig_list:
+                    clin_sig_list_STR = clin_sig_list_STR + ";" + str(n.split("(")[0])
+                    clin_sig_list.append(str(n.split("(")[0]))
+                    clin_sig_ct.append(str(n.split("(")[1].split(")")[0]))
+            else:
+                clin_sig_list_STR = clin_sig_conf_tmp.split("(")[0]
+        clin_sig_2 = ""
+        if(len(clin_sig_list) > 1):
+            index_main_sig = clin_sig_ct.index(max(clin_sig_ct))
+            if(index_main_sig < len(clin_sig_list)):
+                clin_sig_2 = clin_sig_list[index_main_sig]
+        clin_sig = df.loc[i,"CLIN_SIG"]
+        clin_sig.replace("_"," ")
+        has_clinvar = "false"
+        if("," in clin_sig):
+            if(len(str(df.loc[i,clinvar_version + "_CLNSIG"])) > 2):
+                clin_sig = df.loc[i,clinvar_version + "_CLNSIG"]
+                clin_sig = clin_sig.replace("_"," ")
+        if(clin_sig == "-"):
+            polyphen = df.loc[i,"PolyPhen"]
+            if(")" in polyphen):
+                #print("polyphen")
+                #print(polyphen)
+                polyphen_sig = polyphen.split("(")[0]
+                polyphen_val = float(polyphen.split("(")[1].split(")")[0])
+                clin_sig = polyphen_sig.replace("probably_damaging","likely pathogenic")
+                clin_sig = clin_sig.replace("_"," ")
+                #print(str(polyphen_val))
+                #print(clin_sig)
+                if not (clin_sig == "benign" or clin_sig == "likely pathogenic" or (polyphen_val > polyphen_threshold)):
+                    print("No clinical significance, polyphen value given")
+                    continue
+            else:
+                print("No clinical significance")
+                continue
+        else:
+            has_clinvar = "true"
+        if(clin_sig_2 == ""):
+            clin_sig_2 = clin_sig
+        gene_ensembl_id = df.loc[i,"Gene"]
+        if("ENSG" in gene_ensembl_id and not( gene_name in gene_info_dict)):
+            [gene_entrez_id,summary] = get_gene_info(gene_ensembl_id)
+            gene_info_dict[gene_name] = summary
+        disease = df.loc[i,clinvar_version + "_CLNDN"]
+        #if(disease == "-"):
+        #    continue
+        if not(disease == "-"):
+            disease = disease.replace("_"," ")
+            diseases_curr_rs = disease.split("|")
+            print(diseases_curr_rs)
+            #print(i)
+            #print(diseases_curr_rs)
+            diseases_curr_rs_tmp = [j for j in diseases_curr_rs if not(("not specified" in j) or ("not provided" in j) or ("not_specified" in j) or ("not_provided" in j))]
+            if(len(diseases_curr_rs_tmp) > 1):
+                diseases_curr_rs = remove_synonyms(diseases_curr_rs_tmp)
+            else:
+                diseases_curr_rs = diseases_curr_rs_tmp
+        else:
+            diseases_curr_rs = []
+        #print(diseases_curr_rs)
+        #for j in range(0,arrlen):
+        #    if(("not specified" in diseases_curr_rs[j]) or ("not provided" in diseases_curr_rs[j]) or ("not_specified" in diseases_curr_rs[j]) or ("not_provided" in diseases_curr_rs[j])):
+        #        diseases_curr_rs.pop(j)
+        #        j = j - 1
+        #        arrlen = arrlen - 1
+        #print(disease)
+        if(has_clinvar == "true"):
+            hgvs_list = get_hgvs_list(rsid)
+        else:
+            hgvs_list = []
+        gene_name_dict[rsid] = gene_name
+        prot_change_dict[rsid] = prot_change
+        snp_data_tmp = {}
+        hgvsc = df.loc[i,"HGVSc"]
+        if(":" in hgvsc):
+            transcript = hgvsc.split(":")[0]
+            dna_change = hgvsc.split(":")[1]
+        else:
+            transcript = "-"
+            dna_change = "-"
+        snp_data_tmp = {}
+        if (rsid in list(df.index.values)):
+            print("RSID in dataframe index")
+            continue
+        if not(gene_name_dict[rsid] in snp_dict):
+            snp_dict[gene_name_dict[rsid]] = []
+        snp_dict[gene_name_dict[rsid]].append(rsid)
+        snp_data_tmp["clin_sig"] = clin_sig
+        snp_data_tmp["dna_change"] = dna_change
+        snp_data_tmp["prot_change"] = prot_change
+        ret_df.loc[rsid,"clin_sig"] = clin_sig
+        ret_df.loc[rsid,"dna_change"] = dna_change
+        ret_df.loc[rsid,"prot_change"] = prot_change
+        ret_df.loc[rsid,"freq"] = af
+        ret_df.loc[rsid,"max_af"] = max_af
+        ret_df.loc[rsid,"max_pop"] = max_pop
+        ret_df.loc[rsid,"vaf"] = vaf
+        print(gq)
+        print(rsid)
+        print(inh)
+        ret_df.loc[rsid,"gq"] = gq
+        ret_df.loc[rsid,"ad1"] = ad1
+        ret_df.loc[rsid,"ad2"] = ad2
+        ret_df.loc[rsid,"ad"] = ad
+        ret_df.loc[rsid,"hgnc_id"] = hgnc_id
+        ret_df.loc[rsid,"inh"] = inh
+        ret_df.loc[rsid,"exon"] = exon
+        ret_df.loc[rsid,"chr_loc"] = chr_loc
+        ret_df.loc[rsid,"consequence"] = consequence
+        ret_df.loc[rsid,"transcript"] = transcript
+        ret_df.loc[rsid,"zyg"] = zyg
+        ret_df.loc[rsid,"clin_sig_list_STR"] = clin_sig_list_STR
+        ret_df.loc[rsid,"clin_sig_list"] = clin_sig_list
+        ret_df.loc[rsid,"clin_sig_ct"] = clin_sig_ct
+        ret_df.loc[rsid,"rsid"] = rsid
+        ret_df.loc[rsid,"gene_name"] = gene_name_dict[rsid]
+        [hgvs_curr,link] = get_correct_hgvs(hgvs_list,gene_name,prot_change)
+        #ret = extract(link)
+        if(len(hgvs_list) < 1 or (hgvs_curr == "")):
+            if("benign" in clin_sig and remove_benign == "true" and not("drug response" in clin_sig)):
+                print("no clinical significance, benign mutation")
+                continue
+            hgvs_curr = "-"
+            #print("SNP ID:" + str(rsid) + "; Gene Name: " + gene_name + "\n")
+            #print("Associated disease(s):\n")
+            #print(disease)
+            #if(rsid in dict_by_snpid):
+            #    for dis in diseases_curr_rs:
+            #        dict_by_snpid[rsid][disease] = "N/A"
+            #else:
+            #    for dis in diseases_curr_rs:
+            #        dict_by_snpid[rsid] = {}
+            #        dict_by_snpid[rsid][dis] = "N/A"
+            #for dis in diseases_curr_rs:
+            #    if(dis in ret_all):
+            #        ret_all[dis][rsid]="N/A"
+            #    else:
+            #        ret_all[dis] = {}
+            #        ret_all[dis][rsid]="N/A"
+            if(rsid in dict_by_snpid):
+                for dis in diseases_curr_rs:
+                    dict_by_snpid[rsid][str(dis + ";" + clin_sig)] = "N/A"
+            else:
+                for dis in diseases_curr_rs:
+                    dict_by_snpid[rsid] = {}
+                    dict_by_snpid[rsid][str(dis + ";" + clin_sig)] = "N/A"
+            for dis in diseases_curr_rs:
+                if(str(dis + ";" + clin_sig) in ret_all):
+                    ret_all[str(dis + ";" + clin_sig)][rsid]="N/A"
+                else:
+                    ret_all[str(dis + ";" + clin_sig)] = {}
+                    ret_all[str(dis + ";" + clin_sig)][rsid]="N/A"
+            if(rsid not in dict_by_snpid):
+                print("RSID not in SNP ID dictionary")
+                continue
+            ret_df.loc[rsid,"dis_and_sig"] = [k for k in dict_by_snpid[rsid]]
+            ret_df.loc[rsid,"diseases"] = [k.split(";")[0] for k in dict_by_snpid[rsid]]
+            ret_df.loc[rsid,"diseases_STR"] = ";".join([k.split(";")[0] for k in dict_by_snpid[rsid]])
+            ret_df.loc[rsid,"comments"] = [dict_by_snpid[rsid][k] for k in dict_by_snpid[rsid]]
+            if not(gene_name in gene_dis_dict_2):
+                ret_df.loc[rsid,"disease_groups"] = ""
+            else:
+                ret_df.loc[rsid,"disease_groups"] = ";\n".join(gene_dis_dict_2[gene_name])
+            #ret_df.loc[rsid,"gene_name"] = gene_name_dict[rsid]
+            #ret_df.loc[rsid,"chr_loc"] = chr_loc
+            #ret_df.loc[rsid,"rsid"] = rsid
+            #ret_df.loc[rsid,"exon"] = exon
+            #ret_df.loc[rsid,"inh"] = inh
+            #ret_df.loc[rsid,"freq"] = af
+            #print([dict_by_snpid[rsid][k] for k in dict_by_snpid[rsid]])
+            ret_df.loc[rsid,"comments_STR"] = ";".join([str(dict_by_snpid[rsid][k]) for k in dict_by_snpid[rsid]])
+            if(len(diseases_curr_rs) > 1):
+                snp_data_tmp["hgvs"] = "-"
+                ret_df.loc[rsid,"hgvs"] = "-"
+                snp_data[rsid]=snp_data_tmp
+            else:
+                print("No diseases associated to mutation")
+                continue
+        else:
+            #print("SNP ID:" + str(rsid) + "; Gene Name: " + gene_name + "\n")
+            #print("Associated disease(s):\n")
+            #[hgvs_curr,link] = get_correct_hgvs(hgvs_list,gene_name,prot_change)
+            ret = extract(link)
+            dis_and_sig_from_vep_keys = [(str(dis) + ";" + str(clin_sig)) for dis in diseases_curr_rs if not(("not specified" in dis) or ("not provided" in dis) or ("not_specified" in dis) or ("not_provided" in dis))]
+            dis_and_sig_from_vep_values = ["N/A" for dis in diseases_curr_rs if not(("not specified" in dis) or ("not provided" in dis) or ("not_specified" in dis) or ("not_provided" in dis))]
+            if("benign" in clin_sig and remove_benign=="true" and not("drug response" in clin_sig)):
+                dis_and_sig_from_vep_keys = []
+                dis_and_sig_from_vep_values = []
+            dis_and_sig_curr = dict(zip(dis_and_sig_from_vep_keys,dis_and_sig_from_vep_values))
+            #dis_and_sig_curr_rs = [(str(dis) + ";" + str(clin_sig)) for dis in diseases_curr_rs if not(("not specified" in dis) or ("not provided" in dis) or ("not_specified" in dis) or ("not_provided" in dis))]
+            #ret2 = remove_synonyms_2[ret]
+            #print("lists: ")
+            #print(dis_and_sig_from_vep_keys)
+            #print(list(ret))
+            for key in list(ret):
+                if(("not specified" in key) or ("not provided" in key) or ("not_specified" in key) or ("not_provided" in key)):
+                    del ret[key]
+                elif("benign" in key and remove_benign=="true" and not("drug response" in clin_sig)):
+                    del ret[key]
+                else:
+                    dis_and_sig_curr[key] = ret[key]
+                    #dis_and_sig_curr_rs.append(key)
+            print(i)
+            dis_and_sig_curr_rs = remove_synonyms_2(dis_and_sig_curr)
+            #print(dis_and_sig_curr_rs)
+            #diseases_curr_rs_tmp = [j for j in diseases_curr_rs if not(("not specified" in j) or ("not provided" in j) or ("not_specified" in j) or ("not_provided" in j))]
+            #print("d.split(;)[0]")
+            #print([d.split(";")[0] for d in dis_and_sig_curr_rs])
+            #dis_no_syn = remove_synonyms([d.split(";")[0] for d in dis_and_sig_curr_rs])
+            #print(dis_no_syn)
+            #dis_and_sig_curr_rs = [dis for dis in dis_and_sig_curr_rs if (dis.split(";")[0] in dis_no_syn)]
+            if(len(ret) < 1):
+                continue
+            for dis in dis_and_sig_curr_rs:
+                if(rsid in dict_by_snpid):
+                    dict_by_snpid[rsid][dis] = dis_and_sig_curr_rs[dis]
+                    #dict_by_snpid[rsid][dis] = ret[dis]
+                else:
+                    dict_by_snpid[rsid] = {}
+                    dict_by_snpid[rsid][dis] = dis_and_sig_curr_rs[dis]
+                    #dict_by_snpid[rsid][dis] = ret[dis]
+                if(dis in ret_all):
+                    ret_all[dis][rsid]= dis_and_sig_curr_rs[dis]
+                    #ret_all[dis][rsid]=ret[dis]
+                else:
+                    ret_all[dis] = {}
+                    ret_all[dis][rsid]= dis_and_sig_curr_rs[dis]
+                    #ret_all[dis][rsid]=ret[dis]
+                if(dis not in dis_and_sig_from_vep_keys):
+                    if(rsid not in dict_by_snpid):
+                        print("RSID not in SNP dictionary")
+                        continue
+            #print(dict_by_snpid[rsid])
+            #snp_data_tmp[rsid]=dict_by_snpid[rsid]
+            snp_data_tmp["hgvs"] = hgvs_curr
+            ret_df.loc[rsid,"hgvs"] = hgvs_curr
+            snp_data_tmp["gene_name"] = gene_name
+            ret_df.loc[rsid,"gene_name"] = gene_name
+            #snp_data_tmp["diseases"] = ";".join([key for key in ret])
+            snp_data[rsid]=snp_data_tmp
+            #print(ret_df)
+            ret_df.loc[rsid,"diseases"] = [k.split(";")[0] for k in dict_by_snpid[rsid]]
+            #disease_with_inh = ""
+            #for disease_name_curr in dict_by_snpid[rsid]:
+            #    inh = get_inheritance_mode_3(gene_name,"VEP_test/tableExport.csv",disease_name_curr,"false")
+            ret_df.loc[rsid,"diseases_STR"] = ";".join([k.split(";")[0] for k in dict_by_snpid[rsid]])
+            if not(gene_name in gene_dis_dict_2):
+                ret_df.loc[rsid,"disease_groups"] = ""
+            else:
+                ret_df.loc[rsid,"disease_groups"] = ";\n".join(gene_dis_dict_2[gene_name])
+            ret_df.loc[rsid,"comments"] = [dict_by_snpid[rsid][k] for k in dict_by_snpid[rsid]]
+            #print([dict_by_snpid[rsid][k] for k in dict_by_snpid[rsid]])
+            ret_df.loc[rsid,"comments_STR"] = ";".join([str(dict_by_snpid[rsid][k]) for k in dict_by_snpid[rsid]])
+            #ret_df.loc[rsid,"gene_name"] = gene_name_dict[rsid]
+            ret_df.loc[rsid,"dis_and_sig"] = [k for k in dict_by_snpid[rsid]]
+            ret_df.loc[rsid,"consequence"] = consequence
+            #ret_df.loc[rsid,"transcript"] = transcript
+            #ret_df.loc[rsid,"inh"] = inh
+            #ret_df.loc[rsid,"freq"] = af
+            #ret_df.loc[rsid,"exon"] = exon
+            #ret_df.loc[rsid,"chr_loc"] = chr_loc
+            #ret_df.loc[rsid,"zyg"] = zyg
+            ret_df.loc[rsid,"clin_sig_list_STR"] = clin_sig_list_STR
+            ret_df.loc[rsid,"clin_sig_list"] = clin_sig_list
+            ret_df.loc[rsid,"clin_sig_ct"] = clin_sig_ct
+            [pubmed_dict,pmid_STR_tmp,pmid_STR] = get_publications(rsid)
+            if not(pmid_STR == "-9999"):
+                for key in pubmed_dict:
+                    name = str(ret_df.loc[rsid,"gene_name"]) + " " + str(ret_df.loc[rsid,"dna_change"]) + " (" + str(ret_df.loc[rsid,"prot_change"]) + ")"
+                    pubmed_list.loc[publ_ctr,"name"] = name
+                    pubmed_list.loc[publ_ctr,"rsid"] = rsid
+                    pubmed_list.loc[publ_ctr,"PMID"] = key
+                    pubmed_list.loc[publ_ctr,"title"] = pubmed_dict[key]
+                    publ_ctr = publ_ctr + 1
+            if(len(ret_df.loc[rsid,"dis_and_sig"]) < 2):
+                if(pd.isnull(ret_df.loc[rsid,"dis_and_sig"])):
+                    ret_df.loc[rsid,"dis_and_sig"] = []
+            ret_df.loc[rsid,"rsid"] = rsid
+    #for key in ret_all:
+    #    print("Disease Name: " + str(key))
+    #    for key2 in ret_all[key]:
+    #        print("SNP ID:" + key2 + "; Gene Name: " + gene_name_dict[key2])
+    #        print(ret_all[key][key2])
+    #print(dict_by_snpid)
+    #for snp_curr in snp_data:
+        #print(snp_data[snp_curr])
+        #print("SNP ID: " + str(snp_curr))
+        #print(snp_data[snp_curr])
+        #print(gene_name_dict[snp_curr])
+        #print(dict_by_snpid[snp_curr])
+        #print("Classification:\t" + snp_data[snp_curr]["clin_sig"] + "\tGene:\t" + gene_name_dict[snp_curr] + "\tDNA change:\t" + snp_data[snp_curr]["dna_change"] + "\tProtein change:\t" + snp_data[snp_curr]["prot_change"] + "\tAssociated disease(s):\t" + ";".join([i.split(";")[0] for i in dict_by_snpid[snp_curr]]))
+        #for dis_and_sig in dict_by_snpid[snp_curr]:
+        #    if(len(str(dis_and_sig).split(";")) > 1):
+        #           print("RSID:\t" + snp_curr + "\t - \t" + str(dis_and_sig).split(";")[0] + ";\t" + str(dis_and_sig).split(";")[1] +":")
+        #           if not(str(dict_by_snpid[snp_curr][dis_and_sig]) == "nan"):
+        #               print("Description:\t" + str(dict_by_snpid[snp_curr][dis_and_sig]))
+    comment_df = pd.DataFrame(columns=['clin_sig','name','comment','rsid'])
+    ctr = 0
+    ctr2 = 0
+    comment_htmls = {}
+    comment_and_disease_dict = {}
+    list_of_described_genes = []
+    for i in list(ret_df.index):
+        #print(str(ret_df.loc[i,"rsid"]))
+        #print(str(ret_df.loc[i,"dis_and_sig"]))
+        if(isinstance(ret_df.loc[i,"dis_and_sig"], list)):
+            if(len(ret_df.loc[i,"dis_and_sig"]) < 2):
+                if(str(ret_df.loc[i,"rsid"]) == "nan" or pd.isnull(ret_df.loc[i,"rsid"]) or str(ret_df.loc[i,"rsid"]) == "NaN" or (str(ret_df.loc[i,"diseases"]) == "nan" or pd.isnull(ret_df.loc[i,"diseases"]) or str(ret_df.loc[i,"diseases"]) == "NaN")):
+                    #print("dropped" + str(ret_df.loc[i,"rsid"]))
+                    ret_df = ret_df.drop([i])
+                    print("Exited for loop at line 1161: RSID is NaN or null")
+                    continue
+        else:
+            if(str(ret_df.loc[i,"rsid"]) == "nan" or pd.isnull(ret_df.loc[i,"rsid"]) or str(ret_df.loc[i,"rsid"]) == "NaN" or (str(ret_df.loc[i,"dis_and_sig"]) == "nan" or pd.isnull(ret_df.loc[i,"dis_and_sig"]) or str(ret_df.loc[i,"dis_and_sig"]) == "NaN") or (str(ret_df.loc[i,"diseases"]) == "nan" or pd.isnull(ret_df.loc[i,"diseases"]) or str(ret_df.loc[i,"diseases"]) == "NaN")):
+                ret_df = ret_df.drop([i])
+                print("RSID is null or NaN or diseases are null or NaN")
+                continue
+        if not(str(ret_df.loc[i,"comments_STR"]) == "nan"):
+            if((len(ret_df.loc[i,"comments_STR"]) > 2) and not (str(ret_df.loc[i,"comments_STR"]) == "nan") and not (str(ret_df.loc[i,"comments_STR"])=="N/A")):
+                    for k in range(0, len(list(ret_df.loc[i,"dis_and_sig"]))):
+                        if not (str(list(ret_df.loc[i,"comments"])[k]) == "nan" or str(list(ret_df.loc[i,"comments"])[k]) == "N/A"):
+                            name = str(ret_df.loc[i,"gene_name"]) + " " + str(ret_df.loc[i,"dna_change"]) + " (" + str(ret_df.loc[i,"prot_change"]) + ") - "
+                            name = name + str(list(ret_df.loc[i,"diseases"])[k])
+                            comment_df.loc[name,"clin_sig"] = str(ret_df.loc[i,"clin_sig"])
+                            comment_df.loc[name,"rsid"] = str(ret_df.loc[i,"rsid"])
+                            comment_df.loc[name,"comment"] = str(list(ret_df.loc[i,"comments"])[k])
+                            comment_df.loc[name,"gene_name"] = str(ret_df.loc[i,"gene_name"])
+        #if not(str(ret_df.loc[i,"gene_name"]) in gen_dis_dict):
+        #    gen_dis_dict[str(ret_df.loc[i,"gene_name"])] = list(ret_df.loc[i,"diseases"])
+        #else:
+        #    gen_dis_dict[str(ret_df.loc[i,"gene_name"])].append(list(ret_df.loc[i,"diseases"]))
+    clin_sig_all_values = ret_df["clin_sig"].tolist()
+    clin_sig_all_values_STR = "".join(clin_sig_all_values)
+    is_pathogenic = "false"
+    if("pathogenic" in clin_sig_all_values_STR):
+        is_pathogenic = "true"
+    disease_list = []
+    disease_dict_for_ret = {}
+    for i in list(ret_df.index):
+        dis_tmp_1 = ret_df.loc[i,"diseases"]
+        disease_list = dis_tmp_1
+        if(ret_df.loc[i,"gene_name"] in gen_dis_dict):
+            dis_tmp_2 = gen_dis_dict[ret_df.loc[i,"gene_name"]]
+            disease_list = dis_tmp_1 + dis_tmp_2
+        disease_dict_for_ret[ret_df.loc[i,"gene_name"]] = remove_synonyms(disease_list)
+    gene_info_ret = {}
+    for gene in gene_info_dict:
+        if(gene in disease_dict_for_ret):
+            #gene_info_ret[gene] = [gene_info_dict[gene],disease_dict_for_ret[gene]]
+            gene_info_ret[gene] = [gene_info_dict[gene],disease_dict_for_ret[gene],snp_dict[gene]]
+    #for i in list(comment_df.index):
+    #    gene = comment_df.loc[i,"gene_name"]
+    #    if (not(gene in list_of_described_genes) and (comment_df.loc[i,"gene_name"] in gene_info_dict)):
+    #        comment_htmls[ctr2] = gene_info_dict[comment_df.loc[i,"gene_name"]]
+    #        if not(i in comment_and_disease_dict):
+    #            comment_and_disease_dict[i] = ctr2
+    #        else:
+    #            comment_and_disease_dict[i].append(ctr2)
+    #        ctr2 = ctr2 + 1
+    #    if not(i in comment_and_disease_dict):
+    #        comment_and_disease_dict[i] = ctr2
+    #    else:
+    #        comment_and_disease_dict[i].append(ctr2)
+    #    comment_htmls[ctr2] = comment_df.loc[i,"comment"]
+    return([ret_df,comment_df,pubmed_list,gene_info_ret,is_pathogenic])
+    #return([ret_df,comment_df,pubmed_list])
+    #return[ret_all,dict_by_snpid,snp_data]
+    #print(df.head())
+
 def get_gene_info(ensg):
     gene_info = mg.getgene(ensg, fields=['name'])
     if gene_info is None:
@@ -1160,7 +1718,7 @@ def run_all(vcf_df,diseases,outfile):
     #stoppos1 = 6656
     #startpos1 = 6650
     #stoppos1 = 6670
-    startpos1 = 6600
+    startpos1 = 0
     stoppos1 = 6700
     # iterate over selected disease types
     for dis in diseases_to_filter:
@@ -1189,6 +1747,10 @@ if(run_as_script == "true"):
         print("Not enough parameters")
         quit()
     patient_vcf = sys.argv[1]
+    sample_id = "Sample1"
+    if(len(patient_vcf.split("_")) > 1):
+        path_new = patient_vcf.split("/")[len(patient_vcf.split("/")) -1]
+        sample_id = path_new.split("_")[0]
     disease_group_file = sys.argv[2]
     outfile = sys.argv[3]
     if(disease_group_file == "all"):
