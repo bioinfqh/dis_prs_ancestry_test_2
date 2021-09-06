@@ -1003,8 +1003,9 @@ def extract_vep_data_OLD(dataframe,disease_filter,start,end):
 
 
 
-def extract_vep_data(path,disease_filter,start,end,sample_id):
-    df = pd.read_csv(path,sep='\t')
+def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
+    #df = pd.read_csv(path,sep='\t')
+    df = dataframe
     print(df)
     pubmed_list = pd.DataFrame(columns=['name','PMID','title'])
     [gen_dis_dict,dis_gen_dict] = read_gene_associations(assoc_table_path)
