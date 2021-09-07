@@ -47,6 +47,8 @@ polyphen_threshold = 0.9
 remove_benign = "false"
 
 
+synlist_path = "/scripts/syndict_temp.txt"
+
 run_as_script="true"
 use_all_lines="false"
 automatic_stop_line_def="false"
@@ -1178,7 +1180,7 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
         if(gene_name in inh_dict):
             inh = inh_dict[gene_name]
         else:
-            inh = get_inheritance_mode_3(gene_name,"VEP_test/tableExport.csv","","false",synlist_path)
+            inh = get_inheritance_mode_3(gene_name,"/scripts/tableExport.csv","","false")
             inh_dict[gene_name] = inh
         #inh = get_inheritance_mode(gene_name)
         #print(inh)
