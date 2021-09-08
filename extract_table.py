@@ -2299,6 +2299,7 @@ def run_all(vcf_df,diseases,outfile,sample_id):
     return(report_paths)
 
 
+
 if(run_as_script == "true"):
     if(len(sys.argv) < 4):
         print("Not enough parameters")
