@@ -1095,11 +1095,11 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
         max_af = df.loc[i,"MAX_AF"]
         if(str(max_af) == "-"):
             max_af = "N/A"
-        elif(not(max_af.isdigit()) and str(max_af).replace('.','',1).isdigit()):
-            max_af = float(max_af)
+        elif(not(str(max_af).isdigit()) and str(max_af).replace('.','',1).isdigit()):
+            max_af = float(str(max_af))
             max_af = str("{:.2%}".format(max_af))
         elif(str(max_af) == "0" or str(max_af) == "1"):
-            max_af = float(max_af)
+            max_af = float(str(max_af))
             max_af = str("{:.2%}".format(max_af))
         else:
             max_af = "N/A"
@@ -1121,7 +1121,7 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
         vaf = df.loc[i, samplename +".VAF"]
         if not(str(vaf) == "NA"):
             if(str(max_af).replace('.','',1).isdigit()):
-                vaf = float(vaf)
+                vaf = float(str(vaf))
                 vaf = str("{:.2%}".format(vaf))
         else:
             vaf = "N/A"
@@ -1133,7 +1133,7 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
         #    gq = 0.0
         #gq = df.loc[i,"Sample_1.GQ"]
         if(str(gq).isdigit()):
-            gq = float(gq)
+            gq = float(str(gq))
         ad = df.loc[i,samplename +".AD"]
         print(str(ad))
         print(str(ad).split(","))
@@ -1211,7 +1211,7 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
                 #print("polyphen")
                 #print(polyphen)
                 polyphen_sig = polyphen.split("(")[0]
-                polyphen_val = float(polyphen.split("(")[1].split(")")[0])
+                polyphen_val = float(str(polyphen.split("(")[1].split(")")[0]))
                 clin_sig = polyphen_sig.replace("probably_damaging","likely pathogenic")
                 clin_sig = clin_sig.replace("_"," ")
                 #print(str(polyphen_val))
