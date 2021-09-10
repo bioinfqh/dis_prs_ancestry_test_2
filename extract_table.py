@@ -29,8 +29,11 @@ run_as_script = "false"
 # to always prefer pathogenic variants: true, if choice of laboratory more important: false
 sort_by_clin_sig = "true"
 
-assoc_table_path = "/scripts/tableExport.csv"
-gene_disease_groups_path = "/scripts/gene_disease_groups.csv"
+
+path_prefix = "/scripts/"
+
+assoc_table_path = str(path_prefix + "tableExport.csv")
+gene_disease_groups_path = str(path_prefix + "gene_disease_groups.csv")
 
 url = 'https://clinvarminer.genetics.utah.edu/submissions-by-variant/NM_001354689.3%28RAF1%29%3Ac.1142G%3EC%20%28p.Gly381Ala%29'
 url = 'https://clinvarminer.genetics.utah.edu/submissions-by-variant/NM_000059.4(BRCA2)%3Ac.4258G%3ET%20(p.Asp1420Tyr)'
@@ -47,11 +50,12 @@ polyphen_threshold = 0.9
 remove_benign = "false"
 
 
-synlist_path = "/scripts/syndict_temp.txt"
+synlist_path = str(path_prefix + "syndict_temp.txt")
 
 run_as_script="true"
 use_all_lines="false"
-automatic_stop_line_def="false"
+automatic_stop_line_def="true"
+
 
 start_line_def = 6600
 stop_line_def = 6700
@@ -66,7 +70,7 @@ pop_dict["EAS"] = "East Asian"
 pop_dict["FIN"] = "Finnish in Finland"
 pop_dict["NFE"] = "Non-Finnish European"
 pop_dict["SAS"] = "South Asian"
-pop_dict=read_pop_dict("/scripts/pop_list.txt")
+pop_dict=read_pop_dict(str(path_prefix + "pop_list.txt"))
 
 
 
@@ -204,6 +208,8 @@ def generate_json(result_text,bgcolor,ret_df,comment_df,pubmed_df):
             result_row["Associated Disease(s)"] = disease_list_tmp
             curr_row_as_dict = result_row
         for i in range(0,len(comments)):
+            if not('Number' in comments[i]):
+                continue
             curr_nbr = str(comments[i]['Number'])
             if(curr_nbr == curr_nbr_gene):
                 del comments[i]["Number"]
@@ -212,6 +218,8 @@ def generate_json(result_text,bgcolor,ret_df,comment_df,pubmed_df):
                 tmp_dict = comments[i]
                 list_of_comments.append(tmp_dict)
         for i in range(0,len(freqs)):
+            if not('Mutation\nNumber' in freqs[i]):
+                continue
             curr_nbr = str(freqs[i]['Mutation\nNumber'])
             if(curr_nbr == curr_nbr_gene):
                 del freqs[i]["Mutation\nNumber"]
@@ -219,6 +227,8 @@ def generate_json(result_text,bgcolor,ret_df,comment_df,pubmed_df):
                 list_of_freqs.append(tmp_dict)
                 frec_as_dict = tmp_dict
         for i in range(0,len(pubmed)):
+            if not('Number' in pubmed[i]):
+                continue
             curr_nbr = str(pubmed[i]['Number'])
             if(curr_nbr == curr_nbr_gene):
                 del pubmed[i]["Number"]
@@ -1019,6 +1029,7 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
     snp_dict = {}
     ret_df = pd.DataFrame(columns=['rsid','clin_sig','consequence','variant_class','dna_change','prot_change','exon','transcript','chr_loc','hgvs','gene_name','hgnc','freq','max_af','max_pop','vaf','gq','ad1','ad2','ad','zyg','inh','clin_sig_list_STR','clin_sig_list','clin_sig_ct','diseases','diseases_STR','disease_groups','comments','comments_STR','dis_and_sig'])
     samplename = sample_id
+    syndict_all = read_syndict(str(path_prefix + "syndict_temp.txt"))
     #for i in range(0,len(df.index)):
     #for i in range(1400,1600):
     #for i in range(2000,3000):
@@ -1036,6 +1047,9 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
         elif(len(df.index) > 100):
             start_line_def = 0
             stop_line_def = 100
+        else:
+            start_line_def = start
+            stop_line_def = end
     else:
         start_line_def = start
         stop_line_def = end
@@ -1175,7 +1189,7 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
         if(gene_name in inh_dict):
             inh = inh_dict[gene_name]
         else:
-            inh = get_inheritance_mode_3(gene_name,"/scripts/tableExport.csv","","false")
+            inh = get_inheritance_mode_3(gene_name,str(path_prefix + "tableExport.csv"),"","false")
             inh_dict[gene_name] = inh
         #inh = get_inheritance_mode(gene_name)
         #print(inh)
@@ -1734,7 +1748,7 @@ def extract_vep_data_2(dataframe,disease_filter,start,end,sample_id):
         if(gene_name in inh_dict):
             inh = inh_dict[gene_name]
         else:
-            inh = get_inheritance_mode_3(gene_name,"/scripts/tableExport.csv","","false")
+            inh = get_inheritance_mode_3(gene_name,str(path_prefix + "tableExport.csv"),"","false")
             inh_dict[gene_name] = inh
         #inh = get_inheritance_mode(gene_name)
         #print(inh)
@@ -2287,7 +2301,7 @@ def run_all(vcf_df,diseases,outfile,sample_id):
         #print("json results:")
         #print(results_json)
         #write_json_to_one_file([results_json,comments_json,freqs_json,pubmed_json],"/scripts/dis_genes_" + patient_id + "_" + dis + ".json")
-        write_json_to_one_file([results_json],"/scripts/dis_genes_" + patient_id + "_" + dis + ".json")
+        write_json_to_one_file([results_json],str(path_prefix + "dis_genes_" + patient_id + "_" + dis + ".json"))
         #[ret_df_copy,comment_df_copy,pubmed_list_copy] = [ret_df.copy(deep=True),comment_df.copy(deep=True),pubmed_list.copy(deep=True)]
         # write tables with output data
         #[table_1_html,comment_table_html,table_2_html,pubmed_html,comments_style,pubmed_style] = make_table(ret_df,comment_df,pubmed_list,gene_info_ret,dis)
@@ -2310,6 +2324,8 @@ if(run_as_script == "true"):
     if(len(patient_vcf.split("_")) > 1):
         path_new = patient_vcf.split("/")[len(patient_vcf.split("/")) -1]
         if(path_new == "file_for_disease_genes.txt"):
+            sample_id = "Sample_1"
+        elif(path_new == "first_20000_lines.txt"):
             sample_id = "Sample_1"
         else:
             sample_id = path_new.split("_")[0]
