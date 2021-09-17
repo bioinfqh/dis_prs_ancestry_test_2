@@ -30,7 +30,7 @@ run_as_script = "false"
 sort_by_clin_sig = "true"
 
 
-path_prefix = "/scripts/"
+path_prefix = ""
 
 assoc_table_path = str(path_prefix + "tableExport.csv")
 gene_disease_groups_path = str(path_prefix + "gene_disease_groups.csv")
@@ -146,14 +146,14 @@ def generate_json_OLD(result_text,bgcolor,ret_df,comment_df,pubmed_df):
     pubmed_json = json.dumps(pubmed)
     return(results_json,comments_json,freqs_json,pubmed_json)
 
-def generate_json(result_text,bgcolor,ret_df,comment_df,pubmed_df):
-    df_for_html = ret_df[["clin_sig","gene_name","exon","rsid","dna_change","prot_change","transcript","zyg","inh","diseases_STR"]]
-    df_for_html.columns=["Classification","Gene","Exon/Intron","SNP ID","DNA change","Protein change","Transcript ID","Zygosity","Inheritance","Associated Disease(s)"]
+def generate_json(result_text,bgcolor,ret_df,comment_df,pubmed_df,cancer_groups_filter_active,cancer_groups_for_filter):
+    df_for_html = ret_df[["clin_sig","gene_name","exon","rsid","dna_change","prot_change","transcript","zyg","inh","diseases_STR","cancer_groups"]]
+    df_for_html.columns=["Classification","Gene","Exon/Intron","SNP ID","DNA change","Protein change","Transcript ID","Zygosity","Inheritance","Associated Disease(s)","Cancer Groups"]
     drug_response_df = df_for_html[df_for_html['Classification']=="drug response"]
     new_col = np.arange(1,(len(df_for_html) + 1))
     col_nbr_dict =  dict(zip(df_for_html["SNP ID"].tolist(),new_col))
     df_for_html.insert(0,"Number",new_col)
-    drug_response_df.columns=["Classification","Gene","Exon/\nIntron","SNP ID","DNA change","Protein\nchange","Transcript ID","Zygosity","Inheritance","Associated Response(s)"]
+    drug_response_df.columns=["Classification","Gene","Exon/\nIntron","SNP ID","DNA change","Protein\nchange","Transcript ID","Zygosity","Inheritance","Associated Response(s)","Cancer Groups"]
     df_for_html_2 = df_for_html[df_for_html['Classification']!="drug response"]
     df_for_html = df_for_html_2
     #print(df_for_html)
@@ -190,6 +190,9 @@ def generate_json(result_text,bgcolor,ret_df,comment_df,pubmed_df):
     result_dict = df_for_html.to_dict(orient="records")
     dict_1 = {}
     ctr = 0
+    cancer_groups_filter_active = "true"
+    cancer_groups_for_filter = ["LUNG","ENDOCRINE"]
+    dict_all = {}
     for gene_name_curr in list(df_for_html.index):
         curr_nbr_gene = str(df_for_html.loc[gene_name_curr,"Number"])
         gene_name_tmp = str(df_for_html.loc[gene_name_curr,"Gene"])
@@ -200,6 +203,16 @@ def generate_json(result_text,bgcolor,ret_df,comment_df,pubmed_df):
         list_of_freqs = []
         list_of_pubmeds = []
         curr_row_as_dict = {}
+        genes_found_by_cancer_type = {}
+        for i in range(0,len(cancer_groups_for_filter)):
+            genes_found_by_cancer_type[str(cancer_groups_for_filter[i])] = []
+        if(cancer_groups_filter_active == "true"):
+            curr_gene_cancer_groups = df_for_html.loc[gene_name_curr,"Cancer Groups"]
+            for tmp in cancer_groups_for_filter:
+                if(tmp in curr_gene_cancer_groups):
+                    genes_found_by_cancer_type[tmp].append(gene_name)
+            #if(found == "false"):
+            #    continue
         if not(len(result_dict) < ctr):
             result_row = result_dict[ctr]
             ctr = ctr + 1
@@ -240,8 +253,150 @@ def generate_json(result_text,bgcolor,ret_df,comment_df,pubmed_df):
         new_dict['Frequencies'] = frec_as_dict
         new_dict['Publications'] = list_of_pubmeds
         dict_1[gene_name] = new_dict
+        if(cancer_groups_filter_active == "true"):
+            tmp = {}
+            for group in cancer_groups_for_filter:
+                if(gene_name in genes_found_by_cancer_type[group]):
+                    tmp[gene_name] = new_dict
+                    if not(group in dict_all):
+                        dict_all[group] = [tmp]
+                    else:
+                        dict_all[group].append(tmp)
     #results = df_for_html.to_dict(orient='records')
-    results_json = json.dumps(dict_1)
+    if(cancer_groups_filter_active == "true"):
+        results_json = json.dumps(dict_all)
+    else:
+        results_json = json.dumps(dict_1)
+    results_json = results_json.replace("\n"," ").replace("NaN","\"NaN\"").replace("\"\"NaN\"\"","\"NaN\"")
+    comments_json = json.dumps(comments)
+    freqs_json = json.dumps(freqs)
+    pubmed_json = json.dumps(pubmed)
+    return(results_json,comments_json,freqs_json,pubmed_json)
+
+
+def generate_json_2(result_text,bgcolor,ret_df,comment_df,pubmed_df,cancer_groups_filter_active,cancer_groups_for_filter,customer_id):
+    df_for_html = ret_df[["clin_sig","gene_name","exon","rsid","dna_change","prot_change","transcript","zyg","inh","diseases_STR","cancer_groups"]]
+    df_for_html.columns=["Classification","Gene","Exon/Intron","SNP ID","DNA change","Protein change","Transcript ID","Zygosity","Inheritance","Associated Disease(s)","Cancer Groups"]
+    drug_response_df = df_for_html[df_for_html['Classification']=="drug response"]
+    new_col = np.arange(1,(len(df_for_html) + 1))
+    col_nbr_dict =  dict(zip(df_for_html["SNP ID"].tolist(),new_col))
+    df_for_html.insert(0,"Number",new_col)
+    drug_response_df.columns=["Classification","Gene","Exon/\nIntron","SNP ID","DNA change","Protein\nchange","Transcript ID","Zygosity","Inheritance","Associated Response(s)","Cancer Groups"]
+    df_for_html_2 = df_for_html[df_for_html['Classification']!="drug response"]
+    df_for_html = df_for_html_2
+    #print(df_for_html)
+    #print(df_for_html["Classification"].tolist())
+    #df_for_html['nbr'] = np.arange(len(df_for_html))
+    #df_for_html = df_for_html[["nbr","clin_sig","gene_name","exon","rsid","dna_change","prot_change","transcript","zyg","inh","diseases_STR"]]
+    #df_for_html.columns=["Number","Classification","Gene","Exon/\nIntron","SNP ID","DNA change","Protein\nchange","Transcript ID","Zygosity","Inheritance","Associated Disease(s)"]
+    #print(list(ret_df.columns))
+    df_for_freq = ret_df[["clin_sig","gene_name","transcript","dna_change","prot_change","chr_loc","freq","rsid"]]
+    df_for_freq = df_for_freq[df_for_freq['clin_sig']!="drug response"]
+    nbr_col_2 = [col_nbr_dict[rsid] for rsid in df_for_freq["rsid"].tolist()]
+    df_for_freq = df_for_freq[["gene_name","transcript","dna_change","prot_change","chr_loc","freq","rsid"]]
+    df_for_freq.columns=["Gene","Transcript","DNA change","Protein change","Genomic Location","Alternate Allele Fraction","dbSNP rsID"]
+    #print(df_for_freq)
+    #print(df_for_freq["rsid"].tolist())
+    #print(nbr_col_2)
+    df_for_freq.insert(0,"Mutation\nNumber",nbr_col_2)
+    comment_df = comment_df[comment_df['clin_sig']!="drug response"]
+    comment_df = comment_df[comment_df['rsid'].notna()]
+    nbr_col_3 = [col_nbr_dict[rsid] for rsid in comment_df["rsid"].tolist()]
+    #print(comment_df["clin_sig"].tolist())
+    comment_df.insert(0,"Number",nbr_col_3)
+    if not(len(list(pubmed_df.index)) < 1):
+        nbr_col_4 = [col_nbr_dict[rsid] for rsid in pubmed_df['rsid'].tolist()]
+        pubmed_df.insert(0,"Number",nbr_col_4)
+        pubmed_df = pubmed_df[["Number","name","PMID","title"]]
+        pubmed_df.columns = ["Number","Name of Mutation","Pubmed ID","Title"]
+    comments = comment_df.to_dict(orient='records')
+    freqs = df_for_freq.to_dict(orient='records')
+    pubmed = pubmed_df.to_dict(orient='records')
+    print(comments)
+    print(freqs)
+    print(pubmed)
+    result_dict = df_for_html.to_dict(orient="records")
+    dict_1 = {}
+    ctr = 0
+    dict_all = {}
+    for gene_name_curr in list(df_for_html.index):
+        curr_nbr_gene = str(df_for_html.loc[gene_name_curr,"Number"])
+        gene_name_tmp = str(df_for_html.loc[gene_name_curr,"Gene"])
+        gene_loc_tmp = str(df_for_html.loc[gene_name_curr,"DNA change"])
+        gene_name = gene_name_tmp + " " + gene_loc_tmp
+        new_dict = {}
+        list_of_comments = []
+        list_of_freqs = []
+        list_of_pubmeds = []
+        curr_row_as_dict = {}
+        genes_found_by_cancer_type = {}
+        for i in range(0,len(cancer_groups_for_filter)):
+            genes_found_by_cancer_type[str(cancer_groups_for_filter[i])] = []
+        if(cancer_groups_filter_active == "true"):
+            curr_gene_cancer_groups = df_for_html.loc[gene_name_curr,"Cancer Groups"]
+            for tmp in cancer_groups_for_filter:
+                if(tmp in curr_gene_cancer_groups):
+                    genes_found_by_cancer_type[tmp].append(gene_name)
+            #if(found == "false"):
+            #    continue
+        if not(len(result_dict) < ctr):
+            result_row = result_dict[ctr]
+            ctr = ctr + 1
+            diseases_for_curr_row = str(result_row["Associated Disease(s)"])
+            disease_list_tmp = diseases_for_curr_row.split(";")
+            result_row["Associated Disease(s)"] = disease_list_tmp
+            curr_row_as_dict = result_row
+        for i in range(0,len(comments)):
+            if not('Number' in comments[i]):
+                continue
+            curr_nbr = str(comments[i]['Number'])
+            if(curr_nbr == curr_nbr_gene):
+                del comments[i]["Number"]
+                del comments[i]["gene_name"]
+                del comments[i]["rsid"]
+                tmp_dict = comments[i]
+                list_of_comments.append(tmp_dict)
+        for i in range(0,len(freqs)):
+            if not('Mutation\nNumber' in freqs[i]):
+                continue
+            curr_nbr = str(freqs[i]['Mutation\nNumber'])
+            if(curr_nbr == curr_nbr_gene):
+                del freqs[i]["Mutation\nNumber"]
+                tmp_dict = freqs[i]
+                list_of_freqs.append(tmp_dict)
+                frec_as_dict = tmp_dict
+        for i in range(0,len(pubmed)):
+            if not('Number' in pubmed[i]):
+                continue
+            curr_nbr = str(pubmed[i]['Number'])
+            if(curr_nbr == curr_nbr_gene):
+                del pubmed[i]["Number"]
+                del pubmed[i]["Name of Mutation"]
+                tmp_dict = pubmed[i]
+                list_of_pubmeds.append(tmp_dict)
+        new_dict['Gene Data'] = curr_row_as_dict
+        new_dict['Comments'] = list_of_comments
+        new_dict['Frequencies'] = frec_as_dict
+        new_dict['Publications'] = list_of_pubmeds
+        dict_1[gene_name] = new_dict
+        if(cancer_groups_filter_active == "true"):
+            tmp = {}
+            for group in cancer_groups_for_filter:
+                if(gene_name in genes_found_by_cancer_type[group]):
+                    tmp[gene_name] = new_dict
+                    if not(group in dict_all):
+                        dict_all[group] = [tmp]
+                    else:
+                        dict_all[group].append(tmp)
+            dict_all_new = {}
+            dict_all_new[customer_id] = dict_all
+        dict_2 = {}
+        dict_2[customer_id] = dict_1
+    #results = df_for_html.to_dict(orient='records')
+    if(cancer_groups_filter_active == "true"):
+        results_json = json.dumps(dict_all_new)
+    else:
+        results_json = json.dumps(dict_2)
     results_json = results_json.replace("\n"," ").replace("NaN","\"NaN\"").replace("\"\"NaN\"\"","\"NaN\"")
     comments_json = json.dumps(comments)
     freqs_json = json.dumps(freqs)
@@ -265,6 +420,35 @@ def read_syndict(path):
         values = str2.split(",,")
         syndict[str1] = syndict[str1] + values
     return(syndict)
+
+
+def read_cancer_groups(path):
+    infile = open(path)
+    htmlstr=infile.read()
+    lines= htmlstr.split("\n")
+    line_0 = lines[0]
+    line0split = line_0.split("\t")
+    cancer_groups = []
+    genes_by_cancer_group = {}
+    cancer_groups_by_gene = {}
+    for i in range(1,len(line0split)):
+        cancer_groups.append(line0split[i])
+        genes_by_cancer_group[str(line0split[i])] = []
+    ctr = 0
+    for line in lines:
+        if(ctr == 0):
+            ctr = 1
+            continue
+        lineSplit = line.split("\t")
+        gene_name = lineSplit[0]
+        cancer_groups_by_gene[str(gene_name)] = []
+        for i in range(1,len(lineSplit)):
+            if(str(lineSplit[i]) == "TRUE"):
+                genes_by_cancer_group[cancer_groups[i-1]].append(gene_name)
+                cancer_groups_by_gene[gene_name].append(cancer_groups[i-1])
+    #print(genes_by_cancer_group)
+    #print(cancer_groups_by_gene)
+    return([genes_by_cancer_group,cancer_groups_by_gene])
 
 def remove_synonyms(list_of_diseases):
     syn = [get_synonyms(i,"TGT-1046014-OgTp1p3CqoWt5txPDftCGsUtKbGNQTdNwnOjAZ5TfKktxCxOAe-cas") for i in list_of_diseases]
@@ -480,6 +664,34 @@ def remove_synonyms_new(list_of_diseases,syndict):
     #    if(list_of_diseases[i] == ""):
     #        list_of_diseases_2.pop(i)
     return(ret_2,syndict_2)
+
+
+def read_cancer_groups_OLD(path):
+    infile = open(path)
+    htmlstr=infile.read()
+    lines= htmlstr.split("\n")
+    line_0 = lines[0]
+    line0split = line_0.split("\t")
+    cancer_groups = []
+    genes_by_cancer_group = {}
+    cancer_groups_by_gene = {}
+    for i in range(1,len(line0split)):
+        cancer_groups.append(line0split[i])
+        genes_by_cancer_group[str(line0split[i])] = []
+    ctr = 0
+    for line in lines:
+        if(ctr == 0):
+            ctr = 1
+            continue
+        lineSplit = line.split("\t")
+        gene_name = lineSplit[0]
+        cancer_groups_by_gene[str(gene_name)] = []
+        for i in range(1,len(lineSplit)):
+            if(str(lineSplit[i]) == "TRUE"):
+                genes_by_cancer_group[cancer_groups[i-1]].append(gene_name)
+                cancer_groups_by_gene[gene_name].append(cancer_groups[i-1])
+    print(genes_by_cancer_group)
+    print(cancer_groups_by_gene)
 
 
 def calculate_polygenic(prsice_path,disease,gwas_res_path,plink_path,bg_plink_dataset):
@@ -1027,9 +1239,11 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
     inh_dict = {}
     gene_info_dict = {}
     snp_dict = {}
-    ret_df = pd.DataFrame(columns=['rsid','clin_sig','consequence','variant_class','dna_change','prot_change','exon','transcript','chr_loc','hgvs','gene_name','hgnc','freq','max_af','max_pop','vaf','gq','ad1','ad2','ad','zyg','inh','clin_sig_list_STR','clin_sig_list','clin_sig_ct','diseases','diseases_STR','disease_groups','comments','comments_STR','dis_and_sig'])
+    ret_df = pd.DataFrame(columns=['rsid','clin_sig','consequence','variant_class','dna_change','prot_change','exon','transcript','chr_loc','hgvs','gene_name','hgnc','freq','max_af','max_pop','vaf','gq','ad1','ad2','ad','zyg','inh','clin_sig_list_STR','clin_sig_list','clin_sig_ct','diseases','diseases_STR','disease_groups','comments','comments_STR','dis_and_sig','cancer_groups'])
     samplename = sample_id
     syndict_all = read_syndict(str(path_prefix + "syndict_temp.txt"))
+    cancer_groups_tmp = read_cancer_groups(str(path_prefix +"genes_and_cancer_groups.txt"))
+    [genes_by_cancer_group,cancer_groups_by_gene] = cancer_groups_tmp
     #for i in range(0,len(df.index)):
     #for i in range(1400,1600):
     #for i in range(2000,3000):
@@ -1282,6 +1496,11 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
             transcript = "-"
             dna_change = "-"
         snp_data_tmp = {}
+        gene_name_copy = "" + str(gene_name)
+        gene_name_uppercase = gene_name_copy.upper()
+        cancer_groups = []
+        if(gene_name_uppercase in cancer_groups_by_gene):
+            cancer_groups = cancer_groups_by_gene[gene_name_uppercase]
         if (rsid in list(df.index.values)):
             continue
         if not(gene_name_dict[rsid] in snp_dict):
@@ -1297,6 +1516,7 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
         ret_df.loc[rsid,"max_af"] = max_af
         ret_df.loc[rsid,"max_pop"] = max_pop
         ret_df.loc[rsid,"vaf"] = vaf
+        ret_df.loc[rsid,"cancer_groups"] = cancer_groups
         print(gq)
         print(rsid)
         print(inh)
@@ -2280,7 +2500,7 @@ def generate_report_and_return_pdf(path,disease_list,polygen_list):
 
 #generate_json("Likely pathogenic sequence variant(s) detected .","yellow",ret_df_copy,comment_df_copy,pubmed_list_copy)
 
-def run_all(vcf_df,diseases,outfile,sample_id):
+def run_all(vcf_df,diseases,outfile,sample_id,customer_id):
     report_paths = []
     if(diseases[0] == "all"):
         diseases_to_filter = ["all"]
@@ -2291,17 +2511,25 @@ def run_all(vcf_df,diseases,outfile,sample_id):
     #stoppos1 = 6670
     startpos1 = 0
     stoppos1 = 6700
+    cancer_groups_for_filter = ["BREAST","GASTROINTESTINAL","LUNG","PROSTATE","GENITOURINARY","CNS","FEMALE_REPRODUCTIVE","MALE_REPRODUCTIVE","SKIN","ENDOCRINE","HEMATOLOGIC","MUSCULOSKELETAL"]
     # iterate over selected disease types
     for dis in diseases_to_filter:
         outfile_curr = outfile + ".html"
         patient_id = outfile.replace("/scripts/dis_report_","")
         ## extract data from VEP output
         [ret_df,comment_df,pubmed_list,gene_info_ret,is_pathogenic] = extract_vep_data(vcf_df,dis,startpos1,stoppos1,sample_id)
-        [results_json,comments_json,freqs_json,pubmed_json] = generate_json("none","yellow",ret_df,comment_df,pubmed_list)
+        ret_df_old = ret_df.copy()
+        comment_df_old = comment_df.copy()
+        pubmed_list_old = pubmed_list.copy()
+        [results_json,comments_json,freqs_json,pubmed_json] = generate_json_2("none","yellow",ret_df,comment_df,pubmed_list,"false",[],customer_id)
+        if(dis == "all"):
+            [results_json_2,comments_json_2,freqs_json_2,pubmed_json_2] = generate_json_2("none","yellow",ret_df_old,comment_df_old,pubmed_list_old,"true",cancer_groups_for_filter,customer_id)
         #print("json results:")
         #print(results_json)
         #write_json_to_one_file([results_json,comments_json,freqs_json,pubmed_json],"/scripts/dis_genes_" + patient_id + "_" + dis + ".json")
         write_json_to_one_file([results_json],str(path_prefix + "dis_genes_" + patient_id + "_" + dis + ".json"))
+        if(dis == "all"):
+            write_json_to_one_file([results_json_2],str(path_prefix + "dis_genes_" + patient_id + "_" + dis + "_by_cancer_group.json"))
         #[ret_df_copy,comment_df_copy,pubmed_list_copy] = [ret_df.copy(deep=True),comment_df.copy(deep=True),pubmed_list.copy(deep=True)]
         # write tables with output data
         #[table_1_html,comment_table_html,table_2_html,pubmed_html,comments_style,pubmed_style] = make_table(ret_df,comment_df,pubmed_list,gene_info_ret,dis)
@@ -2310,16 +2538,18 @@ def run_all(vcf_df,diseases,outfile,sample_id):
         #htmlstr=generate_disease_report("dis_calc/disease_report_to_fill.html",dis,dis,outfile_curr,table_1_html,table_2_html,comment_table_html,pubmed_html,comments_style,pubmed_style,"Max Mustermann","1.1.1900",is_pathogenic)
         #make_pdf_from_str(htmlstr,(outfile + "_" + dis + ".pdf"))
         report_paths.append("/scripts/dis_genes_" + patient_id + "_" + dis + ".json")
+        if(dis == "all"):
+            report_paths.append("/scripts/dis_genes_" + patient_id + "_" + dis + "_by_cancer_group.json")
     return(report_paths)
 
 
 
+
 if(run_as_script == "true"):
-    if(len(sys.argv) < 4):
+    if(len(sys.argv) < 5):
         print("Not enough parameters")
         quit()
     patient_vcf = sys.argv[1]
-    
     sample_id = "Sample_1"
     if(len(patient_vcf.split("_")) > 1):
         path_new = patient_vcf.split("/")[len(patient_vcf.split("/")) -1]
@@ -2331,6 +2561,7 @@ if(run_as_script == "true"):
             sample_id = path_new.split("_")[0]
     disease_group_file = sys.argv[2]
     outfile = sys.argv[3]
+    customer_id = sys.argv[4]
     if(disease_group_file == "all"):
         diseases = ["all"]
     else:
@@ -2345,7 +2576,7 @@ if(run_as_script == "true"):
             diseases.append(disgr_name)
         diseases = ["all"]
     vcf_df = pd.read_csv(patient_vcf,sep='\t')
-    report_paths = run_all(vcf_df,diseases,outfile,sample_id)
+    report_paths = run_all(vcf_df,diseases,outfile,sample_id,customer_id)
     print("_SEPERATOR_".join(report_paths))
     
     

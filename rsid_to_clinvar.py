@@ -71,6 +71,7 @@ def is_synonym(disease_1,disease_2,tgt):
         return("true")
     else:
         return("false")
+
     
 def get_synonyms(disease_STR,tgt):
     if("not specified" in disease_STR):
