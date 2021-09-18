@@ -7,7 +7,7 @@ outfiles=$(python3 /scripts/extract_table.py $patient_vcf all /scripts/dis_repor
 
 touch /scripts/list_of_outfiles_$customer_id.txt
 
-json_posted = "false"
+json_posted="false"
 
 IFS='_SEPARATOR_' read -ra ADDR <<< "$outfiles"
 for i in "${ADDR[@]}"; do

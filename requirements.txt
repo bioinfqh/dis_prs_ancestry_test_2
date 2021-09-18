@@ -30,6 +30,7 @@ requests-toolbelt==0.8.0
 requests-unixsocket==0.1.5
 scikit-learn==0.20.0
 simplejson==3.13.2
+subprocess
 urllib3==1.24.1
 webencodings==0.5.1
 wget==3.2
