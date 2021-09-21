@@ -21,3 +21,4 @@ echo $json_posted
 #  echo $i >>/scripts/list_of_outfiles_$customer_id.txt
 #  echo $json_posted
 #done
+
