@@ -32,7 +32,7 @@ def get_tgt(api_key):
     cmd = "curl -X POST https://utslogin.nlm.nih.gov/cas/v1/api-key -H 'content-type: application/x-www-form-urlencoded' -d apikey=b737cbc4-4006-44a1-b7c8-70e02102a7bd"
     stream = os.popen(cmd)
     output = stream.read()
-    print(output)
+    #print(output)
     if ("form action=\"" in output):
         strSplit1 = output.split("form action=\"")[1]
         #print(strSplit1)
@@ -62,7 +62,7 @@ def get_ticket(tgt):
             stream = os.popen(cmd)
             output = stream.read()
     #print(output)
-    print(output)
+    #print(output)
     return(output)
 
 def is_synonym(disease_1,disease_2,tgt):
@@ -112,8 +112,8 @@ def get_synonyms(disease_STR,tgt):
 
 def get_synonyms_new(disease_STR,tgt,syndict):
     syndict_2 = syndict.copy()
-    print("disease name")
-    print(disease_STR)
+    #print("disease name")
+    #print(disease_STR)
     if("not specified" in disease_STR):
         syndict = syndict_2.copy()
         return([],syndict)
@@ -143,7 +143,7 @@ def get_synonyms_new(disease_STR,tgt,syndict):
     #url = "https://uts-ws.nlm.nih.gov/rest/search/current?string=dilated+cardiomyopathy&ticket=ST-461542-ea3bE23tuEfHThSfcfZo-cas"
     url = "https://uts-ws.nlm.nih.gov/rest/search/current?string=" + disease + "&ticket=" + auth
     #url = "https://uts-ws.nlm.nih.gov/rest/search/current?string=dilated+cardiomyopathy"+ "&ticket=" + auth
-    print(url)
+    #print(url)
     request = requests.get(url)
     auth = get_ticket("TGT-1324012-CDXW7ErncSwjrLVeYAKog5b2oMJUZtkPV3DXMYNer9l1kNs5sQ-cas")
     url = "https://uts-ws.nlm.nih.gov/rest/search/current?string=" + disease + "&ticket=" + auth
@@ -155,9 +155,9 @@ def get_synonyms_new(disease_STR,tgt,syndict):
     try:
         response = urllib.request.urlopen(Request(url, headers={'User-Agent': 'Mozilla/5.0'}))
         webContent = str(response.read())
-        print(webContent)
+        #print(webContent)
     except:
-        print("urlopen not run")
+        #print("urlopen not run")
         syndict_2[disease_STR] = ["none"]
         syndict = syndict_2.copy()
         return([],syndict)
@@ -188,18 +188,18 @@ def get_synonyms_new(disease_STR,tgt,syndict):
         if not(resultStr.lower() == ""):
             if not(resultStr.lower() in syndict_2):
                 syndict_2[resultStr.lower()] = []
-            print("adding keys")
-            print(resultStr.lower())
+            #print("adding keys")
+            #print(resultStr.lower())
             ret.append(resultStr.lower())
             syndict_2[disease_STR].append(resultStr.lower())
             syndict_2[resultStr.lower()].append(disease_STR)
             ctr = ctr + len(resultStr.lower())
             ctr = ctr + 1
     #print("returning")
-    print("disease name: ")
-    print(disease_STR)
-    print("returned: ")
-    print(ret)
+    #print("disease name: ")
+    #print(disease_STR)
+    #print("returned: ")
+    #print(ret)
     #print(str(ctr))
     #print(str(len(ret)))
     if(len(ret) == 0):
@@ -231,12 +231,12 @@ def get_inheritance_mode(gene_name):
             if(":" in lines[i]):
                 lineSplit = lines[i].split("\t")
                 if(gene_name in str(lineSplit[index_of_gene_name])):
-                    print(lineSplit)
+                    #print(lineSplit)
                     inh = str(lineSplit[index_of_inheritance])
                     return(inh)
         if("Cytogenetic location" in lines[i]):
-            print("Cytogenetic location:")
-            print(lines[i])
+            #print("Cytogenetic location:")
+            #print(lines[i])
             contains_data = "true"
             lineSplit = lines[i].split("\t")
             #print(lineSplit)
@@ -300,7 +300,7 @@ def get_hgvs_list(rsid):
     #for line in hgvs_lines:
 
 def get_inheritance_mode_2(hgnc_id):
-    print(hgnc_id)
+    #print(hgnc_id)
     url = "https://search.clinicalgenome.org/kb/genes/HGNC:" + str(hgnc_id)
     response = urllib.request.urlopen(url)
     webContent = str(response.read())
@@ -310,8 +310,8 @@ def get_inheritance_mode_2(hgnc_id):
     elif(len(dfs) < 2):
         return("not given")
     df = dfs[2]
-    print(len(df))
-    print(list(df.columns))
+    #print(len(df))
+    #print(list(df.columns))
     if not('MOI' in list(df.columns)):
         return("not given")
     inh_mode = df.loc[0,'MOI'].replace("\\t","").replace("\\n","")
@@ -395,8 +395,8 @@ def get_link(hgnc_id,disease):
         return("N/A")
     df = dfs[0]
     nbr_col = 0
-    print(list(df.columns))
-    print(df.loc[0,'Report & Date'])
+    #print(list(df.columns))
+    #print(df.loc[0,'Report & Date'])
     if("Report & Date" in list(df.columns)):
         nbr_col = list(df.columns).index("Report & Date")
         table_html = webContentSplit.split("</table>")[0]

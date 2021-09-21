@@ -91,7 +91,7 @@ def write_json_to_files(strings,outfiles):
     return(outfiles)
 
 def write_json_to_one_file(strings,outfile):
-    print(strings)
+    #print(strings)
     fh=open(outfile,'w')
     for i in range(0,len(strings)):
         curr_string = strings[i]
@@ -184,9 +184,9 @@ def generate_json(result_text,bgcolor,ret_df,comment_df,pubmed_df,cancer_groups_
     comments = comment_df.to_dict(orient='records')
     freqs = df_for_freq.to_dict(orient='records')
     pubmed = pubmed_df.to_dict(orient='records')
-    print(comments)
-    print(freqs)
-    print(pubmed)
+    #print(comments)
+    #print(freqs)
+    #print(pubmed)
     result_dict = df_for_html.to_dict(orient="records")
     dict_1 = {}
     ctr = 0
@@ -312,9 +312,9 @@ def generate_json_2(result_text,bgcolor,ret_df,comment_df,pubmed_df,cancer_group
     comments = comment_df.to_dict(orient='records')
     freqs = df_for_freq.to_dict(orient='records')
     pubmed = pubmed_df.to_dict(orient='records')
-    print(comments)
-    print(freqs)
-    print(pubmed)
+    #print(comments)
+    #print(freqs)
+    #print(pubmed)
     result_dict = df_for_html.to_dict(orient="records")
     dict_1 = {}
     ctr = 0
@@ -492,7 +492,7 @@ def remove_synonyms_2(dis_and_sig):
     #print(list(dis_and_sig.values()))
     for i in range(0,len(list_of_diseases)):
         for j in range(0,len(list_of_diseases)):
-            print(list(dis_and_sig.values())[i])
+            #print(list(dis_and_sig.values())[i])
             if(pd.isnull(list(dis_and_sig.values())[i]) or pd.isnull(list(dis_and_sig.values())[j])):
                 continue
             if(i == j or (list_of_diseases[i] == "") or (list_of_diseases[j] == "")):
@@ -539,9 +539,9 @@ def remove_synonyms_2_new(dis_and_sig,syndict):
         [syn_curr,syndict_2] = get_synonyms_new(curr_list,"TGT-1324012-CDXW7ErncSwjrLVeYAKog5b2oMJUZtkPV3DXMYNer9l1kNs5sQ-cas",syndict)
         syndict = syndict_2.copy()
         syn.append(syn_curr)
-        print(curr_list)
-        print("syn ")
-        print(syn_curr)
+        #print(curr_list)
+        #print("syn ")
+        #print(syn_curr)
     dis_and_sig_list = list(dis_and_sig)
     list_of_diseases = [i.split(";")[0] for i in dis_and_sig]
     list_of_significances = [i.split(";")[1] for i in dis_and_sig]
@@ -550,7 +550,7 @@ def remove_synonyms_2_new(dis_and_sig,syndict):
     #print(list(dis_and_sig.values()))
     for i in range(0,len(list_of_diseases)):
         for j in range(0,len(list_of_diseases)):
-            print(list(dis_and_sig.values())[i])
+            #print(list(dis_and_sig.values())[i])
             if(pd.isnull(list(dis_and_sig.values())[i]) or pd.isnull(list(dis_and_sig.values())[j])):
                 continue
             if(i == j or (list_of_diseases[i] == "") or (list_of_diseases[j] == "")):
@@ -636,9 +636,9 @@ def remove_synonyms_new(list_of_diseases,syndict):
         [syn_curr,syndict_2] = get_synonyms_new(curr_list,"TGT-1324012-CDXW7ErncSwjrLVeYAKog5b2oMJUZtkPV3DXMYNer9l1kNs5sQ-cas",syndict)
         syndict = syndict_2.copy()
         syn.append(syn_curr)
-        print(curr_list)
-        print("syn ")
-        print(syn_curr)
+        #print(curr_list)
+        #print("syn ")
+        #print(syn_curr)
     #syndict_2 = syndicts_2[len(syndicts_2)-1]
     #syn = [get_synonyms_new(i,"TGT-1046014-OgTp1p3CqoWt5txPDftCGsUtKbGNQTdNwnOjAZ5TfKktxCxOAe-cas",syndict) for i in list_of_diseases]
     for i in range(0,len(list_of_diseases)):
@@ -690,15 +690,15 @@ def read_cancer_groups_OLD(path):
             if(str(lineSplit[i]) == "TRUE"):
                 genes_by_cancer_group[cancer_groups[i-1]].append(gene_name)
                 cancer_groups_by_gene[gene_name].append(cancer_groups[i-1])
-    print(genes_by_cancer_group)
-    print(cancer_groups_by_gene)
+    #print(genes_by_cancer_group)
+    #print(cancer_groups_by_gene)
 
 
 def calculate_polygenic(prsice_path,disease,gwas_res_path,plink_path,bg_plink_dataset):
     return()
 def extract_vep_data_OLD(dataframe,disease_filter,start,end):
     df = dataframe
-    print(df)
+    #print(df)
     pubmed_list = pd.DataFrame(columns=['name','PMID','title'])
     [gen_dis_dict,dis_gen_dict] = read_gene_associations(assoc_table_path)
     [gene_dis_dict_2,dis_gene_dict_2] = read_gene_associations_2(gene_disease_groups_path)
@@ -738,7 +738,7 @@ def extract_vep_data_OLD(dataframe,disease_filter,start,end):
             continue
         gene_name = df.loc[i,"SYMBOL"]
         if ((not(disease_filter in dis_gene_dict_2)) and (not(disease_filter=="all"))):
-            print("Disease group does not exist! Returning empty dataframes.")
+            #print("Disease group does not exist! Returning empty dataframes.")
             return([pd.DataFrame(),pd.DataFrame(),pd.DataFrame(),pd.DataFrame(),pd.DataFrame()])
         if not(disease_filter=="all"):
             if not(gene_name in gene_dis_dict_2):
@@ -751,7 +751,7 @@ def extract_vep_data_OLD(dataframe,disease_filter,start,end):
                 #print(str(disease_filter))
                 #print(gene_dis_dict_2[gene_name])
                 continue
-        print(i)
+        #print(i)
         hgnc_id = str(df.loc[i,"HGNC_ID"])
         if not(rsid in hgnc_dict):
             hgnc_dict[rsid] = hgnc_id
@@ -808,8 +808,8 @@ def extract_vep_data_OLD(dataframe,disease_filter,start,end):
         if(str(gq).isdigit()):
             gq = float(gq)
         ad = df.loc[i,"Sample_1.AD"]
-        print(str(ad))
-        print(str(ad).split(","))
+        #print(str(ad))
+        #print(str(ad).split(","))
         ad1 = ""
         ad2 = ""
         if(str(ad).split(",")[0].isdigit() and (len(str(ad).split(",")) > 1)):
@@ -951,9 +951,9 @@ def extract_vep_data_OLD(dataframe,disease_filter,start,end):
         ret_df.loc[rsid,"max_af"] = max_af
         ret_df.loc[rsid,"max_pop"] = max_pop
         ret_df.loc[rsid,"vaf"] = vaf
-        print(gq)
-        print(rsid)
-        print(inh)
+        #print(gq)
+        #print(rsid)
+        #print(inh)
         ret_df.loc[rsid,"gq"] = gq
         ret_df.loc[rsid,"ad1"] = ad1
         ret_df.loc[rsid,"ad2"] = ad2
@@ -1053,7 +1053,7 @@ def extract_vep_data_OLD(dataframe,disease_filter,start,end):
                 else:
                     dis_and_sig_curr[key] = ret[key]
                     #dis_and_sig_curr_rs.append(key)
-            print(i)
+            #print(i)
             [dis_and_sig_curr_rs,syndict_2] = remove_synonyms_2_new(dis_and_sig_curr,syndict_all)
             syndict = syndict_2.copy()
             syndict_all.update(syndict_2)
@@ -1230,7 +1230,7 @@ def extract_vep_data_OLD(dataframe,disease_filter,start,end):
 def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
     #df = pd.read_csv(path,sep='\t')
     df = dataframe
-    print(df)
+    #print(df)
     pubmed_list = pd.DataFrame(columns=['name','PMID','title'])
     [gen_dis_dict,dis_gen_dict] = read_gene_associations(assoc_table_path)
     [gene_dis_dict_2,dis_gene_dict_2] = read_gene_associations_2(gene_disease_groups_path)
@@ -1287,7 +1287,7 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
             continue
         gene_name = df.loc[i,"SYMBOL"]
         if ((not(disease_filter in dis_gene_dict_2)) and (not(disease_filter=="all"))):
-            print("Disease group does not exist! Returning empty dataframes.")
+            #print("Disease group does not exist! Returning empty dataframes.")
             return([pd.DataFrame(),pd.DataFrame(),pd.DataFrame(),pd.DataFrame(),pd.DataFrame()])
         if not(disease_filter=="all"):
             if not(gene_name in gene_dis_dict_2):
@@ -1300,7 +1300,7 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
                 #print(str(disease_filter))
                 #print(gene_dis_dict_2[gene_name])
                 continue
-        print(i)
+        #print(i)
         hgnc_id = str(df.loc[i,"HGNC_ID"])
         if not(rsid in hgnc_dict):
             hgnc_dict[rsid] = hgnc_id
@@ -1363,8 +1363,8 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
         if(str(gq).isdigit()):
             gq = float(str(gq))
         ad = df.loc[i,samplename +".AD"]
-        print(str(ad))
-        print(str(ad).split(","))
+        #print(str(ad))
+        #print(str(ad).split(","))
         ad1 = ""
         ad2 = ""
         if(str(ad).split(",")[0].isdigit() and (len(str(ad).split(",")) > 1)):
@@ -1445,10 +1445,10 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
                 #print(str(polyphen_val))
                 #print(clin_sig)
                 if not (clin_sig == "benign" or clin_sig == "likely pathogenic" or (polyphen_val > polyphen_threshold)):
-                    print("No clinical significance, polyphen value given")
+                    #print("No clinical significance, polyphen value given")
                     continue
             else:
-                print("No clinical significance")
+                #print("No clinical significance")
                 continue
         else:
             has_clinvar = "true"
@@ -1464,7 +1464,7 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
         if not(disease == "-"):
             disease = disease.replace("_"," ")
             diseases_curr_rs = disease.split("|")
-            print(diseases_curr_rs)
+            #print(diseases_curr_rs)
             #print(i)
             #print(diseases_curr_rs)
             diseases_curr_rs_tmp = [j for j in diseases_curr_rs if not(("not specified" in j) or ("not provided" in j) or ("not_specified" in j) or ("not_provided" in j))]
@@ -1517,9 +1517,9 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
         ret_df.loc[rsid,"max_pop"] = max_pop
         ret_df.loc[rsid,"vaf"] = vaf
         ret_df.loc[rsid,"cancer_groups"] = cancer_groups
-        print(gq)
-        print(rsid)
-        print(inh)
+        #print(gq)
+        #print(rsid)
+        #print(inh)
         ret_df.loc[rsid,"gq"] = gq
         ret_df.loc[rsid,"ad1"] = ad1
         ret_df.loc[rsid,"ad2"] = ad2
@@ -1619,7 +1619,7 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
                 else:
                     dis_and_sig_curr[key] = ret[key]
                     #dis_and_sig_curr_rs.append(key)
-            print(i)
+            #print(i)
             [dis_and_sig_curr_rs,syndict_2] = remove_synonyms_2_new(dis_and_sig_curr,syndict_all)
             syndict = syndict_2.copy()
             syndict_all.update(syndict_2)
@@ -1796,7 +1796,7 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
 def extract_vep_data_2(dataframe,disease_filter,start,end,sample_id):
     #df = pd.read_csv(path,sep='\t')
     df = dataframe
-    print(df)
+    #print(df)
     pubmed_list = pd.DataFrame(columns=['name','PMID','title'])
     [gen_dis_dict,dis_gen_dict] = read_gene_associations(assoc_table_path)
     [gene_dis_dict_2,dis_gene_dict_2] = read_gene_associations_2(gene_disease_groups_path)
@@ -1832,7 +1832,7 @@ def extract_vep_data_2(dataframe,disease_filter,start,end,sample_id):
         clinvar_version = "ClinVar_updated_2019Dec"
     for i in range(start_line_def,min(len(df.index),stop_line_def)):
         if ((df.loc[i,"CLIN_SIG"]=="-") and not(")" in df.loc[i,"PolyPhen"]) and (df.loc[i,clinvar_version + "_CLNDN"] == "-")):
-            print("Exited for loop at line 703: No clinical significance")
+            #print("Exited for loop at line 703: No clinical significance")
             continue
         rsid_tmp = df.loc[i,"Existing_variation"]
         temp1 = rsid_tmp.split(",")
@@ -1842,22 +1842,22 @@ def extract_vep_data_2(dataframe,disease_filter,start,end,sample_id):
             if(len(rsids_unique) > 0):
                 rsid = rsids_unique[0]
             else:
-                print("Exited for loop at line 713: No RSID given")
+                #print("Exited for loop at line 713: No RSID given")
                 continue
         if(len(rsids) > 0):
             rsid = rsids[0]
             variant_class = df.loc[i,"VARIANT_CLASS"]
         else:
-            print("Exited for loop at line 719: No RSID given.")
+            #print("Exited for loop at line 719: No RSID given.")
             continue
         gene_name = df.loc[i,"SYMBOL"]
         if (not(disease_filter in dis_gene_dict_2) and (not(disease_filter == "all"))):
-            print("Disease group does not exist! Returning empty dataframes.")
+            #print("Disease group does not exist! Returning empty dataframes.")
             return([pd.DataFrame(),pd.DataFrame(),pd.DataFrame(),pd.DataFrame(),pd.DataFrame()])
         if not(disease_filter=="all"):
             if not(gene_name in gene_dis_dict_2):
                 #print(str(gene_name) + "not in gene_dis_dict")
-                print("Gene name not in disease gene list")
+                #print("Gene name not in disease gene list")
                 continue
             #else:
             #    print(gene_dis_dict_2[gene_name])
@@ -1865,15 +1865,15 @@ def extract_vep_data_2(dataframe,disease_filter,start,end,sample_id):
             elif(not(str(disease_filter) in ",".join(gene_dis_dict_2[gene_name]))):
                 #print(str(disease_filter))
                 #print(gene_dis_dict_2[gene_name])
-                print("Exited for loop at line 736: Gene name not in disease gene list")
+                #print("Exited for loop at line 736: Gene name not in disease gene list")
                 continue
-        print(i)
+        #print(i)
         hgnc_id = str(df.loc[i,"HGNC_ID"])
         if not(rsid in hgnc_dict):
             hgnc_dict[rsid] = hgnc_id
         prot_change = df.loc[i,"HGVSp"]
         if(prot_change == "-" or not("ENSP" in prot_change) or (len(prot_change.split(":")) < 2)):
-            print("Exited for loop. No Protein change given")
+            #print("Exited for loop. No Protein change given")
             continue
         prot_change = prot_change.split(":")[1]
         prot_change = prot_change.replace("%3D","=")
@@ -1932,8 +1932,8 @@ def extract_vep_data_2(dataframe,disease_filter,start,end,sample_id):
         if(str(gq).isdigit()):
             gq = float(gq)
         ad = df.loc[i,samplename +".AD"]
-        print(str(ad))
-        print(str(ad).split(","))
+        #print(str(ad))
+        #print(str(ad).split(","))
         ad1 = ""
         ad2 = ""
         if(str(ad).split(",")[0].isdigit() and (len(str(ad).split(",")) > 1)):
@@ -1948,7 +1948,7 @@ def extract_vep_data_2(dataframe,disease_filter,start,end,sample_id):
         #print(zyg_tmp)
         if(zyg_tmp.split("/")[0] == "." or (len(zyg_tmp.split("/")) < 1)):
             zyg = "---"
-            print("No zygosity given")
+            #print("No zygosity given")
             continue
         elif(str(zyg_tmp.split("/")[0]) == str(zyg_tmp.split("/")[1])):
             zyg = "homozygous"
@@ -2010,10 +2010,10 @@ def extract_vep_data_2(dataframe,disease_filter,start,end,sample_id):
                 #print(str(polyphen_val))
                 #print(clin_sig)
                 if not (clin_sig == "benign" or clin_sig == "likely pathogenic" or (polyphen_val > polyphen_threshold)):
-                    print("No clinical significance, polyphen value given")
+                    #print("No clinical significance, polyphen value given")
                     continue
             else:
-                print("No clinical significance")
+                #print("No clinical significance")
                 continue
         else:
             has_clinvar = "true"
@@ -2029,7 +2029,7 @@ def extract_vep_data_2(dataframe,disease_filter,start,end,sample_id):
         if not(disease == "-"):
             disease = disease.replace("_"," ")
             diseases_curr_rs = disease.split("|")
-            print(diseases_curr_rs)
+            #print(diseases_curr_rs)
             #print(i)
             #print(diseases_curr_rs)
             diseases_curr_rs_tmp = [j for j in diseases_curr_rs if not(("not specified" in j) or ("not provided" in j) or ("not_specified" in j) or ("not_provided" in j))]
@@ -2062,7 +2062,7 @@ def extract_vep_data_2(dataframe,disease_filter,start,end,sample_id):
             dna_change = "-"
         snp_data_tmp = {}
         if (rsid in list(df.index.values)):
-            print("RSID in dataframe index")
+            #print("RSID in dataframe index")
             continue
         if not(gene_name_dict[rsid] in snp_dict):
             snp_dict[gene_name_dict[rsid]] = []
@@ -2077,9 +2077,9 @@ def extract_vep_data_2(dataframe,disease_filter,start,end,sample_id):
         ret_df.loc[rsid,"max_af"] = max_af
         ret_df.loc[rsid,"max_pop"] = max_pop
         ret_df.loc[rsid,"vaf"] = vaf
-        print(gq)
-        print(rsid)
-        print(inh)
+        #print(gq)
+        #print(rsid)
+        #print(inh)
         ret_df.loc[rsid,"gq"] = gq
         ret_df.loc[rsid,"ad1"] = ad1
         ret_df.loc[rsid,"ad2"] = ad2
@@ -2100,7 +2100,7 @@ def extract_vep_data_2(dataframe,disease_filter,start,end,sample_id):
         #ret = extract(link)
         if(len(hgvs_list) < 1 or (hgvs_curr == "")):
             if("benign" in clin_sig and remove_benign == "true" and not("drug response" in clin_sig)):
-                print("no clinical significance, benign mutation")
+                #print("no clinical significance, benign mutation")
                 continue
             hgvs_curr = "-"
             #print("SNP ID:" + str(rsid) + "; Gene Name: " + gene_name + "\n")
@@ -2133,7 +2133,7 @@ def extract_vep_data_2(dataframe,disease_filter,start,end,sample_id):
                     ret_all[str(dis + ";" + clin_sig)] = {}
                     ret_all[str(dis + ";" + clin_sig)][rsid]="N/A"
             if(rsid not in dict_by_snpid):
-                print("RSID not in SNP ID dictionary")
+                #print("RSID not in SNP ID dictionary")
                 continue
             ret_df.loc[rsid,"dis_and_sig"] = [k for k in dict_by_snpid[rsid]]
             ret_df.loc[rsid,"diseases"] = [k.split(";")[0] for k in dict_by_snpid[rsid]]
@@ -2156,7 +2156,7 @@ def extract_vep_data_2(dataframe,disease_filter,start,end,sample_id):
                 ret_df.loc[rsid,"hgvs"] = "-"
                 snp_data[rsid]=snp_data_tmp
             else:
-                print("No diseases associated to mutation")
+                #print("No diseases associated to mutation")
                 continue
         else:
             #print("SNP ID:" + str(rsid) + "; Gene Name: " + gene_name + "\n")
@@ -2182,7 +2182,7 @@ def extract_vep_data_2(dataframe,disease_filter,start,end,sample_id):
                 else:
                     dis_and_sig_curr[key] = ret[key]
                     #dis_and_sig_curr_rs.append(key)
-            print(i)
+            #print(i)
             dis_and_sig_curr_rs = remove_synonyms_2(dis_and_sig_curr)
             #print(dis_and_sig_curr_rs)
             #diseases_curr_rs_tmp = [j for j in diseases_curr_rs if not(("not specified" in j) or ("not provided" in j) or ("not_specified" in j) or ("not_provided" in j))]
@@ -2210,7 +2210,7 @@ def extract_vep_data_2(dataframe,disease_filter,start,end,sample_id):
                     #ret_all[dis][rsid]=ret[dis]
                 if(dis not in dis_and_sig_from_vep_keys):
                     if(rsid not in dict_by_snpid):
-                        print("RSID not in SNP dictionary")
+                        #print("RSID not in SNP dictionary")
                         continue
             #print(dict_by_snpid[rsid])
             #snp_data_tmp[rsid]=dict_by_snpid[rsid]
@@ -2290,12 +2290,12 @@ def extract_vep_data_2(dataframe,disease_filter,start,end,sample_id):
                 if(str(ret_df.loc[i,"rsid"]) == "nan" or pd.isnull(ret_df.loc[i,"rsid"]) or str(ret_df.loc[i,"rsid"]) == "NaN" or (str(ret_df.loc[i,"diseases"]) == "nan" or pd.isnull(ret_df.loc[i,"diseases"]) or str(ret_df.loc[i,"diseases"]) == "NaN")):
                     #print("dropped" + str(ret_df.loc[i,"rsid"]))
                     ret_df = ret_df.drop([i])
-                    print("Exited for loop at line 1161: RSID is NaN or null")
+                    #print("Exited for loop at line 1161: RSID is NaN or null")
                     continue
         else:
             if(str(ret_df.loc[i,"rsid"]) == "nan" or pd.isnull(ret_df.loc[i,"rsid"]) or str(ret_df.loc[i,"rsid"]) == "NaN" or (str(ret_df.loc[i,"dis_and_sig"]) == "nan" or pd.isnull(ret_df.loc[i,"dis_and_sig"]) or str(ret_df.loc[i,"dis_and_sig"]) == "NaN") or (str(ret_df.loc[i,"diseases"]) == "nan" or pd.isnull(ret_df.loc[i,"diseases"]) or str(ret_df.loc[i,"diseases"]) == "NaN")):
                 ret_df = ret_df.drop([i])
-                print("RSID is null or NaN or diseases are null or NaN")
+                #print("RSID is null or NaN or diseases are null or NaN")
                 continue
         if not(str(ret_df.loc[i,"comments_STR"]) == "nan"):
             if((len(ret_df.loc[i,"comments_STR"]) > 2) and not (str(ret_df.loc[i,"comments_STR"]) == "nan") and not (str(ret_df.loc[i,"comments_STR"])=="N/A")):
@@ -2537,9 +2537,9 @@ def run_all(vcf_df,diseases,outfile,sample_id,customer_id):
         # write disease report
         #htmlstr=generate_disease_report("dis_calc/disease_report_to_fill.html",dis,dis,outfile_curr,table_1_html,table_2_html,comment_table_html,pubmed_html,comments_style,pubmed_style,"Max Mustermann","1.1.1900",is_pathogenic)
         #make_pdf_from_str(htmlstr,(outfile + "_" + dis + ".pdf"))
-        report_paths.append("/scripts/dis_genes_" + patient_id + "_" + dis + ".json")
+        report_paths.append(str(path_prefix + "dis_genes_" + patient_id + "_" + dis + ".json"))
         if(dis == "all"):
-            report_paths.append("/scripts/dis_genes_" + patient_id + "_" + dis + "_by_cancer_group.json")
+            report_paths.append(str(path_prefix + "dis_genes_" + patient_id + "_" + dis + "_by_cancer_group.json"))
     return(report_paths)
 
 
@@ -2547,7 +2547,7 @@ def run_all(vcf_df,diseases,outfile,sample_id,customer_id):
 
 if(run_as_script == "true"):
     if(len(sys.argv) < 5):
-        print("Not enough parameters")
+        #print("Not enough parameters")
         quit()
     patient_vcf = sys.argv[1]
     sample_id = "Sample_1"
@@ -2577,7 +2577,7 @@ if(run_as_script == "true"):
         diseases = ["all"]
     vcf_df = pd.read_csv(patient_vcf,sep='\t')
     report_paths = run_all(vcf_df,diseases,outfile,sample_id,customer_id)
-    print("_SEPERATOR_".join(report_paths))
+    print("_SEPARATOR_" + ("_SEPERATOR_".join(report_paths)))
     
     
     
