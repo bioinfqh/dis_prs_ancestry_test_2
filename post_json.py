@@ -20,8 +20,8 @@ if(len(sys.argv) > 2):
 if(multiple_files == "true"):
     files_str = input_file
     files_list = files_str.split("_SEPERATOR_")
-    for file_curr_2 in files_list:
-        file_curr = path_prefix + file_curr_2
+    for file_curr in files_list:
+        #file_curr = path_prefix + file_curr_2
         print(file_curr)
         if not(os.path.isfile(file_curr)):
             continue
@@ -32,10 +32,10 @@ if(multiple_files == "true"):
         output = subprocess.check_output(curl_post, shell=True)
         print(output)
 else:        
-    input_file_new = path_prefix + input_file
-    if not(os.path.isfile(input_file_new)):
+    #input_file_new = path_prefix + input_file
+    if not(os.path.isfile(input_file)):
         sys.exit("not successful - file not found")
-    file_1 = open(input_file_new)
+    file_1 = open(input_file)
     htmlstr=file_1.read()
     file_1.close()
     curl_post = "curl --header \"Content-Type: application/json\" --request POST --data '" + str(htmlstr) + "' https://us-central1-enigmagenomics.cloudfunctions.net/raw_reports?action=create"

@@ -2577,7 +2577,7 @@ if(run_as_script == "true"):
         diseases = ["all"]
     vcf_df = pd.read_csv(patient_vcf,sep='\t')
     report_paths = run_all(vcf_df,diseases,outfile,sample_id,customer_id)
-    print("_SEPARATOR_" + ("_SEPERATOR_".join(report_paths)))
+    print("_SEPERATOR_" + ("_SEPERATOR_".join(report_paths)))
     
     
     
