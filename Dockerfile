@@ -34,6 +34,7 @@ RUN chmod 777 /plink_linux_x86_64_20201019/*
 
 
 
+
 RUN apt-get update && apt-get install -y python3.7 && apt-get install -y python3-pip && pip3 install -r requirements.txt && apt autoremove && apt autoclean && apt-get clean packages && apt-get install -y curl
 #&& && apt-get install -y make  &&  apt-get install -y r-base && python3 manage.py makemigrations && python3 manage.py migrate
 
