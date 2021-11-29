@@ -23,14 +23,19 @@ from rsid_to_clinvar import get_synonyms_new
 #import pdfkit 
 import mygene
 import json
+from requests.auth import HTTPBasicAuth
+import requests
+import os
+
+  
 
 run_as_script = "false"
 
 # to always prefer pathogenic variants: true, if choice of laboratory more important: false
-sort_by_clin_sig = "true"
+sort_by_clin_sig = "false"
 
 
-path_prefix = "/scripts/"
+path_prefix = ""
 
 assoc_table_path = str(path_prefix + "tableExport.csv")
 gene_disease_groups_path = str(path_prefix + "gene_disease_groups.csv")
@@ -56,7 +61,6 @@ run_as_script="true"
 use_all_lines="false"
 automatic_stop_line_def="true"
 
-
 start_line_def = 6600
 stop_line_def = 6700
 
@@ -73,6 +77,7 @@ pop_dict["SAS"] = "South Asian"
 pop_dict=read_pop_dict(str(path_prefix + "pop_list.txt"))
 
 
+file_with_labranks = str(path_prefix + "list_of_labranks.txt")
 
 
 #def make_pdf(html_path,outfile):
@@ -218,6 +223,20 @@ def generate_json(result_text,bgcolor,ret_df,comment_df,pubmed_df,cancer_groups_
             ctr = ctr + 1
             diseases_for_curr_row = str(result_row["Associated Disease(s)"])
             disease_list_tmp = diseases_for_curr_row.split(";")
+            s = []
+            s_new = []
+            for i in disease_list_tmp:
+                #print(i)
+                i_new = str("".join(i.split())).replace(" ","").replace("\t", "").lstrip()
+                #print(i_new)
+                #i_new = i_new.replace(" ","").replace("\t", "")
+                if i_new.lower() not in s_new:
+                    s.append(i)
+                    s_new.append(i_new.lower())
+                #print(s)
+                #print(s_new)
+            diseases_current = s
+            disease_list_tmp = diseases_current
             result_row["Associated Disease(s)"] = disease_list_tmp
             curr_row_as_dict = result_row
         for i in range(0,len(comments)):
@@ -274,7 +293,7 @@ def generate_json(result_text,bgcolor,ret_df,comment_df,pubmed_df,cancer_groups_
     return(results_json,comments_json,freqs_json,pubmed_json)
 
 
-def generate_json_2(result_text,bgcolor,ret_df,comment_df,pubmed_df,cancer_groups_filter_active,cancer_groups_for_filter,customer_id):
+def generate_json_2(result_text,bgcolor,ret_df,comment_df,pubmed_df,cancer_groups_filter_active,cancer_groups_for_filter,customer_id,varsome_dict):
     df_for_html = ret_df[["clin_sig","gene_name","exon","rsid","dna_change","prot_change","transcript","zyg","inh","diseases_STR","cancer_groups"]]
     df_for_html.columns=["Classification","Gene","Exon/Intron","SNP ID","DNA change","Protein change","Transcript ID","Zygosity","Inheritance","Associated Disease(s)","Cancer Groups"]
     drug_response_df = df_for_html[df_for_html['Classification']=="drug response"]
@@ -298,6 +317,8 @@ def generate_json_2(result_text,bgcolor,ret_df,comment_df,pubmed_df,cancer_group
     #print(df_for_freq)
     #print(df_for_freq["rsid"].tolist())
     #print(nbr_col_2)
+    list_of_str_to_remove = get_list_of_str_from_file(path_prefix + "dis_str_to_remove.txt")
+    take_list_of_comments = "true"
     df_for_freq.insert(0,"Mutation\nNumber",nbr_col_2)
     comment_df = comment_df[comment_df['clin_sig']!="drug response"]
     comment_df = comment_df[comment_df['rsid'].notna()]
@@ -344,18 +365,94 @@ def generate_json_2(result_text,bgcolor,ret_df,comment_df,pubmed_df,cancer_group
             ctr = ctr + 1
             diseases_for_curr_row = str(result_row["Associated Disease(s)"])
             disease_list_tmp = diseases_for_curr_row.split(";")
+            s = []
+            s_new = []
+            for i in disease_list_tmp:
+                #print(i)
+                i_new = str("".join(i.split())).replace(" ","").replace("\t", "").lstrip()
+                #print(i_new)
+                #i_new = i_new.replace(" ","").replace("\t", "")
+                if i_new.lower() not in s_new:
+                    s.append(i)
+                    s_new.append(i_new.lower())
+                #print(s)
+                #print(s_new)
+            diseases_current = s
+            disease_list_tmp = diseases_current
+            #diseases_for_curr_row = str(result_row["Associated Disease(s)"])
+            #disease_list_tmp = diseases_for_curr_row.split(";")
             result_row["Associated Disease(s)"] = disease_list_tmp
+            if(gene_name in varsome_dict):
+                result_row["Varsome"] = varsome_dict[gene_name]
+            else:
+                result_row["Varsome"] = {}
             curr_row_as_dict = result_row
+        list_of_comments_dicts = []
+        if(take_list_of_comments == "true"):
+            comments_as_dict = []
+        dict_of_existing_comments = {}
         for i in range(0,len(comments)):
+            list_of_dicts = []
+            if(take_list_of_comments == "true"):
+                if not('Number' in comments[i]):
+                    continue
+                curr_nbr = str(comments[i]['Number'])
+                if(curr_nbr == curr_nbr_gene):
+                    del comments[i]["Number"]
+                    del comments[i]["gene_name"]
+                    del comments[i]["name"]
+                    del comments[i]["rsid"]
+                    print(comments[i])
+                    #list_of_dicts = []
+                    print(comments[i]['lab_name'])
+                    print(len(comments[i]['lab_name']))
+                    for j in range(0,len(comments[i]['lab_name'])):
+                        print(j)
+                        tmp_dict = {}
+                        tmp_dict['clin_sig'] = comments[i]['clin_sig']
+                        tmp_dict['lab_name'] = comments[i]['lab_name'][j]
+                        tmp_dict['diseasename'] = comments[i]['diseasename'][j]
+                        tmp_dict['comment'] = comments[i]['comment'][j]
+                        tmp_dict['report_date'] = comments[i]['report_date'][j]
+                        tmp_dict['labrank'] = comments[i]['labrank'][j]
+                        dis_curr = str(comments[i]['diseasename'][j] + "")
+                        dis_curr_new = str("".join(dis_curr.split())).replace(" ","").replace("\t", "").lstrip()
+                        dis_curr_lower = dis_curr_new.lower()
+                        if(dis_curr_lower in list_of_str_to_remove):
+                            continue
+                        if not(comments[i]['diseasename'][j] in dict_of_existing_comments):
+                            dict_of_existing_comments[comments[i]['diseasename'][j]] = []
+                        if not(comments[i]['lab_name'][j] in dict_of_existing_comments[comments[i]['diseasename'][j]]):
+                            list_of_dicts.append(tmp_dict)
+                        if not(comments[i]['diseasename'][j] in dict_of_existing_comments):
+                            dict_of_existing_comments[comments[i]['diseasename'][j]] = [comments[i]['lab_name'][j]]
+                        else:
+                            dict_of_existing_comments[comments[i]['diseasename'][j]].append(comments[i]['lab_name'][j])
+                        print(list_of_dicts)
+                    #list_of_comments_dicts = list_of_dicts
+                    print(list_of_comments_dicts)
+                #list_of_comments_dicts = list_of_dicts
+                list_of_comments_dicts = []
+                list_of_diseasenames = [d['diseasename'] for d in list_of_dicts]
+                list_of_diseasenames_unique = list(set(list_of_diseasenames))
+                for diseasename in list_of_diseasenames_unique:
+                    comments_with_this_disease = [d for d in list_of_dicts if (d['diseasename'] == diseasename)]
+                    #sorted_list_curr = (sorted(comments_with_this_disease, key=lambda d: d['labrank']))
+                    list_of_comments_dicts = list_of_comments_dicts + sorted(comments_with_this_disease, key=lambda d: d['labrank'])
+                if(len(list_of_dicts) > 0):
+                    comments_as_dict.append(list_of_comments_dicts)
+                continue
             if not('Number' in comments[i]):
                 continue
             curr_nbr = str(comments[i]['Number'])
             if(curr_nbr == curr_nbr_gene):
                 del comments[i]["Number"]
                 del comments[i]["gene_name"]
+                del comments[i]["name"]
                 del comments[i]["rsid"]
                 tmp_dict = comments[i]
                 list_of_comments.append(tmp_dict)
+                comments_as_dict = tmp_dict
         for i in range(0,len(freqs)):
             if not('Mutation\nNumber' in freqs[i]):
                 continue
@@ -375,7 +472,7 @@ def generate_json_2(result_text,bgcolor,ret_df,comment_df,pubmed_df,cancer_group
                 tmp_dict = pubmed[i]
                 list_of_pubmeds.append(tmp_dict)
         new_dict['Gene Data'] = curr_row_as_dict
-        new_dict['Comments'] = list_of_comments
+        new_dict['Comments'] = comments_as_dict
         new_dict['Frequencies'] = frec_as_dict
         new_dict['Publications'] = list_of_pubmeds
         dict_1[gene_name] = new_dict
@@ -450,6 +547,156 @@ def read_cancer_groups(path):
     #print(cancer_groups_by_gene)
     return([genes_by_cancer_group,cancer_groups_by_gene])
 
+def read_varsome(rsid):
+    #url = "https://api.varsome.com/lookup/rs2294081/1019?add-all-data=1&add-ACMG-annotation=1&annotation-mode=germline"
+    #url = "https://api.varsome.com/lookup/rs10902121/1019?add-ACMG-annotation=1&add-all-data=1&annotation-mode=germline&format=api"
+    url = "https://staging-api.varsome.com/lookup/chr17:7578443:A:T?add-AMP-annotation=1&format=api"
+    # Making a get request
+    user = "quirin@enigmagenomics.com" 
+    passwd = "misterq.218" 
+    # Make a request to the endpoint using the correct auth values 
+    #auth_values = (user, passwd) 
+    #response = requests.get(url, auth=auth_values) 
+    #my_headers = {'Accept': 'application/json'}
+    #auth99 = HTTPBasicAuth('apikey', '46tcqf#aw3hM0Qe!QFeZJeM&BZMpwkBl@oxbFfYC')
+    #my_headers = {"Authorization" : '46tcqf#aw3hM0Qe!QFeZJeM&BZMpwkBl@oxbFfYC'}
+    #response = requests.get(url, headers=my_headers_2)
+    #response = requests.get(url,
+    #                        auth = HTTPBasicAuth('quirin@enigmagenomics.com', 'misterq.218'), headers=my_headers)
+    #response = urllib.request.urlopen(url)
+    #cmd = "curl -X POST https://utslogin.nlm.nih.gov/cas/v1/api-key -H 'content-type: application/x-www-form-urlencoded' -d apikey=b737cbc4-4006-44a1-b7c8-70e02102a7bd"
+    cmd = "curl -X GET 'https://staging-api.varsome.com/lookup/" + rsid + "?add-AMP-annotation=1&format=api' -H  'Authorization: Token 46tcqf#aw3hM0Qe!QFeZJeM&BZMpwkBl@oxbFfYC'"
+    #cmd = "curl -X GET 'https://staging-api.varsome.com/lookup/rs28928907?add-AMP-annotation=1' -H  'Authorization: Token 46tcqf#aw3hM0Qe!QFeZJeM&BZMpwkBl@oxbFfYC'"
+    stream = os.popen(cmd)
+    webContent = stream.read()
+    #print(webContent)
+    #return("none")
+    #infile = open("varsome_test.txt")
+    #webContent_tmp=infile.read()
+    #infile.close()
+    remove_if_term_not_found = "true"
+    infile = open(str(path_prefix +"list_of_terms_for_varsome.txt"))
+    varsome_str=infile.read()
+    infile.close()
+    list_of_varsome_terms = varsome_str.split("\n")
+    #webContent = webContent_tmp
+    #print(webContent)
+    #gnomad_exomes = []
+    #gnomad_genomes = []
+    #gnomad_genomes_coverage = []
+    ret = {}
+    for curr_element in list_of_varsome_terms:
+        if(len(curr_element) < 2):
+            if curr_element in list_of_varsome_terms:
+                list_of_varsome_terms.remove(curr_element)
+    for term_curr in list_of_varsome_terms:
+        ret[term_curr] = []
+    #ret["gnomad_exomes"] = []
+    #ret["gnomad_genomes"] = []
+    #ret["gnomad_genomes_coverage"] = []
+    if not("<b>Vary:</b> <span class=\"lit\">Accept</span>" in webContent):
+        return(ret)
+    tmp_1 = webContent.split("<b>Vary:</b> <span class=\"lit\">Accept</span>")[1]
+    tmp_2 = tmp_1.split("</span>")[1]
+    #print(tmp_2)
+    tmp_3 = tmp_2.split("</pre>")[0]
+    tmp4 = tmp_3.strip("[").rstrip("]")
+    #json_all = json.loads(tmp_3)[0]
+    #print(tmp4)
+    json_all_tmp = json.loads(tmp_3)
+    #print("json ")
+    #print(json_all_tmp)
+    json_all = []
+    if not(isinstance(json_all_tmp, dict)):
+        if(isinstance(json_all_tmp, list)):
+            json_all = json_all_tmp[0]
+            #print("json_all is list")
+    else:
+        json_all = json_all_tmp
+        #print("json_all is dict")
+    #print("keys:")
+    #for key in json_all_tmp:
+    #    print(key)
+    #        #print(json_all[key]["gnomad_exomes"])
+    #    #print(json_all[key])
+    for term_curr in list_of_varsome_terms:
+        if(term_curr in json_all):
+            curr_entry_for_this_varsome_term = json_all[term_curr]
+            ret[term_curr] = curr_entry_for_this_varsome_term
+        elif(remove_if_term_not_found == "true"):
+            ret.pop(term_curr, None)
+    #if("gnomad_exomes" in json_all):
+    #    gnomad_exomes = json_all["gnomad_exomes"]
+    #if("gnomad_genomes" in json_all):
+    #    gnomad_genomes = json_all["gnomad_genomes"]
+    #if("gnomad_genomes_coverage" in json_all):
+    #    gnomad_genomes_coverage = json_all["gnomad_genomes_coverage"]
+    #ret["gnomad_exomes"] = gnomad_exomes
+    #ret["gnomad_genomes"] = gnomad_genomes
+    #ret["gnomad_genomes_coverage"] = gnomad_genomes_coverage
+    #print(json_all)
+    return(ret)
+
+
+def get_list_of_str_from_file(path):
+    infile = open(path)
+    htmlstr=infile.read()
+    lines= htmlstr.split("\n")
+    list_to_remove = []
+    ctr = 0
+    list_to_remove_ctr_list = []
+    for line in lines:
+        line_new = str("".join(line.split())).replace(" ","").replace("\t", "").lstrip()
+        line_lower = line_new.lower()
+        list_to_remove.append(line_lower)
+        list_to_remove.append(line)
+    return(list_to_remove)
+
+def remove_str_from_list(path,list_of_dis):
+    infile = open(path)
+    htmlstr=infile.read()
+    lines= htmlstr.split("\n")
+    list_to_remove = []
+    ctr = 0
+    list_to_remove_ctr_list = []
+    for line in lines:
+        line_new = str("".join(line.split())).replace(" ","").replace("\t", "").lstrip()
+        line_lower = line_new.lower()
+        list_to_remove.append(line_lower)
+    #list_of_dis_new = [str("".join(dis.split())).replace(" ","").replace("\t", "").lstrip() for dis in list_of_dis]
+    #list_of_dis_lower = [dis.lower() for dis in list_of_dis_new]
+    #dis_new = [dis for dis in list_of_dis_lower if not(dis in list_to_remove)]
+    dis_for_ret = []
+    for i in range(0,len(list_of_dis)):
+        dis_curr = list_of_dis[i]
+        dis_curr_old = str(dis_curr + "")
+        dis_curr_new = str("".join(dis_curr.split())).replace(" ","").replace("\t", "").lstrip()
+        dis_curr_lower = dis_curr_new.lower()
+        if not(dis_curr_lower in list_to_remove):
+            dis_for_ret.append(dis_curr_old)
+    return(dis_for_ret)
+
+def remove_str_from_dis_and_sig(path,dis_and_sig):
+    infile = open(path)
+    htmlstr=infile.read()
+    lines= htmlstr.split("\n")
+    list_to_remove = []
+    for line in lines:
+        line_new = str("".join(line.split())).replace(" ","").replace("\t", "").lstrip()
+        line_lower = line_new.lower()
+        list_to_remove.append(line_lower)
+    dis_and_sig_as_list = list(dis_and_sig)
+    ret = []
+    for i in dis_and_sig_as_list:
+        #print(str(i))
+        dis_old = str(i + "")
+        dis_curr = str("".join(str(i).split(";")[0].split())).replace(" ","").replace("\t", "").lstrip()
+        dis_curr_lower = dis_curr.lower()
+        if not(dis_curr_lower in list_to_remove):
+            ret.append(dis_old)
+    return(ret)
+            
+            
 def remove_synonyms(list_of_diseases):
     syn = [get_synonyms(i,"TGT-1046014-OgTp1p3CqoWt5txPDftCGsUtKbGNQTdNwnOjAZ5TfKktxCxOAe-cas") for i in list_of_diseases]
     syn_exists = [i for i in syn if len(i) > 0]
@@ -1267,6 +1514,7 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
     else:
         start_line_def = start
         stop_line_def = end
+    varsome_dict = {}
     clinvar_version = "ClinVar_updated_2021Aug"
     if("ClinVar_updated_2019Dec_CLNDN" in df):
         clinvar_version = "ClinVar_updated_2019Dec"
@@ -1575,7 +1823,24 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
                 continue
             ret_df.loc[rsid,"dis_and_sig"] = [k for k in dict_by_snpid[rsid]]
             ret_df.loc[rsid,"diseases"] = [k.split(";")[0] for k in dict_by_snpid[rsid]]
+            curr_dna_change = ret_df.loc[rsid,"dna_change"]
+            gene_name_tmp = ret_df.loc[rsid,"gene_name"]
+            gene_name_and_mutation = gene_name_tmp + " " + curr_dna_change
+            varsome_dict[gene_name_and_mutation] = read_varsome(rsid)
             ret_df.loc[rsid,"diseases_STR"] = ";".join([k.split(";")[0] for k in dict_by_snpid[rsid]])
+            curr_dis = list(ret_df.loc[rsid,"diseases"])
+            curr_dis_new = remove_str_from_list((path_prefix + "dis_str_to_remove.txt"),curr_dis)
+            curr_dis_tmp_2 = str(ret_df.loc[rsid,"diseases_STR"]).split(";")
+            curr_dis_tmp_2_new = remove_str_from_list((path_prefix + "dis_str_to_remove.txt"),curr_dis_tmp_2)
+            dis_and_sig_curr_temp = ret_df.loc[rsid,"dis_and_sig"]
+            dis_and_sig_new = remove_str_from_dis_and_sig((path_prefix + "dis_str_to_remove.txt"),dis_and_sig_curr_temp)
+            ret_df.loc[rsid,"dis_and_sig"] = dis_and_sig_new
+            if(len(curr_dis_new) == 0):
+                ret_df = ret_df.drop([rsid])
+                continue
+            else:
+                ret_df.loc[rsid,"diseases"] = curr_dis_new
+                ret_df.loc[rsid,"diseases_STR"] = ";".join(curr_dis_tmp_2_new)
             ret_df.loc[rsid,"comments"] = [dict_by_snpid[rsid][k] for k in dict_by_snpid[rsid]]
             if not(gene_name in gene_dis_dict_2):
                 ret_df.loc[rsid,"disease_groups"] = "N/A"
@@ -1672,7 +1937,25 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
             #print([dict_by_snpid[rsid][k] for k in dict_by_snpid[rsid]])
             ret_df.loc[rsid,"comments_STR"] = ";".join([str(dict_by_snpid[rsid][k]) for k in dict_by_snpid[rsid]])
             #ret_df.loc[rsid,"gene_name"] = gene_name_dict[rsid]
+            curr_dna_change = ret_df.loc[rsid,"dna_change"]
+            gene_name_tmp = ret_df.loc[rsid,"gene_name"]
+            gene_name_and_mutation = gene_name_tmp + " " + curr_dna_change
+            varsome_dict[gene_name_and_mutation] = read_varsome(rsid)
             ret_df.loc[rsid,"dis_and_sig"] = [k for k in dict_by_snpid[rsid]]
+            #print(ret_df.loc[rsid,"dis_and_sig"])
+            curr_dis = list(ret_df.loc[rsid,"diseases"])
+            curr_dis_new = remove_str_from_list((path_prefix + "dis_str_to_remove.txt"),curr_dis)
+            curr_dis_tmp_2 = str(ret_df.loc[rsid,"diseases_STR"]).split(";")
+            curr_dis_tmp_2_new = remove_str_from_list((path_prefix + "dis_str_to_remove.txt"),curr_dis_tmp_2)     
+            dis_and_sig_curr_temp = ret_df.loc[rsid,"dis_and_sig"]
+            dis_and_sig_new = remove_str_from_dis_and_sig((path_prefix + "dis_str_to_remove.txt"),dis_and_sig_curr_temp)
+            ret_df.loc[rsid,"dis_and_sig"] = dis_and_sig_new
+            if(len(curr_dis_new) == 0):
+                ret_df = ret_df.drop([rsid])
+                continue
+            else:
+                ret_df.loc[rsid,"diseases"] = curr_dis_new
+                ret_df.loc[rsid,"diseases_STR"] = ";".join(curr_dis_tmp_2_new)
             ret_df.loc[rsid,"consequence"] = consequence
             #ret_df.loc[rsid,"transcript"] = transcript
             #ret_df.loc[rsid,"inh"] = inh
@@ -1717,12 +2000,13 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
         #           print("RSID:\t" + snp_curr + "\t - \t" + str(dis_and_sig).split(";")[0] + ";\t" + str(dis_and_sig).split(";")[1] +":")
         #           if not(str(dict_by_snpid[snp_curr][dis_and_sig]) == "nan"):
         #               print("Description:\t" + str(dict_by_snpid[snp_curr][dis_and_sig]))
-    comment_df = pd.DataFrame(columns=['clin_sig','name','comment','rsid'])
+    comment_df = pd.DataFrame(columns=['clin_sig','name','diseasename','lab_name','comment','rsid','report_date','labrank'])
     ctr = 0
     ctr2 = 0
     comment_htmls = {}
     comment_and_disease_dict = {}
     list_of_described_genes = []
+    take_list_of_comments = "true"
     for i in list(ret_df.index):
         #print(str(ret_df.loc[i,"rsid"]))
         #print(str(ret_df.loc[i,"dis_and_sig"]))
@@ -1744,12 +2028,75 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
                             name = name + str(list(ret_df.loc[i,"diseases"])[k])
                             comment_df.loc[name,"clin_sig"] = str(ret_df.loc[i,"clin_sig"])
                             comment_df.loc[name,"rsid"] = str(ret_df.loc[i,"rsid"])
-                            comment_df.loc[name,"comment"] = str(list(ret_df.loc[i,"comments"])[k])
+                            temp_comment_str = str(list(ret_df.loc[i,"comments"])[k])
+                            report_date = ""
+                            labname = "not known"
+                            if((take_list_of_comments == "true") and ("comment:'" in temp_comment_str) and ("';date:'" in temp_comment_str)):
+                                list_of_comments_tmp = temp_comment_str.split("_NEXT_COMMENT_")[:-1]
+                                list_for_comment_df_comment = []
+                                list_for_comment_df_report_dates = []
+                                list_for_comment_df_lab_name = []
+                                list_for_comment_df_labrank = []
+                                list_for_comment_df_disease_name = []
+                                for curr_comment_temp in list_of_comments_tmp:
+                                    if not(("comment:'" in curr_comment_temp) and ("';date:'" in curr_comment_temp)):
+                                        continue
+                                    comment = curr_comment_temp.split("comment:'")[1].split("';date:'")[0]
+                                    report_date = curr_comment_temp.split("comment:'")[1].split("';date:'")[1]
+                                    labname = "not known"
+                                    labrank = "1000"
+                                    if("';labname:'" in curr_comment_temp.split("comment:'")[1].split("';date:'")[1]):
+                                        if not("';labrank:'" in curr_comment_temp.split("comment:'")[1].split("';date:'")[1]):
+                                            continue
+                                        if not("';disease_name:'" in curr_comment_temp.split("comment:'")[1].split("';date:'")[1].split("';labname:'")[1].split("';labrank:'")[1]):
+                                            continue
+                                        report_date = curr_comment_temp.split("comment:'")[1].split("';date:'")[1].split("';labname:'")[0]
+                                        labname = curr_comment_temp.split("comment:'")[1].split("';date:'")[1].split("';labname:'")[1].split("';labrank:'")[0]
+                                        labrank = curr_comment_temp.split("comment:'")[1].split("';date:'")[1].split("';labname:'")[1].split("';labrank:'")[1].split("';disease_name:'")[0]
+                                        diseasename = curr_comment_temp.split("comment:'")[1].split("';date:'")[1].split("';labname:'")[1].split("';labrank:'")[1].split("';disease_name:'")[1]
+                                        diseasename = diseasename[:-1]
+                                    list_for_comment_df_comment.append(comment)
+                                    list_for_comment_df_report_dates.append(report_date)
+                                    list_for_comment_df_lab_name.append(labname)
+                                    list_for_comment_df_labrank.append(labrank)
+                                    list_for_comment_df_disease_name.append(diseasename)
+                                comment_df.loc[name,"comment"] = list_for_comment_df_comment
+                                comment_df.loc[name,"report_date"] = list_for_comment_df_report_dates
+                                comment_df.loc[name,"lab_name"] = list_for_comment_df_lab_name
+                                comment_df.loc[name,"labrank"] = list_for_comment_df_labrank
+                                comment_df.loc[name,"diseasename"] = list_for_comment_df_disease_name
+                            elif("comment:'" in temp_comment_str):
+                                if("';date:'" in temp_comment_str):
+                                    comment = temp_comment_str.split("comment:'")[1].split("';date:'")[0]
+                                    report_date = temp_comment_str.split("comment:'")[1].split("';date:'")[1]
+                                    labname = "not known"
+                                    if("';labname:'" in temp_comment_str.split("comment:'")[1].split("';date:'")[1]):
+                                        report_date = temp_comment_str.split("comment:'")[1].split("';date:'")[1].split("';labname:'")[0]
+                                        labname = temp_comment_str.split("comment:'")[1].split("';date:'")[1].split("';labname:'")[1]
+                                        labname = labname[:-1]
+                                    comment_df.loc[name,"comment"] = comment
+                                    comment_df.loc[name,"report_date"] = report_date
+                                    comment_df.loc[name,"lab_name"] = labname
+                                    comment_df.loc[name,"labrank"] = "1000"
+                                    comment_df.loc[name,"diseasename"] = ""
+                                else:
+                                    comment_df.loc[name,"comment"] = temp_comment_str
+                                    comment_df.loc[name,"report_date"] = report_date
+                                    comment_df.loc[name,"lab_name"] = labname
+                                    comment_df.loc[name,"labrank"] = "1000"
+                                    comment_df.loc[name,"diseasename"] = ""
+                            else:
+                                comment_df.loc[name,"comment"] = temp_comment_str
+                                comment_df.loc[name,"report_date"] = report_date
+                                comment_df.loc[name,"lab_name"] = labname
+                                comment_df.loc[name,"labrank"] = "1000"
+                                comment_df.loc[name,"diseasename"] = ""
                             comment_df.loc[name,"gene_name"] = str(ret_df.loc[i,"gene_name"])
         #if not(str(ret_df.loc[i,"gene_name"]) in gen_dis_dict):
         #    gen_dis_dict[str(ret_df.loc[i,"gene_name"])] = list(ret_df.loc[i,"diseases"])
         #else:
         #    gen_dis_dict[str(ret_df.loc[i,"gene_name"])].append(list(ret_df.loc[i,"diseases"]))
+    
     clin_sig_all_values = ret_df["clin_sig"].tolist()
     clin_sig_all_values_STR = "".join(clin_sig_all_values)
     is_pathogenic = "false"
@@ -1786,7 +2133,7 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
     #    else:
     #        comment_and_disease_dict[i].append(ctr2)
     #    comment_htmls[ctr2] = comment_df.loc[i,"comment"]
-    return([ret_df,comment_df,pubmed_list,gene_info_ret,is_pathogenic])
+    return([ret_df,comment_df,pubmed_list,gene_info_ret,is_pathogenic,varsome_dict])
     #return([ret_df,comment_df,pubmed_list])
     #return[ret_all,dict_by_snpid,snp_data]
     #print(df.head())
@@ -2377,16 +2724,27 @@ def extract(url):
     significance_categories = []
     conditions = []
     comments = []
+    dates = []
+    give_list_of_comments = "true"
+    infile = open(file_with_labranks)
+    labrank_string=infile.read()
+    infile.close()
+    list_with_labranks = labrank_string.split("\n")
     ranking = {}
-    ranking["ClinGen RASopathy Variant Curation Expert Panel"] = 10
-    ranking["Laboratory for Molecular Medicine,Partners HealthCare Personalized Medicine"] = 9
-    ranking["GeneDx"] = 8
-    ranking["Invitae"] = 1
-    ranking["Mendelics"] = 11
+    ctr = 1
+    for lab_curr in list_with_labranks:
+        ranking[lab_curr] = ctr
+        ctr = ctr + 1
+    #ranking["ClinGen RASopathy Variant Curation Expert Panel"] = 10
+    #ranking["Laboratory for Molecular Medicine,Partners HealthCare Personalized Medicine"] = 9
+    #ranking["GeneDx"] = 8
+    #ranking["Invitae"] = 1
+    #ranking["Mendelics"] = 11
     list_of_diseases = []
     name_and_significances = []
     cond_ranking = []
     for i in range(0,len(table_as_df.index)):
+        date = table_as_df.iloc[i,5]
         list_of_conditions = table_as_df.iloc[i,4].split(";")
         for j in range(0,len(list_of_conditions)):
             submitters.append(table_as_df.iloc[i,0])
@@ -2406,6 +2764,7 @@ def extract(url):
             significance_categories.append(sig_tmp)
             if not(list_of_conditions[j] in list_of_diseases):
                 list_of_diseases.append(list_of_conditions[j])
+            dates.append(date)
     significance_ranking = {}
     significance_ranking["pathogenic"] = 2
     significance_ranking["likely pathogenic"] = 1
@@ -2420,6 +2779,7 @@ def extract(url):
         if((not comments[i]) or (len(str(comments[i]))<4) or (str(comments[i]) == "")):
             cond_ranking[i] = 999
     ret = {}
+    dict_of_comments = {}
     if(sort_by_clin_sig == "false"):
         for dis in list_of_diseases:
             for sig in ["pat","ben"]:
@@ -2429,10 +2789,34 @@ def extract(url):
                 ranking_temp = [cond_ranking[i] for i in range(0,len(cond_ranking)) if (str(dis) in str(conditions[i]) and str(significance_categories[i]) == sig)]
                 this_disease = [i for i in range(0,len(cond_ranking)) if (str(dis) in str(conditions[i]) and str(significance_categories[i]) == sig)]
                 if(len(ranking_temp) > 0):
-                    nbr_best_entry_this_disease = np.argmin(ranking_temp)
-                    best_text = comments[nbr_best_entry_this_disease]
-                    dis_and_sig = dis + ";" + significances[nbr_best_entry_this_disease]
-                    ret[dis_and_sig] = best_text
+                    if(give_list_of_comments == "true"):
+                        sig_new = ""
+                        if(sig == "pat"):
+                            sig_new = "pathogenic"
+                        else:
+                            sig_new = "benign"
+                        ret[dis + ";" + sig_new] = ""
+                        for i in range(0,len(ranking_temp)):
+                            if not(int(ranking_temp[i]) in dict_of_comments):
+                                dict_of_comments[int(ranking_temp[i])] = []
+                            curr_comment = {}
+                            curr_text = comments[i]
+                            dis_and_sig = dis + ";" + significances[i]
+                            #curr_comment[str(dis_and_sig)] = "comment:'" + str(curr_text) + "';date:'" + str(dates[i]) + "';labname:'" + str(submitters[i]) + "';labrank:'" + str(ranking_temp[i]) + "'"
+                            labrank = 999
+                            if(submitters[i] in ranking):
+                                labrank = ranking[submitters[i]]
+                            curr_comment[str(dis + ";" + sig_new)] = "comment:'" + str(curr_text) + "';date:'" + str(dates[i]) + "';labname:'" + str(submitters[i]) + "';labrank:'" + str(labrank) + "';disease_name:'" + str(conditions[i]) + "'"
+                            ret[dis + ";" + sig_new] = ret[dis + ";" + sig_new] + curr_comment[str(dis + ";" + sig_new)] + "_NEXT_COMMENT_"
+                            if(int(ranking_temp[i]) in dict_of_comments):
+                                dict_of_comments[int(ranking_temp[i])].append(curr_comment)
+                            else:
+                                dict_of_comments[int(ranking_temp[i])].append(curr_comment)
+                    else:
+                        nbr_best_entry_this_disease = np.argmin(ranking_temp)
+                        best_text = comments[nbr_best_entry_this_disease]
+                        dis_and_sig = dis + ";" + significances[nbr_best_entry_this_disease]
+                        ret[dis_and_sig] = "comment:'" + best_text + "';date:'" + dates[nbr_best_entry_this_disease] + "';labname:'" + submitters[nbr_best_entry_this_disease] + "'"
     else:
         for dis in list_of_diseases:
             for sig in ["pat","ben"]:
@@ -2449,8 +2833,11 @@ def extract(url):
                         nbr_best_entry_this_disease = this_disease[np.argmin(ranking_temp_2)]
                         best_text = comments[nbr_best_entry_this_disease]
                         dis_and_sig = dis + ";" + significances[nbr_best_entry_this_disease]
-                        ret[dis_and_sig] = best_text
+                        ret[dis_and_sig] = "comment:'" + best_text + "';date:'" + dates[nbr_best_entry_this_disease] + "';labname:'" + submitters[nbr_best_entry_this_disease] + "'"
                         #ret[dis] = best_text
+    if(give_list_of_comments == "true"):
+        return ret
+        #return dict_of_comments
     return ret
 
 
@@ -2517,13 +2904,14 @@ def run_all(vcf_df,diseases,outfile,sample_id,customer_id):
         outfile_curr = outfile + ".html"
         patient_id = outfile.replace("/scripts/dis_report_","")
         ## extract data from VEP output
-        [ret_df,comment_df,pubmed_list,gene_info_ret,is_pathogenic] = extract_vep_data(vcf_df,dis,startpos1,stoppos1,sample_id)
+        #[ret_df,comment_df,pubmed_list,gene_info_ret,is_pathogenic] = extract_vep_data(vcf_df,dis,startpos1,stoppos1,sample_id)
+        [ret_df,comment_df,pubmed_list,gene_info_ret,is_pathogenic,varsome_dict] = extract_vep_data(vcf_df,dis,startpos1,stoppos1,sample_id)
         ret_df_old = ret_df.copy()
         comment_df_old = comment_df.copy()
         pubmed_list_old = pubmed_list.copy()
-        [results_json,comments_json,freqs_json,pubmed_json] = generate_json_2("none","yellow",ret_df,comment_df,pubmed_list,"false",[],customer_id)
+        [results_json,comments_json,freqs_json,pubmed_json] = generate_json_2("none","yellow",ret_df,comment_df,pubmed_list,"false",[],customer_id,varsome_dict)
         if(dis == "all"):
-            [results_json_2,comments_json_2,freqs_json_2,pubmed_json_2] = generate_json_2("none","yellow",ret_df_old,comment_df_old,pubmed_list_old,"true",cancer_groups_for_filter,customer_id)
+            [results_json_2,comments_json_2,freqs_json_2,pubmed_json_2] = generate_json_2("none","yellow",ret_df_old,comment_df_old,pubmed_list_old,"true",cancer_groups_for_filter,customer_id,varsome_dict)
         #print("json results:")
         #print(results_json)
         #write_json_to_one_file([results_json,comments_json,freqs_json,pubmed_json],"/scripts/dis_genes_" + patient_id + "_" + dis + ".json")
@@ -2543,6 +2931,17 @@ def run_all(vcf_df,diseases,outfile,sample_id,customer_id):
     return(report_paths)
 
 
+#read_varsome()
+#print(read_varsome("rs28928907"))
+#dis_and_sig = ['essential thrombocytemia;Pathogenic', 'Congenital amegakaryocytic thrombocytopenia;pathogenic', 'Thrombocytopenia;pathogenic', ' essential thrombocytemia;pathogenic']
+#ret = remove_str_from_dis_and_sig("dis_str_to_remove.txt",dis_and_sig)
+#print(ret)
+#sys.exit("")
+
+#ret = extract("https://clinvarminer.genetics.utah.edu/submissions-by-variant/NM_006205.3%28PDE6H%29%3Ac.35C%3EG%20%28p.Ser12Ter%29")
+#ret = extract("https://clinvarminer.genetics.utah.edu/submissions-by-variant/NM_005373.2%28MPL%29%3Ac.305G%3EC%20%28p.Arg102Pro%29")
+#print(ret)
+#sys.exit("")
 
 
 if(run_as_script == "true"):
