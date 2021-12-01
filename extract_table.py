@@ -35,7 +35,7 @@ run_as_script = "false"
 sort_by_clin_sig = "false"
 
 
-path_prefix = ""
+path_prefix = "/scripts/"
 
 assoc_table_path = str(path_prefix + "tableExport.csv")
 gene_disease_groups_path = str(path_prefix + "gene_disease_groups.csv")
@@ -78,8 +78,7 @@ pop_dict=read_pop_dict(str(path_prefix + "pop_list.txt"))
 
 
 file_with_labranks = str(path_prefix + "list_of_labranks.txt")
-
-
+file_with_varsome_terms = str(path_prefix +"list_of_terms_for_varsome.txt")
 #def make_pdf(html_path,outfile):
 #    pdfkit.from_file(html_path, outfile,options={'page-height': '317mm', 'page-width': '210mm' , 'dpi':400})
 
@@ -575,7 +574,8 @@ def read_varsome(rsid):
     #webContent_tmp=infile.read()
     #infile.close()
     remove_if_term_not_found = "true"
-    infile = open(str(path_prefix +"list_of_terms_for_varsome.txt"))
+    varsome_term_file = file_with_varsome_terms
+    infile = open(varsome_term_file)
     varsome_str=infile.read()
     infile.close()
     list_of_varsome_terms = varsome_str.split("\n")
