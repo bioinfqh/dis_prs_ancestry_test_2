@@ -35,7 +35,7 @@ run_as_script = "false"
 sort_by_clin_sig = "false"
 
 
-path_prefix = ""
+path_prefix = "/scripts/"
 
 assoc_table_path = str(path_prefix + "tableExport.csv")
 gene_disease_groups_path = str(path_prefix + "gene_disease_groups.csv")
