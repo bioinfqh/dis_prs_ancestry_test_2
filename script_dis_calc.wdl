@@ -32,7 +32,7 @@ workflow make_panel_wdl {
         input:
             patient_vcf = patient_vcf,
             customer_id = "testuser",
-            disease_list = "disease_list.txt"
+            disease_list = "disease_list.txt",
             file_with_varsome_terms = file_with_varsome_terms
             }
     output {
