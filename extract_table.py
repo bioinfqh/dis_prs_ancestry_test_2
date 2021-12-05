@@ -35,7 +35,7 @@ run_as_script = "false"
 sort_by_clin_sig = "false"
 
 
-path_prefix = "/scripts/"
+path_prefix = ""
 
 assoc_table_path = str(path_prefix + "tableExport.csv")
 gene_disease_groups_path = str(path_prefix + "gene_disease_groups.csv")
@@ -564,11 +564,11 @@ def read_varsome(rsid):
     #                        auth = HTTPBasicAuth('quirin@enigmagenomics.com', 'misterq.218'), headers=my_headers)
     #response = urllib.request.urlopen(url)
     #cmd = "curl -X POST https://utslogin.nlm.nih.gov/cas/v1/api-key -H 'content-type: application/x-www-form-urlencoded' -d apikey=b737cbc4-4006-44a1-b7c8-70e02102a7bd"
-    cmd = "curl -X GET 'https://staging-api.varsome.com/lookup/" + rsid + "?add-AMP-annotation=1&format=api' -H  'Authorization: Token 46tcqf#aw3hM0Qe!QFeZJeM&BZMpwkBl@oxbFfYC'"
+    cmd = "curl -X GET 'https://staging-api.varsome.com/lookup/" + rsid + "?add-AMP-annotation=1&format=api' -H  'Authorization: Token 46tcqf#aw3hM0Qe!QFeZJeM&BZMpwkBl@oxbFfYC' | iconv -f utf8 -t ascii//TRANSLIT//IGNORE"
     #cmd = "curl -X GET 'https://staging-api.varsome.com/lookup/rs28928907?add-AMP-annotation=1' -H  'Authorization: Token 46tcqf#aw3hM0Qe!QFeZJeM&BZMpwkBl@oxbFfYC'"
     stream = os.popen(cmd)
     webContent = stream.read()
-    #print(webContent)
+    print(webContent)
     #return("none")
     #infile = open("varsome_test.txt")
     #webContent_tmp=infile.read()
@@ -2932,11 +2932,11 @@ def run_all(vcf_df,diseases,outfile,sample_id,customer_id):
 
 
 #read_varsome()
-#print(read_varsome("rs28928907"))
+print(read_varsome("rs28928907"))
 #dis_and_sig = ['essential thrombocytemia;Pathogenic', 'Congenital amegakaryocytic thrombocytopenia;pathogenic', 'Thrombocytopenia;pathogenic', ' essential thrombocytemia;pathogenic']
 #ret = remove_str_from_dis_and_sig("dis_str_to_remove.txt",dis_and_sig)
 #print(ret)
-#sys.exit("")
+sys.exit("")
 
 #ret = extract("https://clinvarminer.genetics.utah.edu/submissions-by-variant/NM_006205.3%28PDE6H%29%3Ac.35C%3EG%20%28p.Ser12Ter%29")
 #ret = extract("https://clinvarminer.genetics.utah.edu/submissions-by-variant/NM_005373.2%28MPL%29%3Ac.305G%3EC%20%28p.Arg102Pro%29")
