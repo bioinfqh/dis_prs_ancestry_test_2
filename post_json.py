@@ -5,7 +5,7 @@ import subprocess
 import os.path
 
 input_file = sys.argv[1]
-multiple_files = "false"
+multiple_files = "true"
 
 path_prefix = "/scripts/"
 
@@ -34,7 +34,8 @@ if(multiple_files == "true"):
 else:        
     #input_file_new = path_prefix + input_file
     if not(os.path.isfile(input_file)):
-        sys.exit("not successful - file not found")
+        os._exit(1)
+        #sys.exit("not successful - file not found")
     file_1 = open(input_file)
     htmlstr=file_1.read()
     file_1.close()

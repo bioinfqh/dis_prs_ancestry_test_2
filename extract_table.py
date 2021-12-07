@@ -2932,11 +2932,11 @@ def run_all(vcf_df,diseases,outfile,sample_id,customer_id):
 
 
 #read_varsome()
-print(read_varsome("rs28928907"))
+#print(read_varsome("rs28928907"))
 #dis_and_sig = ['essential thrombocytemia;Pathogenic', 'Congenital amegakaryocytic thrombocytopenia;pathogenic', 'Thrombocytopenia;pathogenic', ' essential thrombocytemia;pathogenic']
 #ret = remove_str_from_dis_and_sig("dis_str_to_remove.txt",dis_and_sig)
 #print(ret)
-sys.exit("")
+#sys.exit("")
 
 #ret = extract("https://clinvarminer.genetics.utah.edu/submissions-by-variant/NM_006205.3%28PDE6H%29%3Ac.35C%3EG%20%28p.Ser12Ter%29")
 #ret = extract("https://clinvarminer.genetics.utah.edu/submissions-by-variant/NM_005373.2%28MPL%29%3Ac.305G%3EC%20%28p.Arg102Pro%29")
