@@ -34,5 +34,3 @@ workflow make_panel_wdl {
     File resultfile = test.outfile
     }
 }
-
-
