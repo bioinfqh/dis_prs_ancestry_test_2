@@ -36,7 +36,7 @@ run_as_script = "false"
 sort_by_clin_sig = "false"
 
 
-path_prefix = ""
+path_prefix = "/scripts/"
 
 assoc_table_path = str(path_prefix + "tableExport.csv")
 gene_disease_groups_path = str(path_prefix + "gene_disease_groups.csv")
@@ -491,15 +491,15 @@ def generate_json_2(result_text,bgcolor,ret_df,comment_df,pubmed_df,cancer_group
             #timestamp = str(time.time())
             timestamp = int(time.time())
             dict_all_new["datetime"] = timestamp
-            dict_all_new["report"] = {}
             dict_all_new["sample_id"] = customer_id
-            dict_all_new[customer_id] = dict_all
+            dict_all_new["report"] = dict_all
+            #dict_all_new[customer_id] = dict_all
         dict_2 = {}
         timestamp = int(time.time())
         dict_2["datetime"] = timestamp
-        dict_2["report"] = {}
         dict_2["sample_id"] = customer_id
-        dict_2[customer_id] = dict_1
+        dict_2["report"] = dict_1
+        #dict_2[customer_id] = dict_1
     #results = df_for_html.to_dict(orient='records')
     if(cancer_groups_filter_active == "true"):
         results_json = json.dumps(dict_all_new)
@@ -1578,9 +1578,9 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
         prot_change = prot_change.split(":")[1]
         prot_change = prot_change.replace("%3D","=")
         consequence = df.loc[i,"Consequence"]
-        consequence = consequence.split(",")[0]
+        consequence = consequence.split(",")[0].replace("_"," ")
         if(prot_change == "" or len(prot_change) < 3):
-            prot_change = consequence
+            prot_change = consequence.replace("_"," ")
         #exon = str(df.loc[i,"EXON"])
         #if(exon == "-"):
         #    exon = str(df.loc[i,"INTRON"])
