@@ -23,7 +23,7 @@ task test {
 workflow make_panel_wdl {
     input {
     File patient_vcf
-    String? customer_id = "testuser"
+    String customer_id = "testuser"
     }
     call test {
         input:
