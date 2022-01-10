@@ -9,8 +9,8 @@ task test {
 
   command {
   ls >testoutput_new.txt
-  bash /scripts/run_dis_calc.sh ${patient_vcf} /scripts/disease_groups_dis_calc.txt testuser
-  cp /scripts/dis_genes_testuser_all.json dis_genes_testuser_all.json
+  bash /scripts/run_dis_calc.sh ${patient_vcf} /scripts/disease_groups_dis_calc.txt ${customer_id}
+  cp /scripts/dis_genes_${customer_id}_all.json dis_genes_${customer_id}_all.json
   }
   output {
   File outfile = "dis_genes_${customer_id}_all.json"
@@ -23,14 +23,16 @@ task test {
 workflow make_panel_wdl {
     input {
     File patient_vcf
+    String? customer_id = "testuser"
     }
     call test {
         input:
             patient_vcf = patient_vcf,
-            customer_id = "testuser",
+            customer_id = customer_id,
             disease_list = "disease_list.txt"
             }
     output {
     File resultfile = test.outfile
     }
 }
+
