@@ -26,6 +26,7 @@ import json
 from requests.auth import HTTPBasicAuth
 import requests
 import os
+import time
 
   
 
@@ -35,7 +36,7 @@ run_as_script = "false"
 sort_by_clin_sig = "false"
 
 
-path_prefix = "/scripts/"
+path_prefix = ""
 
 assoc_table_path = str(path_prefix + "tableExport.csv")
 gene_disease_groups_path = str(path_prefix + "gene_disease_groups.csv")
@@ -293,13 +294,13 @@ def generate_json(result_text,bgcolor,ret_df,comment_df,pubmed_df,cancer_groups_
 
 
 def generate_json_2(result_text,bgcolor,ret_df,comment_df,pubmed_df,cancer_groups_filter_active,cancer_groups_for_filter,customer_id,varsome_dict):
-    df_for_html = ret_df[["clin_sig","gene_name","exon","rsid","dna_change","prot_change","transcript","zyg","inh","diseases_STR","cancer_groups"]]
-    df_for_html.columns=["Classification","Gene","Exon/Intron","SNP ID","DNA change","Protein change","Transcript ID","Zygosity","Inheritance","Associated Disease(s)","Cancer Groups"]
+    df_for_html = ret_df[["clin_sig","gene_name","exon","rsid","dna_change","prot_change","consequence","transcript","zyg","inh","diseases_STR","cancer_groups"]]
+    df_for_html.columns=["Classification","Gene","Exon/Intron","SNP ID","DNA change","Protein change","Consequence","Transcript ID","Zygosity","Inheritance","Associated Disease(s)","Cancer Groups"]
     drug_response_df = df_for_html[df_for_html['Classification']=="drug response"]
     new_col = np.arange(1,(len(df_for_html) + 1))
     col_nbr_dict =  dict(zip(df_for_html["SNP ID"].tolist(),new_col))
     df_for_html.insert(0,"Number",new_col)
-    drug_response_df.columns=["Classification","Gene","Exon/\nIntron","SNP ID","DNA change","Protein\nchange","Transcript ID","Zygosity","Inheritance","Associated Response(s)","Cancer Groups"]
+    drug_response_df.columns=["Classification","Gene","Exon/\nIntron","SNP ID","DNA change","Protein\nchange","Consequence","Transcript ID","Zygosity","Inheritance","Associated Response(s)","Cancer Groups"]
     df_for_html_2 = df_for_html[df_for_html['Classification']!="drug response"]
     df_for_html = df_for_html_2
     #print(df_for_html)
@@ -312,7 +313,7 @@ def generate_json_2(result_text,bgcolor,ret_df,comment_df,pubmed_df,cancer_group
     df_for_freq = df_for_freq[df_for_freq['clin_sig']!="drug response"]
     nbr_col_2 = [col_nbr_dict[rsid] for rsid in df_for_freq["rsid"].tolist()]
     df_for_freq = df_for_freq[["gene_name","transcript","dna_change","prot_change","chr_loc","freq","rsid"]]
-    df_for_freq.columns=["Gene","Transcript","DNA change","Protein change","Genomic Location","Alternate Allele Fraction","dbSNP rsID"]
+    df_for_freq.columns=["Gene","Transcript","DNA change","Protein change","Genomic Location","Alternate Allele Frequency","dbSNP rsID"]
     #print(df_for_freq)
     #print(df_for_freq["rsid"].tolist())
     #print(nbr_col_2)
@@ -414,6 +415,7 @@ def generate_json_2(result_text,bgcolor,ret_df,comment_df,pubmed_df,cancer_group
                         tmp_dict['comment'] = comments[i]['comment'][j]
                         tmp_dict['report_date'] = comments[i]['report_date'][j]
                         tmp_dict['labrank'] = comments[i]['labrank'][j]
+                        tmp_dict['selected'] = "false"
                         dis_curr = str(comments[i]['diseasename'][j] + "")
                         dis_curr_new = str("".join(dis_curr.split())).replace(" ","").replace("\t", "").lstrip()
                         dis_curr_lower = dis_curr_new.lower()
@@ -449,6 +451,7 @@ def generate_json_2(result_text,bgcolor,ret_df,comment_df,pubmed_df,cancer_group
                 del comments[i]["gene_name"]
                 del comments[i]["name"]
                 del comments[i]["rsid"]
+                comments[i]["selected"] = "false"
                 tmp_dict = comments[i]
                 list_of_comments.append(tmp_dict)
                 comments_as_dict = tmp_dict
@@ -485,8 +488,17 @@ def generate_json_2(result_text,bgcolor,ret_df,comment_df,pubmed_df,cancer_group
                     else:
                         dict_all[group].append(tmp)
             dict_all_new = {}
+            #timestamp = str(time.time())
+            timestamp = int(time.time())
+            dict_all_new["datetime"] = timestamp
+            dict_all_new["report"] = {}
+            dict_all_new["sample_id"] = customer_id
             dict_all_new[customer_id] = dict_all
         dict_2 = {}
+        timestamp = int(time.time())
+        dict_2["datetime"] = timestamp
+        dict_2["report"] = {}
+        dict_2["sample_id"] = customer_id
         dict_2[customer_id] = dict_1
     #results = df_for_html.to_dict(orient='records')
     if(cancer_groups_filter_active == "true"):
@@ -564,7 +576,10 @@ def read_varsome(rsid):
     #                        auth = HTTPBasicAuth('quirin@enigmagenomics.com', 'misterq.218'), headers=my_headers)
     #response = urllib.request.urlopen(url)
     #cmd = "curl -X POST https://utslogin.nlm.nih.gov/cas/v1/api-key -H 'content-type: application/x-www-form-urlencoded' -d apikey=b737cbc4-4006-44a1-b7c8-70e02102a7bd"
-    cmd = "curl -X GET 'https://staging-api.varsome.com/lookup/" + rsid + "?add-AMP-annotation=1&format=api' -H  'Authorization: Token 46tcqf#aw3hM0Qe!QFeZJeM&BZMpwkBl@oxbFfYC' | iconv -f utf8 -t ascii//TRANSLIT//IGNORE"
+    if(len(path_prefix) > 2):
+        cmd = "curl -X GET 'https://staging-api.varsome.com/lookup/" + rsid + "?add-AMP-annotation=1&format=api' -H  'Authorization: Token 46tcqf#aw3hM0Qe!QFeZJeM&BZMpwkBl@oxbFfYC' | iconv -f utf8 -t ascii//TRANSLIT//IGNORE | sed 's/&quot;/\"/g'"
+    else:
+        cmd = "curl -X GET 'https://staging-api.varsome.com/lookup/" + rsid + "?add-AMP-annotation=1&format=api' -H  'Authorization: Token 46tcqf#aw3hM0Qe!QFeZJeM&BZMpwkBl@oxbFfYC' | sed 's/&quot;/\"/g'"
     #cmd = "curl -X GET 'https://staging-api.varsome.com/lookup/rs28928907?add-AMP-annotation=1' -H  'Authorization: Token 46tcqf#aw3hM0Qe!QFeZJeM&BZMpwkBl@oxbFfYC'"
     stream = os.popen(cmd)
     webContent = stream.read()
@@ -594,6 +609,9 @@ def read_varsome(rsid):
     #ret["gnomad_exomes"] = []
     #ret["gnomad_genomes"] = []
     #ret["gnomad_genomes_coverage"] = []
+    webContent.replace("\'","\"")
+    webContent.replace("&quot;","\"")
+    #print(webContent)
     if not("<b>Vary:</b> <span class=\"lit\">Accept</span>" in webContent):
         return(ret)
     tmp_1 = webContent.split("<b>Vary:</b> <span class=\"lit\">Accept</span>")[1]
@@ -603,6 +621,8 @@ def read_varsome(rsid):
     tmp4 = tmp_3.strip("[").rstrip("]")
     #json_all = json.loads(tmp_3)[0]
     #print(tmp4)
+    #print(tmp_3)
+    print(tmp_3)
     json_all_tmp = json.loads(tmp_3)
     #print("json ")
     #print(json_all_tmp)
@@ -1559,6 +1579,8 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
         prot_change = prot_change.replace("%3D","=")
         consequence = df.loc[i,"Consequence"]
         consequence = consequence.split(",")[0]
+        if(prot_change == "" or len(prot_change) < 3):
+            prot_change = consequence
         #exon = str(df.loc[i,"EXON"])
         #if(exon == "-"):
         #    exon = str(df.loc[i,"INTRON"])
@@ -1826,6 +1848,7 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
             curr_dna_change = ret_df.loc[rsid,"dna_change"]
             gene_name_tmp = ret_df.loc[rsid,"gene_name"]
             gene_name_and_mutation = gene_name_tmp + " " + curr_dna_change
+            print("reading varsome" + str(rsid))
             varsome_dict[gene_name_and_mutation] = read_varsome(rsid)
             ret_df.loc[rsid,"diseases_STR"] = ";".join([k.split(";")[0] for k in dict_by_snpid[rsid]])
             curr_dis = list(ret_df.loc[rsid,"diseases"])
@@ -1940,6 +1963,7 @@ def extract_vep_data(dataframe,disease_filter,start,end,sample_id):
             curr_dna_change = ret_df.loc[rsid,"dna_change"]
             gene_name_tmp = ret_df.loc[rsid,"gene_name"]
             gene_name_and_mutation = gene_name_tmp + " " + curr_dna_change
+            print("reading varsome" + str(rsid))
             varsome_dict[gene_name_and_mutation] = read_varsome(rsid)
             ret_df.loc[rsid,"dis_and_sig"] = [k for k in dict_by_snpid[rsid]]
             #print(ret_df.loc[rsid,"dis_and_sig"])

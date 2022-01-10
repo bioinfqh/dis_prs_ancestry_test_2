@@ -5,7 +5,7 @@ import subprocess
 import os.path
 
 input_file = sys.argv[1]
-multiple_files = "true"
+multiple_files = "false"
 
 path_prefix = "/scripts/"
 
