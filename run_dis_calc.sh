@@ -14,7 +14,7 @@ json_posted="false"
 
 #json_posted=$(python3 /scripts/post_json.py $outfiles multiple_files)
 
-#json_posted=$(python3 /scripts/post_json.py /scripts/dis_genes_testuser_all.json)
+json_posted=$(python3 /scripts/post_json.py /scripts/dis_genes_testuser_all.json)
 echo $json_posted
 #json_posted=$(python3 /scripts/post_json.py /scripts/dis_genes_testuser_all_by_cancer_group.json)
 #echo $json_posted
