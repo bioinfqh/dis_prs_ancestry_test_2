@@ -20,6 +20,7 @@ task test {
   }
 }
 
+
 workflow make_panel_wdl {
     input {
     File patient_vcf
