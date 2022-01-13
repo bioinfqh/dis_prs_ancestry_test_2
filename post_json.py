@@ -28,6 +28,7 @@ if(multiple_files == "true"):
         file_1 = open(file_curr)
         htmlstr=file_1.read()
         file_1.close()
+        htmlstr = htmlstr.replace("'"," ")
         curl_post = "curl --header \"Content-Type: application/json\" --request POST --data '" + str(htmlstr) + "' https://us-central1-enigmagenomics.cloudfunctions.net/raw_reports?action=create"
         output = subprocess.check_output(curl_post, shell=True)
         print(output)
@@ -39,6 +40,7 @@ else:
     file_1 = open(input_file)
     htmlstr=file_1.read()
     file_1.close()
+    htmlstr = htmlstr.replace("'"," ")
     curl_post = "curl --header \"Content-Type: application/json\" --request POST --data '" + str(htmlstr) + "' https://us-central1-enigmagenomics.cloudfunctions.net/raw_reports?action=create"
     output = subprocess.check_output(curl_post, shell=True)
     print(output)
