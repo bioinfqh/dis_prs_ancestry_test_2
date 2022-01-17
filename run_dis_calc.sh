@@ -13,7 +13,6 @@ touch /scripts/list_of_outfiles_$customer_id.txt
 json_posted="false"
 
 
-
 #json_posted=$(python3 /scripts/post_json.py $outfiles multiple_files)
 
 json_posted=$(python3 /scripts/post_json.py /scripts/dis_genes_testuser_all.json)
